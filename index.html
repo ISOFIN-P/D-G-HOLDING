@@ -230,3 +230,165 @@ switchLang('fr');
 </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">ISOFIN-P | Solutions d'Étanchéité Professionnelles</title>
+  <meta name="description" id="meta-desc" content="Solutions d'étanchéité innovantes pour terrasses, toitures et bâtiments.">
+  <style>
+    /* Même CSS que p01.html + styles homepage */
+    :root { --blue: #003087; --green: #2E8B57; }
+    body { font-family: 'Montserrat', sans-serif; margin:0; color:#333; }
+    header { background:#003087; color:white; padding:1rem; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-size:1.8rem; font-weight:bold; }
+    .lang-switch { display:flex; gap:0.5rem; }
+    .lang-switch button { background:#2E8B57; color:white; border:none; padding:0.4rem 0.8rem; cursor:pointer; }
+    .hero { height:80vh; background:linear-gradient(rgba(0,48,135,0.7),rgba(0,48,135,0.7)), url('images/hero.jpg'); background-size:cover; display:flex; align-items:center; justify-content:center; color:white; text-align:center; }
+    .btn { padding:12px 24px; border-radius:6px; text-decoration:none; display:inline-block; margin:0.5rem; }
+    .btn-blue { background:#003087; color:white; }
+    .btn-green { background:#2E8B57; color:white; }
+    section { padding:4rem 2rem; max-width:1200px; margin:auto; }
+    .carousel { display:flex; overflow-x:auto; gap:1rem; }
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo">ISOFIN-P</div>
+  <div class="lang-switch">
+    <button onclick="switchLang('fr')">FR</button>
+    <button onclick="switchLang('en')">EN</button>
+    <button onclick="switchLang('es')">ES</button>
+    <button onclick="switchLang('ar')">AR</button>
+  </div>
+</header>
+
+<!-- HERO / CAROUSEL -->
+<section class="hero">
+  <div>
+    <h1 id="hero-title">Solutions d'Étanchéité Professionnelles</h1>
+    <p id="hero-subtitle">15 produits innovants • 4 langues • Qualité certifiée</p>
+    <a href="#produits" class="btn btn-green" id="hero-products">Découvrir les produits</a>
+    <a href="contact.html" class="btn btn-blue" id="hero-quote">Demander un devis</a>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section>
+  <h2 id="about-title">À propos d'ISOFIN-P</h2>
+  <p id="about-text">ISOFIN-P propose des solutions d'étanchéité liquide haute performance pour les professionnels du bâtiment.</p>
+</section>
+
+<!-- PRODUITS TEASER -->
+<section id="produits">
+  <h2 id="products-title">Nos 15 Produits Phares</h2>
+  <div class="product-grid">
+    <div><a href="p01.html">P01 – Membrane Liquide</a></div>
+    <div><a href="p02.html">P02 – Membrane Liquide</a></div>
+    <!-- ... répéter jusqu'à P15 -->
+    <div><a href="p15.html">P15 – Roof Coat</a></div>
+  </div>
+  <a href="produits.html" class="btn btn-green" id="all-products">Voir tout le catalogue</a>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section>
+  <h2 id="testimonials-title">Témoignages Clients</h2>
+  <p id="testimonials-text">« Produit exceptionnel, application facile et résultat durable. » — Entreprise BTP Nice</p>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2 id="contact-title">Contactez-nous</h2>
+  <a href="contact.html" class="btn btn-blue" id="contact-btn">Formulaire de contact</a>
+</section>
+
+<footer>
+  <p>© 2025 ISOFIN-P – D&G HOLDING, Nice, France</p>
+</footer>
+
+<script>
+const translations = {
+  fr: {
+    "page-title": "ISOFIN-P | Solutions d'Étanchéité Professionnelles",
+    "meta-desc": "Solutions d'étanchéité innovantes pour terrasses, toitures et bâtiments.",
+    "hero-title": "Solutions d'Étanchéité Professionnelles",
+    "hero-subtitle": "15 produits innovants • 4 langues • Qualité certifiée",
+    "hero-products": "Découvrir les produits",
+    "hero-quote": "Demander un devis",
+    "about-title": "À propos d'ISOFIN-P",
+    "about-text": "ISOFIN-P propose des solutions d'étanchéité liquide haute performance pour les professionnels du bâtiment.",
+    "products-title": "Nos 15 Produits Phares",
+    "all-products": "Voir tout le catalogue",
+    "testimonials-title": "Témoignages Clients",
+    "testimonials-text": "« Produit exceptionnel, application facile et résultat durable. » — Entreprise BTP Nice",
+    "contact-title": "Contactez-nous",
+    "contact-btn": "Formulaire de contact"
+  },
+  en: {
+    "page-title": "ISOFIN-P | Professional Waterproofing Solutions",
+    "meta-desc": "Innovative waterproofing solutions for terraces, roofs and buildings.",
+    "hero-title": "Professional Waterproofing Solutions",
+    "hero-subtitle": "15 innovative products • 4 languages • Certified quality",
+    "hero-products": "Discover our products",
+    "hero-quote": "Request a quote",
+    "about-title": "About ISOFIN-P",
+    "about-text": "ISOFIN-P offers high-performance liquid waterproofing solutions for construction professionals.",
+    "products-title": "Our 15 Flagship Products",
+    "all-products": "View full catalog",
+    "testimonials-title": "Client Testimonials",
+    "testimonials-text": "« Exceptional product, easy application and long-lasting results. » — BTP Company Nice",
+    "contact-title": "Contact Us",
+    "contact-btn": "Contact form"
+  },
+  es: {
+    "page-title": "ISOFIN-P | Soluciones Profesionales de Impermeabilización",
+    "meta-desc": "Soluciones innovadoras de impermeabilización para terrazas, tejados y edificios.",
+    "hero-title": "Soluciones Profesionales de Impermeabilización",
+    "hero-subtitle": "15 productos innovadores • 4 idiomas • Calidad certificada",
+    "hero-products": "Descubrir los productos",
+    "hero-quote": "Solicitar presupuesto",
+    "about-title": "Sobre ISOFIN-P",
+    "about-text": "ISOFIN-P ofrece soluciones de impermeabilización líquida de alto rendimiento para profesionales de la construcción.",
+    "products-title": "Nuestros 15 Productos Destacados",
+    "all-products": "Ver catálogo completo",
+    "testimonials-title": "Testimonios de Clientes",
+    "testimonials-text": "« Producto excepcional, aplicación fácil y resultados duraderos. » — Empresa BTP Niza",
+    "contact-title": "Contáctenos",
+    "contact-btn": "Formulario de contacto"
+  },
+  ar: {
+    "page-title": "ISOFIN-P | حلول العزل المائي الاحترافية",
+    "meta-desc": "حلول عزل مائي مبتكرة للتراسات والأسطح والمباني.",
+    "hero-title": "حلول العزل المائي الاحترافية",
+    "hero-subtitle": "15 منتجًا مبتكرًا • 4 لغات • جودة معتمدة",
+    "hero-products": "اكتشف المنتجات",
+    "hero-quote": "طلب عرض أسعار",
+    "about-title": "عن ISOFIN-P",
+    "about-text": "تقدم ISOFIN-P حلول عزل مائي سائل عالية الأداء لمحترفي البناء.",
+    "products-title": "منتجاتنا الـ15 الرائدة",
+    "all-products": "عرض الكتالوج الكامل",
+    "testimonials-title": "شهادات العملاء",
+    "testimonials-text": "« منتج استثنائي، سهل التطبيق ونتائج دائمة. » — شركة BTP نيس",
+    "contact-title": "اتصل بنا",
+    "contact-btn": "نموذج الاتصال"
+  }
+};
+
+function switchLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  const t = translations[lang];
+  for (let id in t) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t[id];
+  }
+}
+
+// Langue par défaut
+switchLang('fr');
+</script>
+</body>
+</html>
