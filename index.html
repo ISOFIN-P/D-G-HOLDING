@@ -160,3 +160,73 @@ switchLang('fr');
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title id="page-title">ISOFIN P01 | ISOFIN-P</title>
+  <style> /* même CSS que index.html */ </style>
+</head>
+<body>
+
+<header>...</header>
+
+<div class="container">
+  <h1 id="product-title">ISOFIN P01 – Étanchéité Toiture</h1>
+  <p id="product-desc">Solution liquide haute performance pour toitures plates et inclinées.</p>
+
+  <h3 id="tech-title">Caractéristiques Techniques</h3>
+  <ul id="tech-list">
+    <li>Résistance UV et intempéries</li>
+    <li>Application facile à froid</li>
+  </ul>
+
+  <a href="#" class="btn-green" id="quote-btn">Demander un devis</a>
+  <a href="#" class="btn-blue" id="video-btn">Regarder la vidéo</a>
+</div>
+
+<script>
+const translations = {
+  fr: {
+    "product-title": "ISOFIN P01 – Étanchéité Toiture",
+    "product-desc": "Solution liquide haute performance pour toitures plates et inclinées.",
+    "tech-title": "Caractéristiques Techniques",
+    "quote-btn": "Demander un devis",
+    "video-btn": "Regarder la vidéo"
+  },
+  en: {
+    "product-title": "ISOFIN P01 – Roof Waterproofing",
+    "product-desc": "High-performance liquid solution for flat and sloped roofs.",
+    "tech-title": "Technical Specifications",
+    "quote-btn": "Request a quote",
+    "video-btn": "Watch the video"
+  },
+  es: {
+    "product-title": "ISOFIN P01 – Impermeabilización de Tejados",
+    "product-desc": "Solución líquida de alto rendimiento para tejados planos e inclinados.",
+    "tech-title": "Especificaciones Técnicas",
+    "quote-btn": "Solicitar presupuesto",
+    "video-btn": "Ver el vídeo"
+  },
+  ar: {
+    "product-title": "ISOFIN P01 – عزل الأسطح",
+    "product-desc": "حل سائل عالي الأداء للأسطح المسطحة والمائلة.",
+    "tech-title": "المواصفات الفنية",
+    "quote-btn": "طلب عرض أسعار",
+    "video-btn": "مشاهدة الفيديو"
+  }
+};
+
+function switchLang(lang) {
+  document.documentElement.lang = lang;
+  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+  const t = translations[lang];
+  for (let id in t) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t[id];
+  }
+}
+switchLang('fr');
+</script>
+</body>
+</html>
