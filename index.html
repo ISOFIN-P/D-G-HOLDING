@@ -1,1682 +1,1139 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ISOFIN-P | Solutions professionnelles d’étanchéité, isolation et protection</title>
+  <title>ISOFIN-P | Étanchéité, isolation et protection des surfaces</title>
 
-  <meta name="description" content="ISOFIN-P propose des solutions professionnelles pour l’étanchéité, l’isolation thermique, la protection des surfaces, les revêtements techniques, toitures, façades et sols." />
-  <meta name="keywords" content="ISOFIN-P, étanchéité, isolation, revêtement, bâtiment, toiture, façade, sol, protection surface, waterproofing, insulation, coating" />
-  <meta name="author" content="ISOFIN-P" />
+  <meta name="description" content="ISOFIN-P propose des solutions professionnelles pour l’étanchéité, l’isolation, la protection et le traitement des surfaces du bâtiment.">
+  <meta name="keywords" content="ISOFIN-P, étanchéité, isolation, bâtiment, toiture, façade, sol, béton, revêtement, protection surface">
+  <meta name="author" content="ISOFIN-P">
+  <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="ISOFIN-P | Étanchéité, isolation et protection des surfaces" />
-  <meta property="og:description" content="Solutions techniques professionnelles pour toitures, façades, sols, zones humides et surfaces exposées." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/images/logo-isofinp.jpg" />
+  <link rel="canonical" href="https://www.isofinp.com/">
 
-  <link rel="icon" href="assets/images/logo-isofinp.jpg" />
+  <link rel="alternate" hreflang="fr" href="https://www.isofinp.com/?lang=fr">
+  <link rel="alternate" hreflang="en" href="https://www.isofinp.com/?lang=en">
+  <link rel="alternate" hreflang="es" href="https://www.isofinp.com/?lang=es">
+  <link rel="alternate" hreflang="ar" href="https://www.isofinp.com/?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://www.isofinp.com/">
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="ISOFIN-P | Étanchéité, isolation et protection des surfaces">
+  <meta property="og:description" content="Solutions professionnelles pour toitures, façades, sols, béton, joints et surfaces exposées.">
+  <meta property="og:image" content="https://www.isofinp.com/assets/images/logo-isofinp.jpg">
+  <meta property="og:url" content="https://www.isofinp.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ISOFIN-P | Solutions professionnelles bâtiment">
+  <meta name="twitter:description" content="Catalogue ISOFIN-P : étanchéité, isolation, protection et revêtements techniques.">
+  <meta name="twitter:image" content="https://www.isofinp.com/assets/images/logo-isofinp.jpg">
+
+  <!-- Favicon optionnel -->
+  <link rel="icon" href="assets/images/logo-isofinp.jpg">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Styles spécifiques page accueil -->
   <style>
-    :root {
-      --primary: #0b4f7a;
-      --primary-2: #0f6fa7;
-      --secondary: #14a38b;
-      --accent: #f2b705;
-      --dark: #111827;
-      --text: #374151;
-      --muted: #6b7280;
-      --light: #f5f8fb;
-      --white: #ffffff;
-      --border: #e5e7eb;
-      --shadow: 0 20px 50px rgba(15, 23, 42, 0.10);
-      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.07);
-      --radius: 22px;
-      --radius-sm: 14px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
-    }
-
-    body.rtl {
-      direction: rtl;
-      text-align: right;
-      font-family: Tahoma, Arial, sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1180px, calc(100% - 32px));
-      margin: auto;
-    }
-
-    .topbar {
-      background: var(--dark);
-      color: rgba(255,255,255,0.86);
-      font-size: 13px;
-      padding: 8px 0;
-    }
-
-    .topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .topbar a {
-      color: rgba(255,255,255,0.92);
-    }
-
-    .topbar a:hover {
-      color: var(--accent);
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .brand img {
-      width: 96px;
-      height: auto;
-      object-fit: contain;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      align-items: center;
-      gap: 24px;
-    }
-
-    nav a {
-      font-size: 15px;
-      color: var(--dark);
-      font-weight: 700;
-      transition: 0.25s;
-      position: relative;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -7px;
-      width: 0;
-      height: 2px;
-      background: var(--secondary);
-      transition: 0.25s;
-    }
-
-    body.rtl nav a::after {
-      left: auto;
-      right: 0;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .lang-switcher {
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .lang-btn {
-      border: 1px solid var(--border);
-      background: var(--white);
-      color: var(--dark);
-      border-radius: 999px;
-      padding: 7px 10px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 800;
-      transition: 0.25s;
-    }
-
-    .lang-btn:hover,
-    .lang-btn.active {
-      background: var(--primary);
-      color: var(--white);
-      border-color: var(--primary);
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      border: none;
-      background: var(--primary);
-      color: var(--white);
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-size: 22px;
-      cursor: pointer;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      padding: 14px 22px;
-      border-radius: 999px;
-      border: 2px solid transparent;
-      font-weight: 800;
-      cursor: pointer;
-      transition: 0.25s;
-      text-align: center;
-      line-height: 1.2;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #17202a;
-      border-color: var(--accent);
-    }
-
-    .btn-primary:hover {
-      background: #ffd54f;
-      transform: translateY(-2px);
-    }
-
-    .btn-blue {
-      background: var(--primary);
-      color: var(--white);
-      border-color: var(--primary);
-    }
-
-    .btn-blue:hover {
-      background: #073a5a;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      color: var(--white);
-      border-color: rgba(255,255,255,0.75);
-    }
-
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--primary);
-    }
-
     .hero {
       position: relative;
       overflow: hidden;
-      color: var(--white);
-      padding: 96px 0 84px;
       background:
-        linear-gradient(115deg, rgba(5, 35, 56, 0.95), rgba(15, 111, 167, 0.86)),
-        url("assets/images/produits/isofinp-bd.jpg") center/cover no-repeat;
+        linear-gradient(120deg, rgba(7,52,92,.96), rgba(11,79,138,.90)),
+        radial-gradient(circle at top right, rgba(244,180,0,.35), transparent 32%);
+      color: #fff;
+      padding: 105px 0;
     }
 
-    .hero::before {
+    .hero::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.10), transparent 28%),
-        radial-gradient(circle at 85% 80%, rgba(20,163,139,0.22), transparent 30%);
-      pointer-events: none;
+      inset: auto -120px -180px auto;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: rgba(244,180,0,.16);
     }
 
     .hero-grid {
       position: relative;
       z-index: 2;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr .85fr;
       gap: 48px;
       align-items: center;
     }
 
-    .eyebrow {
+    .hero-kicker {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 8px 15px;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: 14px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      color: #fff;
+      font-size: 13px;
       font-weight: 800;
-      margin-bottom: 22px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
-    h1 {
-      font-size: clamp(38px, 5.2vw, 66px);
+    .hero h1 {
+      font-size: clamp(38px, 5.8vw, 66px);
       line-height: 1.05;
-      letter-spacing: -1.5px;
       margin-bottom: 22px;
-      color: var(--white);
     }
 
-    .hero-text {
-      max-width: 730px;
-      font-size: 19px;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 32px;
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,.88);
+      max-width: 720px;
+      margin-bottom: 30px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
-      align-items: center;
+      gap: 14px;
+      margin-top: 28px;
     }
 
     .hero-panel {
-      background: rgba(255,255,255,0.98);
-      color: var(--dark);
-      border-radius: 30px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: 0 30px 70px rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
     }
 
     .hero-panel img {
-      width: 230px;
-      margin: 0 auto 28px;
-    }
-
-    .panel-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .panel-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
+      width: 100%;
+      background: #fff;
+      border-radius: 22px;
       padding: 14px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      color: var(--text);
-      font-weight: 700;
+      margin-bottom: 20px;
     }
 
-    body.rtl .panel-item {
-      flex-direction: row-reverse;
-    }
-
-    .panel-item span:first-child {
-      color: var(--secondary);
-      font-weight: 900;
-    }
-
-    .stats {
-      margin-top: 36px;
+    .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 760px;
+      gap: 12px;
+      margin-top: 20px;
     }
 
-    .stat {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
+    .hero-stat {
+      padding: 14px;
       border-radius: 18px;
-      padding: 18px;
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--accent);
-      font-size: 28px;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat span {
-      color: rgba(255,255,255,0.86);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    section {
-      padding: 86px 0;
-    }
-
-    .section-light {
-      background: var(--light);
-    }
-
-    .section-head {
-      max-width: 770px;
-      margin-bottom: 42px;
-    }
-
-    .section-head.center {
+      background: rgba(255,255,255,.12);
       text-align: center;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    .kicker {
-      color: var(--secondary);
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-size: 13px;
-      margin-bottom: 10px;
+    .hero-stat strong {
+      display: block;
+      color: #f4b400;
+      font-size: 24px;
     }
 
-    h2 {
-      font-size: clamp(29px, 3.2vw, 44px);
-      line-height: 1.17;
-      color: var(--dark);
-      margin-bottom: 14px;
-      letter-spacing: -0.5px;
+    .hero-stat span {
+      font-size: 12px;
+      color: rgba(255,255,255,.8);
     }
 
-    .section-head p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .grid-4 {
+    .split {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow-soft);
-      transition: 0.25s;
-      height: 100%;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-
-    .icon {
-      width: 54px;
-      height: 54px;
-      border-radius: 17px;
-      display: flex;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
       align-items: center;
-      justify-content: center;
-      background: rgba(15,111,167,0.10);
-      color: var(--primary);
-      font-size: 26px;
-      margin-bottom: 18px;
-    }
-
-    .card h3 {
-      color: var(--dark);
-      font-size: 20px;
-      margin-bottom: 9px;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 15.5px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
-      gap: 44px;
-      align-items: center;
-    }
-
-    .about-visual {
-      border-radius: 30px;
-      background:
-        linear-gradient(145deg, #ffffff, #eef6fb);
-      border: 1px solid var(--border);
-      padding: 44px;
-      box-shadow: var(--shadow);
-    }
-
-    .about-visual img {
-      width: 260px;
-      margin: auto;
     }
 
     .check-list {
+      list-style: none;
       display: grid;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .check-item {
-      display: flex;
       gap: 12px;
-      align-items: flex-start;
-      color: var(--text);
-      font-weight: 600;
+      margin-top: 20px;
     }
 
-    body.rtl .check-item {
-      flex-direction: row-reverse;
-    }
-
-    .check {
-      width: 25px;
-      height: 25px;
-      flex: 0 0 auto;
-      border-radius: 50%;
-      background: rgba(20,163,139,0.13);
-      color: var(--secondary);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 900;
-      margin-top: 2px;
-    }
-
-    .product-card {
-      overflow: hidden;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-soft);
-      transition: 0.25s;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      background: #eef3f7;
-    }
-
-    .product-body {
-      padding: 26px;
-    }
-
-    .product-body h3 {
-      color: var(--dark);
-      font-size: 21px;
-      margin-bottom: 10px;
-    }
-
-    .product-body p {
+    .check-list li {
+      position: relative;
+      padding-left: 34px;
       color: var(--muted);
-      margin-bottom: 18px;
     }
 
-    .cta-box {
+    .check-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(11,79,138,.1);
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    body.rtl .check-list li {
+      padding-left: 0;
+      padding-right: 34px;
+    }
+
+    body.rtl .check-list li::before {
+      left: auto;
+      right: 0;
+    }
+
+    .application-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .application-item {
+      padding: 24px;
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(16,32,51,.06);
+    }
+
+    .application-item .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: rgba(11,79,138,.1);
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .cta {
       background:
-        linear-gradient(120deg, rgba(11,79,122,0.98), rgba(20,163,139,0.92));
-      color: var(--white);
-      border-radius: 32px;
+        linear-gradient(120deg, rgba(11,79,138,.96), rgba(7,52,92,.96)),
+        radial-gradient(circle at top left, rgba(244,180,0,.35), transparent 35%);
+      color: #fff;
+      border-radius: 34px;
       padding: 48px;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 24px;
       align-items: center;
-      box-shadow: var(--shadow);
     }
 
-    .cta-box h2 {
-      color: var(--white);
-      margin-bottom: 8px;
+    .cta p {
+      color: rgba(255,255,255,.82);
+      margin-top: 8px;
     }
 
-    .cta-box p {
-      color: rgba(255,255,255,0.88);
-      max-width: 760px;
-    }
-
-    .contact-grid {
+    .contact-info {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 34px;
-      align-items: start;
+      gap: 16px;
+      margin-top: 22px;
     }
 
-    .contact-info,
-    .contact-form {
-      background: var(--white);
+    .contact-info div {
+      padding: 18px;
+      border-radius: 18px;
+      background: #fff;
       border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: var(--shadow-soft);
     }
 
-    .contact-line {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 20px;
-    }
-
-    body.rtl .contact-line {
-      flex-direction: row-reverse;
-    }
-
-    .contact-line strong {
-      display: block;
-      color: var(--dark);
-      margin-bottom: 3px;
-    }
-
-    .contact-line span,
-    .contact-line a {
-      color: var(--muted);
-    }
-
-    form {
-      display: grid;
-      gap: 15px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-    }
-
-    label {
-      display: block;
-      font-size: 14px;
-      color: var(--dark);
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 13px;
-      padding: 13px 14px;
-      font: inherit;
-      color: var(--dark);
-      outline: none;
-      background: var(--white);
-      transition: 0.2s;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--primary-2);
-      box-shadow: 0 0 0 4px rgba(15,111,167,0.13);
-    }
-
-    textarea {
-      min-height: 140px;
-      resize: vertical;
-    }
-
-    .hidden-field {
-      display: none;
-    }
-
-    .small-note {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.78);
-      padding: 36px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-brand {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .footer-brand img {
-      width: 74px;
-      background: var(--white);
-      padding: 6px;
-      border-radius: 12px;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links a:hover {
-      color: var(--white);
-    }
-
-    @media (max-width: 1000px) {
-      .mobile-menu-btn {
-        display: block;
-      }
-
-      nav {
-        position: absolute;
-        top: 84px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
-        display: none;
-      }
-
-      nav.open {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px 24px;
-      }
-
-      body.rtl nav ul {
-        align-items: flex-end;
-      }
-
+    @media(max-width: 900px) {
       .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .cta-box {
+      .split,
+      .cta {
         grid-template-columns: 1fr;
       }
 
-      .grid-4 {
+      .application-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-box {
-        text-align: center;
+      .hero {
+        padding: 78px 0;
       }
     }
 
-    @media (max-width: 640px) {
-      section {
-        padding: 64px 0;
-      }
-
-      .hero {
-        padding: 74px 0;
-      }
-
-      .topbar-inner {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .navbar {
-        gap: 14px;
-      }
-
-      .header-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .grid-4,
-      .stats,
-      .form-row {
+    @media(max-width: 620px) {
+      .application-grid,
+      .hero-stats {
         grid-template-columns: 1fr;
       }
 
-      .hero-actions .btn,
-      .cta-box .btn {
-        width: 100%;
-      }
-
-      .hero-panel,
-      .contact-info,
-      .contact-form,
-      .cta-box {
-        padding: 24px;
-      }
-
-      h1 {
-        letter-spacing: -0.5px;
+      .cta {
+        padding: 32px;
       }
     }
   </style>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ISOFIN-P",
+    "url": "https://www.isofinp.com",
+    "logo": "https://www.isofinp.com/assets/images/logo-isofinp.jpg",
+    "email": "contact@isofinp.com",
+    "telephone": "+33 6 51 81 82 29",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "D&G HOLDING, 1 rue de Stockholm",
+      "postalCode": "75008",
+      "addressLocality": "Paris",
+      "addressCountry": "FR"
+    }
+  }
+  </script>
 </head>
 
 <body>
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <div data-i18n="topbar_text">Solutions techniques pour professionnels du bâtiment</div>
-      <div>
-        <a href="tel:+33651818229">+33 6 51 81 82 29</a>
-        &nbsp; | &nbsp;
-        <a href="mailto:contact@isofinp.com">contact@isofinp.com</a>
-      </div>
-    </div>
-  </div>
 
   <!-- HEADER -->
-  <header>
-    <div class="container navbar">
-      <a href="#home" class="brand" aria-label="ISOFIN-P">
-        <img src="assets/images/logo-isofinp.jpg" alt="Logo ISOFIN-P" />
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="ISOFIN-P">
+        <img src="assets/images/logo-isofinp.jpg" alt="Logo ISOFIN-P">
       </a>
 
-      <button class="mobile-menu-btn" type="button" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      <button class="mobile-toggle" type="button" aria-label="Ouvrir le menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <nav id="mainNav">
-        <ul>
-          <li><a href="#home" data-i18n="nav_home">Accueil</a></li>
-          <li><a href="#solutions" data-i18n="nav_solutions">Solutions</a></li>
-          <li><a href="#applications" data-i18n="nav_applications">Applications</a></li>
-          <li><a href="produits.html" data-i18n="nav_products">Produits</a></li>
-          <li><a href="#about" data-i18n="nav_about">À propos</a></li>
-          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
-        </ul>
-      </nav>
+      <nav class="menu" id="mainMenu">
+        <a href="index.html" data-i18n="nav_home">Accueil</a>
+        <a href="produits.html" data-i18n="nav_products">Produits</a>
+        <a href="#applications" data-i18n="nav_applications">Applications</a>
+        <a href="#about" data-i18n="nav_about">À propos</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
 
-      <div class="header-actions">
-        <div class="lang-switcher">
-          <button class="lang-btn active" type="button" data-lang="fr">FR</button>
-          <button class="lang-btn" type="button" data-lang="en">EN</button>
-          <button class="lang-btn" type="button" data-lang="es">ES</button>
-          <button class="lang-btn" type="button" data-lang="ar">AR</button>
+        <div class="lang" aria-label="Choix de langue">
+          <button onclick="setLang('fr')" data-lang="fr" type="button">FR</button>
+          <button onclick="setLang('en')" data-lang="en" type="button">EN</button>
+          <button onclick="setLang('es')" data-lang="es" type="button">ES</button>
+          <button onclick="setLang('ar')" data-lang="ar" type="button">AR</button>
         </div>
-      </div>
+      </nav>
     </div>
   </header>
 
-  <main id="home">
-    <!-- HERO -->
+  <!-- HERO -->
+  <main>
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow" data-i18n="hero_eyebrow">Performance · Protection · Durabilité</div>
+          <div class="hero-kicker" data-i18n="hero_kicker">Solutions techniques bâtiment</div>
 
           <h1 data-i18n="hero_title">
-            Solutions professionnelles d’étanchéité, isolation et protection des surfaces
+            Étanchéité, isolation et protection durable des surfaces
           </h1>
 
-          <p class="hero-text" data-i18n="hero_text">
-            ISOFIN-P accompagne les professionnels avec une gamme de revêtements techniques conçus pour protéger durablement les bâtiments, améliorer le confort et renforcer la résistance des supports.
+          <p data-i18n="hero_text">
+            ISOFIN-P développe une gamme de solutions professionnelles pour protéger, imperméabiliser, isoler et rénover les surfaces exposées : toitures, façades, terrasses, sols, béton, joints et zones techniques.
           </p>
 
           <div class="hero-actions">
-            <a href="produits.html" class="btn btn-primary" data-i18n="hero_btn_products">Découvrir la gamme</a>
-            <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">Demander un conseil</a>
-          </div>
-
-          <div class="stats">
-            <div class="stat">
-              <strong>8+</strong>
-              <span data-i18n="stat_1">Produits techniques</span>
-            </div>
-            <div class="stat">
-              <strong>4</strong>
-              <span data-i18n="stat_2">Langues disponibles</span>
-            </div>
-            <div class="stat">
-              <strong>100%</strong>
-              <span data-i18n="stat_3">Orientation professionnelle</span>
-            </div>
+            <a href="produits.html" class="btn btn-primary" data-i18n="hero_btn_products">
+              Découvrir les produits
+            </a>
+            <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">
+              Demander un conseil
+            </a>
           </div>
         </div>
 
         <div class="hero-panel">
-          <img src="assets/images/logo-isofinp.jpg" alt="Logo ISOFIN-P" />
+          <img src="assets/images/logo-isofinp.jpg" alt="ISOFIN-P">
 
-          <div class="panel-list">
-            <div class="panel-item">
-              <span>✓</span>
-              <span data-i18n="panel_1">Solutions pour toitures, façades, sols et murs</span>
+          <h3 data-i18n="hero_panel_title">Performance, fiabilité et application professionnelle</h3>
+          <p data-i18n="hero_panel_text">
+            Des produits conçus pour les chantiers exigeants, la rénovation, la protection contre l’eau et l’amélioration de la durabilité des supports.
+          </p>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>4</strong>
+              <span data-i18n="stat_lang">langues</span>
             </div>
-            <div class="panel-item">
-              <span>✓</span>
-              <span data-i18n="panel_2">Produits pour rénovation, construction et maintenance</span>
+            <div class="hero-stat">
+              <strong>360°</strong>
+              <span data-i18n="stat_solution">solution</span>
             </div>
-            <div class="panel-item">
-              <span>✓</span>
-              <span data-i18n="panel_3">Catalogue et fiches techniques disponibles</span>
+            <div class="hero-stat">
+              <strong>PRO</strong>
+              <span data-i18n="stat_quality">qualité</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SOLUTIONS -->
-    <section id="solutions">
-      <div class="container">
-        <div class="section-head center">
-          <div class="kicker" data-i18n="solutions_kicker">Nos solutions</div>
-          <h2 data-i18n="solutions_title">Des produits techniques pour renforcer la performance des bâtiments</h2>
-          <p data-i18n="solutions_text">
-            La gamme ISOFIN-P répond aux besoins d’étanchéité, d’isolation, d’imperméabilisation, de protection et de finition des supports.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <article class="card">
-            <div class="icon">💧</div>
-            <h3 data-i18n="card_1_title">Étanchéité</h3>
-            <p data-i18n="card_1_text">Protection contre l’eau, l’humidité, les infiltrations et les conditions climatiques difficiles.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🌡️</div>
-            <h3 data-i18n="card_2_title">Isolation thermique</h3>
-            <p data-i18n="card_2_text">Revêtements contribuant au confort thermique et à la réduction des effets de chaleur.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🛡️</div>
-            <h3 data-i18n="card_3_title">Protection des surfaces</h3>
-            <p data-i18n="card_3_text">Protection des supports minéraux, béton, façades, murs, sols et surfaces exposées.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">✨</div>
-            <h3 data-i18n="card_4_title">Finition technique</h3>
-            <p data-i18n="card_4_text">Solutions de revêtement pour une finition résistante, propre et durable.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- APPLICATIONS -->
-    <section id="applications" class="section-light">
-      <div class="container">
-        <div class="section-head">
-          <div class="kicker" data-i18n="applications_kicker">Domaines d’application</div>
-          <h2 data-i18n="applications_title">Une réponse adaptée aux environnements exigeants</h2>
-          <p data-i18n="applications_text">
-            Les solutions ISOFIN-P sont destinées aux chantiers neufs, rénovations, interventions préventives et travaux de maintenance.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <div class="icon">🏠</div>
-            <h3 data-i18n="app_1_title">Toitures et terrasses</h3>
-            <p data-i18n="app_1_text">Traitement de surfaces exposées au soleil, à la pluie, aux variations de température et aux infiltrations.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🏢</div>
-            <h3 data-i18n="app_2_title">Façades et murs</h3>
-            <p data-i18n="app_2_text">Protection, imperméabilisation et amélioration de la durabilité des surfaces verticales.</p>
-          </article>
-
-          <article class="card">
-            <div class="icon">🧱</div>
-            <h3 data-i18n="app_3_title">Sols et supports techniques</h3>
-            <p data-i18n="app_3_text">Revêtements pour sols, zones de passage, bétons, supports minéraux et surfaces nécessitant une protection renforcée.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRODUCTS -->
+    <!-- INTRO -->
     <section>
-      <div class="container">
-        <div class="section-head">
-          <div class="kicker" data-i18n="products_kicker">Catalogue ISOFIN-P</div>
-          <h2 data-i18n="products_title">Une gamme complète de produits professionnels</h2>
-          <p data-i18n="products_text">
-            Accédez aux fiches produits détaillées, photos, informations techniques et catalogue PDF.
+      <div class="container split">
+        <div>
+          <div class="section-title" style="text-align:left;margin-bottom:20px;">
+            <span data-i18n="intro_label">Notre expertise</span>
+            <h2 data-i18n="intro_title">Une gamme pensée pour la protection du bâtiment</h2>
+          </div>
+
+          <p class="muted" data-i18n="intro_text">
+            ISOFIN-P accompagne les professionnels avec des produits adaptés aux travaux d’étanchéité liquide, d’isolation, de traitement des fissures, de protection des façades et de rénovation des supports exposés.
           </p>
+
+          <ul class="check-list">
+            <li data-i18n="intro_item_1">Produits adaptés aux toitures, terrasses et façades</li>
+            <li data-i18n="intro_item_2">Solutions pour béton, joints, sols et surfaces techniques</li>
+            <li data-i18n="intro_item_3">Documentation technique disponible pour chaque produit</li>
+            <li data-i18n="intro_item_4">Accompagnement commercial et conseil d’application</li>
+          </ul>
         </div>
 
-        <div class="grid-3">
-          <article class="product-card">
-            <img src="assets/images/produits/isofinp-bd.jpg" alt="ISOFIN-P BD" />
-            <div class="product-body">
-              <h3>ISOFIN-P BD</h3>
-              <p data-i18n="product_1_text">Revêtement d’étanchéité pour supports exposés à l’humidité et aux infiltrations.</p>
-              <a href="produits.html" class="btn btn-blue" data-i18n="product_btn">Voir la fiche</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img src="assets/images/produits/isofinp-m03.jpg" alt="ISOFIN-P M03" />
-            <div class="product-body">
-              <h3>ISOFIN-P M03</h3>
-              <p data-i18n="product_2_text">Produit technique pour traitement, protection et amélioration des supports.</p>
-              <a href="produits.html" class="btn btn-blue" data-i18n="product_btn">Voir la fiche</a>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img src="assets/images/produits/isofinp-floor-2k.jpg" alt="ISOFIN-P SHINE FLOOR" />
-            <div class="product-body">
-              <h3>ISOFIN-P SHINE FLOOR</h3>
-              <p data-i18n="product_3_text">Revêtement de sol bicomposant pour finition, résistance et protection durable.</p>
-              <a href="produits.html" class="btn btn-blue" data-i18n="product_btn">Voir la fiche</a>
-            </div>
-          </article>
-        </div>
-
-        <div style="margin-top:34px;">
-          <a href="assets/docs/catalogue-isofinp.pdf" class="btn btn-primary" download data-i18n="download_catalogue">
-            Télécharger le catalogue PDF
+        <div class="card">
+          <h3 data-i18n="intro_card_title">Pourquoi ISOFIN-P ?</h3>
+          <p class="muted" data-i18n="intro_card_text">
+            Parce qu’un bon résultat dépend d’un produit adapté, d’une préparation correcte du support et d’une application maîtrisée. ISOFIN-P met l’accent sur la simplicité d’utilisation, la résistance et la durabilité.
+          </p>
+          <br>
+          <a href="assets/docs/catalogue-isofinp.pdf" class="btn btn-blue" target="_blank" rel="noopener" data-i18n="download_catalog">
+            Télécharger le catalogue
           </a>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section-light">
-      <div class="container about-grid">
-        <div class="about-visual">
-          <img src="assets/images/logo-isofinp.jpg" alt="Logo ISOFIN-P" />
+    <!-- AVANTAGES -->
+    <section class="light">
+      <div class="container">
+        <div class="section-title">
+          <span data-i18n="benefits_label">Avantages</span>
+          <h2 data-i18n="benefits_title">Des solutions adaptées aux exigences terrain</h2>
+          <p class="muted" data-i18n="benefits_text">
+            Nos produits répondent aux besoins essentiels du bâtiment : protection, étanchéité, adhérence, résistance et finition.
+          </p>
         </div>
 
-        <div>
-          <div class="section-head">
-            <div class="kicker" data-i18n="about_kicker">À propos</div>
-            <h2 data-i18n="about_title">Une approche professionnelle basée sur la fiabilité et la durabilité</h2>
-            <p data-i18n="about_text">
-              ISOFIN-P propose des solutions adaptées aux besoins des professionnels du bâtiment, de la rénovation, de la maintenance et de la protection des ouvrages.
+        <div class="cards">
+          <div class="card">
+            <h3 data-i18n="benefit_1_title">Étanchéité durable</h3>
+            <p class="muted" data-i18n="benefit_1_text">
+              Protection des surfaces contre l’eau, l’humidité, les infiltrations et les agressions climatiques.
             </p>
           </div>
 
-          <div class="check-list">
-            <div class="check-item">
-              <span class="check">✓</span>
-              <span data-i18n="about_item_1">Produits adaptés aux applications intérieures et extérieures.</span>
-            </div>
-            <div class="check-item">
-              <span class="check">✓</span>
-              <span data-i18n="about_item_2">Solutions pour toitures, façades, murs, sols et surfaces techniques.</span>
-            </div>
-            <div class="check-item">
-              <span class="check">✓</span>
-              <span data-i18n="about_item_3">Catalogue produit et fiches techniques disponibles.</span>
-            </div>
-            <div class="check-item">
-              <span class="check">✓</span>
-              <span data-i18n="about_item_4">Accompagnement selon les exigences de chaque projet.</span>
-            </div>
+          <div class="card">
+            <h3 data-i18n="benefit_2_title">Application professionnelle</h3>
+            <p class="muted" data-i18n="benefit_2_text">
+              Produits conçus pour faciliter l’application sur chantier avec une bonne adhérence et une finition fiable.
+            </p>
           </div>
+
+          <div class="card">
+            <h3 data-i18n="benefit_3_title">Supports multiples</h3>
+            <p class="muted" data-i18n="benefit_3_text">
+              Compatibilité avec plusieurs supports : béton, enduits, façades, sols, joints, toitures et terrasses.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPLICATIONS -->
+    <section id="applications">
+      <div class="container">
+        <div class="section-title">
+          <span data-i18n="applications_label">Applications</span>
+          <h2 data-i18n="applications_title">Domaines d’utilisation</h2>
+          <p class="muted" data-i18n="applications_text">
+            Une sélection de solutions techniques pour les principales zones du bâtiment.
+          </p>
+        </div>
+
+        <div class="application-grid">
+          <div class="application-item">
+            <div class="icon">🏠</div>
+            <h3 data-i18n="app_1_title">Toitures & terrasses</h3>
+            <p class="muted" data-i18n="app_1_text">Étanchéité liquide, protection contre les infiltrations et rénovation des surfaces exposées.</p>
+          </div>
+
+          <div class="application-item">
+            <div class="icon">🏢</div>
+            <h3 data-i18n="app_2_title">Façades & murs</h3>
+            <p class="muted" data-i18n="app_2_text">Protection, imperméabilisation, traitement de surface et amélioration de la durabilité.</p>
+          </div>
+
+          <div class="application-item">
+            <div class="icon">🧱</div>
+            <h3 data-i18n="app_3_title">Béton & joints</h3>
+            <p class="muted" data-i18n="app_3_text">Solutions pour supports minéraux, fissures, raccords, joints et zones sensibles.</p>
+          </div>
+
+          <div class="application-item">
+            <div class="icon">🛠️</div>
+            <h3 data-i18n="app_4_title">Sols & zones techniques</h3>
+            <p class="muted" data-i18n="app_4_text">Revêtements, protection mécanique et finition pour espaces soumis à l’usage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUITS APERÇU -->
+    <section class="light">
+      <div class="container">
+        <div class="section-title">
+          <span data-i18n="products_label">Catalogue</span>
+          <h2 data-i18n="products_title">Découvrez notre gamme produits</h2>
+          <p class="muted" data-i18n="products_text">
+            Accédez aux fiches techniques, descriptions, usages recommandés et précautions d’application.
+          </p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>ISOFIN-P BD</h3>
+            <p class="muted" data-i18n="product_1_text">
+              Solution technique pour l’étanchéité et la protection des surfaces du bâtiment.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>ISOFIN-P M03</h3>
+            <p class="muted" data-i18n="product_2_text">
+              Produit adapté aux travaux de préparation, protection et traitement des supports.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>ISOFIN-P FLOOR 2K</h3>
+            <p class="muted" data-i18n="product_3_text">
+              Solution bi-composant destinée aux sols, zones techniques et surfaces exigeantes.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:34px;">
+          <a href="produits.html" class="btn btn-blue" data-i18n="view_all_products">
+            Voir tous les produits
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="about">
+      <div class="container split">
+        <div class="card">
+          <h3 data-i18n="about_card_title">Engagement qualité</h3>
+          <p class="muted" data-i18n="about_card_text">
+            ISOFIN-P vise à proposer des solutions fiables, compréhensibles et adaptées aux contraintes réelles des professionnels du bâtiment.
+          </p>
+        </div>
+
+        <div>
+          <div class="section-title" style="text-align:left;margin-bottom:20px;">
+            <span data-i18n="about_label">À propos</span>
+            <h2 data-i18n="about_title">Une marque orientée performance et durabilité</h2>
+          </div>
+
+          <p class="muted" data-i18n="about_text">
+            Notre objectif est d’accompagner les applicateurs, distributeurs et maîtres d’ouvrage avec une offre claire : des produits techniques, une documentation accessible et une approche centrée sur la qualité du résultat final.
+          </p>
+
+          <ul class="check-list">
+            <li data-i18n="about_item_1">Solutions pour projets neufs et rénovation</li>
+            <li data-i18n="about_item_2">Approche orientée chantier et facilité d’application</li>
+            <li data-i18n="about_item_3">Catalogue disponible en ligne</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section>
+    <section class="light">
       <div class="container">
-        <div class="cta-box">
+        <div class="cta">
           <div>
-            <h2 data-i18n="cta_title">Vous recherchez une solution adaptée à votre chantier ?</h2>
+            <h2 data-i18n="cta_title">Besoin d’un produit adapté à votre chantier ?</h2>
             <p data-i18n="cta_text">
-              Contactez ISOFIN-P pour recevoir des informations produits, une fiche technique ou un accompagnement commercial.
+              Contactez-nous pour recevoir un conseil, une fiche technique ou une orientation vers la solution ISOFIN-P la plus appropriée.
             </p>
           </div>
 
-          <a href="#contact" class="btn btn-primary" data-i18n="cta_btn">Contacter ISOFIN-P</a>
+          <a href="#contact" class="btn btn-primary" data-i18n="cta_btn">Nous contacter</a>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section-light">
+    <section id="contact">
       <div class="container">
-        <div class="section-head center">
-          <div class="kicker" data-i18n="contact_kicker">Contact</div>
-          <h2 data-i18n="contact_title">Parlez-nous de votre projet</h2>
-          <p data-i18n="contact_text">
-            Remplissez le formulaire ou contactez-nous directement par téléphone ou par email.
+        <div class="section-title">
+          <span data-i18n="contact_label">Contact</span>
+          <h2 data-i18n="contact_title">Demander une information</h2>
+          <p class="muted" data-i18n="contact_text">
+            Envoyez-nous votre demande. Notre équipe vous répondra rapidement.
           </p>
         </div>
 
-        <div class="contact-grid">
-          <div class="contact-info">
-            <div class="contact-line">
-              <div class="icon">📍</div>
-              <div>
-                <strong data-i18n="contact_address_label">Adresse</strong>
-                <span>
-                  D&amp;G HOLDING<br />
-                  1 rue de Stockholm<br />
-                  75008 Paris, France
-                </span>
-              </div>
+        <div class="split">
+          <form id="contactForm" action="contact.php" method="POST">
+            <div id="formAlert" class="form-alert"></div>
+
+            <input type="hidden" name="website_lang" id="website_lang" value="fr">
+            <input type="hidden" name="form_started_at" id="form_started_at" value="">
+
+            <div class="honeypot">
+              <label>Website</label>
+              <input type="text" name="website" autocomplete="off">
             </div>
 
-            <div class="contact-line">
-              <div class="icon">☎️</div>
-              <div>
-                <strong data-i18n="contact_phone_label">Téléphone</strong>
-                <a href="tel:+33651818229">+33 6 51 81 82 29</a>
-              </div>
+            <div class="form-grid">
+              <input type="text" name="name" required data-i18n-placeholder="form_name" placeholder="Nom complet">
+              <input type="email" name="email" required data-i18n-placeholder="form_email" placeholder="Email">
             </div>
 
-            <div class="contact-line">
-              <div class="icon">✉️</div>
+            <div class="form-grid">
+              <input type="tel" name="phone" data-i18n-placeholder="form_phone" placeholder="Téléphone">
+              <input type="text" name="company" data-i18n-placeholder="form_company" placeholder="Société">
+            </div>
+
+            <textarea name="message" required data-i18n-placeholder="form_message" placeholder="Votre message"></textarea>
+
+            <button class="btn btn-blue" type="submit" id="contactSubmit" data-i18n="form_btn">
+              Envoyer le message
+            </button>
+          </form>
+
+          <div>
+            <div class="contact-info">
               <div>
                 <strong data-i18n="contact_email_label">Email</strong>
-                <a href="mailto:contact@isofinp.com">contact@isofinp.com</a>
+                <p class="muted">contact@isofinp.com</p>
+              </div>
+
+              <div>
+                <strong data-i18n="contact_phone_label">Téléphone</strong>
+                <p class="muted">+33 6 51 81 82 29</p>
+              </div>
+
+              <div>
+                <strong data-i18n="contact_address_label">Adresse</strong>
+                <p class="muted">
+                  D&G HOLDING<br>
+                  1 rue de Stockholm<br>
+                  75008 Paris, France
+                </p>
+              </div>
+
+              <div>
+                <strong data-i18n="contact_docs_label">Documentation</strong>
+                <p class="muted" data-i18n="contact_docs_text">
+                  Catalogue et fiches techniques disponibles dans l’espace produits.
+                </p>
+                <br>
+                <a href="produits.html" class="btn btn-outline" data-i18n="contact_docs_btn">
+                  Accéder aux produits
+                </a>
               </div>
             </div>
           </div>
-
-          <div class="contact-form">
-            <form action="contact.php" method="POST">
-              <input type="hidden" name="lang" id="formLang" value="fr" />
-
-              <div class="hidden-field">
-                <label for="website">Website</label>
-                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
-              </div>
-
-              <div class="form-row">
-                <div>
-                  <label for="name" data-i18n="form_name">Nom complet</label>
-                  <input type="text" id="name" name="name" required data-placeholder="form_name_ph" placeholder="Votre nom" />
-                </div>
-
-                <div>
-                  <label for="company" data-i18n="form_company">Entreprise</label>
-                  <input type="text" id="company" name="company" data-placeholder="form_company_ph" placeholder="Nom de l’entreprise" />
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div>
-                  <label for="email" data-i18n="form_email">Email</label>
-                  <input type="email" id="email" name="email" required data-placeholder="form_email_ph" placeholder="votre@email.com" />
-                </div>
-
-                <div>
-                  <label for="phone" data-i18n="form_phone">Téléphone</label>
-                  <input type="tel" id="phone" name="phone" data-placeholder="form_phone_ph" placeholder="+33..." />
-                </div>
-              </div>
-
-              <div>
-                <label for="subject" data-i18n="form_subject">Sujet</label>
-                <select id="subject" name="subject" required>
-                  <option value="" data-i18n="form_subject_ph">Sélectionnez un sujet</option>
-                  <option value="Demande de devis" data-i18n="form_quote">Demande de devis</option>
-                  <option value="Information produit" data-i18n="form_product_info">Information produit</option>
-                  <option value="Fiche technique" data-i18n="form_technical">Fiche technique</option>
-                  <option value="Partenariat" data-i18n="form_partner">Partenariat</option>
-                  <option value="Autre" data-i18n="form_other">Autre</option>
-                </select>
-              </div>
-
-              <div>
-                <label for="message" data-i18n="form_message">Message</label>
-                <textarea id="message" name="message" required data-placeholder="form_message_ph" placeholder="Décrivez votre besoin..."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-blue" data-i18n="form_submit">Envoyer le message</button>
-
-              <p class="small-note" data-i18n="form_note">
-                Votre message sera envoyé directement à contact@isofinp.com.
-              </p>
-            </form>
-          </div>
         </div>
+
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer>
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <img src="assets/images/logo-isofinp.jpg" alt="Logo ISOFIN-P" />
-        <span data-i18n="footer_rights">© 2026 ISOFIN-P. Tous droits réservés.</span>
+    <div class="container footer-grid">
+      <div>
+        <img src="assets/images/logo-isofinp.jpg" alt="ISOFIN-P">
+        <p data-i18n="footer_text">
+          ISOFIN-P — solutions professionnelles pour l’étanchéité, l’isolation et la protection des surfaces.
+        </p>
       </div>
 
-      <div class="footer-links">
-        <a href="#home" data-i18n="nav_home">Accueil</a>
-        <a href="produits.html" data-i18n="nav_products">Produits</a>
-        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <div>
+        <h3 data-i18n="footer_links">Liens rapides</h3>
+        <p><a href="index.html" data-i18n="nav_home">Accueil</a></p>
+        <p><a href="produits.html" data-i18n="nav_products">Produits</a></p>
+        <p><a href="#contact" data-i18n="nav_contact">Contact</a></p>
+      </div>
+
+      <div>
+        <h3 data-i18n="footer_contact">Contact</h3>
+        <p>contact@isofinp.com</p>
+        <p>+33 6 51 81 82 29</p>
+        <p>Paris, France</p>
       </div>
     </div>
   </footer>
 
+  <!-- SCRIPT MULTILINGUE -->
   <script>
     const translations = {
       fr: {
-        page_title: "ISOFIN-P | Solutions professionnelles d’étanchéité, isolation et protection",
-        topbar_text: "Solutions techniques pour professionnels du bâtiment",
+        meta_title: "ISOFIN-P | Étanchéité, isolation et protection des surfaces",
+        meta_description: "ISOFIN-P propose des solutions professionnelles pour l’étanchéité, l’isolation, la protection et le traitement des surfaces du bâtiment.",
 
         nav_home: "Accueil",
-        nav_solutions: "Solutions",
-        nav_applications: "Applications",
         nav_products: "Produits",
+        nav_applications: "Applications",
         nav_about: "À propos",
         nav_contact: "Contact",
 
-        hero_eyebrow: "Performance · Protection · Durabilité",
-        hero_title: "Solutions professionnelles d’étanchéité, isolation et protection des surfaces",
-        hero_text: "ISOFIN-P accompagne les professionnels avec une gamme de revêtements techniques conçus pour protéger durablement les bâtiments, améliorer le confort et renforcer la résistance des supports.",
-        hero_btn_products: "Découvrir la gamme",
+        hero_kicker: "Solutions techniques bâtiment",
+        hero_title: "Étanchéité, isolation et protection durable des surfaces",
+        hero_text: "ISOFIN-P développe une gamme de solutions professionnelles pour protéger, imperméabiliser, isoler et rénover les surfaces exposées : toitures, façades, terrasses, sols, béton, joints et zones techniques.",
+        hero_btn_products: "Découvrir les produits",
         hero_btn_contact: "Demander un conseil",
+        hero_panel_title: "Performance, fiabilité et application professionnelle",
+        hero_panel_text: "Des produits conçus pour les chantiers exigeants, la rénovation, la protection contre l’eau et l’amélioration de la durabilité des supports.",
+        stat_lang: "langues",
+        stat_solution: "solution",
+        stat_quality: "qualité",
 
-        stat_1: "Produits techniques",
-        stat_2: "Langues disponibles",
-        stat_3: "Orientation professionnelle",
+        intro_label: "Notre expertise",
+        intro_title: "Une gamme pensée pour la protection du bâtiment",
+        intro_text: "ISOFIN-P accompagne les professionnels avec des produits adaptés aux travaux d’étanchéité liquide, d’isolation, de traitement des fissures, de protection des façades et de rénovation des supports exposés.",
+        intro_item_1: "Produits adaptés aux toitures, terrasses et façades",
+        intro_item_2: "Solutions pour béton, joints, sols et surfaces techniques",
+        intro_item_3: "Documentation technique disponible pour chaque produit",
+        intro_item_4: "Accompagnement commercial et conseil d’application",
+        intro_card_title: "Pourquoi ISOFIN-P ?",
+        intro_card_text: "Parce qu’un bon résultat dépend d’un produit adapté, d’une préparation correcte du support et d’une application maîtrisée. ISOFIN-P met l’accent sur la simplicité d’utilisation, la résistance et la durabilité.",
+        download_catalog: "Télécharger le catalogue",
 
-        panel_1: "Solutions pour toitures, façades, sols et murs",
-        panel_2: "Produits pour rénovation, construction et maintenance",
-        panel_3: "Catalogue et fiches techniques disponibles",
+        benefits_label: "Avantages",
+        benefits_title: "Des solutions adaptées aux exigences terrain",
+        benefits_text: "Nos produits répondent aux besoins essentiels du bâtiment : protection, étanchéité, adhérence, résistance et finition.",
+        benefit_1_title: "Étanchéité durable",
+        benefit_1_text: "Protection des surfaces contre l’eau, l’humidité, les infiltrations et les agressions climatiques.",
+        benefit_2_title: "Application professionnelle",
+        benefit_2_text: "Produits conçus pour faciliter l’application sur chantier avec une bonne adhérence et une finition fiable.",
+        benefit_3_title: "Supports multiples",
+        benefit_3_text: "Compatibilité avec plusieurs supports : béton, enduits, façades, sols, joints, toitures et terrasses.",
 
-        solutions_kicker: "Nos solutions",
-        solutions_title: "Des produits techniques pour renforcer la performance des bâtiments",
-        solutions_text: "La gamme ISOFIN-P répond aux besoins d’étanchéité, d’isolation, d’imperméabilisation, de protection et de finition des supports.",
+        applications_label: "Applications",
+        applications_title: "Domaines d’utilisation",
+        applications_text: "Une sélection de solutions techniques pour les principales zones du bâtiment.",
+        app_1_title: "Toitures & terrasses",
+        app_1_text: "Étanchéité liquide, protection contre les infiltrations et rénovation des surfaces exposées.",
+        app_2_title: "Façades & murs",
+        app_2_text: "Protection, imperméabilisation, traitement de surface et amélioration de la durabilité.",
+        app_3_title: "Béton & joints",
+        app_3_text: "Solutions pour supports minéraux, fissures, raccords, joints et zones sensibles.",
+        app_4_title: "Sols & zones techniques",
+        app_4_text: "Revêtements, protection mécanique et finition pour espaces soumis à l’usage.",
 
-        card_1_title: "Étanchéité",
-        card_1_text: "Protection contre l’eau, l’humidité, les infiltrations et les conditions climatiques difficiles.",
-        card_2_title: "Isolation thermique",
-        card_2_text: "Revêtements contribuant au confort thermique et à la réduction des effets de chaleur.",
-        card_3_title: "Protection des surfaces",
-        card_3_text: "Protection des supports minéraux, béton, façades, murs, sols et surfaces exposées.",
-        card_4_title: "Finition technique",
-        card_4_text: "Solutions de revêtement pour une finition résistante, propre et durable.",
+        products_label: "Catalogue",
+        products_title: "Découvrez notre gamme produits",
+        products_text: "Accédez aux fiches techniques, descriptions, usages recommandés et précautions d’application.",
+        product_1_text: "Solution technique pour l’étanchéité et la protection des surfaces du bâtiment.",
+        product_2_text: "Produit adapté aux travaux de préparation, protection et traitement des supports.",
+        product_3_text: "Solution bi-composant destinée aux sols, zones techniques et surfaces exigeantes.",
+        view_all_products: "Voir tous les produits",
 
-        applications_kicker: "Domaines d’application",
-        applications_title: "Une réponse adaptée aux environnements exigeants",
-        applications_text: "Les solutions ISOFIN-P sont destinées aux chantiers neufs, rénovations, interventions préventives et travaux de maintenance.",
-        app_1_title: "Toitures et terrasses",
-        app_1_text: "Traitement de surfaces exposées au soleil, à la pluie, aux variations de température et aux infiltrations.",
-        app_2_title: "Façades et murs",
-        app_2_text: "Protection, imperméabilisation et amélioration de la durabilité des surfaces verticales.",
-        app_3_title: "Sols et supports techniques",
-        app_3_text: "Revêtements pour sols, zones de passage, bétons, supports minéraux et surfaces nécessitant une protection renforcée.",
+        about_label: "À propos",
+        about_title: "Une marque orientée performance et durabilité",
+        about_text: "Notre objectif est d’accompagner les applicateurs, distributeurs et maîtres d’ouvrage avec une offre claire : des produits techniques, une documentation accessible et une approche centrée sur la qualité du résultat final.",
+        about_card_title: "Engagement qualité",
+        about_card_text: "ISOFIN-P vise à proposer des solutions fiables, compréhensibles et adaptées aux contraintes réelles des professionnels du bâtiment.",
+        about_item_1: "Solutions pour projets neufs et rénovation",
+        about_item_2: "Approche orientée chantier et facilité d’application",
+        about_item_3: "Catalogue disponible en ligne",
 
-        products_kicker: "Catalogue ISOFIN-P",
-        products_title: "Une gamme complète de produits professionnels",
-        products_text: "Accédez aux fiches produits détaillées, photos, informations techniques et catalogue PDF.",
-        product_1_text: "Revêtement d’étanchéité pour supports exposés à l’humidité et aux infiltrations.",
-        product_2_text: "Produit technique pour traitement, protection et amélioration des supports.",
-        product_3_text: "Revêtement de sol bicomposant pour finition, résistance et protection durable.",
-        product_btn: "Voir la fiche",
-        download_catalogue: "Télécharger le catalogue PDF",
+        cta_title: "Besoin d’un produit adapté à votre chantier ?",
+        cta_text: "Contactez-nous pour recevoir un conseil, une fiche technique ou une orientation vers la solution ISOFIN-P la plus appropriée.",
+        cta_btn: "Nous contacter",
 
-        about_kicker: "À propos",
-        about_title: "Une approche professionnelle basée sur la fiabilité et la durabilité",
-        about_text: "ISOFIN-P propose des solutions adaptées aux besoins des professionnels du bâtiment, de la rénovation, de la maintenance et de la protection des ouvrages.",
-        about_item_1: "Produits adaptés aux applications intérieures et extérieures.",
-        about_item_2: "Solutions pour toitures, façades, murs, sols et surfaces techniques.",
-        about_item_3: "Catalogue produit et fiches techniques disponibles.",
-        about_item_4: "Accompagnement selon les exigences de chaque projet.",
-
-        cta_title: "Vous recherchez une solution adaptée à votre chantier ?",
-        cta_text: "Contactez ISOFIN-P pour recevoir des informations produits, une fiche technique ou un accompagnement commercial.",
-        cta_btn: "Contacter ISOFIN-P",
-
-        contact_kicker: "Contact",
-        contact_title: "Parlez-nous de votre projet",
-        contact_text: "Remplissez le formulaire ou contactez-nous directement par téléphone ou par email.",
-        contact_address_label: "Adresse",
-        contact_phone_label: "Téléphone",
-        contact_email_label: "Email",
-
+        contact_label: "Contact",
+        contact_title: "Demander une information",
+        contact_text: "Envoyez-nous votre demande. Notre équipe vous répondra rapidement.",
         form_name: "Nom complet",
-        form_company: "Entreprise",
         form_email: "Email",
         form_phone: "Téléphone",
-        form_subject: "Sujet",
-        form_message: "Message",
-        form_submit: "Envoyer le message",
-        form_note: "Votre message sera envoyé directement à contact@isofinp.com.",
+        form_company: "Société",
+        form_message: "Votre message",
+        form_btn: "Envoyer le message",
+        contact_email_label: "Email",
+        contact_phone_label: "Téléphone",
+        contact_address_label: "Adresse",
+        contact_docs_label: "Documentation",
+        contact_docs_text: "Catalogue et fiches techniques disponibles dans l’espace produits.",
+        contact_docs_btn: "Accéder aux produits",
 
-        form_name_ph: "Votre nom",
-        form_company_ph: "Nom de l’entreprise",
-        form_email_ph: "votre@email.com",
-        form_phone_ph: "+33...",
-        form_subject_ph: "Sélectionnez un sujet",
-        form_quote: "Demande de devis",
-        form_product_info: "Information produit",
-        form_technical: "Fiche technique",
-        form_partner: "Partenariat",
-        form_other: "Autre",
-        form_message_ph: "Décrivez votre besoin...",
-
-        footer_rights: "© 2026 ISOFIN-P. Tous droits réservés."
+        footer_text: "ISOFIN-P — solutions professionnelles pour l’étanchéité, l’isolation et la protection des surfaces.",
+        footer_links: "Liens rapides",
+        footer_contact: "Contact"
       },
 
       en: {
-        page_title: "ISOFIN-P | Professional waterproofing, insulation and protection solutions",
-        topbar_text: "Technical solutions for building professionals",
+        meta_title: "ISOFIN-P | Waterproofing, insulation and surface protection",
+        meta_description: "ISOFIN-P provides professional solutions for waterproofing, insulation, protection and treatment of building surfaces.",
 
         nav_home: "Home",
-        nav_solutions: "Solutions",
-        nav_applications: "Applications",
         nav_products: "Products",
+        nav_applications: "Applications",
         nav_about: "About",
         nav_contact: "Contact",
 
-        hero_eyebrow: "Performance · Protection · Durability",
-        hero_title: "Professional waterproofing, insulation and surface protection solutions",
-        hero_text: "ISOFIN-P supports professionals with a range of technical coatings designed to protect buildings, improve comfort and strengthen substrate resistance.",
-        hero_btn_products: "Discover the range",
+        hero_kicker: "Technical building solutions",
+        hero_title: "Waterproofing, insulation and long-lasting surface protection",
+        hero_text: "ISOFIN-P develops a range of professional solutions to protect, waterproof, insulate and renovate exposed surfaces: roofs, façades, terraces, floors, concrete, joints and technical areas.",
+        hero_btn_products: "Discover products",
         hero_btn_contact: "Request advice",
+        hero_panel_title: "Performance, reliability and professional application",
+        hero_panel_text: "Products designed for demanding worksites, renovation, water protection and improved durability of substrates.",
+        stat_lang: "languages",
+        stat_solution: "solution",
+        stat_quality: "quality",
 
-        stat_1: "Technical products",
-        stat_2: "Available languages",
-        stat_3: "Professional focus",
+        intro_label: "Our expertise",
+        intro_title: "A range designed for building protection",
+        intro_text: "ISOFIN-P supports professionals with products suitable for liquid waterproofing, insulation, crack treatment, façade protection and renovation of exposed substrates.",
+        intro_item_1: "Products suitable for roofs, terraces and façades",
+        intro_item_2: "Solutions for concrete, joints, floors and technical surfaces",
+        intro_item_3: "Technical documentation available for each product",
+        intro_item_4: "Commercial support and application advice",
+        intro_card_title: "Why ISOFIN-P?",
+        intro_card_text: "Because a good result depends on the right product, proper surface preparation and controlled application. ISOFIN-P focuses on ease of use, resistance and durability.",
+        download_catalog: "Download catalog",
 
-        panel_1: "Solutions for roofs, façades, floors and walls",
-        panel_2: "Products for renovation, construction and maintenance",
-        panel_3: "Catalogue and technical sheets available",
+        benefits_label: "Benefits",
+        benefits_title: "Solutions adapted to field requirements",
+        benefits_text: "Our products meet essential building needs: protection, waterproofing, adhesion, resistance and finish.",
+        benefit_1_title: "Durable waterproofing",
+        benefit_1_text: "Protection of surfaces against water, moisture, infiltration and climatic aggression.",
+        benefit_2_title: "Professional application",
+        benefit_2_text: "Products designed to facilitate worksite application with good adhesion and reliable finish.",
+        benefit_3_title: "Multiple substrates",
+        benefit_3_text: "Compatibility with several substrates: concrete, renders, façades, floors, joints, roofs and terraces.",
 
-        solutions_kicker: "Our solutions",
-        solutions_title: "Technical products to improve building performance",
-        solutions_text: "The ISOFIN-P range meets waterproofing, insulation, surface protection and finishing requirements.",
+        applications_label: "Applications",
+        applications_title: "Fields of use",
+        applications_text: "A selection of technical solutions for the main building areas.",
+        app_1_title: "Roofs & terraces",
+        app_1_text: "Liquid waterproofing, protection against infiltration and renovation of exposed surfaces.",
+        app_2_title: "Façades & walls",
+        app_2_text: "Protection, waterproofing, surface treatment and improved durability.",
+        app_3_title: "Concrete & joints",
+        app_3_text: "Solutions for mineral substrates, cracks, connections, joints and sensitive areas.",
+        app_4_title: "Floors & technical areas",
+        app_4_text: "Coatings, mechanical protection and finish for spaces subject to use.",
 
-        card_1_title: "Waterproofing",
-        card_1_text: "Protection against water, humidity, infiltrations and difficult weather conditions.",
-        card_2_title: "Thermal insulation",
-        card_2_text: "Coatings contributing to thermal comfort and heat reduction.",
-        card_3_title: "Surface protection",
-        card_3_text: "Protection for mineral substrates, concrete, façades, walls, floors and exposed surfaces.",
-        card_4_title: "Technical finishing",
-        card_4_text: "Coating solutions for a resistant, clean and durable finish.",
+        products_label: "Catalog",
+        products_title: "Discover our product range",
+        products_text: "Access technical sheets, descriptions, recommended uses and application precautions.",
+        product_1_text: "Technical solution for waterproofing and protection of building surfaces.",
+        product_2_text: "Product suitable for preparation, protection and substrate treatment works.",
+        product_3_text: "Two-component solution for floors, technical areas and demanding surfaces.",
+        view_all_products: "View all products",
 
-        applications_kicker: "Application areas",
-        applications_title: "A suitable response for demanding environments",
-        applications_text: "ISOFIN-P solutions are intended for new projects, renovations, preventive interventions and maintenance works.",
-        app_1_title: "Roofs and terraces",
-        app_1_text: "Treatment of surfaces exposed to sun, rain, temperature variations and infiltrations.",
-        app_2_title: "Façades and walls",
-        app_2_text: "Protection, waterproofing and improvement of vertical surface durability.",
-        app_3_title: "Floors and technical substrates",
-        app_3_text: "Coatings for floors, traffic areas, concrete, mineral substrates and surfaces requiring reinforced protection.",
+        about_label: "About",
+        about_title: "A brand focused on performance and durability",
+        about_text: "Our goal is to support applicators, distributors and project owners with a clear offer: technical products, accessible documentation and an approach focused on final result quality.",
+        about_card_title: "Quality commitment",
+        about_card_text: "ISOFIN-P aims to provide reliable, understandable solutions adapted to the real constraints of building professionals.",
+        about_item_1: "Solutions for new projects and renovation",
+        about_item_2: "Worksite-oriented approach and easy application",
+        about_item_3: "Catalog available online",
 
-        products_kicker: "ISOFIN-P Catalogue",
-        products_title: "A complete range of professional products",
-        products_text: "Access detailed product sheets, photos, technical information and PDF catalogue.",
-        product_1_text: "Waterproofing coating for substrates exposed to humidity and infiltrations.",
-        product_2_text: "Technical product for treatment, protection and substrate improvement.",
-        product_3_text: "Two-component floor coating for finish, resistance and long-lasting protection.",
-        product_btn: "View sheet",
-        download_catalogue: "Download PDF catalogue",
+        cta_title: "Need a product adapted to your worksite?",
+        cta_text: "Contact us to receive advice, a technical sheet or guidance toward the most suitable ISOFIN-P solution.",
+        cta_btn: "Contact us",
 
-        about_kicker: "About",
-        about_title: "A professional approach based on reliability and durability",
-        about_text: "ISOFIN-P offers solutions adapted to the needs of building, renovation, maintenance and structural protection professionals.",
-        about_item_1: "Products suitable for indoor and outdoor applications.",
-        about_item_2: "Solutions for roofs, façades, walls, floors and technical surfaces.",
-        about_item_3: "Product catalogue and technical sheets available.",
-        about_item_4: "Support according to each project requirement.",
-
-        cta_title: "Looking for a solution adapted to your project?",
-        cta_text: "Contact ISOFIN-P to receive product information, a technical sheet or commercial support.",
-        cta_btn: "Contact ISOFIN-P",
-
-        contact_kicker: "Contact",
-        contact_title: "Tell us about your project",
-        contact_text: "Fill in the form or contact us directly by phone or email.",
-        contact_address_label: "Address",
-        contact_phone_label: "Phone",
-        contact_email_label: "Email",
-
+        contact_label: "Contact",
+        contact_title: "Request information",
+        contact_text: "Send us your request. Our team will reply quickly.",
         form_name: "Full name",
-        form_company: "Company",
         form_email: "Email",
         form_phone: "Phone",
-        form_subject: "Subject",
-        form_message: "Message",
-        form_submit: "Send message",
-        form_note: "Your message will be sent directly to contact@isofinp.com.",
+        form_company: "Company",
+        form_message: "Your message",
+        form_btn: "Send message",
+        contact_email_label: "Email",
+        contact_phone_label: "Phone",
+        contact_address_label: "Address",
+        contact_docs_label: "Documentation",
+        contact_docs_text: "Catalog and technical sheets are available in the products area.",
+        contact_docs_btn: "Go to products",
 
-        form_name_ph: "Your name",
-        form_company_ph: "Company name",
-        form_email_ph: "your@email.com",
-        form_phone_ph: "+33...",
-        form_subject_ph: "Select a subject",
-        form_quote: "Quote request",
-        form_product_info: "Product information",
-        form_technical: "Technical sheet",
-        form_partner: "Partnership",
-        form_other: "Other",
-        form_message_ph: "Describe your need...",
-
-        footer_rights: "© 2026 ISOFIN-P. All rights reserved."
+        footer_text: "ISOFIN-P — professional solutions for waterproofing, insulation and surface protection.",
+        footer_links: "Quick links",
+        footer_contact: "Contact"
       },
 
       es: {
-        page_title: "ISOFIN-P | Soluciones profesionales de impermeabilización, aislamiento y protección",
-        topbar_text: "Soluciones técnicas para profesionales de la construcción",
+        meta_title: "ISOFIN-P | Impermeabilización, aislamiento y protección de superficies",
+        meta_description: "ISOFIN-P ofrece soluciones profesionales para impermeabilización, aislamiento, protección y tratamiento de superficies de construcción.",
 
         nav_home: "Inicio",
-        nav_solutions: "Soluciones",
-        nav_applications: "Aplicaciones",
         nav_products: "Productos",
-        nav_about: "Quiénes somos",
+        nav_applications: "Aplicaciones",
+        nav_about: "Acerca de",
         nav_contact: "Contacto",
 
-        hero_eyebrow: "Rendimiento · Protección · Durabilidad",
-        hero_title: "Soluciones profesionales de impermeabilización, aislamiento y protección de superficies",
-        hero_text: "ISOFIN-P acompaña a los profesionales con una gama de revestimientos técnicos diseñados para proteger edificios, mejorar el confort y reforzar la resistencia de los soportes.",
-        hero_btn_products: "Descubrir la gama",
+        hero_kicker: "Soluciones técnicas para construcción",
+        hero_title: "Impermeabilización, aislamiento y protección duradera de superficies",
+        hero_text: "ISOFIN-P desarrolla una gama de soluciones profesionales para proteger, impermeabilizar, aislar y renovar superficies expuestas: cubiertas, fachadas, terrazas, suelos, hormigón, juntas y zonas técnicas.",
+        hero_btn_products: "Descubrir productos",
         hero_btn_contact: "Solicitar asesoramiento",
+        hero_panel_title: "Rendimiento, fiabilidad y aplicación profesional",
+        hero_panel_text: "Productos diseñados para obras exigentes, renovación, protección contra el agua y mejora de la durabilidad de los soportes.",
+        stat_lang: "idiomas",
+        stat_solution: "solución",
+        stat_quality: "calidad",
 
-        stat_1: "Productos técnicos",
-        stat_2: "Idiomas disponibles",
-        stat_3: "Enfoque profesional",
+        intro_label: "Nuestra experiencia",
+        intro_title: "Una gama diseñada para la protección del edificio",
+        intro_text: "ISOFIN-P acompaña a los profesionales con productos adecuados para impermeabilización líquida, aislamiento, tratamiento de fisuras, protección de fachadas y renovación de soportes expuestos.",
+        intro_item_1: "Productos adecuados para cubiertas, terrazas y fachadas",
+        intro_item_2: "Soluciones para hormigón, juntas, suelos y superficies técnicas",
+        intro_item_3: "Documentación técnica disponible para cada producto",
+        intro_item_4: "Apoyo comercial y asesoramiento de aplicación",
+        intro_card_title: "¿Por qué ISOFIN-P?",
+        intro_card_text: "Porque un buen resultado depende del producto adecuado, una correcta preparación del soporte y una aplicación controlada. ISOFIN-P se centra en la facilidad de uso, resistencia y durabilidad.",
+        download_catalog: "Descargar catálogo",
 
-        panel_1: "Soluciones para cubiertas, fachadas, suelos y paredes",
-        panel_2: "Productos para renovación, construcción y mantenimiento",
-        panel_3: "Catálogo y fichas técnicas disponibles",
+        benefits_label: "Ventajas",
+        benefits_title: "Soluciones adaptadas a las exigencias de obra",
+        benefits_text: "Nuestros productos responden a necesidades esenciales de la construcción: protección, impermeabilidad, adherencia, resistencia y acabado.",
+        benefit_1_title: "Impermeabilización duradera",
+        benefit_1_text: "Protección de superficies contra agua, humedad, infiltraciones y agresiones climáticas.",
+        benefit_2_title: "Aplicación profesional",
+        benefit_2_text: "Productos diseñados para facilitar la aplicación en obra con buena adherencia y acabado fiable.",
+        benefit_3_title: "Múltiples soportes",
+        benefit_3_text: "Compatibilidad con varios soportes: hormigón, revestimientos, fachadas, suelos, juntas, cubiertas y terrazas.",
 
-        solutions_kicker: "Nuestras soluciones",
-        solutions_title: "Productos técnicos para mejorar el rendimiento de los edificios",
-        solutions_text: "La gama ISOFIN-P responde a necesidades de impermeabilización, aislamiento, protección de superficies y acabado.",
-
-        card_1_title: "Impermeabilización",
-        card_1_text: "Protección contra agua, humedad, filtraciones y condiciones climáticas difíciles.",
-        card_2_title: "Aislamiento térmico",
-        card_2_text: "Revestimientos que contribuyen al confort térmico y a la reducción del calor.",
-        card_3_title: "Protección de superficies",
-        card_3_text: "Protección para soportes minerales, hormigón, fachadas, paredes, suelos y superficies expuestas.",
-        card_4_title: "Acabado técnico",
-        card_4_text: "Soluciones de revestimiento para un acabado resistente, limpio y duradero.",
-
-        applications_kicker: "Áreas de aplicación",
-        applications_title: "Una respuesta adecuada para entornos exigentes",
-        applications_text: "Las soluciones ISOFIN-P están destinadas a obras nuevas, renovaciones, intervenciones preventivas y mantenimiento.",
+        applications_label: "Aplicaciones",
+        applications_title: "Ámbitos de uso",
+        applications_text: "Una selección de soluciones técnicas para las principales zonas del edificio.",
         app_1_title: "Cubiertas y terrazas",
-        app_1_text: "Tratamiento de superficies expuestas al sol, lluvia, variaciones de temperatura y filtraciones.",
-        app_2_title: "Fachadas y paredes",
-        app_2_text: "Protección, impermeabilización y mejora de la durabilidad de superficies verticales.",
-        app_3_title: "Suelos y soportes técnicos",
-        app_3_text: "Revestimientos para suelos, zonas de paso, hormigón, soportes minerales y superficies que requieren protección reforzada.",
+        app_1_text: "Impermeabilización líquida, protección contra infiltraciones y renovación de superficies expuestas.",
+        app_2_title: "Fachadas y muros",
+        app_2_text: "Protección, impermeabilización, tratamiento superficial y mejora de la durabilidad.",
+        app_3_title: "Hormigón y juntas",
+        app_3_text: "Soluciones para soportes minerales, fisuras, uniones, juntas y zonas sensibles.",
+        app_4_title: "Suelos y zonas técnicas",
+        app_4_text: "Revestimientos, protección mecánica y acabado para espacios sometidos al uso.",
 
-        products_kicker: "Catálogo ISOFIN-P",
-        products_title: "Una gama completa de productos profesionales",
-        products_text: "Acceda a fichas de producto detalladas, fotos, información técnica y catálogo PDF.",
-        product_1_text: "Revestimiento impermeabilizante para soportes expuestos a humedad y filtraciones.",
-        product_2_text: "Producto técnico para tratamiento, protección y mejora de soportes.",
-        product_3_text: "Revestimiento bicomponente para suelos, acabado, resistencia y protección duradera.",
-        product_btn: "Ver ficha",
-        download_catalogue: "Descargar catálogo PDF",
+        products_label: "Catálogo",
+        products_title: "Descubra nuestra gama de productos",
+        products_text: "Acceda a fichas técnicas, descripciones, usos recomendados y precauciones de aplicación.",
+        product_1_text: "Solución técnica para impermeabilización y protección de superficies de construcción.",
+        product_2_text: "Producto adecuado para trabajos de preparación, protección y tratamiento de soportes.",
+        product_3_text: "Solución bicomponente para suelos, zonas técnicas y superficies exigentes.",
+        view_all_products: "Ver todos los productos",
 
-        about_kicker: "Quiénes somos",
-        about_title: "Un enfoque profesional basado en fiabilidad y durabilidad",
-        about_text: "ISOFIN-P ofrece soluciones adaptadas a las necesidades de profesionales de la construcción, renovación, mantenimiento y protección de obras.",
-        about_item_1: "Productos adecuados para aplicaciones interiores y exteriores.",
-        about_item_2: "Soluciones para cubiertas, fachadas, paredes, suelos y superficies técnicas.",
-        about_item_3: "Catálogo de productos y fichas técnicas disponibles.",
-        about_item_4: "Acompañamiento según las exigencias de cada proyecto.",
+        about_label: "Acerca de",
+        about_title: "Una marca orientada al rendimiento y la durabilidad",
+        about_text: "Nuestro objetivo es acompañar a aplicadores, distribuidores y promotores con una oferta clara: productos técnicos, documentación accesible y un enfoque centrado en la calidad del resultado final.",
+        about_card_title: "Compromiso de calidad",
+        about_card_text: "ISOFIN-P busca ofrecer soluciones fiables, comprensibles y adaptadas a las limitaciones reales de los profesionales de la construcción.",
+        about_item_1: "Soluciones para obra nueva y renovación",
+        about_item_2: "Enfoque orientado a obra y facilidad de aplicación",
+        about_item_3: "Catálogo disponible en línea",
 
-        cta_title: "¿Busca una solución adaptada a su obra?",
-        cta_text: "Contacte con ISOFIN-P para recibir información de producto, una ficha técnica o apoyo comercial.",
-        cta_btn: "Contactar con ISOFIN-P",
+        cta_title: "¿Necesita un producto adaptado a su obra?",
+        cta_text: "Contáctenos para recibir asesoramiento, una ficha técnica u orientación hacia la solución ISOFIN-P más adecuada.",
+        cta_btn: "Contactarnos",
 
-        contact_kicker: "Contacto",
-        contact_title: "Háblenos de su proyecto",
-        contact_text: "Complete el formulario o contáctenos directamente por teléfono o email.",
-        contact_address_label: "Dirección",
-        contact_phone_label: "Teléfono",
-        contact_email_label: "Email",
-
+        contact_label: "Contacto",
+        contact_title: "Solicitar información",
+        contact_text: "Envíenos su solicitud. Nuestro equipo responderá rápidamente.",
         form_name: "Nombre completo",
-        form_company: "Empresa",
         form_email: "Email",
         form_phone: "Teléfono",
-        form_subject: "Asunto",
-        form_message: "Mensaje",
-        form_submit: "Enviar mensaje",
-        form_note: "Su mensaje será enviado directamente a contact@isofinp.com.",
+        form_company: "Empresa",
+        form_message: "Su mensaje",
+        form_btn: "Enviar mensaje",
+        contact_email_label: "Email",
+        contact_phone_label: "Teléfono",
+        contact_address_label: "Dirección",
+        contact_docs_label: "Documentación",
+        contact_docs_text: "Catálogo y fichas técnicas disponibles en el área de productos.",
+        contact_docs_btn: "Acceder a productos",
 
-        form_name_ph: "Su nombre",
-        form_company_ph: "Nombre de la empresa",
-        form_email_ph: "su@email.com",
-        form_phone_ph: "+33...",
-        form_subject_ph: "Seleccione un asunto",
-        form_quote: "Solicitud de presupuesto",
-        form_product_info: "Información de producto",
-        form_technical: "Ficha técnica",
-        form_partner: "Colaboración",
-        form_other: "Otro",
-        form_message_ph: "Describa su necesidad...",
-
-        footer_rights: "© 2026 ISOFIN-P. Todos los derechos reservados."
+        footer_text: "ISOFIN-P — soluciones profesionales para impermeabilización, aislamiento y protección de superficies.",
+        footer_links: "Enlaces rápidos",
+        footer_contact: "Contacto"
       },
 
       ar: {
-        page_title: "ISOFIN-P | حلول احترافية للعزل والحماية",
-        topbar_text: "حلول تقنية لمحترفي قطاع البناء",
+        meta_title: "ISOFIN-P | العزل المائي والحراري وحماية الأسطح",
+        meta_description: "توفر ISOFIN-P حلولاً احترافية للعزل المائي والحراري وحماية ومعالجة أسطح المباني.",
 
         nav_home: "الرئيسية",
-        nav_solutions: "الحلول",
-        nav_applications: "التطبيقات",
         nav_products: "المنتجات",
+        nav_applications: "التطبيقات",
         nav_about: "من نحن",
         nav_contact: "اتصل بنا",
 
-        hero_eyebrow: "الأداء · الحماية · المتانة",
-        hero_title: "حلول احترافية للعزل المائي والحراري وحماية الأسطح",
-        hero_text: "تدعم ISOFIN-P المهنيين بمجموعة من الطلاءات التقنية المصممة لحماية المباني وتحسين الراحة وتعزيز مقاومة الأسطح.",
-        hero_btn_products: "اكتشف المجموعة",
+        hero_kicker: "حلول تقنية للبناء",
+        hero_title: "العزل المائي والحراري وحماية الأسطح بشكل مستدام",
+        hero_text: "تطوّر ISOFIN-P مجموعة من الحلول الاحترافية لحماية وعزل وتجديد الأسطح المعرضة للعوامل الخارجية: الأسطح، الواجهات، الشرفات، الأرضيات، الخرسانة، الفواصل والمناطق التقنية.",
+        hero_btn_products: "اكتشف المنتجات",
         hero_btn_contact: "اطلب استشارة",
+        hero_panel_title: "أداء موثوق وتطبيق احترافي",
+        hero_panel_text: "منتجات مصممة للمشاريع المتطلبة، أعمال التجديد، الحماية من الماء وتحسين متانة الأسطح.",
+        stat_lang: "لغات",
+        stat_solution: "حل",
+        stat_quality: "جودة",
 
-        stat_1: "منتجات تقنية",
-        stat_2: "لغات متاحة",
-        stat_3: "توجه احترافي",
+        intro_label: "خبرتنا",
+        intro_title: "مجموعة مصممة لحماية المباني",
+        intro_text: "ترافق ISOFIN-P المهنيين بمنتجات مناسبة لأعمال العزل المائي السائل، العزل، معالجة التشققات، حماية الواجهات وتجديد الأسطح المعرضة.",
+        intro_item_1: "منتجات مناسبة للأسطح والشرفات والواجهات",
+        intro_item_2: "حلول للخرسانة والفواصل والأرضيات والأسطح التقنية",
+        intro_item_3: "وثائق تقنية متاحة لكل منتج",
+        intro_item_4: "دعم تجاري ونصائح للتطبيق",
+        intro_card_title: "لماذا ISOFIN-P؟",
+        intro_card_text: "لأن النتيجة الجيدة تعتمد على المنتج المناسب، التحضير الصحيح للسطح والتطبيق المتقن. تركز ISOFIN-P على سهولة الاستخدام، المقاومة والمتانة.",
+        download_catalog: "تحميل الكتالوج",
 
-        panel_1: "حلول للأسطح والواجهات والأرضيات والجدران",
-        panel_2: "منتجات للتجديد والبناء والصيانة",
-        panel_3: "كتالوج وبطاقات تقنية متاحة",
+        benefits_label: "المزايا",
+        benefits_title: "حلول مناسبة لمتطلبات مواقع العمل",
+        benefits_text: "تلبي منتجاتنا احتياجات البناء الأساسية: الحماية، العزل المائي، الالتصاق، المقاومة والتشطيب.",
+        benefit_1_title: "عزل مائي متين",
+        benefit_1_text: "حماية الأسطح من الماء والرطوبة والتسربات والعوامل المناخية.",
+        benefit_2_title: "تطبيق احترافي",
+        benefit_2_text: "منتجات مصممة لتسهيل التطبيق في الورش مع التصاق جيد وتشطيب موثوق.",
+        benefit_3_title: "أسطح متعددة",
+        benefit_3_text: "متوافقة مع عدة أسطح: الخرسانة، اللياسة، الواجهات، الأرضيات، الفواصل، الأسطح والشرفات.",
 
-        solutions_kicker: "حلولنا",
-        solutions_title: "منتجات تقنية لتحسين أداء المباني",
-        solutions_text: "تلبي مجموعة ISOFIN-P احتياجات العزل المائي والحراري وحماية الأسطح والتشطيبات.",
-
-        card_1_title: "العزل المائي",
-        card_1_text: "حماية من الماء والرطوبة والتسربات والظروف المناخية الصعبة.",
-        card_2_title: "العزل الحراري",
-        card_2_text: "طلاءات تساعد على تحسين الراحة الحرارية وتقليل تأثير الحرارة.",
-        card_3_title: "حماية الأسطح",
-        card_3_text: "حماية للأسطح المعدنية والخرسانية والواجهات والجدران والأرضيات والأسطح المكشوفة.",
-        card_4_title: "تشطيب تقني",
-        card_4_text: "حلول طلاء للحصول على تشطيب مقاوم ونظيف وطويل الأمد.",
-
-        applications_kicker: "مجالات التطبيق",
-        applications_title: "حل مناسب للبيئات الصعبة",
-        applications_text: "حلول ISOFIN-P مخصصة للمشاريع الجديدة والتجديد والتدخلات الوقائية وأعمال الصيانة.",
-        app_1_title: "الأسطح والتراسات",
-        app_1_text: "معالجة الأسطح المعرضة للشمس والمطر وتغيرات الحرارة والتسربات.",
+        applications_label: "التطبيقات",
+        applications_title: "مجالات الاستخدام",
+        applications_text: "مجموعة من الحلول التقنية للمناطق الرئيسية في المبنى.",
+        app_1_title: "الأسطح والشرفات",
+        app_1_text: "عزل مائي سائل، حماية من التسربات وتجديد الأسطح المعرضة.",
         app_2_title: "الواجهات والجدران",
-        app_2_text: "حماية وعزل وتحسين متانة الأسطح العمودية.",
-        app_3_title: "الأرضيات والأسطح التقنية",
-        app_3_text: "طلاءات للأرضيات ومناطق المرور والخرسانة والأسطح المعدنية والأسطح التي تحتاج إلى حماية قوية.",
+        app_2_text: "حماية، عزل مائي، معالجة سطحية وتحسين المتانة.",
+        app_3_title: "الخرسانة والفواصل",
+        app_3_text: "حلول للأسطح المعدنية، التشققات، نقاط الالتقاء، الفواصل والمناطق الحساسة.",
+        app_4_title: "الأرضيات والمناطق التقنية",
+        app_4_text: "طلاءات، حماية ميكانيكية وتشطيب للمساحات المعرضة للاستخدام.",
 
-        products_kicker: "كتالوج ISOFIN-P",
-        products_title: "مجموعة كاملة من المنتجات الاحترافية",
-        products_text: "اطلع على بطاقات المنتجات والصور والمعلومات التقنية والكتالوج بصيغة PDF.",
-        product_1_text: "طلاء عازل للماء للأسطح المعرضة للرطوبة والتسربات.",
-        product_2_text: "منتج تقني لمعالجة الأسطح وحمايتها وتحسين أدائها.",
-        product_3_text: "طلاء أرضيات ثنائي المكونات للتشطيب والمقاومة والحماية طويلة الأمد.",
-        product_btn: "عرض البطاقة",
-        download_catalogue: "تحميل الكتالوج PDF",
+        products_label: "الكتالوج",
+        products_title: "اكتشف مجموعة منتجاتنا",
+        products_text: "اطلع على البطاقات التقنية، الأوصاف، الاستخدامات الموصى بها واحتياطات التطبيق.",
+        product_1_text: "حل تقني للعزل المائي وحماية أسطح المباني.",
+        product_2_text: "منتج مناسب لأعمال التحضير والحماية ومعالجة الأسطح.",
+        product_3_text: "حل ثنائي المكونات للأرضيات والمناطق التقنية والأسطح المتطلبة.",
+        view_all_products: "عرض جميع المنتجات",
 
-        about_kicker: "من نحن",
-        about_title: "نهج احترافي قائم على الموثوقية والمتانة",
-        about_text: "تقدم ISOFIN-P حلولاً مناسبة لاحتياجات محترفي البناء والتجديد والصيانة وحماية المنشآت.",
-        about_item_1: "منتجات مناسبة للتطبيقات الداخلية والخارجية.",
-        about_item_2: "حلول للأسطح والواجهات والجدران والأرضيات والأسطح التقنية.",
-        about_item_3: "كتالوج المنتجات والبطاقات التقنية متاحة.",
-        about_item_4: "دعم وفق متطلبات كل مشروع.",
+        about_label: "من نحن",
+        about_title: "علامة تجارية تركز على الأداء والمتانة",
+        about_text: "هدفنا هو مرافقة المنفذين والموزعين وأصحاب المشاريع بعرض واضح: منتجات تقنية، وثائق سهلة الوصول ونهج يركز على جودة النتيجة النهائية.",
+        about_card_title: "التزام بالجودة",
+        about_card_text: "تهدف ISOFIN-P إلى تقديم حلول موثوقة وواضحة ومناسبة للتحديات الواقعية لمهنيي البناء.",
+        about_item_1: "حلول للمشاريع الجديدة والتجديد",
+        about_item_2: "نهج موجه لمواقع العمل وسهولة التطبيق",
+        about_item_3: "كتالوج متاح عبر الإنترنت",
 
-        cta_title: "هل تبحث عن حل مناسب لمشروعك؟",
-        cta_text: "تواصل مع ISOFIN-P للحصول على معلومات المنتجات أو بطاقة تقنية أو دعم تجاري.",
-        cta_btn: "اتصل بـ ISOFIN-P",
+        cta_title: "هل تحتاج إلى منتج مناسب لمشروعك؟",
+        cta_text: "تواصل معنا للحصول على استشارة أو بطاقة تقنية أو توجيه نحو حل ISOFIN-P الأنسب.",
+        cta_btn: "اتصل بنا",
 
-        contact_kicker: "اتصل بنا",
-        contact_title: "أخبرنا عن مشروعك",
-        contact_text: "املأ النموذج أو تواصل معنا مباشرة عبر الهاتف أو البريد الإلكتروني.",
-        contact_address_label: "العنوان",
-        contact_phone_label: "الهاتف",
-        contact_email_label: "البريد الإلكتروني",
-
+        contact_label: "اتصل بنا",
+        contact_title: "طلب معلومات",
+        contact_text: "أرسل لنا طلبك وسيقوم فريقنا بالرد عليك بسرعة.",
         form_name: "الاسم الكامل",
-        form_company: "الشركة",
         form_email: "البريد الإلكتروني",
         form_phone: "الهاتف",
-        form_subject: "الموضوع",
-        form_message: "الرسالة",
-        form_submit: "إرسال الرسالة",
-        form_note: "سيتم إرسال رسالتك مباشرة إلى contact@isofinp.com.",
+        form_company: "الشركة",
+        form_message: "رسالتك",
+        form_btn: "إرسال الرسالة",
+        contact_email_label: "البريد الإلكتروني",
+        contact_phone_label: "الهاتف",
+        contact_address_label: "العنوان",
+        contact_docs_label: "الوثائق",
+        contact_docs_text: "الكتالوج والبطاقات التقنية متاحة في صفحة المنتجات.",
+        contact_docs_btn: "الانتقال إلى المنتجات",
 
-        form_name_ph: "اسمك",
-        form_company_ph: "اسم الشركة",
-        form_email_ph: "your@email.com",
-        form_phone_ph: "+33...",
-        form_subject_ph: "اختر الموضوع",
-        form_quote: "طلب عرض سعر",
-        form_product_info: "معلومات المنتج",
-        form_technical: "بطاقة تقنية",
-        form_partner: "شراكة",
-        form_other: "آخر",
-        form_message_ph: "صف احتياجك...",
-
-        footer_rights: "© 2026 ISOFIN-P. جميع الحقوق محفوظة."
+        footer_text: "ISOFIN-P — حلول احترافية للعزل المائي والحراري وحماية الأسطح.",
+        footer_links: "روابط سريعة",
+        footer_contact: "اتصل بنا"
       }
     };
 
-    const langButtons = document.querySelectorAll(".lang-btn");
-    const textElements = document.querySelectorAll("[data-i18n]");
-    const placeholderElements = document.querySelectorAll("[data-placeholder]");
-    const htmlTag = document.documentElement;
-    const bodyTag = document.body;
-    const formLang = document.getElementById("formLang");
+    function setLang(lang) {
+      if (!translations[lang]) {
+        lang = "fr";
+      }
 
-    function setLanguage(lang) {
-      const dictionary = translations[lang] || translations.fr;
+      const dict = translations[lang];
 
-      textElements.forEach((el) => {
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+      document.body.classList.toggle("rtl", lang === "ar");
+
+      localStorage.setItem("isofinp_lang", lang);
+
+      const hiddenLang = document.getElementById("website_lang");
+      if (hiddenLang) {
+        hiddenLang.value = lang;
+      }
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
-        if (dictionary[key]) {
-          el.textContent = dictionary[key];
+        if (dict[key]) {
+          el.textContent = dict[key];
         }
       });
 
-      placeholderElements.forEach((el) => {
-        const key = el.getAttribute("data-placeholder");
-        if (dictionary[key]) {
-          el.setAttribute("placeholder", dictionary[key]);
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (dict[key]) {
+          el.setAttribute("placeholder", dict[key]);
         }
       });
 
-      document.title = dictionary.page_title || translations.fr.page_title;
-
-      htmlTag.setAttribute("lang", lang);
-      htmlTag.setAttribute("dir", lang === "ar" ? "rtl" : "ltr");
-
-      if (lang === "ar") {
-        bodyTag.classList.add("rtl");
-      } else {
-        bodyTag.classList.remove("rtl");
-      }
-
-      if (formLang) {
-        formLang.value = lang;
-      }
-
-      langButtons.forEach((btn) => {
+      document.querySelectorAll(".lang button").forEach((btn) => {
         btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
       });
 
-      localStorage.setItem("isofinp_lang", lang);
+      if (dict.meta_title) {
+        document.title = dict.meta_title;
+      }
+
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription && dict.meta_description) {
+        metaDescription.setAttribute("content", dict.meta_description);
+      }
     }
 
-    langButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        setLanguage(button.getAttribute("data-lang"));
-      });
-    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get("lang");
+    const savedLang = localStorage.getItem("isofinp_lang");
 
-    function toggleMenu() {
-      document.getElementById("mainNav").classList.toggle("open");
+    if (["fr", "en", "es", "ar"].includes(urlLang)) {
+      setLang(urlLang);
+    } else {
+      setLang(savedLang || "fr");
     }
-
-    document.querySelectorAll("nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.getElementById("mainNav").classList.remove("open");
-      });
-    });
-
-    const savedLang = localStorage.getItem("isofinp_lang") || "fr";
-    setLanguage(savedLang);
   </script>
+
+  <!-- JS principal -->
+  <script src="assets/js/main.js"></script>
+
 </body>
 </html>
