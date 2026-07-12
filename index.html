@@ -1,182 +1,991 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="page-title">ISOFIN-P | Solutions d'Étanchéité Professionnelles</title>
-  <meta name="description" id="meta-desc" content="Solutions d'étanchéité innovantes pour terrasses, toitures et bâtiments. 15 produits professionnels.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ISOFIN-P | Solutions d'Étanchéité Professionnelles</title>
+  <meta name="description" content="ISOFIN-P - Solutions d'étanchéité et d'imperméabilisation professionnelles. D&G HOLDING, 18 rue Masséna, 06000 Nice."/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    :root { --blue:#003087; --green:#2E8B57; }
-    body { font-family: 'Montserrat', sans-serif; margin:0; color:#333; line-height:1.6; }
-    header { background:#003087; color:white; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-size:2rem; font-weight:bold; }
-    .lang-switch button { background:#2E8B57; color:white; border:none; padding:8px 14px; margin:0 3px; cursor:pointer; border-radius:4px; }
-    .hero { height:85vh; background:linear-gradient(rgba(0,48,135,0.75),rgba(0,48,135,0.75)), url('images/hero.jpg'); background-size:cover; display:flex; align-items:center; justify-content:center; text-align:center; color:white; }
-    .btn { padding:14px 28px; border-radius:6px; text-decoration:none; display:inline-block; margin:8px; font-weight:600; }
-    .btn-blue { background:#003087; color:white; }
-    .btn-green { background:#2E8B57; color:white; }
-    section { padding:4rem 2rem; max-width:1200px; margin:0 auto; }
-    .product-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; }
-    .product-card { background:white; padding:1.5rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-    footer { background:#003087; color:white; text-align:center; padding:2rem; }
-    [dir="rtl"] { text-align:right; }
+    /* ========== RESET & BASE ========== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #222;
+      background: #f8f9fa;
+    }
+
+    /* ========== VARIABLES ========== */
+    :root {
+      --blue: #003087;
+      --blue-light: #0050c8;
+      --green: #00A651;
+      --white: #ffffff;
+      --gray: #f0f4f8;
+      --dark: #1a1a2e;
+      --shadow: 0 4px 20px rgba(0,48,135,0.15);
+    }
+
+    /* ========== TOP BAR ========== */
+    .topbar {
+      background: var(--dark);
+      color: var(--white);
+      padding: 8px 0;
+      font-size: 13px;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .topbar a { color: #aad4ff; text-decoration: none; }
+    .topbar a:hover { color: var(--green); }
+    .topbar .contact-info span { margin-right: 20px; }
+    .topbar .contact-info i { margin-right: 5px; color: var(--green); }
+
+    /* ========== LANGUAGE SELECTOR ========== */
+    .lang-selector { display: flex; gap: 6px; flex-wrap: wrap; }
+    .lang-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .lang-btn:hover, .lang-btn.active {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    /* ========== HEADER / NAVBAR ========== */
+    header {
+      background: var(--white);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .logo-wrap img {
+      height: 65px;
+      width: auto;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-text .brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      color: var(--blue);
+      letter-spacing: 1px;
+    }
+    .logo-text .tagline {
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--blue);
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      position: relative;
+      transition: color 0.3s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--green);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--green); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links .btn-contact {
+      background: var(--green);
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 30px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .nav-links .btn-contact:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+    }
+    .nav-links .btn-contact::after { display: none; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px; height: 3px;
+      background: var(--blue);
+      border-radius: 3px;
+      transition: all 0.3s;
+    }
+
+    /* ========== CONTAINER ========== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ========== HERO SECTION ========== */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, #001a5e 50%, #003d1a 100%);
+      color: white;
+      padding: 100px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,166,81,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%; left: -5%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: var(--green); }
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+      margin-bottom: 35px;
+      line-height: 1.7;
+    }
+    .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(0,166,81,0.4);
+    }
+    .btn-primary:hover {
+      background: #008a43;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,166,81,0.5);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      border: 2px solid rgba(255,255,255,0.5);
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-secondary:hover {
+      background: white;
+      color: var(--blue);
+      border-color: white;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .stat-item { text-align: center; }
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--green);
+    }
+    .stat-label { font-size: 13px; opacity: 0.8; }
+
+    /* ========== SECTION TITLES ========== */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .section-title .subtitle {
+      color: var(--green);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      color: var(--blue);
+      margin-bottom: 15px;
+    }
+    .section-title p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .title-line {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      margin: 15px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ========== FEATURES SECTION ========== */
+    .features { padding: 80px 0; background: var(--white); }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .feature-card {
+      background: var(--gray);
+      border-radius: 16px;
+      padding: 35px 25px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+    }
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+      border-color: var(--green);
+    }
+    .feature-icon {
+      width: 70px; height: 70px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      color: white;
+    }
+    .feature-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--blue);
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .feature-card p { color: #666; line-height: 1.6; font-size: 14px; }
+
+    /* ========== PRODUCTS SECTION ========== */
+    .products { padding: 80px 0; background: var(--gray); }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      border: 1px solid #e8ecf0;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,48,135,0.2);
+    }
+    .product-img-wrap {
+      height: 220px;
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .product-img-wrap .product-badge {
+      position: absolute;
+      top: 15px; right: 15px;
+      background: var(--green);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .product-img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .product-img-placeholder i { font-size: 50px; opacity: 0.7; margin-bottom: 10px; }
+    .product-img-placeholder span { font-size: 20px; font-weight: 700; font-family: 'Montserrat', sans-serif; }
+    .product-body { padding: 25px; }
+    .product-category {
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .product-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      color: var(--blue);
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .product-body p {
+      color: #666;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .product-specs {
+      background: var(--gray);
+      border-radius: 10px;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+    }
+    .product-specs h4 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      padding: 3px 0;
+      border-bottom: 1px solid #e0e6ed;
+      color: #555;
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-row strong { color: var(--blue); }
+    .product-uses {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .use-tag {
+      background: rgba(0,48,135,0.08);
+      color: var(--blue);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+    .btn-product {
+      display: block;
+      text-align: center;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      color: white;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      transition: all 0.3s;
+    }
+    .btn-product:hover {
+      background: linear-gradient(135deg, var(--green), #008a43);
+      transform: translateY(-2px);
+    }
+
+    /* ========== CERTIFICATIONS ========== */
+    .certifications {
+      padding: 60px 0;
+      background: var(--blue);
+      color: white;
+      text-align: center;
+    }
+    .certifications h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      margin-bottom: 40px;
+    }
+    .cert-grid {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cert-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .cert-icon {
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      transition: all 0.3s;
+    }
+    .cert-item:hover .cert-icon {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .cert-item span { font-size: 13px; font-weight: 600; opacity: 0.9; }
+
+    /* ========== ABOUT SECTION ========== */
+    .about { padding: 80px 0; background: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-img {
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      border-radius: 20px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 30px;
+    }
+    .about-content h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      color: var(--blue);
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+    .about-content p {
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    .about-list { list-style: none; margin: 20px 0; }
+    .about-list li {
+      padding: 8px 0;
+      color: #555;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-list li i { color: var(--green); font-size: 16px; }
+
+    /* ========== CONTACT SECTION ========== */
+    .contact { padding: 80px 0; background: var(--gray); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+    .contact-info h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px;
+      color: var(--blue);
+      margin-bottom: 25px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+    .contact-icon {
+      width: 50px; height: 50px;
+      background: linear-gradient(135deg, var(--blue), var(--blue-light));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .contact-item h4 {
+      color: var(--blue);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .contact-item p, .contact-item a {
+      color: #666;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+    .contact-item a:hover { color: var(--green); }
+    .contact-form { background: white; border-radius: 20px; padding: 40px; box-shadow: var(--shadow); }
+    .contact-form h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--blue);
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--blue);
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e6ed;
+      border-radius: 10px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.3s;
+      outline: none;
+      background: #fafbfc;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--blue); background: white; }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--blue), var(--green));
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.8);
+      padding: 60px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+    }
+    .footer-brand .logo-text .brand { color: white; }
+    .footer-brand p { margin-top: 15px; line-height: 1.7; font-size: 14px; opacity: 0.8; }
+    .footer-social { display: flex; gap: 10px; margin-top: 20px; }
+    .social-btn {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .social-btn:hover { background: var(--green); }
+    .footer-col h4 {
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-size: 16px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-col h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 30px; height: 2px;
+      background: var(--green);
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-col ul li a:hover { color: var(--green); }
+    .footer-col ul li a i { font-size: 12px; color: var(--green); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+    .footer-bottom a { color: var(--green); text-decoration: none; }
+
+    /* ========== SCROLL TO TOP ========== */
+    .scroll-top {
+      position: fixed;
+      bottom: 30px; right: 30px;
+      width: 45px; height: 45px;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0,166,81,0.4);
+      transition: all 0.3s;
+      z-index: 999;
+    }
+    .scroll-top:hover { background: var(--blue); transform: translateY(-3px); }
+
+    /* ========== MOBILE NAV ========== */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        gap: 15px;
+      }
+      .nav-links.open { display: flex; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 60px 0; }
+      .hero-stats { gap: 20px; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .topbar .container { flex-direction: column; text-align: center; }
+    }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate { animation: fadeInUp 0.6s ease forwards; }
+
+    /* ========== PRODUCT DETAIL MODAL ========== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: white;
+      border-radius: 20px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 15px; right: 15px;
+      background: none; border: none;
+      font-size: 24px; cursor: pointer;
+      color: #999; transition: color 0.3s;
+    }
+    .modal-close:hover { color: var(--blue); }
+    .modal h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--blue);
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
 
+<!-- ===== TOP BAR ===== -->
+<div class="topbar">
+  <div class="container">
+    <div class="contact-info">
+      <span><i class="fas fa-phone"></i><a href="tel:+0033651818229">+00 33 6 51 81 82 29</a></span>
+      <span><i class="fas fa-envelope"></i><a href="mailto:contact@isofinp.com">contact@isofinp.com</a></span>
+      <span><i class="fas fa-map-marker-alt"></i>D&G HOLDING — 18 rue Masséna, 06000 Nice</span>
+    </div>
+    <div class="lang-selector">
+      <button class="lang-btn active" onclick="setLang('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" onclick="setLang('en')">🇬🇧 EN</button>
+      <button class="lang-btn" onclick="setLang('es')">🇪🇸 ES</button>
+      <button class="lang-btn" onclick="setLang('ar')">🇸🇦 AR</button>
+      <button class="lang-btn" onclick="setLang('ru')">🇷🇺 RU</button>
+      <button class="lang-btn" onclick="setLang('ro')">🇷🇴 RO</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
 <header>
-  <div class="logo">ISOFIN-P</div>
-  <nav>
-    <a href="#produits" style="color:white;margin:0 15px;">Produits</a>
-    <a href="produits.html" style="color:white;margin:0 15px;">Catalogue</a>
-    <a href="contact.html" style="color:white;margin:0 15px;">Contact</a>
-  </nav>
-  <div class="lang-switch">
-    <button onclick="switchLang('fr')">FR</button>
-    <button onclick="switchLang('en')">EN</button>
-    <button onclick="switchLang('es')">ES</button>
-    <button onclick="switchLang('ar')">AR</button>
+  <div class="container">
+    <nav>
+      <a href="#" class="logo-wrap">
+        <!-- Logo ISOFIN-P -->
+        <img src="isofin-p-logo.png" alt="ISOFIN-P Logo" onerror="this.style.display='none'"/>
+        <div class="logo-text">
+          <span class="brand">ISOFIN-P</span>
+          <span class="tagline" data-fr="Solutions d'Étanchéité" data-en="Waterproofing Solutions" data-es="Soluciones de Impermeabilización" data-ar="حلول العزل المائي" data-ru="Гидроизоляционные решения" data-ro="Soluții de Impermeabilizare">Solutions d'Étanchéité</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil" data-fr="Accueil" data-en="Home" data-es="Inicio" data-ar="الرئيسية" data-ru="Главная" data-ro="Acasă">Accueil</a></li>
+        <li><a href="#produits" data-fr="Produits" data-en="Products" data-es="Productos" data-ar="المنتجات" data-ru="Продукты" data-ro="Produse">Produits</a></li>
+        <li><a href="#apropos" data-fr="À Propos" data-en="About Us" data-es="Sobre Nosotros" data-ar="عنا" data-ru="О нас" data-ro="Despre Noi">À Propos</a></li>
+        <li><a href="#certifications" data-fr="Certifications" data-en="Certifications" data-es="Certificaciones" data-ar="الشهادات" data-ru="Сертификаты" data-ro="Certificări">Certifications</a></li>
+        <li><a href="#contact" class="btn-contact" data-fr="Contact" data-en="Contact" data-es="Contacto" data-ar="اتصل بنا" data-ru="Контакт" data-ro="Contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1 id="hero-title">Solutions d'Étanchéité Professionnelles</h1>
-    <p id="hero-subtitle">15 produits innovants • Qualité certifiée • Disponible en 4 langues</p>
-    <a href="#produits" class="btn btn-green" id="hero-products">Découvrir les produits</a>
-    <a href="contact.html" class="btn btn-blue" id="hero-quote">Demander un devis</a>
+<!-- ===== HERO ===== -->
+<section class="hero" id="accueil">
+  <div class="container">
+    <div class="hero-content animate">
+      <div class="hero-badge" data-fr="🏆 Leader en Étanchéité" data-en="🏆 Waterproofing Leader" data-es="🏆 Líder en Impermeabilización" data-ar="🏆 الرائد في العزل المائي" data-ru="🏆 Лидер гидроизоляции" data-ro="🏆 Lider în Impermeabilizare">
+        🏆 Leader en Étanchéité
+      </div>
+      <h1 data-fr="Solutions d'Étanchéité <span>Professionnelles</span> & Durables" data-en="Professional & Durable <span>Waterproofing</span> Solutions" data-es="Soluciones de Impermeabilización <span>Profesionales</span> y Duraderas" data-ar="حلول عزل مائي <span>احترافية</span> ودائمة" data-ru="Профессиональные и Долговечные <span>Гидроизоляционные</span> Решения" data-ro="Soluții de Impermeabilizare <span>Profesionale</span> și Durabile">
+        Solutions d'Étanchéité <span>Professionnelles</span> & Durables
+      </h1>
+      <p data-fr="ISOFIN-P propose une gamme complète de produits d'étanchéité liquide, de revêtements imperméabilisants et de solutions d'isolation pour tous types de surfaces. Qualité certifiée CE, TSE et SZUTEST." data-en="ISOFIN-P offers a complete range of liquid waterproofing products, waterproof coatings and insulation solutions for all types of surfaces. CE, TSE and SZUTEST certified quality." data-es="ISOFIN-P ofrece una gama completa de productos de impermeabilización líquida, revestimientos impermeables y soluciones de aislamiento para todo tipo de superficies. Calidad certificada CE, TSE y SZUTEST." data-ar="تقدم ISOFIN-P مجموعة كاملة من منتجات العزل المائي السائل وطلاءات مقاومة للماء وحلول العزل لجميع أنواع الأسطح. جودة معتمدة CE وTSE وSZUTEST." data-ru="ISOFIN-P предлагает полный ассортимент жидких гидроизоляционных продуктов, водонепроницаемых покрытий и изоляционных решений для всех типов поверхностей. Качество сертифицировано CE, TSE и SZUTEST." data-ro="ISOFIN-P oferă o gamă completă de produse de impermeabilizare lichidă, acoperiri impermeabile și soluții de izolație pentru toate tipurile de suprafețe. Calitate certificată CE, TSE și SZUTEST.">
+        ISOFIN-P propose une gamme complète de produits d'étanchéité liquide, de revêtements imperméabilisants et de solutions d'isolation pour tous types de surfaces. Qualité certifiée CE, TSE et SZUTEST.
+      </p>
+      <div class="hero-btns">
+        <a href="#produits" class="btn-primary">
+          <i class="fas fa-boxes"></i>
+          <span data-fr="Voir nos Produits" data-en="View Products" data-es="Ver Productos" data-ar="عرض المنتجات" data-ru="Смотреть продукты" data-ro="Vezi Produsele">Voir nos Produits</span>
+        </a>
+        <a href="#contact" class="btn-secondary">
+          <i class="fas fa-phone"></i>
+          <span data-fr="Nous Contacter" data-en="Contact Us" data-es="Contáctenos" data-ar="اتصل بنا" data-ru="Связаться" data-ro="Contactați-ne">Nous Contacter</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label" data-fr="Étanchéité garantie" data-en="Guaranteed waterproofing" data-es="Impermeabilización garantizada" data-ar="عزل مائي مضمون" data-ru="Гарантированная гидроизоляция" data-ro="Impermeabilizare garantată">Étanchéité garantie</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24M</div>
+          <div class="stat-label" data-fr="Durée de conservation" data-en="Shelf life" data-es="Vida útil" data-ar="مدة الصلاحية" data-ru="Срок хранения" data-ro="Durată de depozitare">Durée de conservation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">6+</div>
+          <div class="stat-label" data-fr="Produits certifiés CE" data-en="CE certified products" data-es="Productos certificados CE" data-ar="منتجات معتمدة CE" data-ru="Продуктов с сертификатом CE" data-ro="Produse certificate CE">Produits certifiés CE</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5°C</div>
+          <div class="stat-label" data-fr="Temp. d'application min." data-en="Min. application temp." data-es="Temp. mín. de aplicación" data-ar="درجة الحرارة الدنيا للتطبيق" data-ru="Мин. температура нанесения" data-ro="Temp. min. de aplicare">Temp. d'application min.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- À PROPOS -->
-<section>
-  <h2 id="about-title">À propos d'ISOFIN-P</h2>
-  <p id="about-text">ISOFIN-P, marque de D&G HOLDING, propose des solutions d'étanchéité liquide haute performance pour les professionnels du bâtiment. Siège : 18 rue Massena, 06000 Nice, France.</p>
-</section>
-
-<!-- PRODUITS -->
-<section id="produits">
-  <h2 id="products-title">Nos 15 Produits Phares</h2>
-  <div class="product-grid">
-    <div class="product-card"><a href="p01.html">P01 – Membrane Liquide</a></div>
-    <div class="product-card"><a href="p02.html">P02 – Membrane Liquide</a></div>
-    <div class="product-card"><a href="p03.html">P03 – ISOFIN MS 20</a></div>
-    <div class="product-card"><a href="p04.html">P04 – ISOFIN PU 400</a></div>
-    <div class="product-card"><a href="p05.html">P05 – ISOFIN PU 600</a></div>
-    <div class="product-card"><a href="p06.html">P06 – ISOFIN PU 800</a></div>
-    <div class="product-card"><a href="p07.html">P07 – ISOFIN PU 1000</a></div>
-    <div class="product-card"><a href="p08.html">P08 – ISOFIN PU 1200</a></div>
-    <div class="product-card"><a href="p09.html">P09 – ISOFIN PU 1400</a></div>
-    <div class="product-card"><a href="p10.html">P10 – ISOFIN PU 1600</a></div>
-    <div class="product-card"><a href="p11.html">P11 – ISOFIN PU 1800</a></div>
-    <div class="product-card"><a href="p12.html">P12 – ISOFIN WP 200</a></div>
-    <div class="product-card"><a href="p13.html">P13 – ISOFIN CRACK SEAL</a></div>
-    <div class="product-card"><a href="p14.html">P14 – ISOFIN ROOF COAT</a></div>
-    <div class="product-card"><a href="p15.html">P15 – ISOFIN ROOF COAT PRO</a></div>
+<!-- ===== FEATURES ===== -->
+<section class="features" id="avantages">
+  <div class="container">
+    <div class="section-title">
+      <div class="subtitle" data-fr="NOS AVANTAGES" data-en="OUR ADVANTAGES" data-es="NUESTRAS VENTAJAS" data-ar="مزاياناPour" data-ru="НАШИ ПРЕИМУЩЕСТВА" data-ro="AVANTAJELE NOASTRE">NOS AVANTAGES</div>
+      <h2 data-fr="Pourquoi Choisir ISOFIN-P ?" data-en="Why Choose ISOFIN-P?" data-es="¿Por qué elegir ISOFIN-P?" data-ar="لماذا تختار ISOFIN-P؟" data-ru="Почему ISOFIN-P?" data-ro="De ce să alegeți ISOFIN-P?">Pourquoi Choisir ISOFIN-P ?</h2>
+      <div class="title-line"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3 data-fr="Étanchéité 100%" data-en="100% Waterproofing" data-es="Impermeabilización 100%" data-ar="عزل مائي 100%" data-ru="Гидроизоляция 100%" data-ro="Impermeabilizare 100%">Étanchéité 100%</h3>
+        <p data-fr="Nos produits garantissent une imperméabilisation totale contre l'eau, la pluie, la neige et l'humidité." data-en="Our products guarantee total waterproofing against water, rain, snow and humidity." data-es="Nuestros productos garantizan una impermeabilización total contra el agua, la lluvia, la nieve y la humedad." data-ar="تضمن منتجاتنا عزلاً مائياً كاملاً ضد الماء والمطر والثلج والرطوبة." data-ru="Наши продукты гарантируют полную гидроизоляцию от воды, дождя, снега и влаги." data-ro="Produsele noastre garantează impermeabilizare totală împotriva apei, ploii, zăpezii și umidității.">Nos produits garantissent une imperméabilisation totale contre l'eau, la pluie, la neige et l'humidité.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-sun"></i></div>
+        <h3 data-fr="Résistance aux UV" data-en="UV Resistance" data-es="Resistencia a los UV" data-ar="مقاومة الأشعة فوق البنفسجية" data-ru="Устойчивость к УФ" data-ro="Rezistență UV">Résistance aux UV</h3>
+        <p data-fr="Formules spécialement développées pour résister aux rayons ultraviolets et aux intempéries extrêmes." data-en="Specially developed formulas to resist ultraviolet rays and extreme weather conditions." data-es="Fórmulas especialmente desarrolladas para resistir los rayos ultravioleta y las condiciones climáticas extremas." data-ar="صيغ مطورة خصيصاً لمقاومة الأشعة فوق البنفسجية والظروف الجوية القاسية." data-ru="Специально разработанные формулы для устойчивости к ультрафиолетовым лучам и экстремальным погодным условиям." data-ro="Formule special dezvoltate pentru a rezista razelor ultraviolete și condițiilor meteo extreme.">Formules spécialement développées pour résister aux rayons ultraviolets et aux intempéries extrêmes.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+        <h3 data-fr="Certifié CE & TSE" data-en="CE & TSE Certified" data-es="Certificado CE y TSE" data-ar="معتمد CE و TSE" data-ru="Сертификат CE и TSE" data-ro="Certificat CE și TSE">Certifié CE & TSE</h3>
+        <p data-fr="Tous nos produits sont certifiés CE, TSE et SZUTEST, garantissant les plus hauts standards de qualité." data-en="All our products are CE, TSE and SZUTEST certified, guaranteeing the highest quality standards." data-es="Todos nuestros productos están certificados CE, TSE y SZUTEST, garantizando los más altos estándares de calidad." data-ar="جميع منتجاتنا معتمدة CE وTSE وSZUTEST، مما يضمن أعلى معايير الجودة." data-ru="Все наши продукты сертифицированы CE, TSE и SZUTEST, гарантируя высочайшие стандарты качества." data-ro="Toate produsele noastre sunt certificate CE, TSE și SZUTEST, garantând cele mai înalte standarde de calitate.">Tous nos produits sont certifiés CE, TSE et SZUTEST, garantissant les plus hauts standards de qualité.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+        <h3 data-fr="Écologique & Sûr" data-en="Eco-Friendly & Safe" data-es="Ecológico y Seguro" data-ar="صديق للبيئة وآمن" data-ru="Экологичный и безопасный" data-ro="Ecologic și Sigur">Écologique & Sûr</h3>
+        <p data-fr="À base d'eau, sans solvants nocifs. Ne contient pas de substances dangereuses pour la santé et l'environnement." data-en="Water-based, without harmful solvents. Does not contain substances dangerous to health and the environment." data-es="A base de agua, sin disolventes nocivos. No contiene sustancias peligrosas para la salud y el medio ambiente." data-ar="على أساس مائي، بدون مذيبات ضارة. لا يحتوي على مواد خطرة على الصحة والبيئة." data-ru="На водной основе, без вредных растворителей. Не содержит веществ, опасных для здоровья и окружающей среды." data-ro="Pe bază de apă, fără solvenți dăunători. Nu conține substanțe periculoase pentru sănătate și mediu.">À base d'eau, sans solvants nocifs. Ne contient pas de substances dangereuses pour la santé et l'environnement.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+        <h3 data-fr="Personnalisable" data-en="Customizable" data-es="Personalizable" data-ar="قابل للتخصيص" data-ru="Настраиваемый" data-ro="Personalizabil">Personnalisable</h3>
+        <p data-fr="Disponible dans toutes les couleurs selon le nuancier. Adaptez l'esthétique à votre projet." data-en="Available in all colors according to the color chart. Adapt the aesthetics to your project." data-es="Disponible en todos los colores según la carta de colores. Adapte la estética a su proyecto." data-ar="متوفر بجميع الألوان حسب لوحة الألوان. تكيّف مع جماليات مشروعك." data-ru="Доступен во всех цветах по цветовой карте. Адаптируйте эстетику к вашему проекту." data-ro="Disponibil în toate culorile conform paletei de culori. Adaptați estetica la proiectul dvs.">Disponible dans toutes les couleurs selon le nuancier. Adaptez l'esthétique à votre projet.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-tools"></i></div>
+        <h3 data-fr="Facile à Appliquer" data-en="Easy to Apply" data-es="Fácil de Aplicar" data-ar="سهل التطبيق" data-ru="Легко наносить" data-ro="Ușor de Aplicat">Facile à Appliquer</h3>
+        <p data-fr="Application au rouleau, pinceau ou pulvérisateur. Prêt à l'emploi, sans équipement spécialisé requis." data-en="Apply by roller, brush or sprayer. Ready to use, no specialized equipment required." data-es="Aplicación con rodillo, brocha o pulverizador. Listo para usar, sin equipos especializados." data-ar="التطبيق بالأسطوانة أو الفرشاة أو الرذاذ. جاهز للاستخدام، لا يتطلب معدات متخصصة." data-ru="Нанесение валиком, кистью или распылителем. Готов к использованию, не требует специального оборудования." data-ro="Aplicare cu tăvălug, pensulă sau pulverizator. Gata de utilizare, fără echipamente specializate.">Application au rouleau, pinceau ou pulvérisateur. Prêt à l'emploi, sans équipement spécialisé requis.</p>
+      </div>
+    </div>
   </div>
-  <a href="produits.html" class="btn btn-green" style="margin-top:2rem;display:inline-block;" id="all-products">Voir le catalogue complet</a>
 </section>
 
-<!-- TÉMOIGNAGES -->
-<section>
-  <h2 id="testimonials-title">Témoignages Clients</h2>
-  <p id="testimonials-text">« Produit exceptionnel, application facile et résultat durable. » — Entreprise BTP Nice<br>
-  « Excellent rapport qualité-prix et service client réactif. » — Société Construction Marseille<br>
-  « Nous utilisons ISOFIN-P depuis 3 ans sur tous nos chantiers. » — Chef de projet Lyon</p>
-</section>
+<!-- ===== PRODUCTS ===== -->
+<section class="products" id="produits">
+  <div class="container">
+    <div class="section-title">
+      <div class="subtitle" data-fr="NOTRE GAMME" data-en="OUR RANGE" data-es="NUESTRA GAMA" data-ar="مجموعتنا" data-ru="НАША ЛИНЕЙКА" data-ro="GAMA NOASTRĂ">NOTRE GAMME</div>
+      <h2 data-fr="Nos Produits ISOFIN-P" data-en="Our ISOFIN-P Products" data-es="Nuestros Productos ISOFIN-P" data-ar="منتجاتنا ISOFIN-P" data-ru="Наши продукты ISOFIN-P" data-ro="Produsele noastre ISOFIN-P">Nos Produits ISOFIN-P</h2>
+      <p data-fr="Une gamme complète de solutions d'étanchéité pour tous vos projets de construction et rénovation." data-en="A complete range of waterproofing solutions for all your construction and renovation projects." data-es="Una gama completa de soluciones de impermeabilización para todos sus proyectos de construcción y renovación." data-ar="مجموعة كاملة من حلول العزل المائي لجميع مشاريع البناء والتجديد." data-ru="Полный ассортимент гидроизоляционных решений для всех ваших строительных и ремонтных проектов." data-ro="O gamă completă de soluții de impermeabilizare pentru toate proiectele dvs. de construcție și renovare.">Une gamme complète de solutions d'étanchéité pour tous vos projets de construction et rénovation.</p>
+      <div class="title-line"></div>
+    </div>
+    <div class="products-grid">
 
-<!-- CONTACT -->
-<section>
-  <h2 id="contact-title">Contactez-nous</h2>
-  <p>D&G HOLDING – 18 rue Massena, 06000 Nice, France</p>
-  <a href="contact.html" class="btn btn-blue" id="contact-btn">Formulaire de contact</a>
-</section>
+      <!-- PRODUCT 1: SB SUPER COMPONENT -->
+      <div class="product-card">
+        <div class="product-img-wrap" style="background: linear-gradient(135deg, #003087, #0050c8);">
+          <div class="product-img-placeholder">
+            <i class="fas fa-tint"></i>
+            <span>SB SUPER COMPONENT</span>
+          </div>
+          <span class="product-badge">CE Certifié</span>
+        </div>
+        <div class="product-body">
+          <div class="product-category" data-fr="Revêtement d'Étanchéité Liquide" data-en="Liquid Waterproofing Coating" data-es="Revestimiento Impermeabilizante Líquido" data-ar="طلاء عزل مائي سائل" data-ru="Жидкое гидроизоляционное покрытие" data-ro="Acoperire Impermeabilizantă Lichidă">Revêtement d'Étanchéité Liquide</div>
+          <h3>ISOFIN-P SB SUPER COMPONENT</h3>
+          <p data-fr="Revêtement d'étanchéité liquide extrêmement durable composé de minéraux spéciaux et de composants en polymère. Forte adhérence, excellente résistance à l'eau et aux UV. Idéal pour toits en béton et terrasses." data-en="Extremely durable liquid waterproofing coating composed of special minerals and polymer components. Strong adhesion, excellent water and UV resistance. Ideal for concrete roofs and terraces." data-es="Revestimiento impermeabilizante líquido extremadamente duradero compuesto de minerales especiales y componentes poliméricos. Fuerte adhesión, excelente resistencia al agua y a los UV." data-ar="طلاء عزل مائي سائل متين للغاية مؤلف من معادن خاصة ومكونات بوليمرية. التصاق قوي، مقاومة ممتازة للماء والأشعة فوق البنفسجية." data-ru="Чрезвычайно прочное жидкое гидроизоляционное покрытие из специальных минералов и полимерных компонентов. Сильное сцепление, отличная водостойкость и устойчивость к УФ." data-ro="Acoperire impermeabilizantă lichidă extrem de durabilă compusă din minerale speciale și componente polimerice. Aderență puternică, rezistență excelentă la apă și UV.">Revêtement d'étanchéité liquide extrêmement durable composé de minéraux spéciaux et de composants en polymère. Forte adhérence, excellente résistance à l'eau et aux UV.</p>
+          <div class="product-specs">
+            <h4 data-fr="Caractéristiques Techniques" data-en="Technical Specifications" data-es="Especificaciones Técnicas" data-ar="المواصفات التقنية" data-ru="Технические характеристики" data-ro="Specificații Tehnice">Caractéristiques Techniques</h4>
+            <div class="spec-row"><strong data-fr="Densité (25°C)" data-en="Density (25°C)" data-es="Densidad (25°C)" data-ar="الكثافة (25°C)" data-ru="Плотность (25°C)" data-ro="Densitate (25°C)">Densité (25°C)</strong><span>1,40 ± 0,10 g/mL</span></div>
+            <div class="spec-row"><strong data-fr="pH (25°C)" data-en="pH (25°C)" data-es="pH (25°C)" data-ar="الرقم الهيدروجيني (25°C)" data-ru="pH (25°C)" data-ro="pH (25°C)">pH (25°C)</strong><span>7,0 – 9,0</span></div>
+            <div class="spec-row"><strong data-fr="Viscosité (25°C)" data-en="Viscosity (25°C)" data-es="
 
-<footer>
-  <p>© 2025 ISOFIN-P – D&G HOLDING | www.isofinp.com</p>
-</footer>
 
-<script>
-const translations = {
-  fr: {
-    "page-title": "ISOFIN-P | Solutions d'Étanchéité Professionnelles",
-    "meta-desc": "Solutions d'étanchéité innovantes pour terrasses, toitures et bâtiments. 15 produits professionnels.",
-    "hero-title": "Solutions d'Étanchéité Professionnelles",
-    "hero-subtitle": "15 produits innovants • Qualité certifiée • Disponible en 4 langues",
-    "hero-products": "Découvrir les produits",
-    "hero-quote": "Demander un devis",
-    "about-title": "À propos d'ISOFIN-P",
-    "about-text": "ISOFIN-P, marque de D&G HOLDING, propose des solutions d'étanchéité liquide haute performance pour les professionnels du bâtiment. Siège : 18 rue Massena, 06000 Nice, France.",
-    "products-title": "Nos 15 Produits Phares",
-    "all-products": "Voir le catalogue complet",
-    "testimonials-title": "Témoignages Clients",
-    "testimonials-text": "« Produit exceptionnel, application facile et résultat durable. » — Entreprise BTP Nice",
-    "contact-title": "Contactez-nous",
-    "contact-btn": "Formulaire de contact"
-  },
-  en: {
-    "page-title": "ISOFIN-P | Professional Waterproofing Solutions",
-    "meta-desc": "Innovative waterproofing solutions for terraces, roofs and buildings. 15 professional products.",
-    "hero-title": "Professional Waterproofing Solutions",
-    "hero-subtitle": "15 innovative products • Certified quality • Available in 4 languages",
-    "hero-products": "Discover our products",
-    "hero-quote": "Request a quote",
-    "about-title": "About ISOFIN-P",
-    "about-text": "ISOFIN-P, a brand of D&G HOLDING, offers high-performance liquid waterproofing solutions for construction professionals. Head office: 18 rue Massena, 06000 Nice, France.",
-    "products-title": "Our 15 Flagship Products",
-    "all-products": "View full catalog",
-    "testimonials-title": "Client Testimonials",
-    "testimonials-text": "« Exceptional product, easy application and long-lasting results. » — BTP Company Nice",
-    "contact-title": "Contact Us",
-    "contact-btn": "Contact form"
-  },
-  es: {
-    "page-title": "ISOFIN-P | Soluciones Profesionales de Impermeabilización",
-    "meta-desc": "Soluciones innovadoras de impermeabilización para terrazas, tejados y edificios. 15 productos profesionales.",
-    "hero-title": "Soluciones Profesionales de Impermeabilización",
-    "hero-subtitle": "15 productos innovadores • Calidad certificada • Disponible en 4 idiomas",
-    "hero-products": "Descubrir los productos",
-    "hero-quote": "Solicitar presupuesto",
-    "about-title": "Sobre ISOFIN-P",
-    "about-text": "ISOFIN-P, marca de D&G HOLDING, ofrece soluciones de impermeabilización líquida de alto rendimiento. Sede: 18 rue Massena, 06000 Niza, Francia.",
-    "products-title": "Nuestros 15 Productos Destacados",
-    "all-products": "Ver catálogo completo",
-    "testimonials-title": "Testimonios de Clientes",
-    "testimonials-text": "« Producto excepcional, aplicación fácil y resultados duraderos. » — Empresa BTP Niza",
-    "contact-title": "Contáctenos",
-    "contact-btn": "Formulario de contacto"
-  },
-  ar: {
-    "page-title": "ISOFIN-P | حلول العزل المائي الاحترافية",
-    "meta-desc": "حلول عزل مائي مبتكرة للتراسات والأسطح والمباني. 15 منتجًا احترافيًا.",
-    "hero-title": "حلول العزل المائي الاحترافية",
-    "hero-subtitle": "15 منتجًا مبتكرًا • جودة معتمدة • متوفر بـ4 لغات",
-    "hero-products": "اكتشف المنتجات",
-    "hero-quote": "طلب عرض أسعار",
-    "about-title": "عن ISOFIN-P",
-    "about-text": "ISOFIN-P، علامة تجارية لـ D&G HOLDING، تقدم حلول عزل مائي سائل عالية الأداء. المقر: 18 rue Massena، 06000 نيس، فرنسا.",
-    "products-title": "منتجاتنا الـ15 الرائدة",
-    "all-products": "عرض الكتالوج الكامل",
-    "testimonials-title": "شهادات العملاء",
-    "testimonials-text": "« منتج استثنائي، سهل التطبيق ونتائج دائمة. » — شركة BTP نيس",
-    "contact-title": "اتصل بنا",
-    "contact-btn": "نموذج الاتصال"
-  }
-};
-
-function switchLang(lang) {
-  document.documentElement.lang = lang;
-  document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
-  const t = translations[lang];
-  Object.keys(t).forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = t[id];
-  });
-}
-
-// Langue par défaut
-switchLang('fr');
-</script>
-</body>
-</html>
