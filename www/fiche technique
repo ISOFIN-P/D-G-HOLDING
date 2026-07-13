@@ -1,0 +1,149 @@
+<!-- Fiche technique détaillée : ISOFIN-P MS POLYMER -->
+<article class="technical-card" id="fiche-iso-etanche-1">
+  <div class="technical-header">
+    <span class="section-badge">Fiche technique</span>
+    <h3>ISOFIN-P MS POLYMER</h3>
+    <p>
+      Matériau d’étanchéité élastique polymère — 300% Elastic Waterproofing Material.
+    </p>
+  </div>
+
+  <div class="technical-product-layout">
+    <div class="technical-product-image">
+      <img 
+        src="assets/images/produits/etancheite/pot.jpg"
+        alt="Pot ISOFIN-P MS POLYMER"
+        loading="lazy">
+    </div>
+
+    <div class="technical-product-info">
+      <h4>Description du produit</h4>
+      <p>
+        ISOFIN-P MS POLYMER est un revêtement d’étanchéité à base de polymère,
+        prêt à l’emploi, développé pour offrir une excellente élasticité, une bonne
+        résistance aux UV et une protection durable contre l’eau et l’humidité.
+      </p>
+
+      <p>
+        Il forme après séchage une membrane continue, souple et résistante, adaptée
+        aux surfaces exposées aux intempéries et aux mouvements légers du support.
+      </p>
+    </div>
+  </div>
+
+  <h4>Domaines d’utilisation</h4>
+  <ul>
+    <li>Étanchéité des terrasses et toitures</li>
+    <li>Protection des façades exposées à l’humidité</li>
+    <li>Toitures, surfaces en bois et supports minéraux</li>
+    <li>Anciennes étanchéités bitumineuses problématiques</li>
+    <li>Sols en asphalte et béton</li>
+    <li>Surfaces avec isolation thermique en polyuréthane projeté</li>
+    <li>Zones humides et surfaces exposées à l’eau</li>
+  </ul>
+
+  <h4>Caractéristiques techniques</h4>
+
+  <table class="technical-table">
+    <tbody>
+      <tr>
+        <th>Densité à 25°C</th>
+        <td>1,05 ± 0,10 g/mL</td>
+      </tr>
+      <tr>
+        <th>pH à 25°C</th>
+        <td>7,0 - 9,0</td>
+      </tr>
+      <tr>
+        <th>Viscosité à 25°C</th>
+        <td>13 000 - 15 000 mPa.s</td>
+      </tr>
+      <tr>
+        <th>Extrait sec</th>
+        <td>46 ± 2 %</td>
+      </tr>
+      <tr>
+        <th>Transmission d’eau</th>
+        <td>&lt; 0,1 kg/m².h<sup>0.5</sup></td>
+      </tr>
+      <tr>
+        <th>Résistance à l’arrachement</th>
+        <td>≥ 0,6 N/mm² selon support et système</td>
+      </tr>
+      <tr>
+        <th>Séchage hors poussière</th>
+        <td>Environ 3 heures</td>
+      </tr>
+      <tr>
+        <th>Séchage complet</th>
+        <td>Environ 7 jours</td>
+      </tr>
+      <tr>
+        <th>Solvant</th>
+        <td>Eau</td>
+      </tr>
+      <tr>
+        <th>Classe de réaction au feu</th>
+        <td>D-s2, d0</td>
+      </tr>
+      <tr>
+        <th>Couleur</th>
+        <td>Blanc ou couleurs disponibles sur demande</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Préparation du support</h4>
+  <ul>
+    <li>Le support doit être propre, solide, sec et résistant à la charge.</li>
+    <li>Éliminer les poussières, huiles, graisses, saletés et résidus non adhérents.</li>
+    <li>Réparer les fissures, trous et défauts importants avant application.</li>
+    <li>Les anciennes couches non adhérentes doivent être retirées.</li>
+    <li>Sur métal, appliquer un primaire anticorrosion adapté si nécessaire.</li>
+  </ul>
+
+  <h4>Application</h4>
+  <ul>
+    <li>Le produit est prêt à l’emploi.</li>
+    <li>Bien mélanger avant utilisation.</li>
+    <li>Appliquer au rouleau, pinceau, brosse ou pulvérisation selon le chantier.</li>
+    <li>Appliquer généralement en deux couches croisées.</li>
+    <li>Respecter le temps de séchage entre les couches.</li>
+    <li>Pour une meilleure pénétration en primaire, le produit peut être dilué avec de l’eau selon les recommandations techniques.</li>
+  </ul>
+
+  <h4>Avantages</h4>
+  <ul>
+    <li>Haute élasticité</li>
+    <li>Résistance aux UV</li>
+    <li>Application facile</li>
+    <li>Bonne adhérence sur de nombreux supports</li>
+    <li>Forme une membrane continue sans joints</li>
+    <li>Convient aux zones exposées à l’eau et aux intempéries</li>
+  </ul>
+
+  <h4>Précautions</h4>
+  <ul>
+    <li>Ne pas appliquer sous la pluie.</li>
+    <li>Ne pas appliquer sur support gelé ou très humide.</li>
+    <li>Éviter l’application en plein soleil intense ou par vent fort.</li>
+    <li>Protéger la surface jusqu’au séchage complet.</li>
+    <li>Respecter les conditions de température et d’humidité du chantier.</li>
+    <li>Faire un essai préalable sur supports particuliers.</li>
+  </ul>
+
+  <div class="product-actions">
+    <a 
+      href="assets/docs/fiches/fiche-etancheite.pdf"
+      class="btn btn-primary"
+      download>
+      Télécharger la fiche PDF
+    </a>
+
+    <a 
+      href="#iso-etanche-1"
+      class="btn btn-outline">
+      Retour au produit
+    </a>
+  </div>
+</article>
