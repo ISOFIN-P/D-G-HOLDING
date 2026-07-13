@@ -1,3 +1,201 @@
-<a href="assets/docs/catalogue-isofinp.pdf" download class="btn btn-primary">
-  Télécharger le catalogue
+<section class="technical-sheets" id="fiches-etancheite">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-badge">Documentation technique</span>
+      <h2>Fiches techniques — Étanchéité</h2>
+      <p>
+        Informations techniques générales pour l’application des produits
+        d’étanchéité ISOFIN-P.
+      </p>
+    </div>
+
+    <!-- Fiche 1 -->
+    <article class="technical-card" id="fiche-etancheite-liquide">
+      <h3>Fiche technique — Revêtement d’étanchéité liquide</h3>
+
+      <table class="technical-table">
+        <tbody>
+          <tr>
+            <th>Utilisation</th>
+            <td>Toitures, terrasses, balcons, murs, joints, fissures, zones humides.</td>
+          </tr>
+          <tr>
+            <th>Supports compatibles</th>
+            <td>Béton, mortier, ciment, enduit, anciennes surfaces propres et stables.</td>
+          </tr>
+          <tr>
+            <th>Application</th>
+            <td>Rouleau, pinceau, brosse ou spatule selon la surface.</td>
+          </tr>
+          <tr>
+            <th>Nombre de couches</th>
+            <td>2 couches croisées recommandées.</td>
+          </tr>
+          <tr>
+            <th>Séchage</th>
+            <td>Variable selon température, humidité et épaisseur appliquée.</td>
+          </tr>
+          <tr>
+            <th>Conditionnement</th>
+            <td>Seaux selon disponibilité : 5 kg, 10 kg, 20 kg ou autre format.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Préparation du support</h4>
+      <ul>
+        <li>Le support doit être propre, sec, solide et sans poussière.</li>
+        <li>Éliminer les parties friables, huiles, graisses et anciennes peintures non adhérentes.</li>
+        <li>Réparer les fissures importantes avant application.</li>
+        <li>Appliquer un primaire si nécessaire selon la nature du support.</li>
+      </ul>
+
+      <h4>Précautions</h4>
+      <ul>
+        <li>Ne pas appliquer sous pluie ou sur support gelé.</li>
+        <li>Éviter l’application en plein soleil intense.</li>
+        <li>Respecter le temps de séchage entre les couches.</li>
+        <li>Protéger la surface jusqu’au séchage complet.</li>
+      </ul>
+
+      <a href="assets/docs/fiches/fiche-etancheite-liquide.pdf"
+         class="btn btn-primary"
+         download>
+        Télécharger la fiche PDF
+      </a>
+    </article>
+
+    <!-- Fiche 2 -->
+    <article class="technical-card" id="fiche-membrane-etancheite">
+      <h3>Fiche technique — Membrane d’étanchéité</h3>
+
+      <table class="technical-table">
+        <tbody>
+          <tr>
+            <th>Utilisation</th>
+            <td>Renforcement des systèmes d’étanchéité, angles, fissures, joints et raccords.</td>
+          </tr>
+          <tr>
+            <th>Supports compatibles</th>
+            <td>Surfaces traitées avec revêtement d’étanchéité liquide compatible.</td>
+          </tr>
+          <tr>
+            <th>Application</th>
+            <td>Marouflage dans la première couche fraîche du produit d’étanchéité.</td>
+          </tr>
+          <tr>
+            <th>Avantages</th>
+            <td>Améliore la résistance, limite les risques de fissuration et sécurise les points sensibles.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Mode d’application</h4>
+      <ul>
+        <li>Appliquer une première couche de produit d’étanchéité.</li>
+        <li>Poser la membrane sur la couche encore fraîche.</li>
+        <li>Maroufler pour éviter les bulles d’air.</li>
+        <li>Recouvrir avec une deuxième couche après séchage ou selon système.</li>
+      </ul>
+
+      <a href="assets/docs/fiches/fiche-membrane-etancheite.pdf"
+         class="btn btn-primary"
+         download>
+        Télécharger la fiche PDF
+      </a>
+    </article>
+
+    <!-- Fiche 3 -->
+    <article class="technical-card" id="fiche-revetement-bitumineux">
+      <h3>Fiche technique — Revêtement bitumineux d’étanchéité</h3>
+
+      <table class="technical-table">
+        <tbody>
+          <tr>
+            <th>Utilisation</th>
+            <td>Fondations, murs enterrés, soubassements, surfaces en contact avec l’humidité.</td>
+          </tr>
+          <tr>
+            <th>Supports compatibles</th>
+            <td>Béton, ciment, parpaing, enduits minéraux et supports maçonnés.</td>
+          </tr>
+          <tr>
+            <th>Application</th>
+            <td>Brosse, rouleau, spatule ou projection selon le produit.</td>
+          </tr>
+          <tr>
+            <th>Nombre de couches</th>
+            <td>1 à 2 couches selon l’exposition à l’humidité.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Préparation</h4>
+      <ul>
+        <li>Nettoyer soigneusement le support.</li>
+        <li>Reboucher les trous et fissures.</li>
+        <li>Appliquer sur support sec ou légèrement humide selon formulation.</li>
+        <li>Protéger mécaniquement avant remblaiement si nécessaire.</li>
+      </ul>
+
+      <a href="assets/docs/fiches/fiche-revetement-bitumineux.pdf"
+         class="btn btn-primary"
+         download>
+        Télécharger la fiche PDF
+      </a>
+    </article>
+
+    <!-- Fiche 4 -->
+    <article class="technical-card" id="fiche-mortier-etancheite">
+      <h3>Fiche technique — Mortier d’étanchéité cimentaire</h3>
+
+      <table class="technical-table">
+        <tbody>
+          <tr>
+            <th>Utilisation</th>
+            <td>Bassins, caves, murs, douches, locaux humides, ouvrages en béton.</td>
+          </tr>
+          <tr>
+            <th>Supports compatibles</th>
+            <td>Béton, ciment, mortier, maçonnerie stable et supports minéraux.</td>
+          </tr>
+          <tr>
+            <th>Application</th>
+            <td>Brosse dure, taloche ou spatule.</td>
+          </tr>
+          <tr>
+            <th>Nombre de couches</th>
+            <td>2 couches minimum recommandées.</td>
+          </tr>
+          <tr>
+            <th>Aspect</th>
+            <td>Revêtement cimentaire imperméable après durcissement.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>Conseils d’application</h4>
+      <ul>
+        <li>Humidifier légèrement le support avant application si nécessaire.</li>
+        <li>Ne pas appliquer sur support poussiéreux ou instable.</li>
+        <li>Respecter les dosages d’eau indiqués dans la fiche produit.</li>
+        <li>Protéger contre le séchage trop rapide.</li>
+      </ul>
+
+      <a href="assets/docs/fiches/fiche-mortier-etancheite.pdf"
+         class="btn btn-primary"
+         download>
+        Télécharger la fiche PDF
+      </a>
+    </article>
+
+  </div>
+</section>
+5️⃣ Ajouter un bouton dans le menu ou dans la page
+Si vous voulez ajouter un bouton rapide vers la gamme étanchéité :
+
+
+<a href="produits.html#etancheite" class="btn btn-primary">
+  Voir les produits d’étanchéité
 </a>
