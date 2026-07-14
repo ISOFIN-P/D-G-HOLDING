@@ -26,13 +26,13 @@ button { background: #003366; color: white; padding: 14px; border: none; border-
 <nav>
   <div style="font-size:1.6rem;font-weight:bold">ISOFIN-P</div>
   <div>
-    <a href="#accueil">Accueil</a>
-    <a href="#produits">Produits</a>
-    <a href="#galerie">Galerie</a>
-    <a href="#projets">Projets</a>
-    <a href="#quisommesnous">Qui sommes-nous</a>
-    <a href="#conseils">Conseils</a>
-    <a href="#contact">Contact</a>
+    <a href="#accueil" data-lang="nav-home">Accueil</a>
+    <a href="#produits" data-lang="nav-products">Produits</a>
+    <a href="#galerie" data-lang="nav-gallery">Galerie</a>
+    <a href="#projets" data-lang="nav-projects">Projets</a>
+    <a href="#quisommesnous" data-lang="nav-about">Qui sommes-nous</a>
+    <a href="#conseils" data-lang="nav-advice">Conseils</a>
+    <a href="#contact" data-lang="nav-contact">Contact</a>
     <select id="lang" onchange="changeLang()" style="margin-left:15px">
       <option value="fr">🇫🇷 FR</option>
       <option value="en">🇬🇧 EN</option>
@@ -56,25 +56,24 @@ button { background: #003366; color: white; padding: 14px; border: none; border-
 <section id="produits" class="section" style="background:#f8f9fa">
   <h2 data-lang="products-title">Nos Produits</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
-    <!-- Exemple de 4 produits (structure extensible aux 17) -->
     <div onclick="showModal(0)" style="background:white;padding:15px;border-radius:12px;cursor:pointer">
       <img src="https://picsum.photos/id/1015/300/180" style="width:100%;border-radius:8px">
       <h3>ISOFIN T1</h3>
       <p data-lang="product-thermal">Isolation thermique haute performance</p>
     </div>
-    <!-- Ajouter les 16 autres produits de la même manière -->
+    <!-- Ajoutez les autres produits ici de la même manière -->
   </div>
 </section>
 
-<!-- GALERIE PHOTOS -->
+<!-- GALERIE -->
 <section id="galerie" class="section">
   <h2 data-lang="gallery-title">Galerie Photos</h2>
   <div style="text-align:center;margin-bottom:20px">
-    <button onclick="filterGallery('all')" class="btn-filter">Toutes</button>
-    <button onclick="filterGallery('thermique')" class="btn-filter">Thermique</button>
-    <button onclick="filterGallery('acoustique')" class="btn-filter">Acoustique</button>
-    <button onclick="filterGallery('feu')" class="btn-filter">Feu</button>
-    <button onclick="filterGallery('eau')" class="btn-filter">Étancheité</button>
+    <button onclick="filterGallery('all')" class="btn-filter" data-lang="filter-all">Toutes</button>
+    <button onclick="filterGallery('thermique')" class="btn-filter" data-lang="filter-thermal">Thermique</button>
+    <button onclick="filterGallery('acoustique')" class="btn-filter" data-lang="filter-acoustic">Acoustique</button>
+    <button onclick="filterGallery('feu')" class="btn-filter" data-lang="filter-fire">Feu</button>
+    <button onclick="filterGallery('eau')" class="btn-filter" data-lang="filter-water">Étancheité</button>
   </div>
   <div class="gallery-grid">
     <img src="https://picsum.photos/id/1015/300/200" data-cat="thermique">
@@ -83,7 +82,6 @@ button { background: #003366; color: white; padding: 14px; border: none; border-
     <img src="https://picsum.photos/id/251/300/200" data-cat="eau">
     <img src="https://picsum.photos/id/1033/300/200" data-cat="thermique">
     <img src="https://picsum.photos/id/180/300/200" data-cat="acoustique">
-    <!-- Ajouter 6 images supplémentaires avec data-cat -->
   </div>
 </section>
 
@@ -121,54 +119,185 @@ button { background: #003366; color: white; padding: 14px; border: none; border-
 <section id="contact" class="section">
   <h2 data-lang="contact-title">Contact</h2>
   <form>
-    <input type="text" placeholder="Nom" required>
-    <input type="email" placeholder="Email" required>
-    <textarea rows="4" placeholder="Message" required></textarea>
-    <button type="submit">Envoyer</button>
+    <input type="text" data-lang-placeholder="name" placeholder="Nom" required>
+    <input type="email" data-lang-placeholder="email" placeholder="Email" required>
+    <textarea rows="4" data-lang-placeholder="message" placeholder="Message" required></textarea>
+    <button type="submit"><span data-lang="submit-btn">Envoyer</span></button>
   </form>
 </section>
 
-<!-- MODAL PRODUIT -->
+<!-- MODAL -->
 <div id="modal" class="modal" onclick="hideModal()">
   <div class="modal-content" onclick="event.stopImmediatePropagation()">
     <h3 id="modal-title"></h3>
     <p id="modal-desc"></p>
-    <button onclick="hideModal()">Fermer</button>
+    <button onclick="hideModal()" data-lang="close">Fermer</button>
   </div>
 </div>
 
 <script>
-// === SYSTÈME MULTILINGUE ===
+// === TRADUCTIONS COMPLÈTES (8 langues) ===
 const translations = {
   fr: {
+    "nav-home": "Accueil", "nav-products": "Produits", "nav-gallery": "Galerie",
+    "nav-projects": "Projets", "nav-about": "Qui sommes-nous", "nav-advice": "Conseils", "nav-contact": "Contact",
     "home-title": "Bienvenue chez ISOFIN-P",
+    "home-desc": "Leader en solutions d'isolation thermique, acoustique, feu et étanchéité depuis 2004.",
+    "products-title": "Nos Produits",
     "gallery-title": "Galerie Photos",
     "submit-title": "Soumettez-nous vos projets",
     "submit-btn": "Envoyer le projet",
-    "name": "Nom complet",
-    "email": "Email",
-    "description": "Description du projet...",
-    "project-type": "Type de projet",
-    "thermal": "Isolation thermique",
-    "acoustic": "Isolation acoustique",
-    "fire": "Protection feu",
-    "water": "Étancheité"
+    "about-title": "Qui sommes-nous",
+    "about-text": "ISOFIN-P Technologies de Peinture et D'isolation est fondé à Izmir en 2004. Nous avons formulé les lois de la physique avec la chimie et développé d'excellents produits d'isolation.",
+    "advice-title": "Conseils",
+    "advice-text": "Choisissez le bon produit en fonction de votre besoin : thermique, acoustique, feu ou étanchéité.",
+    "contact-title": "Contact",
+    "filter-all": "Toutes", "filter-thermal": "Thermique", "filter-acoustic": "Acoustique",
+    "filter-fire": "Feu", "filter-water": "Étancheité",
+    "name": "Nom complet", "email": "Email", "description": "Description du projet...",
+    "project-type": "Type de projet", "thermal": "Isolation thermique", "acoustic": "Isolation acoustique",
+    "fire": "Protection feu", "water": "Étancheité", "message": "Message", "close": "Fermer"
   },
   en: {
+    "nav-home": "Home", "nav-products": "Products", "nav-gallery": "Gallery",
+    "nav-projects": "Projects", "nav-about": "About Us", "nav-advice": "Advice", "nav-contact": "Contact",
     "home-title": "Welcome to ISOFIN-P",
+    "home-desc": "Leader in thermal, acoustic, fire and waterproofing insulation solutions since 2004.",
+    "products-title": "Our Products",
     "gallery-title": "Photo Gallery",
     "submit-title": "Submit your projects",
     "submit-btn": "Send project",
-    "name": "Full name",
-    "email": "Email",
-    "description": "Project description...",
-    "project-type": "Project type",
-    "thermal": "Thermal insulation",
-    "acoustic": "Acoustic insulation",
-    "fire": "Fire protection",
-    "water": "Waterproofing"
+    "about-title": "About Us",
+    "about-text": "ISOFIN-P Paint and Insulation Technologies was founded in Izmir in 2004. We formulated the laws of physics with chemistry and developed excellent insulation products.",
+    "advice-title": "Advice",
+    "advice-text": "Choose the right product according to your need: thermal, acoustic, fire or waterproofing.",
+    "contact-title": "Contact",
+    "filter-all": "All", "filter-thermal": "Thermal", "filter-acoustic": "Acoustic",
+    "filter-fire": "Fire", "filter-water": "Waterproofing",
+    "name": "Full name", "email": "Email", "description": "Project description...",
+    "project-type": "Project type", "thermal": "Thermal insulation", "acoustic": "Acoustic insulation",
+    "fire": "Fire protection", "water": "Waterproofing", "message": "Message", "close": "Close"
+  },
+  es: {
+    "nav-home": "Inicio", "nav-products": "Productos", "nav-gallery": "Galería",
+    "nav-projects": "Proyectos", "nav-about": "Quiénes somos", "nav-advice": "Consejos", "nav-contact": "Contacto",
+    "home-title": "Bienvenido a ISOFIN-P",
+    "home-desc": "Líder en soluciones de aislamiento térmico, acústico, fuego y estanqueidad desde 2004.",
+    "products-title": "Nuestros Productos",
+    "gallery-title": "Galería de Fotos",
+    "submit-title": "Envíenos sus proyectos",
+    "submit-btn": "Enviar proyecto",
+    "about-title": "Quiénes somos",
+    "about-text": "ISOFIN-P Technologies de Pintura y Aislamiento fue fundada en Izmir en 2004. Hemos formulado las leyes de la física con química y desarrollado excelentes productos de aislamiento.",
+    "advice-title": "Consejos",
+    "advice-text": "Elija el producto adecuado según su necesidad: térmico, acústico, fuego o estanqueidad.",
+    "contact-title": "Contacto",
+    "filter-all": "Todas", "filter-thermal": "Térmico", "filter-acoustic": "Acústico",
+    "filter-fire": "Fuego", "filter-water": "Impermeabilización",
+    "name": "Nombre completo", "email": "Correo electrónico", "description": "Descripción del proyecto...",
+    "project-type": "Tipo de proyecto", "thermal": "Aislamiento térmico", "acoustic": "Aislamiento acústico",
+    "fire": "Protección contra incendios", "water": "Impermeabilización", "message": "Mensaje", "close": "Cerrar"
+  },
+  ar: {
+    "nav-home": "الرئيسية", "nav-products": "المنتجات", "nav-gallery": "المعرض",
+    "nav-projects": "المشاريع", "nav-about": "من نحن", "nav-advice": "نصائح", "nav-contact": "اتصل بنا",
+    "home-title": "مرحبًا بكم في ISOFIN-P",
+    "home-desc": "رائدة في حلول العزل الحراري والصوتي والحريق والعزل المائي منذ 2004.",
+    "products-title": "منتجاتنا",
+    "gallery-title": "معرض الصور",
+    "submit-title": "أرسل لنا مشاريعك",
+    "submit-btn": "إرسال المشروع",
+    "about-title": "من نحن",
+    "about-text": "تأسست ISOFIN-P لتقنيات الطلاء والعزل في إزمير عام 2004. لقد صغنا قوانين الفيزياء بالكيمياء وطورنا منتجات عزل ممتازة.",
+    "advice-title": "نصائح",
+    "advice-text": "اختر المنتج المناسب حسب احتياجك: حراري، صوتي، حريق أو عزل مائي.",
+    "contact-title": "اتصل بنا",
+    "filter-all": "الكل", "filter-thermal": "حراري", "filter-acoustic": "صوتي",
+    "filter-fire": "حريق", "filter-water": "عزل مائي",
+    "name": "الاسم الكامل", "email": "البريد الإلكتروني", "description": "وصف المشروع...",
+    "project-type": "نوع المشروع", "thermal": "عزل حراري", "acoustic": "عزل صوتي",
+    "fire": "الحماية من الحريق", "water": "العزل المائي", "message": "الرسالة", "close": "إغلاق"
+  },
+  ro: {
+    "nav-home": "Acasă", "nav-products": "Produse", "nav-gallery": "Galerie",
+    "nav-projects": "Proiecte", "nav-about": "Despre noi", "nav-advice": "Sfaturi", "nav-contact": "Contact",
+    "home-title": "Bine ați venit la ISOFIN-P",
+    "home-desc": "Lider în soluții de izolație termică, acustică, la foc și hidroizolație din 2004.",
+    "products-title": "Produsele noastre",
+    "gallery-title": "Galerie Foto",
+    "submit-title": "Trimiteți-ne proiectele dumneavoastră",
+    "submit-btn": "Trimite proiectul",
+    "about-title": "Despre noi",
+    "about-text": "ISOFIN-P Tehnologii de Vopsele și Izolații a fost fondată la Izmir în 2004. Am formulat legile fizicii cu chimie și am dezvoltat produse excelente de izolație.",
+    "advice-title": "Sfaturi",
+    "advice-text": "Alegeți produsul potrivit în funcție de nevoie: termic, acustic, la foc sau hidroizolație.",
+    "contact-title": "Contact",
+    "filter-all": "Toate", "filter-thermal": "Termic", "filter-acoustic": "Acustic",
+    "filter-fire": "Foc", "filter-water": "Hidroizolație",
+    "name": "Nume complet", "email": "Email", "description": "Descrierea proiectului...",
+    "project-type": "Tip proiect", "thermal": "Izolație termică", "acoustic": "Izolație acustică",
+    "fire": "Protecție la foc", "water": "Hidroizolație", "message": "Mesaj", "close": "Închide"
+  },
+  it: {
+    "nav-home": "Home", "nav-products": "Prodotti", "nav-gallery": "Galleria",
+    "nav-projects": "Progetti", "nav-about": "Chi siamo", "nav-advice": "Consigli", "nav-contact": "Contatti",
+    "home-title": "Benvenuti in ISOFIN-P",
+    "home-desc": "Leader in soluzioni di isolamento termico, acustico, antincendio e impermeabilizzazione dal 2004.",
+    "products-title": "I nostri Prodotti",
+    "gallery-title": "Galleria Fotografica",
+    "submit-title": "Inviaci i tuoi progetti",
+    "submit-btn": "Invia progetto",
+    "about-title": "Chi siamo",
+    "about-text": "ISOFIN-P Tecnologie di Vernici e Isolamento è stata fondata a Izmir nel 2004. Abbiamo formulato le leggi della fisica con la chimica e sviluppato eccellenti prodotti isolanti.",
+    "advice-title": "Consigli",
+    "advice-text": "Scegli il prodotto giusto in base alle tue esigenze: termico, acustico, antincendio o impermeabilizzazione.",
+    "contact-title": "Contatti",
+    "filter-all": "Tutte", "filter-thermal": "Termico", "filter-acoustic": "Acustico",
+    "filter-fire": "Antincendio", "filter-water": "Impermeabilizzazione",
+    "name": "Nome completo", "email": "Email", "description": "Descrizione del progetto...",
+    "project-type": "Tipo di progetto", "thermal": "Isolamento termico", "acoustic": "Isolamento acustico",
+    "fire": "Protezione antincendio", "water": "Impermeabilizzazione", "message": "Messaggio", "close": "Chiudi"
+  },
+  de: {
+    "nav-home": "Startseite", "nav-products": "Produkte", "nav-gallery": "Galerie",
+    "nav-projects": "Projekte", "nav-about": "Über uns", "nav-advice": "Tipps", "nav-contact": "Kontakt",
+    "home-title": "Willkommen bei ISOFIN-P",
+    "home-desc": "Führend in thermischen, akustischen, feuerfesten und wasserdichten Dämmlösungen seit 2004.",
+    "products-title": "Unsere Produkte",
+    "gallery-title": "Fotogalerie",
+    "submit-title": "Senden Sie uns Ihre Projekte",
+    "submit-btn": "Projekt senden",
+    "about-title": "Über uns",
+    "about-text": "ISOFIN-P Lack- und Dämmtechnologien wurde 2004 in Izmir gegründet. Wir haben die Gesetze der Physik mit Chemie formuliert und hervorragende Dämmprodukte entwickelt.",
+    "advice-title": "Tipps",
+    "advice-text": "Wählen Sie das richtige Produkt je nach Bedarf: thermisch, akustisch, feuerfest oder wasserdicht.",
+    "contact-title": "Kontakt",
+    "filter-all": "Alle", "filter-thermal": "Thermisch", "filter-acoustic": "Akustisch",
+    "filter-fire": "Feuer", "filter-water": "Wasserdicht",
+    "name": "Vollständiger Name", "email": "E-Mail", "description": "Projektbeschreibung...",
+    "project-type": "Projekttyp", "thermal": "Wärmedämmung", "acoustic": "Schalldämmung",
+    "fire": "Brandschutz", "water": "Wasserdichtung", "message": "Nachricht", "close": "Schließen"
+  },
+  ru: {
+    "nav-home": "Главная", "nav-products": "Продукты", "nav-gallery": "Галерея",
+    "nav-projects": "Проекты", "nav-about": "О нас", "nav-advice": "Советы", "nav-contact": "Контакты",
+    "home-title": "Добро пожаловать в ISOFIN-P",
+    "home-desc": "Лидер в решениях по теплоизоляции, звукоизоляции, огнезащите и гидроизоляции с 2004 года.",
+    "products-title": "Наши продукты",
+    "gallery-title": "Фотогалерея",
+    "submit-title": "Отправьте нам свои проекты",
+    "submit-btn": "Отправить проект",
+    "about-title": "О нас",
+    "about-text": "ISOFIN-P Технологии красок и изоляции была основана в Измире в 2004 году. Мы сформулировали законы физики с помощью химии и разработали отличные изоляционные продукты.",
+    "advice-title": "Советы",
+    "advice-text": "Выберите подходящий продукт в зависимости от ваших потребностей: теплоизоляция, звукоизоляция, огнезащита или гидроизоляция.",
+    "contact-title": "Контакты",
+    "filter-all": "Все", "filter-thermal": "Тепло", "filter-acoustic": "Звук",
+    "filter-fire": "Огонь", "filter-water": "Гидроизоляция",
+    "name": "Полное имя", "email": "Электронная почта", "description": "Описание проекта...",
+    "project-type": "Тип проекта", "thermal": "Теплоизоляция", "acoustic": "Звукоизоляция",
+    "fire": "Огнезащита", "water": "Гидроизоляция", "message": "Сообщение", "close": "Закрыть"
   }
-  // Ajouter les autres langues (es, ar, ro, it, de, ru) de la même manière
 };
 
 function changeLang() {
@@ -187,29 +316,33 @@ function changeLang() {
   });
 }
 
-// === FILTRE GALERIE ===
+// Filtre galerie
 function filterGallery(cat) {
   document.querySelectorAll('.gallery-grid img').forEach(img => {
     img.style.display = (cat === 'all' || img.dataset.cat === cat) ? 'block' : 'none';
   });
 }
 
-// === MODAL PRODUIT ===
+// Modal produit
 function showModal(index) {
   document.getElementById('modal').style.display = 'flex';
   document.getElementById('modal-title').textContent = 'ISOFIN T' + (index + 1);
-  document.getElementById('modal-desc').textContent = 'Fiche technique détaillée disponible sur demande.';
+  const lang = document.getElementById('lang').value;
+  document.getElementById('modal-desc').textContent = translations[lang]?.["advice-text"] || "Fiche technique disponible sur demande.";
 }
 function hideModal() {
   document.getElementById('modal').style.display = 'none';
 }
 
-// === FORMULAIRE PROJET ===
+// Formulaire
 document.getElementById('project-form').addEventListener('submit', function(e) {
   e.preventDefault();
-  alert('Merci ! Votre projet a été envoyé avec succès.');
+  alert(translations[document.getElementById('lang').value]?.["submit-btn"] || "Merci ! Votre projet a été envoyé.");
   this.reset();
 });
+
+// Langue par défaut
+document.getElementById('lang').value = 'fr';
 </script>
 </body>
 </html>
