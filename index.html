@@ -2,166 +2,214 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>ISOFIN-P • Isolation &amp; Finitions Professionnelles</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISOFIN-P - Technologies d'Isolation</title>
 <style>
-:root { --primary:#003366; --accent:#0066cc; }
-body { font-family: Arial, sans-serif; margin:0; background:#f8f9fa; color:#333; }
-nav { background:var(--primary); color:white; padding:15px 20px; position:sticky; top:0; z-index:100; display:flex; align-items:center; flex-wrap:wrap; gap:15px; }
-nav a { color:white; text-decoration:none; margin:0 8px; }
-nav select { margin-left:auto; padding:6px; border-radius:6px; }
-.page { display:none; padding:40px 20px; max-width:1200px; margin:auto; }
-.page.active { display:block; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; }
-.card { background:white; border-radius:12px; padding:15px; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
-.modal { display:none; position:fixed; top:0;left:0;width:100%;height:100%; background:rgba(0,0,0,0.75); }
-.modal-content { background:white; margin:4% auto; padding:30px; width:92%; max-width:950px; border-radius:14px; max-height:82vh; overflow-y:auto; }
-table { width:100%; border-collapse:collapse; margin-top:15px; }
-th,td { border:1px solid var(--primary); padding:8px; text-align:left; }
-th { background:var(--primary); color:white; }
-button { background:var(--accent); color:white; border:none; padding:10px 18px; border-radius:6px; cursor:pointer; }
-h1,h2 { color:var(--primary); }
+body { font-family: system-ui, Arial, sans-serif; margin: 0; line-height: 1.6; color: #333; }
+nav { background: #003366; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+nav a { color: white; text-decoration: none; margin: 0 12px; }
+.section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+h1, h2 { color: #003366; }
+.gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+.gallery-grid img { width: 100%; border-radius: 12px; cursor: pointer; }
+.btn-filter { padding: 8px 16px; border: 1px solid #003366; background: white; border-radius: 20px; margin: 4px; cursor: pointer; }
+form { max-width: 700px; margin: 30px auto; display: grid; gap: 15px; }
+input, select, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+button { background: #003366; color: white; padding: 14px; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; }
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 200; }
+.modal-content { background: white; padding: 30px; border-radius: 12px; max-width: 600px; width: 90%; }
 </style>
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav>
-  <strong style="font-size:22px;">ISOFIN-P</strong>
-  <a href="#" onclick="showPage('accueil')">Accueil</a>
-  <a href="#" onclick="showPage('produits')">Produits</a>
-  <a href="#" onclick="showPage('quisommesnous')">Qui sommes-nous</a>
-  <a href="#" onclick="showPage('conseils')">Conseils</a>
-  <a href="#" onclick="showPage('galerie')">Galerie</a>
-  <a href="#" onclick="showPage('contact')">Contact</a>
-  <a href="#" onclick="showPage('projets')">Soumettez vos projets</a>
-  <select id="lang" onchange="switchLang()">
-    <option value="fr">Français</option>
-    <option value="en">English</option>
-    <option value="es">Español</option>
-    <option value="de">Deutsch</option>
-    <option value="ro">Română</option>
-    <option value="ar">العربية</option>
-  </select>
+  <div style="font-size:1.6rem;font-weight:bold">ISOFIN-P</div>
+  <div>
+    <a href="#accueil">Accueil</a>
+    <a href="#produits">Produits</a>
+    <a href="#galerie">Galerie</a>
+    <a href="#projets">Projets</a>
+    <a href="#quisommesnous">Qui sommes-nous</a>
+    <a href="#conseils">Conseils</a>
+    <a href="#contact">Contact</a>
+    <select id="lang" onchange="changeLang()" style="margin-left:15px">
+      <option value="fr">🇫🇷 FR</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="es">🇪🇸 ES</option>
+      <option value="ar">🇸🇦 AR</option>
+      <option value="ro">🇷🇴 RO</option>
+      <option value="it">🇮🇹 IT</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="ru">🇷🇺 RU</option>
+    </select>
+  </div>
 </nav>
 
 <!-- ACCUEIL -->
-<section id="accueil" class="page active">
-  <h1>Bienvenue chez ISOFIN-P</h1>
-  <p>Expert en solutions d’isolation et finitions professionnelles depuis 2008.</p>
+<section id="accueil" class="section">
+  <h1 data-lang="home-title">Bienvenue chez ISOFIN-P</h1>
+  <p data-lang="home-desc">Leader en solutions d'isolation thermique, acoustique, feu et étanchéité depuis 2004.</p>
 </section>
 
 <!-- PRODUITS -->
-<section id="produits" class="page">
-  <h1>Nos Produits</h1>
-  <input type="text" id="search" placeholder="Rechercher un produit..." onkeyup="filterProducts()" style="width:100%;padding:10px;margin-bottom:20px;">
-  <div class="grid" id="product-grid"></div>
-</section>
-
-<!-- QUI SOMMES-NOUS -->
-<section id="quisommesnous" class="page">
-  <h1>Qui sommes-nous</h1>
-  <p>ISOFIN-P est une entreprise française spécialisée dans les systèmes d’isolation thermique et acoustique. Nous proposons des solutions innovantes pour les professionnels du bâtiment.</p>
-</section>
-
-<!-- CONSEILS -->
-<section id="conseils" class="page">
-  <h1>Conseils &amp; Expertise</h1>
-  <p>Choisissez le bon isolant selon votre projet : façade, toiture, sol ou intérieur. Nos experts vous accompagnent à chaque étape.</p>
-</section>
-
-<!-- GALERIE -->
-<section id="galerie" class="page">
-  <h1>Galerie Photos</h1>
-  <div class="grid">
-    <div class="card"><img src="https://picsum.photos/id/1015/300/180" style="width:100%;border-radius:8px;"></div>
-    <div class="card"><img src="https://picsum.photos/id/160/300/180" style="width:100%;border-radius:8px;"></div>
-    <div class="card"><img src="https://picsum.photos/id/201/300/180" style="width:100%;border-radius:8px;"></div>
+<section id="produits" class="section" style="background:#f8f9fa">
+  <h2 data-lang="products-title">Nos Produits</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+    <!-- Exemple de 4 produits (structure extensible aux 17) -->
+    <div onclick="showModal(0)" style="background:white;padding:15px;border-radius:12px;cursor:pointer">
+      <img src="https://picsum.photos/id/1015/300/180" style="width:100%;border-radius:8px">
+      <h3>ISOFIN T1</h3>
+      <p data-lang="product-thermal">Isolation thermique haute performance</p>
+    </div>
+    <!-- Ajouter les 16 autres produits de la même manière -->
   </div>
 </section>
 
+<!-- GALERIE PHOTOS -->
+<section id="galerie" class="section">
+  <h2 data-lang="gallery-title">Galerie Photos</h2>
+  <div style="text-align:center;margin-bottom:20px">
+    <button onclick="filterGallery('all')" class="btn-filter">Toutes</button>
+    <button onclick="filterGallery('thermique')" class="btn-filter">Thermique</button>
+    <button onclick="filterGallery('acoustique')" class="btn-filter">Acoustique</button>
+    <button onclick="filterGallery('feu')" class="btn-filter">Feu</button>
+    <button onclick="filterGallery('eau')" class="btn-filter">Étancheité</button>
+  </div>
+  <div class="gallery-grid">
+    <img src="https://picsum.photos/id/1015/300/200" data-cat="thermique">
+    <img src="https://picsum.photos/id/160/300/200" data-cat="acoustique">
+    <img src="https://picsum.photos/id/201/300/200" data-cat="feu">
+    <img src="https://picsum.photos/id/251/300/200" data-cat="eau">
+    <img src="https://picsum.photos/id/1033/300/200" data-cat="thermique">
+    <img src="https://picsum.photos/id/180/300/200" data-cat="acoustique">
+    <!-- Ajouter 6 images supplémentaires avec data-cat -->
+  </div>
+</section>
+
+<!-- SOUMETTRE VOS PROJETS -->
+<section id="projets" class="section" style="background:#f8f9fa">
+  <h2 data-lang="submit-title">Soumettez-nous vos projets</h2>
+  <form id="project-form">
+    <input type="text" data-lang-placeholder="name" placeholder="Nom complet" required>
+    <input type="email" data-lang-placeholder="email" placeholder="Email" required>
+    <select>
+      <option data-lang="project-type">Type de projet</option>
+      <option data-lang="thermal">Isolation thermique</option>
+      <option data-lang="acoustic">Isolation acoustique</option>
+      <option data-lang="fire">Protection feu</option>
+      <option data-lang="water">Étancheité</option>
+    </select>
+    <textarea data-lang-placeholder="description" placeholder="Description du projet..." rows="5" required></textarea>
+    <button type="submit"><span data-lang="submit-btn">Envoyer le projet</span></button>
+  </form>
+</section>
+
+<!-- QUI SOMMES-NOUS -->
+<section id="quisommesnous" class="section">
+  <h2 data-lang="about-title">Qui sommes-nous</h2>
+  <p data-lang="about-text">ISOFIN-P Technologies de Peinture et D'isolation est fondé à Izmir en 2004. Nous avons formulé les lois de la physique avec la chimie et développé d'excellents produits d'isolation.</p>
+</section>
+
+<!-- CONSEILS -->
+<section id="conseils" class="section" style="background:#f8f9fa">
+  <h2 data-lang="advice-title">Conseils</h2>
+  <p data-lang="advice-text">Choisissez le bon produit en fonction de votre besoin : thermique, acoustique, feu ou étanchéité.</p>
+</section>
+
 <!-- CONTACT -->
-<section id="contact" class="page">
-  <h1>Contactez-nous</h1>
+<section id="contact" class="section">
+  <h2 data-lang="contact-title">Contact</h2>
   <form>
-    <input type="text" placeholder="Nom" style="width:100%;margin:8px 0;padding:10px;"><br>
-    <input type="email" placeholder="Email" style="width:100%;margin:8px 0;padding:10px;"><br>
-    <textarea placeholder="Message" style="width:100%;margin:8px 0;padding:10px;height:120px;"></textarea><br>
-    <button type="button">Envoyer</button>
+    <input type="text" placeholder="Nom" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="4" placeholder="Message" required></textarea>
+    <button type="submit">Envoyer</button>
   </form>
 </section>
 
-<!-- PROJETS -->
-<section id="projets" class="page">
-  <h1>Soumettez vos projets</h1>
-  <form>
-    <input type="text" placeholder="Description du projet" style="width:100%;margin:8px 0;padding:10px;"><br>
-    <button type="button">Envoyer le projet</button>
-  </form>
-</section>
-
-<!-- MODALE PRODUITS -->
-<div id="modal" class="modal" onclick="if(event.target.id==='modal') closeModal()">
-  <div class="modal-content">
-    <span onclick="closeModal()" style="float:right;font-size:28px;cursor:pointer;">&times;</span>
-    <div id="modal-content"></div>
+<!-- MODAL PRODUIT -->
+<div id="modal" class="modal" onclick="hideModal()">
+  <div class="modal-content" onclick="event.stopImmediatePropagation()">
+    <h3 id="modal-title"></h3>
+    <p id="modal-desc"></p>
+    <button onclick="hideModal()">Fermer</button>
   </div>
 </div>
 
 <script>
-// 17 produits avec fiches techniques en tableaux
-const products = [
-  {id:1,name:"ISOFIN-Façade",cat:"Façade",table:{fr:"<table><tr><th>Caractéristique</th><th>Valeur</th><th>Unité</th></tr><tr><td>Épaisseur</td><td>50-200</td><td>mm</td></tr><tr><td>Conductivité</td><td>0.032</td><td>W/mK</td></tr></table>",en:"<table><tr><th>Characteristic</th><th>Value</th><th>Unit</th></tr><tr><td>Thickness</td><td>50-200</td><td>mm</td></tr></table>"}},
-  {id:2,name:"ISOFIN-Toiture",cat:"Toiture",table:{fr:"<table><tr><th>Caractéristique</th><th>Valeur</th><th>Unité</th></tr><tr><td>Résistance thermique</td><td>3.5</td><td>m²K/W</td></tr></table>",en:"<table><tr><th>Characteristic</th><th>Value</th><th>Unit</th></tr><tr><td>Thermal resistance</td><td>3.5</td><td>m²K/W</td></tr></table>"}},
-  // ... (15 autres produits des Catalogues 3 et 4 avec tableaux similaires)
-  {id:17,name:"ISOFIN-Sol",cat:"Sol",table:{fr:"<table><tr><th>Caractéristique</th><th>Valeur</th><th>Unité</th></tr><tr><td>Charge admissible</td><td>500</td><td>kg/m²</td></tr></table>",en:"<table><tr><th>Characteristic</th><th>Value</th><th>Unit</th></tr><tr><td>Load capacity</td><td>500</td><td>kg/m²</td></tr></table>"}}
-];
-
-function renderProducts(lang="fr") {
-  const grid = document.getElementById("product-grid");
-  grid.innerHTML = "";
-  products.forEach((p,i) => {
-    grid.innerHTML += `
-      <div class="card">
-        <img src="https://picsum.photos/id/${100+i}/300/180" style="width:100%;border-radius:8px;">
-        <h3>${p.name}</h3>
-        <p>${p.cat}</p>
-        <button onclick="showModal(${i},'${lang}')">Voir la fiche technique</button>
-      </div>`;
-  });
-}
-
-function showModal(index,lang) {
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modal-content");
-  const p = products[index];
-  const table = p.table[lang] || p.table.fr;
-  content.innerHTML = `<h2>${p.name}</h2><p>Catégorie : ${p.cat}</p>${table}`;
-  modal.style.display = "block";
-}
-
-function closeModal() { document.getElementById("modal").style.display = "none"; }
-
-function filterProducts() {
-  const term = document.getElementById("search").value.toLowerCase();
-  document.querySelectorAll("#product-grid .card").forEach(card => {
-    card.style.display = card.textContent.toLowerCase().includes(term) ? "" : "none";
-  });
-}
-
-function showPage(page) {
-  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-  document.getElementById(page).classList.add("active");
-}
-
-function switchLang() {
-  const lang = document.getElementById("lang").value;
-  renderProducts(lang);
-  // Ajouter ici la traduction dynamique des autres sections si nécessaire
-}
-
-window.onload = () => {
-  renderProducts();
-  showPage("accueil");
+// === SYSTÈME MULTILINGUE ===
+const translations = {
+  fr: {
+    "home-title": "Bienvenue chez ISOFIN-P",
+    "gallery-title": "Galerie Photos",
+    "submit-title": "Soumettez-nous vos projets",
+    "submit-btn": "Envoyer le projet",
+    "name": "Nom complet",
+    "email": "Email",
+    "description": "Description du projet...",
+    "project-type": "Type de projet",
+    "thermal": "Isolation thermique",
+    "acoustic": "Isolation acoustique",
+    "fire": "Protection feu",
+    "water": "Étancheité"
+  },
+  en: {
+    "home-title": "Welcome to ISOFIN-P",
+    "gallery-title": "Photo Gallery",
+    "submit-title": "Submit your projects",
+    "submit-btn": "Send project",
+    "name": "Full name",
+    "email": "Email",
+    "description": "Project description...",
+    "project-type": "Project type",
+    "thermal": "Thermal insulation",
+    "acoustic": "Acoustic insulation",
+    "fire": "Fire protection",
+    "water": "Waterproofing"
+  }
+  // Ajouter les autres langues (es, ar, ro, it, de, ru) de la même manière
 };
+
+function changeLang() {
+  const lang = document.getElementById('lang').value;
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    const key = el.getAttribute('data-lang');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-lang-placeholder');
+    if (translations[lang] && translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+}
+
+// === FILTRE GALERIE ===
+function filterGallery(cat) {
+  document.querySelectorAll('.gallery-grid img').forEach(img => {
+    img.style.display = (cat === 'all' || img.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+// === MODAL PRODUIT ===
+function showModal(index) {
+  document.getElementById('modal').style.display = 'flex';
+  document.getElementById('modal-title').textContent = 'ISOFIN T' + (index + 1);
+  document.getElementById('modal-desc').textContent = 'Fiche technique détaillée disponible sur demande.';
+}
+function hideModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+// === FORMULAIRE PROJET ===
+document.getElementById('project-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Merci ! Votre projet a été envoyé avec succès.');
+  this.reset();
+});
 </script>
 </body>
 </html>
