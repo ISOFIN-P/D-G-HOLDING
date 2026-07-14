@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D&G HOLDING | Accueil</title>
+  <style>
+    :root {
+      --bleu-marine: #0A2540;
+      --or: #D4AF37;
+      --gris: #F8F9FA;
+      --texte: #333333;
+    }
+    body { font-family: 'Open Sans', sans-serif; margin:0; color:var(--texte); }
+    nav { background: var(--bleu-marine); padding:15px 40px; display:flex; justify-content:space-between; align-items:center; }
+    .nav-menu { display:flex; gap:30px; list-style:none; margin:0; padding:0; }
+    .nav-menu a { color:white; text-decoration:none; font-weight:500; }
+    .language-selector select { padding:8px; border-radius:5px; border:1px solid var(--or); }
+    .hero { background: linear-gradient(rgba(10,37,64,0.85), rgba(10,37,64,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover; height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; color:white; }
+    .hero h1 { font-size:48px; color:var(--or); margin-bottom:20px; }
+    .cta-button { background:var(--or); color:var(--bleu-marine); padding:15px 40px; border:none; font-weight:600; text-decoration:none; display:inline-block; margin-top:20px; }
+    section { padding:80px 40px; }
+    .section-title { color:var(--bleu-marine); font-size:32px; margin-bottom:40px; }
+    footer { background:var(--bleu-marine); color:white; padding:40px; text-align:center; font-size:14px; }
+  </style>
+</head>
+<body>
 
+<!-- Menu -->
+<nav>
+  <div style="font-size:24px; color:#D4AF37; font-weight:bold;">D&G HOLDING</div>
+  <ul class="nav-menu">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="a-propos.html">À propos</a></li>
+    <li><a href="nos-services.html">Nos services</a></li>
+    <li><a href="nos-implantations.html">Nos implantations</a></li>
+    <li><a href="actualites.html">Actualités</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="language-selector">
+    <select onchange="window.location.href=this.value">
+      <option value="index.html">🇫🇷 Français</option>
+      <option value="en/index.html">🇬🇧 English</option>
+      <option value="es/index.html">🇪🇸 Español</option>
+      <option value="ar/index.html">🇸🇦 العربية</option>
+      <option value="it/index.html">🇮🇹 Italiano</option>
+      <option value="ro/index.html">🇷🇴 Română</option>
+    </select>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div>
+    <h1>Bienvenue chez D&G HOLDING</h1>
+    <p style="font-size:22px; max-width:600px; margin:0 auto;">Un partenaire de confiance pour vos projets d’investissement et de développement international.</p>
+    <a href="contact.html" class="cta-button">Nous contacter</a>
+  </div>
+</header>
+
+<!-- Section À propos courte -->
+<section style="background:#F8F9FA;">
+  <h2 class="section-title">Qui sommes-nous ?</h2>
+  <p style="max-width:800px; font-size:18px;">D&G HOLDING est un groupe international spécialisé dans le conseil financier, l’investissement stratégique et le développement de projets à fort potentiel. Basé à Paris, nous accompagnons nos clients dans plus de 10 pays.</p>
+</section>
+
+<!-- Section Services -->
+<section>
+  <h2 class="section-title">Nos services</h2>
+  <p>Conseil stratégique • Investissement • Gestion de projets • Développement international</p>
+  <a href="nos-services.html" class="cta-button" style="margin-top:30px;">Découvrir nos services</a>
+</section>
+
+<!-- Coordonnées rapides -->
+<section style="background:var(--bleu-marine); color:white; text-align:center;">
+  <h2 style="color:#D4AF37;">Contactez-nous</h2>
+  <p>📍 1 rue de Stockholm, 75008 Paris<br>
+     📞 +33 6 51 81 82 29<br>
+     ✉ contact@isofinp.com</p>
+</section>
+
+<!-- Pied de page -->
+<footer>
+  <p>© 2025 D&G HOLDING – Tous droits réservés</p>
+  <p><a href="mentions-legales.html" style="color:#D4AF37;">Mentions légales</a> | 
+     <a href="politique-confidentialite.html" style="color:#D4AF37;">Politique de confidentialité</a></p>
+</footer>
+
+</body>
+</html>
