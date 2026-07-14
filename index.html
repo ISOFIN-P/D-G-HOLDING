@@ -5,163 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D&G HOLDING | Accueil</title>
   <style>
-    /* Styles du header + site */
-    body { margin:0; font-family: Arial, sans-serif; background:#f8f9fa; color:#333; }
-    .main-nav { background:#0A2540; padding:15px 40px; display:flex; justify-content:space-between; align-items:center; }
-    .logo a { font-size:26px; font-weight:bold; color:#D4AF37; text-decoration:none; }
-    .nav-menu { display:flex; gap:30px; list-style:none; }
-    .nav-menu a { color:white; text-decoration:none; font-weight:500; }
-    .lang-switcher select { background:#0A2540; color:white; border:1px solid #D4AF37; padding:8px 12px; border-radius:6px; }
-    .hamburger { display:none; font-size:28px; color:#D4AF37; cursor:pointer; }
-    .hero { background:#0A2540; color:white; padding:100px 40px; text-align:center; }
-    .hero h1 { font-size:42px; color:#D4AF37; }
-    .stats { text-align:center; padding:60px 20px; }
-    .stats span { font-size:42px; color:#D4AF37; font-weight:bold; }
-    @media (max-width:768px) { .nav-menu { display:none; } .hamburger { display:block; } }
+    :root { --primary: #0A2540; --gold: #D4AF37; }
+    body { font-family: 'Arial', sans-serif; margin: 0; color: #333; }
+    header { background: var(--primary); color: white; padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+    .logo { font-size: 1.8rem; font-weight: bold; color: var(--gold); }
+    nav ul { display: flex; list-style: none; gap: 25px; }
+    nav a { color: white; text-decoration: none; }
+    .lang-selector { display: flex; gap: 8px; }
+    .lang-selector a { padding: 5px 10px; border-radius: 5px; }
+    .hero { background: linear-gradient(rgba(10,37,64,0.85), rgba(10,37,64,0.85)), url('hero-bg.jpg'); height: 90vh; display: flex; align-items: center; color: white; text-align: center; }
+    .hero h1 { font-size: 3.2rem; }
+    .section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
+    .products { background: #f8f9fa; }
+    .stat { font-size: 3rem; color: var(--gold); font-weight: bold; }
+    footer { background: var(--primary); color: white; padding: 40px 20px; text-align: center; }
+    .mobile-menu { display: none; }
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .mobile-menu { display: block; }
+    }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
-  <nav class="main-nav">
-    <div class="logo"><a href="#">D&G HOLDING</a></div>
+  <div class="header-content">
+    <!-- Logo ISO FIN-P -->
+    <div class="logo">D&G HOLDING</div>
     
-    <ul class="nav-menu">
-      <li><a href="#" data-key="nav_home">Accueil</a></li>
-      <li><a href="#" data-key="nav_about">À propos</a></li>
-      <li><a href="#" data-key="nav_services">Nos services</a></li>
-      <li><a href="#" data-key="nav_news">Actualités</a></li>
-      <li><a href="#" data-key="nav_contact">Contact</a></li>
-    </ul>
+    <!-- Menu principal -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="nos-services.html">Nos services</a></li>
+        <li><a href="actualites.html">Actualités</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-    <!-- Sélecteur de langues -->
-    <div class="lang-switcher">
-      <select id="lang-select" onchange="changeLanguage()">
-        <option value="fr">🇫🇷 Français</option>
-        <option value="en">🇬🇧 English</option>
-        <option value="es">🇪🇸 Español</option>
-        <option value="ar">🇸🇦 العربية</option>
-        <option value="it">🇮🇹 Italiano</option>
-        <option value="ro">🇷🇴 Română</option>
-      </select>
+    <!-- Sélecteur de langues avec drapeaux -->
+    <div class="lang-selector">
+      <a href="index.html">🇫🇷 FR</a>
+      <a href="index-en.html">🇬🇧 EN</a>
+      <a href="index-es.html">🇪🇸 ES</a>
+      <a href="index-ar.html">🇸🇦 AR</a>
+      <a href="index-it.html">🇮🇹 IT</a>
+      <a href="index-ro.html">🇷🇴 RO</a>
     </div>
-    
-    <div class="hamburger" onclick="toggleMobileMenu()">☰</div>
-  </nav>
+  </div>
+
+  <!-- Menu mobile responsive -->
+  <div class="mobile-menu" style="padding:10px 20px; background:#0A2540;">
+    <select onchange="window.location.href=this.value">
+      <option value="index.html">🇫🇷 Français</option>
+      <option value="index-en.html">🇬🇧 English</option>
+      <option value="index-es.html">🇪🇸 Español</option>
+      <option value="index-ar.html">🇸🇦 العربية</option>
+      <option value="index-it.html">🇮🇹 Italiano</option>
+      <option value="index-ro.html">🇷🇴 Română</option>
+    </select>
+  </div>
 </header>
 
-<!-- HERO SECTION -->
+<!-- Hero Section -->
 <section class="hero">
-  <h1 id="hero_title">D&G HOLDING</h1>
-  <p id="hero_subtitle">Votre partenaire de confiance depuis plus de 34 ans</p>
-  <p id="hero_countries">Découvrez notre gamme dans 34+ pays</p>
-</section>
-
-<!-- STATS -->
-<section class="stats">
   <div>
-    <span id="stat_countries">34+</span>
-    <p id="stat_label">Pays</p>
+    <h1>Bienvenue chez D&G HOLDING</h1>
+    <p style="font-size:1.4rem; margin:20px 0;">Découvrez notre gamme dans <strong>34+ pays</strong></p>
+    <a href="contact.html" style="background:#D4AF37; color:#0A2540; padding:15px 40px; border-radius:30px; text-decoration:none; font-weight:bold;">Nous contacter</a>
   </div>
 </section>
 
-<script>
-// === TRADUCTIONS (toutes les langues dans un seul fichier) ===
-const translations = {
-  fr: {
-    hero_title: "D&G HOLDING",
-    hero_subtitle: "Votre partenaire de confiance depuis plus de 34 ans",
-    hero_countries: "Découvrez notre gamme dans 34+ pays",
-    stat_label: "Pays",
-    nav_home: "Accueil",
-    nav_about: "À propos",
-    nav_services: "Nos services",
-    nav_news: "Actualités",
-    nav_contact: "Contact"
-  },
-  en: {
-    hero_title: "D&G HOLDING",
-    hero_subtitle: "Your trusted partner for over 34 years",
-    hero_countries: "Discover our range in 34+ countries",
-    stat_label: "Countries",
-    nav_home: "Home",
-    nav_about: "About",
-    nav_services: "Our Services",
-    nav_news: "News",
-    nav_contact: "Contact"
-  },
-  es: {
-    hero_title: "D&G HOLDING",
-    hero_subtitle: "Su socio de confianza desde hace más de 34 años",
-    hero_countries: "Descubra nuestra gama en más de 34 países",
-    stat_label: "Países",
-    nav_home: "Inicio",
-    nav_about: "Acerca de",
-    nav_services: "Nuestros servicios",
-    nav_news: "Noticias",
-    nav_contact: "Contacto"
-  },
-  ar: {
-    hero_title: "دي آند جي هولدينغ",
-    hero_subtitle: "شريكك الموثوق به منذ أكثر من 34 عامًا",
-    hero_countries: "اكتشف مجموعتنا في أكثر من 34 دولة",
-    stat_label: "دول",
-    nav_home: "الرئيسية",
-    nav_about: "من نحن",
-    nav_services: "خدماتنا",
-    nav_news: "الأخبار",
-    nav_contact: "اتصل بنا"
-  },
-  it: {
-    hero_title: "D&G HOLDING",
-    hero_subtitle: "Il tuo partner di fiducia da oltre 34 anni",
-    hero_countries: "Scopri la nostra gamma in 34+ paesi",
-    stat_label: "Paesi",
-    nav_home: "Home",
-    nav_about: "Chi siamo",
-    nav_services: "I nostri servizi",
-    nav_news: "Notizie",
-    nav_contact: "Contatti"
-  },
-  ro: {
-    hero_title: "D&G HOLDING",
-    hero_subtitle: "Partenerul tău de încredere de peste 34 de ani",
-    hero_countries: "Descoperă gama noastră în 34+ țări",
-    stat_label: "Țări",
-    nav_home: "Acasă",
-    nav_about: "Despre noi",
-    nav_services: "Servicii",
-    nav_news: "Știri",
-    nav_contact: "Contact"
-  }
-};
+<!-- Section Nos Produits -->
+<section class="section products">
+  <h2 style="text-align:center; color:#0A2540;">Nos Produits</h2>
+  <div style="display:flex; justify-content:center; gap:60px; margin-top:40px; flex-wrap:wrap;">
+    <div style="text-align:center;">
+      <div class="stat">34+</div>
+      <p>Pays couverts</p>
+    </div>
+    <div style="text-align:center;">
+      <div class="stat">6</div>
+      <p>Langues supportées</p>
+    </div>
+  </div>
+  <p style="text-align:center; margin-top:30px; font-size:1.1rem;">Découvrez notre gamme dans 34+ pays</p>
+</section>
 
-function changeLanguage() {
-  const lang = document.getElementById('lang-select').value;
-  const t = translations[lang];
-  
-  // Mise à jour du contenu
-  document.getElementById('hero_title').innerText = t.hero_title;
-  document.getElementById('hero_subtitle').innerText = t.hero_subtitle;
-  document.getElementById('hero_countries').innerText = t.hero_countries;
-  document.getElementById('stat_label').innerText = t.stat_label;
-  
-  // Mise à jour du menu
-  document.querySelectorAll('[data-key]').forEach(el => {
-    const key = el.getAttribute('data-key');
-    if (t[key]) el.innerText = t[key];
-  });
-}
+<!-- Sections supplémentaires (À propos, Services, Contact) -->
+<section class="section">
+  <h2>À propos de D&G HOLDING</h2>
+  <p>Entreprise internationale spécialisée dans la distribution et le conseil financier, présente dans 34+ pays.</p>
+</section>
 
-function toggleMobileMenu() {
-  // Fonction mobile (à compléter si besoin)
-  alert("Menu mobile activé (version simplifiée)");
-}
+<section class="section" style="background:#f8f9fa;">
+  <h2>Nos Services</h2>
+  <p>Distribution internationale • Conseil financier • Solutions sur mesure</p>
+</section>
 
-// Langue par défaut
-document.getElementById('lang-select').value = 'fr';
-</script>
+<section class="section">
+  <h2>Contactez-nous</h2>
+  <p>📍 1 rue de Stockholm, 75008 Paris<br>
+     📞 +33 6 51 81 82 29<br>
+     ✉️ contact@isofinp.com</p>
+</section>
+
+<footer>
+  <p>© 2025 D&G HOLDING — Tous droits réservés</p>
+  <p>1 rue de Stockholm, 75008 Paris | +33 6 51 81 82 29 | contact@isofinp.com</p>
+  <a href="mentions-legales.html" style="color:#D4AF37;">Mentions légales</a> | 
+  <a href="politique-confidentialite.html" style="color:#D4AF37;">Confidentialité</a>
+</footer>
 
 </body>
 </html>
