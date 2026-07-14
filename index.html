@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D&G HOLDING | Site Officiel</title>
+<title>D&G HOLDING | Accueil Officiel</title>
 <style>
   body { font-family: Arial, sans-serif; margin:0; padding:0; }
-  header { background:#003366; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; }
-  .lang-selector a { color:white; margin:0 8px; text-decoration:none; }
-  .lang-content { display:none; padding:20px; }
+  header { background:#003366; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+  .lang-selector a { color:white; margin:0 8px; text-decoration:none; font-size:14px; }
+  .lang-content { display:none; padding:20px; max-width:1200px; margin:auto; }
   .hero { background:#f4f4f4; padding:60px 20px; text-align:center; }
-  img { max-width:100%; height:auto; }
+  img { max-width:100%; height:auto; border-radius:8px; }
   form { max-width:600px; margin:20px auto; }
-  input, textarea, button { width:100%; padding:10px; margin:8px 0; }
-  button { background:#003366; color:white; border:none; cursor:pointer; }
-  footer { background:#003366; color:white; text-align:center; padding:15px; }
+  input, textarea, button { width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:4px; }
+  button { background:#003366; color:white; border:none; cursor:pointer; font-size:16px; }
+  footer { background:#003366; color:white; text-align:center; padding:20px; }
 </style>
 <script>
 function switchLanguage(lang) {
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <body>
 
 <header>
-  <div><img src="https://via.placeholder.com/150x50?text=D%26G+HOLDING" alt="Logo D&G HOLDING"></div>
+  <div><img src="https://via.placeholder.com/180x50?text=D%26G+HOLDING" alt="Logo D&G HOLDING"></div>
   <nav class="lang-selector">
     <a href="#" data-lang="fr">🇫🇷 Français</a>
     <a href="#" data-lang="en">🇬🇧 English</a>
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- ==================== FRANÇAIS ==================== -->
 <div id="content-fr" class="lang-content">
   <section class="hero"><h1>Bienvenue chez D&G HOLDING</h1><p>Découvrez notre gamme dans <strong>34+ pays</strong>.</p></section>
-  <section><h2>Nos Produits</h2><img src="https://via.placeholder.com/300x200?text=Produit+1" alt="Produit"><p>34+ pays couverts</p></section>
+  <section><h2>Nos Produits</h2><img src="https://via.placeholder.com/400x250?text=Produit+1" alt="Produit"><p>Présents dans 34+ pays.</p></section>
   <section><h2>Contact</h2>
     <form><input type="text" placeholder="Nom"><input type="email" placeholder="Email"><textarea placeholder="Message"></textarea><button>Envoyer</button></form>
   </section>
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- ==================== ENGLISH ==================== -->
 <div id="content-en" class="lang-content" style="display:none;">
   <section class="hero"><h1>Welcome to D&G HOLDING</h1><p>Discover our range in <strong>34+ countries</strong>.</p></section>
-  <section><h2>Our Products</h2><img src="https://via.placeholder.com/300x200?text=Product+1" alt="Product"><p>34+ countries covered</p></section>
+  <section><h2>Our Products</h2><img src="https://via.placeholder.com/400x250?text=Product+1" alt="Product"><p>Available in 34+ countries.</p></section>
   <section><h2>Contact</h2>
     <form><input type="text" placeholder="Name"><input type="email" placeholder="Email"><textarea placeholder="Message"></textarea><button>Send</button></form>
   </section>
@@ -70,21 +70,37 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- ==================== ESPAÑOL ==================== -->
 <div id="content-es" class="lang-content" style="display:none;">
   <section class="hero"><h1>Bienvenido a D&G HOLDING</h1><p>Descubra nuestra gama en <strong>34+ países</strong>.</p></section>
-  <section><h2>Nuestros Productos</h2><img src="https://via.placeholder.com/300x200?text=Producto+1" alt="Producto"><p>34+ países</p></section>
+  <section><h2>Nuestros Productos</h2><img src="https://via.placeholder.com/400x250?text=Producto+1" alt="Producto"><p>Presentes en 34+ países.</p></section>
   <section><h2>Contacto</h2>
     <form><input type="text" placeholder="Nombre"><input type="email" placeholder="Email"><textarea placeholder="Mensaje"></textarea><button>Enviar</button></form>
   </section>
 </div>
 
-<!-- ==================== ARABE / ITALIEN / ROUMAIN (même structure) ==================== -->
+<!-- ==================== ARABE ==================== -->
 <div id="content-ar" class="lang-content" style="display:none;">
   <section class="hero"><h1>مرحبا بكم في D&G HOLDING</h1><p>اكتشف مجموعتنا في <strong>34+ دولة</strong>.</p></section>
+  <section><h2>منتجاتنا</h2><img src="https://via.placeholder.com/400x250?text=Product+1" alt="منتج"><p>متوفرة في 34+ دولة.</p></section>
+  <section><h2>اتصل بنا</h2>
+    <form><input type="text" placeholder="الاسم"><input type="email" placeholder="البريد الإلكتروني"><textarea placeholder="الرسالة"></textarea><button>إرسال</button></form>
+  </section>
 </div>
+
+<!-- ==================== ITALIEN ==================== -->
 <div id="content-it" class="lang-content" style="display:none;">
   <section class="hero"><h1>Benvenuti da D&G HOLDING</h1><p>Scopri la nostra gamma in <strong>34+ paesi</strong>.</p></section>
+  <section><h2>I Nostri Prodotti</h2><img src="https://via.placeholder.com/400x250?text=Prodotto+1" alt="Prodotto"><p>Presenti in 34+ paesi.</p></section>
+  <section><h2>Contatti</h2>
+    <form><input type="text" placeholder="Nome"><input type="email" placeholder="Email"><textarea placeholder="Messaggio"></textarea><button>Invia</button></form>
+  </section>
 </div>
+
+<!-- ==================== ROUMAIN ==================== -->
 <div id="content-ro" class="lang-content" style="display:none;">
   <section class="hero"><h1>Bine ați venit la D&G HOLDING</h1><p>Descoperiți gama noastră în <strong>34+ țări</strong>.</p></section>
+  <section><h2>Produsele Noastre</h2><img src="https://via.placeholder.com/400x250?text=Produs+1" alt="Produs"><p>Prezente în 34+ țări.</p></section>
+  <section><h2>Contact</h2>
+    <form><input type="text" placeholder="Nume"><input type="email" placeholder="Email"><textarea placeholder="Mesaj"></textarea><button>Trimite</button></form>
+  </section>
 </div>
 
 <footer>
