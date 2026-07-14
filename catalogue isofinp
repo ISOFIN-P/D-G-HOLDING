@@ -23,3 +23,18 @@ Vous pouvez aussi mettre plusieurs textes selon la langue :
 <a href="assets/docs/catalogue-isofinp.pdf" download class="catalogue-btn" data-i18n="downloadCatalogue">
   📄 Télécharger le catalogue ISOFIN-P
 </a>
+<section class="catalogue-section">
+  <h2>Catalogue produits</h2>
+  <p>
+    Téléchargez notre catalogue complet pour découvrir nos solutions
+    d’étanchéité, d’isolation et de revêtement technique.
+  </p>
+
+  <a 
+    href="assets/docs/catalogue-isofinp.pdf" 
+    download 
+    class="catalogue-btn"
+  >
+    📄 Télécharger le catalogue ISOFIN-P
+  </a>
+</section>
