@@ -1,112 +1,227 @@
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>D&G HOLDING | Accueil Officiel</title>
-<style>
-  body { font-family: Arial, sans-serif; margin:0; padding:0; }
-  header { background:#003366; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-  .lang-selector a { color:white; margin:0 8px; text-decoration:none; font-size:14px; }
-  .lang-content { display:none; padding:20px; max-width:1200px; margin:auto; }
-  .hero { background:#f4f4f4; padding:60px 20px; text-align:center; }
-  img { max-width:100%; height:auto; border-radius:8px; }
-  form { max-width:600px; margin:20px auto; }
-  input, textarea, button { width:100%; padding:12px; margin:8px 0; border:1px solid #ccc; border-radius:4px; }
-  button { background:#003366; color:white; border:none; cursor:pointer; font-size:16px; }
-  footer { background:#003366; color:white; text-align:center; padding:20px; }
-</style>
-<script>
-function switchLanguage(lang) {
-  document.querySelectorAll('.lang-content').forEach(s => s.style.display = 'none');
-  const target = document.getElementById('content-' + lang);
-  if (target) target.style.display = 'block';
-  localStorage.setItem('dgHoldingLang', lang);
-}
-document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('dgHoldingLang') || 'fr';
-  switchLanguage(saved);
-  document.querySelectorAll('.lang-selector a').forEach(a => {
-    a.addEventListener('click', e => {
-      e.preventDefault();
-      switchLanguage(a.getAttribute('data-lang'));
-    });
-  });
-});
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits | ISOFIN-P</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .product-card { transition: all 0.3s ease; }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        .filter-btn.active { background-color: #1e40af; color: white; }
+    </style>
 </head>
-<body>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 bg-blue-900 rounded-xl flex items-center justify-center">
+                    <span class="text-white font-bold text-2xl">IP</span>
+                </div>
+                <div>
+                    <h1 class="font-bold text-2xl text-blue-900">ISOFIN-P</h1>
+                    <p class="text-xs text-gray-500 -mt-1">Solutions de protection</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <select class="border rounded-lg px-3 py-2 text-sm">
+                    <option>🇫🇷 Français</option>
+                    <option>🇬🇧 English</option>
+                    <option>🇩🇪 Deutsch</option>
+                </select>
+                <a href="index.html" class="px-4 py-2 text-sm hover:text-blue-700">Accueil</a>
+            </div>
+        </div>
+    </header>
 
-<header>
-  <div><img src="https://via.placeholder.com/180x50?text=D%26G+HOLDING" alt="Logo D&G HOLDING"></div>
-  <nav class="lang-selector">
-    <a href="#" data-lang="fr">🇫🇷 Français</a>
-    <a href="#" data-lang="en">🇬🇧 English</a>
-    <a href="#" data-lang="es">🇪🇸 Español</a>
-    <a href="#" data-lang="ar">🇸🇦 العربية</a>
-    <a href="#" data-lang="it">🇮🇹 Italiano</a>
-    <a href="#" data-lang="ro">🇷🇴 Română</a>
-  </nav>
-</header>
+    <!-- Hero -->
+    <div class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold mb-3">Notre Catalogue Produits</h2>
+            <p class="text-blue-200 max-w-2xl">Découvrez notre gamme complète de peintures techniques, solutions ignifuges, isolants et produits écologiques.</p>
+        </div>
+    </div>
 
-<!-- ==================== FRANÇAIS ==================== -->
-<div id="content-fr" class="lang-content">
-  <section class="hero"><h1>Bienvenue chez D&G HOLDING</h1><p>Découvrez notre gamme dans <strong>34+ pays</strong>.</p></section>
-  <section><h2>Nos Produits</h2><img src="https://via.placeholder.com/400x250?text=Produit+1" alt="Produit"><p>Présents dans 34+ pays.</p></section>
-  <section><h2>Contact</h2>
-    <form><input type="text" placeholder="Nom"><input type="email" placeholder="Email"><textarea placeholder="Message"></textarea><button>Envoyer</button></form>
-  </section>
-</div>
+    <!-- Filtres -->
+    <div class="max-w-7xl mx-auto px-6 pt-8">
+        <div class="flex flex-wrap gap-2 mb-8" id="filters">
+            <button onclick="filterProducts('all')" class="filter-btn active px-5 py-2 rounded-full text-sm font-medium border bg-blue-900 text-white">Tous les produits</button>
+            <button onclick="filterProducts('ignifuge')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border hover:bg-blue-50">Ignifuges</button>
+            <button onclick="filterProducts('isolation')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border hover:bg-blue-50">Isolation Thermique</button>
+            <button onclick="filterProducts('primaire')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border hover:bg-blue-50">Primaires</button>
+            <button onclick="filterProducts('piscine')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border hover:bg-blue-50">Piscines</button>
+            <button onclick="filterProducts('ecologique')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border hover:bg-blue-50">Écologiques</button>
+            <button onclick="filterProducts('anti-humidite')" class="filter-btn px-5 py-2 rounded-full text-sm font-medium border hover:bg-blue-50">Anti-Humidité</button>
+        </div>
+    </div>
 
-<!-- ==================== ENGLISH ==================== -->
-<div id="content-en" class="lang-content" style="display:none;">
-  <section class="hero"><h1>Welcome to D&G HOLDING</h1><p>Discover our range in <strong>34+ countries</strong>.</p></section>
-  <section><h2>Our Products</h2><img src="https://via.placeholder.com/400x250?text=Product+1" alt="Product"><p>Available in 34+ countries.</p></section>
-  <section><h2>Contact</h2>
-    <form><input type="text" placeholder="Name"><input type="email" placeholder="Email"><textarea placeholder="Message"></textarea><button>Send</button></form>
-  </section>
-</div>
+    <!-- Grille Produits -->
+    <div class="max-w-7xl mx-auto px-6 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid">
 
-<!-- ==================== ESPAÑOL ==================== -->
-<div id="content-es" class="lang-content" style="display:none;">
-  <section class="hero"><h1>Bienvenido a D&G HOLDING</h1><p>Descubra nuestra gama en <strong>34+ países</strong>.</p></section>
-  <section><h2>Nuestros Productos</h2><img src="https://via.placeholder.com/400x250?text=Producto+1" alt="Producto"><p>Presentes en 34+ países.</p></section>
-  <section><h2>Contacto</h2>
-    <form><input type="text" placeholder="Nombre"><input type="email" placeholder="Email"><textarea placeholder="Mensaje"></textarea><button>Enviar</button></form>
-  </section>
-</div>
+            <!-- Produits Ignifuges -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="ignifuge">
+                <div class="h-48 bg-gradient-to-br from-red-600 to-orange-600 flex items-center justify-center">
+                    <i class="fas fa-fire text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">Anti Fire Paint</h3>
+                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">B s1 d0</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Peinture de finition ignifuge à base d'eau. Retarde le feu et forme une couche protectrice.</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Consommation :</strong> 0,6–1 kg/m²</div>
+                        <div><strong>Conditionnement :</strong> 5 / 10 / 18 kg</div>
+                    </div>
+                </div>
+            </div>
 
-<!-- ==================== ARABE ==================== -->
-<div id="content-ar" class="lang-content" style="display:none;">
-  <section class="hero"><h1>مرحبا بكم في D&G HOLDING</h1><p>اكتشف مجموعتنا في <strong>34+ دولة</strong>.</p></section>
-  <section><h2>منتجاتنا</h2><img src="https://via.placeholder.com/400x250?text=Product+1" alt="منتج"><p>متوفرة في 34+ دولة.</p></section>
-  <section><h2>اتصل بنا</h2>
-    <form><input type="text" placeholder="الاسم"><input type="email" placeholder="البريد الإلكتروني"><textarea placeholder="الرسالة"></textarea><button>إرسال</button></form>
-  </section>
-</div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="ignifuge">
+                <div class="h-48 bg-gradient-to-br from-red-700 to-black flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Anti-Fire Solution</h3>
+                    <p class="text-sm text-gray-600 mb-3">Solution ignifuge 100% naturelle (classe A1). Rend les matériaux totalement incombustibles.</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Consommation :</strong> 0,2–0,3 kg/m²</div>
+                        <div><strong>Conditionnement :</strong> 1,5 L</div>
+                    </div>
+                </div>
+            </div>
 
-<!-- ==================== ITALIEN ==================== -->
-<div id="content-it" class="lang-content" style="display:none;">
-  <section class="hero"><h1>Benvenuti da D&G HOLDING</h1><p>Scopri la nostra gamma in <strong>34+ paesi</strong>.</p></section>
-  <section><h2>I Nostri Prodotti</h2><img src="https://via.placeholder.com/400x250?text=Prodotto+1" alt="Prodotto"><p>Presenti in 34+ paesi.</p></section>
-  <section><h2>Contatti</h2>
-    <form><input type="text" placeholder="Nome"><input type="email" placeholder="Email"><textarea placeholder="Messaggio"></textarea><button>Invia</button></form>
-  </section>
-</div>
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="ignifuge">
+                <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                    <i class="fas fa-bomb text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Anti Molotof</h3>
+                    <p class="text-sm text-gray-600 mb-3">Extincteur liquide jetable pour débuts d’incendie (classes A, B, C).</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Conditionnement :</strong> 850 g</div>
+                        <div><strong>Usage :</strong> Semi-fermé</div>
+                    </div>
+                </div>
+            </div>
 
-<!-- ==================== ROUMAIN ==================== -->
-<div id="content-ro" class="lang-content" style="display:none;">
-  <section class="hero"><h1>Bine ați venit la D&G HOLDING</h1><p>Descoperiți gama noastră în <strong>34+ țări</strong>.</p></section>
-  <section><h2>Produsele Noastre</h2><img src="https://via.placeholder.com/400x250?text=Produs+1" alt="Produs"><p>Prezente în 34+ țări.</p></section>
-  <section><h2>Contact</h2>
-    <form><input type="text" placeholder="Nume"><input type="email" placeholder="Email"><textarea placeholder="Mesaj"></textarea><button>Trimite</button></form>
-  </section>
-</div>
+            <!-- Isolation Thermique -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="isolation">
+                <div class="h-48 bg-gradient-to-br from-sky-600 to-blue-700 flex items-center justify-center">
+                    <i class="fas fa-thermometer-half text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Thermal Paint</h3>
+                    <p class="text-sm text-gray-600 mb-3">Peinture d’isolation thermique à base de céramique (jusqu’à 40% d’économie d’énergie).</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Consommation :</strong> 1–2 L/m²</div>
+                        <div><strong>Conditionnement :</strong> 5 / 10 / 18 L</div>
+                    </div>
+                </div>
+            </div>
 
-<footer>
-  D&G HOLDING • 1 rue de Stockholm, 75008 Paris • +33 6 51 81 82 29 • contact@isofinp.com<br>
-  © 2025 – Site original et multilingue
-</footer>
+            <!-- Anti-Humidité -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="anti-humidite">
+                <div class="h-48 bg-gradient-to-br from-emerald-700 to-teal-800 flex items-center justify-center">
+                    <i class="fas fa-tint-slash text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">MS 82</h3>
+                    <p class="text-sm text-gray-600 mb-3">Peinture synthétique anti-humidité pour murs humides. Très forte adhérence.</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Consommation :</strong> 500–600 g/m²</div>
+                        <div><strong>Conditionnement :</strong> 1 kg / 5 kg</div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Primaires -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="primaire">
+                <div class="h-48 bg-gradient-to-br from-amber-600 to-yellow-700 flex items-center justify-center">
+                    <i class="fas fa-paint-brush text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Universal Primer</h3>
+                    <p class="text-sm text-gray-600 mb-3">Primaire d’adhérence acrylique diluable à l’eau. Améliore l’adhérence et réduit l’absorption.</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Consommation :</strong> 100–200 g/m² (dilué)</div>
+                        <div><strong>Conditionnement :</strong> 1 / 5 / 10 / 15 kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Piscines -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="piscine">
+                <div class="h-48 bg-gradient-to-br from-cyan-600 to-blue-600 flex items-center justify-center">
+                    <i class="fas fa-swimmer text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Pool</h3>
+                    <p class="text-sm text-gray-600 mb-3">Peinture piscine 2K polyuréthane. Résistante aux UV et produits chimiques.</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Consommation :</strong> 1 kg/m² (2 couches)</div>
+                        <div><strong>Conditionnement :</strong> Set 4,5 kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="piscine">
+                <div class="h-48 bg-gradient-to-br from-cyan-700 to-teal-700 flex items-center justify-center">
+                    <i class="fas fa-water text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Pool Transparent</h3>
+                    <p class="text-sm text-gray-600 mb-3">Peinture transparente 2K pour piscines carrelées existantes.</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Consommation :</strong> 100–200 g/m²</div>
+                        <div><strong>Conditionnement :</strong> Set 4,5 kg</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Écologique -->
+            <div class="product-card bg-white rounded-2xl overflow-hidden border" data-category="ecologique">
+                <div class="h-48 bg-gradient-to-br from-green-600 to-emerald-700 flex items-center justify-center">
+                    <i class="fas fa-leaf text-white text-6xl opacity-90"></i>
+                </div>
+                <div class="p-5">
+                    <h3 class="font-bold text-lg mb-2">Soil Water Trap</h3>
+                    <p class="text-sm text-gray-600 mb-3">Polymère super-absorbant (600× son poids). Économise 50-70% d’eau d’irrigation.</p>
+                    <div class="text-xs space-y-1 text-gray-500">
+                        <div><strong>Durée :</strong> ~4 ans dans le sol</div>
+                        <div><strong>Conditionnement :</strong> 1 kg / 5 kg</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Initialisation
+        console.log('%c[ISOFIN-P] Page Produits chargée avec succès', 'color:#1e40af');
+    </script>
 </body>
 </html>
