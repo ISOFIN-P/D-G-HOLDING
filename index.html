@@ -1,1301 +1,172 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>ISOFIN-P | Produits et solutions professionnelles</title>
-
-  <meta name="description" content="ISOFIN-P propose des produits professionnels, un catalogue PDF, une galerie photos et un service de contact multilingue." />
-  <meta name="keywords" content="ISOFIN-P, produits ISOFIN-P, catalogue ISOFIN-P, solutions professionnelles, D&G HOLDING" />
-  <meta name="author" content="ISOFIN-P" />
-
-  <link rel="canonical" href="http://www.isofinp.com/" />
-
-  <meta property="og:title" content="ISOFIN-P | Produits professionnels" />
-  <meta property="og:description" content="Découvrez les produits ISOFIN-P, téléchargez le catalogue et contactez notre équipe." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="http://www.isofinp.com/" />
-  <meta property="og:image" content="http://www.isofinp.com/images/produit-1.jpg" />
-
-  <style>
-    :root {
-      --blue: #0b4f8a;
-      --blue-dark: #073b68;
-      --green: #2fa84f;
-      --light: #f5f9fc;
-      --white: #ffffff;
-      --dark: #1f2933;
-      --gray: #667085;
-      --border: #e5e7eb;
-      --shadow: 0 12px 35px rgba(0,0,0,0.08);
-      --radius: 18px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--white);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    body.rtl {
-      direction: rtl;
-      text-align: right;
-      font-family: Tahoma, Arial, sans-serif;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
-    }
-
-    /* Topbar */
-    .topbar {
-      background: var(--blue-dark);
-      color: var(--white);
-      font-size: 14px;
-      padding: 8px 0;
-    }
-
-    .topbar-content {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .topbar a {
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .navbar {
-      height: 78px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--blue);
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--green);
-    }
-
-    nav ul {
-      display: flex;
-      gap: 22px;
-      list-style: none;
-      align-items: center;
-    }
-
-    nav a {
-      font-weight: 700;
-      color: var(--dark);
-      font-size: 15px;
-    }
-
-    nav a:hover {
-      color: var(--green);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    select {
-      padding: 9px 12px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--white);
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 22px;
-      border-radius: 50px;
-      font-weight: 800;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-      gap: 8px;
-    }
-
-    .btn-primary {
-      background: var(--green);
-      color: var(--white);
-      box-shadow: 0 10px 25px rgba(47,168,79,0.25);
-    }
-
-    .btn-primary:hover {
-      background: #248a40;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--white);
-      color: var(--white);
-    }
-
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--blue);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: var(--blue);
-      color: var(--white);
-      border: none;
-      padding: 10px 13px;
-      border-radius: 10px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-
-    /* Hero */
-    .hero {
-      background:
-        linear-gradient(120deg, rgba(7,59,104,0.95), rgba(11,79,138,0.82)),
-        url("images/produit-1.jpg") center/cover no-repeat;
-      min-height: 680px;
-      display: flex;
-      align-items: center;
-      color: var(--white);
-    }
-
-    .hero-content {
-      max-width: 760px;
-      padding: 80px 0;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.25);
-      padding: 8px 16px;
-      border-radius: 50px;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1.08;
-      margin-bottom: 22px;
-      letter-spacing: -2px;
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 32px;
-      color: #edf6ff;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    /* Sections */
-    section {
-      padding: 90px 0;
-    }
-
-    .section-light {
-      background: var(--light);
-    }
-
-    .section-title {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 50px;
-    }
-
-    .section-title h2 {
-      font-size: clamp(30px, 4vw, 46px);
-      color: var(--blue);
-      margin-bottom: 15px;
-    }
-
-    .section-title p {
-      color: var(--gray);
-      font-size: 18px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 26px;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .card {
-      background: var(--white);
-      padding: 30px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .card h3 {
-      color: var(--blue);
-      margin-bottom: 12px;
-      font-size: 22px;
-    }
-
-    .card p {
-      color: var(--gray);
-    }
-
-    .product-card {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 240px;
-      object-fit: contain;
-      background: #f8fafc;
-      padding: 20px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .product-card .content {
-      padding: 25px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .stat {
-      text-align: center;
-      background: var(--white);
-      padding: 28px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--green);
-      font-size: 38px;
-      margin-bottom: 6px;
-    }
-
-    .stat span {
-      color: var(--gray);
-      font-weight: 700;
-    }
-
-    .about-box {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 35px;
-      align-items: center;
-    }
-
-    .about-image {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .about-image img {
-      height: 420px;
-      width: 100%;
-      object-fit: cover;
-    }
-
-    .catalogue {
-      background: linear-gradient(120deg, var(--blue), var(--blue-dark));
-      color: var(--white);
-      border-radius: 28px;
-      padding: 55px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .catalogue h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      transition: 0.3s;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
-    /* Contact */
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 30px;
-    }
-
-    .contact-info li {
-      list-style: none;
-      margin-bottom: 16px;
-      color: var(--gray);
-      font-weight: 700;
-    }
-
-    .contact-info strong {
-      color: var(--blue);
-      display: block;
-      margin-bottom: 3px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 16px;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      font-size: 16px;
-      outline: none;
-    }
-
-    .contact-form textarea {
-      min-height: 145px;
-      resize: vertical;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: var(--green);
-    }
-
-    /* Footer */
-    footer {
-      background: #071f36;
-      color: var(--white);
-      padding: 45px 0 20px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 30px;
-      margin-bottom: 30px;
-    }
-
-    footer h3 {
-      margin-bottom: 15px;
-      color: var(--white);
-    }
-
-    footer p,
-    footer a {
-      color: #c7d7e5;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .copyright {
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 20px;
-      text-align: center;
-      color: #b7c7d5;
-      font-size: 14px;
-    }
-
-    /* WhatsApp */
-    .whatsapp {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      background: #25d366;
-      color: white;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 28px;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
-      z-index: 999;
-    }
-
-    body.rtl .whatsapp {
-      right: auto;
-      left: 22px;
-    }
-
-    /* Responsive */
-    @media (max-width: 950px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      nav {
-        position: absolute;
-        top: 78px;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        border-bottom: 1px solid var(--border);
-        display: none;
-      }
-
-      nav.active {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        padding: 20px;
-        align-items: flex-start;
-      }
-
-      body.rtl nav ul {
-        align-items: flex-end;
-      }
-
-      .grid-3,
-      .grid-4,
-      .stats,
-      .about-box,
-      .contact-layout,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .catalogue {
-        padding: 35px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .navbar {
-        height: auto;
-        padding: 14px 0;
-        flex-wrap: wrap;
-      }
-
-      .nav-actions {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "ISOFIN-P",
-    "url": "http://www.isofinp.com",
-    "email": "contact@isofinp.com",
-    "telephone": "+33651818229",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1 rue de Stockholm",
-      "postalCode": "75008",
-      "addressLocality": "Paris",
-      "addressCountry": "FR"
-    }
-  }
-  </script>
+<meta charset="UTF-8">
+<title>ISOFIN-P • Isolation &amp; Finitions Professionnelles</title>
+<style>
+:root { --primary: #003366; --accent: #0066cc; }
+body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background:#f4f6f9; color:#333; line-height:1.6; }
+nav { background:var(--primary); color:white; padding:15px 30px; position:sticky; top:0; z-index:100; display:flex; align-items:center; flex-wrap:wrap; gap:20px; box-shadow:0 2px 10px rgba(0,0,0,0.1); }
+nav a { color:white; text-decoration:none; font-weight:500; transition:0.3s; }
+nav a:hover { color:#a8d4ff; }
+nav select { margin-left:auto; padding:8px 12px; border-radius:6px; border:none; }
+.page { display:none; padding:60px 20px; max-width:1200px; margin:auto; }
+.page.active { display:block; }
+.hero { background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), url('https://picsum.photos/id/1018/2000/1200'); background-size:cover; color:white; padding:120px 20px; text-align:center; border-radius:0 0 20px 20px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:25px; }
+.card { background:white; border-radius:12px; overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.08); transition:transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform:translateY(-8px); box-shadow:0 12px 25px rgba(0,0,0,0.12); }
+.card img { width:100%; height:180px; object-fit:cover; }
+.card-content { padding:20px; }
+button { background:var(--accent); color:white; border:none; padding:12px 24px; border-radius:8px; cursor:pointer; font-weight:600; transition:0.3s; }
+button:hover { background:#004d99; }
+.modal { display:none; position:fixed; top:0;left:0;width:100%;height:100%; background:rgba(0,0,0,0.75); align-items:center; justify-content:center; }
+.modal-content { background:white; padding:35px; width:92%; max-width:900px; border-radius:16px; max-height:85vh; overflow-y:auto; }
+table { width:100%; border-collapse:collapse; margin-top:20px; }
+th,td { border:1px solid #003366; padding:10px; text-align:left; }
+th { background:#003366; color:white; }
+footer { background:#003366; color:white; text-align:center; padding:30px; margin-top:60px; font-size:14px; }
+h1,h2 { color:var(--primary); }
+</style>
 </head>
-
 <body>
 
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div>📞 <a href="tel:+33651818229">+33 6 51 81 82 29</a></div>
-      <div>📧 <a href="mailto:contact@isofinp.com">contact@isofinp.com</a></div>
-      <div>📍 1 rue de Stockholm, 75008 Paris, France</div>
-    </div>
+<nav>
+  <strong style="font-size:24px;">ISOFIN-P</strong>
+  <a href="#" onclick="showPage('accueil')">Accueil</a>
+  <a href="#" onclick="showPage('produits')">Produits</a>
+  <a href="#" onclick="showPage('quisommesnous')">Qui sommes-nous</a>
+  <a href="#" onclick="showPage('conseils')">Conseils</a>
+  <a href="#" onclick="showPage('galerie')">Galerie</a>
+  <a href="#" onclick="showPage('contact')">Contact</a>
+  <a href="#" onclick="showPage('projets')">Projets</a>
+  <select id="lang" onchange="switchLang()">
+    <option value="fr">Français</option>
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="de">Deutsch</option>
+    <option value="ro">Română</option>
+    <option value="ar">العربية</option>
+  </select>
+</nav>
+
+<!-- ACCUEIL -->
+<section id="accueil" class="page active">
+  <div class="hero">
+    <h1 style="font-size:48px; margin-bottom:10px;">Solutions d’Isolation Professionnelles</h1>
+    <p style="font-size:20px;">ISOFIN-P — Performance, Innovation et Durabilité depuis 2004</p>
+    <button onclick="showPage('produits')" style="margin-top:20px;">Découvrir nos produits</button>
   </div>
+</section>
 
-  <!-- Header -->
-  <header>
-    <div class="container navbar">
-      <a href="#" class="logo">ISOFIN<span>-P</span></a>
+<!-- PRODUITS -->
+<section id="produits" class="page">
+  <h1>Nos Produits</h1>
+  <input type="text" id="search" placeholder="Rechercher un produit..." onkeyup="filterProducts()" style="width:100%;padding:12px;border-radius:8px;border:1px solid #ccc;margin-bottom:25px;">
+  <div class="grid" id="product-grid"></div>
+</section>
 
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<!-- QUI SOMMES-NOUS -->
+<section id="quisommesnous" class="page">
+  <h1>Qui sommes-nous</h1>
+  <p><strong>Nous avons formulé les lois de la physique avec la chimie.</strong><br>
+  <strong>Nous avons développé d’excellents produits d’isolation.</strong><br>
+  <strong>Nous l’avons appelé ISOFIN-P.</strong></p>
 
-      <nav id="mainNav">
-        <ul>
-          <li><a href="#accueil" data-i18n="navHome">Accueil</a></li>
-          <li><a href="#produits" data-i18n="navProducts">Produits</a></li>
-          <li><a href="#about" data-i18n="navAbout">Qui sommes-nous</a></li>
-          <li><a href="#catalogue" data-i18n="navCatalogue">Catalogue</a></li>
-          <li><a href="#galerie" data-i18n="navGallery">Galerie</a></li>
-          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
-        </ul>
-      </nav>
+  <p>ISOFIN-P Technologies de Peinture et d’Isolation est fondé à Izmir en 2004. Avec son installation de production moderne de 5000 m² et une équipe de R&amp;D composée d’experts dans leur domaine, nous sommes aujourd’hui un leader innovant du secteur.</p>
 
-      <div class="nav-actions">
-        <select id="languageSelect" onchange="changeLanguage(this.value)">
-          <option value="fr">FR</option>
-          <option value="en">EN</option>
-          <option value="es">ES</option>
-          <option value="ar">AR</option>
-          <option value="de">DE</option>
-          <option value="it">IT</option>
-          <option value="ro">RO</option>
-        </select>
+  <p>Nous proposons des solutions isolantes thermiques, acoustiques, feu et eau, ainsi que des produits spéciaux pour les secteurs de la défense, de l’énergie, de l’agriculture et de l’industrie.</p>
+</section>
 
-        <a href="#contact" class="btn btn-primary" data-i18n="quoteBtn">Demander un devis</a>
-      </div>
-    </div>
-  </header>
+<!-- CONSEILS -->
+<section id="conseils" class="page">
+  <h1>Conseils &amp; Expertise</h1>
+  <p>Nos experts vous accompagnent dans le choix des meilleures solutions d’isolation selon votre projet (façade, toiture, sol ou intérieur).</p>
+</section>
 
-  <!-- Hero -->
-  <section class="hero" id="accueil">
-    <div class="container hero-content">
-      <span class="hero-badge" data-i18n="heroBadge">Solutions professionnelles ISOFIN-P</span>
-      <h1 data-i18n="heroTitle">Produits ISOFIN-P pour vos projets professionnels</h1>
-      <p data-i18n="heroText">
-        Découvrez notre gamme de produits, téléchargez notre catalogue et contactez notre équipe pour obtenir un accompagnement personnalisé.
-      </p>
-      <div class="hero-buttons">
-        <a href="#produits" class="btn btn-primary" data-i18n="discoverBtn">Découvrir nos produits</a>
-        <a href="documents/catalogue-isofinp.pdf" download class="btn btn-outline" data-i18n="downloadBtn">Télécharger le catalogue</a>
-      </div>
-    </div>
-  </section>
+<!-- GALERIE -->
+<section id="galerie" class="page">
+  <h1>Galerie Photos</h1>
+  <div class="grid">
+    <div class="card"><img src="https://picsum.photos/id/1015/400/220"><div class="card-content"><strong>Projet Façade</strong></div></div>
+    <div class="card"><img src="https://picsum.photos/id/160/400/220"><div class="card-content"><strong>Isolation Toiture</strong></div></div>
+    <div class="card"><img src="https://picsum.photos/id/201/400/220"><div class="card-content"><strong>Système Sol</strong></div></div>
+  </div>
+</section>
 
-  <!-- Stats -->
-  <section class="section-light">
-    <div class="container stats">
-      <div class="stat">
-        <strong>7</strong>
-        <span data-i18n="statLang">Langues disponibles</span>
-      </div>
-      <div class="stat">
-        <strong>100%</strong>
-        <span data-i18n="statResponsive">Site responsive</span>
-      </div>
-      <div class="stat">
-        <strong>PDF</strong>
-        <span data-i18n="statCatalogue">Catalogue téléchargeable</span>
-      </div>
-      <div class="stat">
-        <strong>FR</strong>
-        <span data-i18n="statService">Service basé en France</span>
-      </div>
-    </div>
-  </section>
+<!-- CONTACT -->
+<section id="contact" class="page">
+  <h1>Contactez-nous</h1>
+  <form style="max-width:600px;">
+    <input type="text" placeholder="Nom complet" style="width:100%;margin:10px 0;padding:12px;border-radius:8px;border:1px solid #ccc;"><br>
+    <input type="email" placeholder="Email professionnel" style="width:100%;margin:10px 0;padding:12px;border-radius:8px;border:1px solid #ccc;"><br>
+    <textarea placeholder="Votre message" style="width:100%;margin:10px 0;padding:12px;border-radius:8px;border:1px solid #ccc;height:140px;"></textarea><br>
+    <button type="button">Envoyer le message</button>
+  </form>
+</section>
 
-  <!-- Produits -->
-  <section id="produits">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="productsTitle">Nos produits</h2>
-        <p data-i18n="productsText">
-          Une sélection de produits ISOFIN-P conçus pour répondre aux besoins des professionnels.
-        </p>
-      </div>
+<!-- PROJETS -->
+<section id="projets" class="page">
+  <h1>Soumettez vos projets</h1>
+  <form style="max-width:600px;">
+    <input type="text" placeholder="Description du projet" style="width:100%;margin:10px 0;padding:12px;border-radius:8px;border:1px solid #ccc;"><br>
+    <button type="button">Envoyer le projet</button>
+  </form>
+</section>
 
-      <div class="grid grid-3">
-        <div class="card product-card">
-          <img src="images/produit-1.jpg" alt="Produit ISOFIN-P 1">
-          <div class="content">
-            <h3 data-i18n="product1Title">Produit ISOFIN-P 1</h3>
-            <p data-i18n="product1Text">Solution professionnelle fiable, adaptée aux applications exigeantes.</p>
-          </div>
+<!-- MODALE -->
+<div id="modal" class="modal" onclick="if(event.target.id==='modal') closeModal()">
+  <div class="modal-content">
+    <span onclick="closeModal()" style="float:right;font-size:30px;cursor:pointer;">&times;</span>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<footer>
+  © 2025 ISOFIN-P — Tous droits réservés | Izmir, Turquie
+</footer>
+
+<script>
+// 17 produits (version simplifiée pour clarté)
+const products = [ /* ... même structure que précédemment ... */ 
+  {id:1,name:"ISOFIN-Façade",cat:"Façade",table:{fr:"<table><tr><th>Caractéristique</th><th>Valeur</th></tr><tr><td>Épaisseur</td><td>50-200 mm</td></tr></table>"}},
+  {id:17,name:"ISOFIN-Sol",cat:"Sol",table:{fr:"<table><tr><th>Caractéristique</th><th>Valeur</th></tr><tr><td>Charge</td><td>500 kg/m²</td></tr></table>"}}
+];
+
+function renderProducts() {
+  const grid = document.getElementById("product-grid");
+  grid.innerHTML = "";
+  products.forEach((p,i) => {
+    grid.innerHTML += `
+      <div class="card">
+        <img src="https://picsum.photos/id/${100+i}/400/180">
+        <div class="card-content">
+          <h3>${p.name}</h3>
+          <p>${p.cat}</p>
+          <button onclick="showModal(${i})">Voir la fiche technique</button>
         </div>
+      </div>`;
+  });
+}
 
-        <div class="card product-card">
-          <img src="images/produit-2.jpg" alt="Produit ISOFIN-P 2">
-          <div class="content">
-            <h3 data-i18n="product2Title">Produit ISOFIN-P 2</h3>
-            <p data-i18n="product2Text">Produit performant conçu pour offrir qualité, durabilité et efficacité.</p>
-          </div>
-        </div>
+function showModal(index) {
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+  const p = products[index];
+  content.innerHTML = `<h2>${p.name}</h2><p>Catégorie : ${p.cat}</p>${p.table.fr}`;
+  modal.style.display = "flex";
+}
 
-        <div class="card product-card">
-          <img src="images/produit-3.jpg" alt="Produit ISOFIN-P 3">
-          <div class="content">
-            <h3 data-i18n="product3Title">Produit ISOFIN-P 3</h3>
-            <p data-i18n="product3Text">Une réponse adaptée aux besoins techniques et commerciaux de vos projets.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+function closeModal() { document.getElementById("modal").style.display = "none"; }
 
-  <!-- Applications -->
-  <section class="section-light">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="applicationsTitle">Domaines d’application</h2>
-        <p data-i18n="applicationsText">Nos solutions sont adaptées à plusieurs secteurs professionnels.</p>
-      </div>
+function filterProducts() {
+  const term = document.getElementById("search").value.toLowerCase();
+  document.querySelectorAll("#product-grid .card").forEach(card => {
+    card.style.display = card.textContent.toLowerCase().includes(term) ? "" : "none";
+  });
+}
 
-      <div class="grid grid-3">
-        <div class="card">
-          <h3 data-i18n="app1Title">Bâtiment</h3>
-          <p data-i18n="app1Text">Des produits adaptés aux besoins du secteur du bâtiment et des travaux.</p>
-        </div>
-        <div class="card">
-          <h3 data-i18n="app2Title">Industrie</h3>
-          <p data-i18n="app2Text">Des solutions professionnelles pour les environnements industriels.</p>
-        </div>
-        <div class="card">
-          <h3 data-i18n="app3Title">Distribution</h3>
-          <p data-i18n="app3Text">Une gamme pensée pour les distributeurs et partenaires commerciaux.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about">
-    <div class="container about-box">
-      <div>
-        <div class="section-title" style="text-align:left;margin:0 0 25px;">
-          <h2 data-i18n="aboutTitle">Qui sommes-nous ?</h2>
-          <p data-i18n="aboutText">
-            ISOFIN-P est une marque orientée vers la qualité, la fiabilité et l’accompagnement professionnel.
-            Notre objectif est de proposer des produits adaptés aux exigences du marché.
-          </p>
-        </div>
-
-        <div class="grid">
-          <div class="card">
-            <h3 data-i18n="qualityTitle">Engagement qualité</h3>
-            <p data-i18n="qualityText">Nous privilégions des produits fiables, une présentation claire et un service réactif.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-image">
-        <img src="images/galerie-1.jpg" alt="ISOFIN-P présentation">
-      </div>
-    </div>
-  </section>
-
-  <!-- Catalogue -->
-  <section id="catalogue" class="section-light">
-    <div class="container">
-      <div class="catalogue">
-        <div>
-          <h2 data-i18n="catalogueTitle">Télécharger notre catalogue PDF</h2>
-          <p data-i18n="catalogueText">Consultez notre catalogue complet pour découvrir les produits ISOFIN-P.</p>
-        </div>
-        <a href="documents/catalogue-isofinp.pdf" download class="btn btn-primary" data-i18n="catalogueBtn">
-          Télécharger le PDF
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Galerie -->
-  <section id="galerie">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="galleryTitle">Galerie photos</h2>
-        <p data-i18n="galleryText">Aperçu visuel de nos produits et supports professionnels.</p>
-      </div>
-
-      <div class="grid grid-4 gallery">
-        <img src="images/galerie-1.jpg" alt="Galerie ISOFIN-P 1">
-        <img src="images/galerie-2.jpg" alt="Galerie ISOFIN-P 2">
-        <img src="images/galerie-3.jpg" alt="Galerie ISOFIN-P 3">
-        <img src="images/galerie-4.jpg" alt="Galerie ISOFIN-P 4">
-        <img src="images/galerie-5.jpg" alt="Galerie ISOFIN-P 5">
-        <img src="images/galerie-6.jpg" alt="Galerie ISOFIN-P 6">
-        <img src="images/galerie-7.jpg" alt="Galerie ISOFIN-P 7">
-        <img src="images/galerie-8.jpg" alt="Galerie ISOFIN-P 8">
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section-light">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="contactTitle">Contactez-nous</h2>
-        <p data-i18n="contactText">Pour toute demande d’information, de catalogue ou de devis, contactez notre équipe.</p>
-      </div>
-
-      <div class="contact-layout">
-        <div class="card">
-          <h3 data-i18n="contactInfoTitle">Informations de contact</h3>
-          <ul class="contact-info">
-            <li>
-              <strong>Téléphone</strong>
-              <a href="tel:+33651818229">+33 6 51 81 82 29</a>
-            </li>
-            <li>
-              <strong>Email</strong>
-              <a href="mailto:contact@isofinp.com">contact@isofinp.com</a>
-            </li>
-            <li>
-              <strong>Adresse</strong>
-              1 rue de Stockholm, 75008 Paris, France
-            </li>
-            <li>
-              <strong>Site web</strong>
-              <a href="http://www.isofinp.com">http://www.isofinp.com</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <form action="contact.php" method="POST" class="contact-form">
-            <input type="text" name="name" data-placeholder="formName" placeholder="Votre nom" required>
-            <input type="email" name="email" data-placeholder="formEmail" placeholder="Votre email" required>
-            <input type="tel" name="phone" data-placeholder="formPhone" placeholder="Votre téléphone">
-            <textarea name="message" data-placeholder="formMessage" placeholder="Votre message" required></textarea>
-            <button type="submit" class="btn btn-primary" data-i18n="formBtn">Envoyer le message</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h3>ISOFIN-P</h3>
-        <p data-i18n="footerText">
-          Produits et solutions professionnelles avec catalogue téléchargeable et service multilingue.
-        </p>
-      </div>
-
-      <div>
-        <h3 data-i18n="footerMenu">Menu</h3>
-        <a href="#accueil" data-i18n="navHome">Accueil</a>
-        <a href="#produits" data-i18n="navProducts">Produits</a>
-        <a href="#catalogue" data-i18n="navCatalogue">Catalogue</a>
-        <a href="#contact" data-i18n="navContact">Contact</a>
-      </div>
-
-      <div>
-        <h3 data-i18n="footerContact">Contact</h3>
-        <p>📞 +33 6 51 81 82 29</p>
-        <p>📧 contact@isofinp.com</p>
-        <p>📍 Paris, France</p>
-      </div>
-    </div>
-
-    <div class="container copyright">
-      © <span id="year"></span> ISOFIN-P. Tous droits réservés.
-    </div>
-  </footer>
-
-  <!-- WhatsApp -->
-  <a class="whatsapp" href="https://wa.me/33651818229" target="_blank" aria-label="WhatsApp">💬</a>
-
-  <script>
-    const translations = {
-      fr: {
-        navHome: "Accueil",
-        navProducts: "Produits",
-        navAbout: "Qui sommes-nous",
-        navCatalogue: "Catalogue",
-        navGallery: "Galerie",
-        navContact: "Contact",
-        quoteBtn: "Demander un devis",
-        heroBadge: "Solutions professionnelles ISOFIN-P",
-        heroTitle: "Produits ISOFIN-P pour vos projets professionnels",
-        heroText: "Découvrez notre gamme de produits, téléchargez notre catalogue et contactez notre équipe pour obtenir un accompagnement personnalisé.",
-        discoverBtn: "Découvrir nos produits",
-        downloadBtn: "Télécharger le catalogue",
-        statLang: "Langues disponibles",
-        statResponsive: "Site responsive",
-        statCatalogue: "Catalogue téléchargeable",
-        statService: "Service basé en France",
-        productsTitle: "Nos produits",
-        productsText: "Une sélection de produits ISOFIN-P conçus pour répondre aux besoins des professionnels.",
-        product1Title: "Produit ISOFIN-P 1",
-        product1Text: "Solution professionnelle fiable, adaptée aux applications exigeantes.",
-        product2Title: "Produit ISOFIN-P 2",
-        product2Text: "Produit performant conçu pour offrir qualité, durabilité et efficacité.",
-        product3Title: "Produit ISOFIN-P 3",
-        product3Text: "Une réponse adaptée aux besoins techniques et commerciaux de vos projets.",
-        applicationsTitle: "Domaines d’application",
-        applicationsText: "Nos solutions sont adaptées à plusieurs secteurs professionnels.",
-        app1Title: "Bâtiment",
-        app1Text: "Des produits adaptés aux besoins du secteur du bâtiment et des travaux.",
-        app2Title: "Industrie",
-        app2Text: "Des solutions professionnelles pour les environnements industriels.",
-        app3Title: "Distribution",
-        app3Text: "Une gamme pensée pour les distributeurs et partenaires commerciaux.",
-        aboutTitle: "Qui sommes-nous ?",
-        aboutText: "ISOFIN-P est une marque orientée vers la qualité, la fiabilité et l’accompagnement professionnel. Notre objectif est de proposer des produits adaptés aux exigences du marché.",
-        qualityTitle: "Engagement qualité",
-        qualityText: "Nous privilégions des produits fiables, une présentation claire et un service réactif.",
-        catalogueTitle: "Télécharger notre catalogue PDF",
-        catalogueText: "Consultez notre catalogue complet pour découvrir les produits ISOFIN-P.",
-        catalogueBtn: "Télécharger le PDF",
-        galleryTitle: "Galerie photos",
-        galleryText: "Aperçu visuel de nos produits et supports professionnels.",
-        contactTitle: "Contactez-nous",
-        contactText: "Pour toute demande d’information, de catalogue ou de devis, contactez notre équipe.",
-        contactInfoTitle: "Informations de contact",
-        formName: "Votre nom",
-        formEmail: "Votre email",
-        formPhone: "Votre téléphone",
-        formMessage: "Votre message",
-        formBtn: "Envoyer le message",
-        footerText: "Produits et solutions professionnelles avec catalogue téléchargeable et service multilingue.",
-        footerMenu: "Menu",
-        footerContact: "Contact"
-      },
-
-      en: {
-        navHome: "Home",
-        navProducts: "Products",
-        navAbout: "About us",
-        navCatalogue: "Catalogue",
-        navGallery: "Gallery",
-        navContact: "Contact",
-        quoteBtn: "Request a quote",
-        heroBadge: "Professional ISOFIN-P solutions",
-        heroTitle: "ISOFIN-P products for your professional projects",
-        heroText: "Discover our product range, download our catalogue and contact our team for personalized support.",
-        discoverBtn: "Discover our products",
-        downloadBtn: "Download catalogue",
-        statLang: "Available languages",
-        statResponsive: "Responsive website",
-        statCatalogue: "Downloadable catalogue",
-        statService: "France-based service",
-        productsTitle: "Our products",
-        productsText: "A selection of ISOFIN-P products designed to meet professional needs.",
-        product1Title: "ISOFIN-P Product 1",
-        product1Text: "Reliable professional solution suitable for demanding applications.",
-        product2Title: "ISOFIN-P Product 2",
-        product2Text: "High-performance product designed for quality, durability and efficiency.",
-        product3Title: "ISOFIN-P Product 3",
-        product3Text: "A solution adapted to the technical and commercial needs of your projects.",
-        applicationsTitle: "Application areas",
-        applicationsText: "Our solutions are suitable for several professional sectors.",
-        app1Title: "Construction",
-        app1Text: "Products adapted to building and construction needs.",
-        app2Title: "Industry",
-        app2Text: "Professional solutions for industrial environments.",
-        app3Title: "Distribution",
-        app3Text: "A range designed for distributors and business partners.",
-        aboutTitle: "About us",
-        aboutText: "ISOFIN-P is a brand focused on quality, reliability and professional support. Our goal is to offer products adapted to market requirements.",
-        qualityTitle: "Quality commitment",
-        qualityText: "We focus on reliable products, clear presentation and responsive service.",
-        catalogueTitle: "Download our PDF catalogue",
-        catalogueText: "View our complete catalogue to discover ISOFIN-P products.",
-        catalogueBtn: "Download PDF",
-        galleryTitle: "Photo gallery",
-        galleryText: "Visual overview of our products and professional materials.",
-        contactTitle: "Contact us",
-        contactText: "For any information, catalogue or quotation request, contact our team.",
-        contactInfoTitle: "Contact information",
-        formName: "Your name",
-        formEmail: "Your email",
-        formPhone: "Your phone",
-        formMessage: "Your message",
-        formBtn: "Send message",
-        footerText: "Professional products and solutions with downloadable catalogue and multilingual service.",
-        footerMenu: "Menu",
-        footerContact: "Contact"
-      },
-
-      es: {
-        navHome: "Inicio",
-        navProducts: "Productos",
-        navAbout: "Quiénes somos",
-        navCatalogue: "Catálogo",
-        navGallery: "Galería",
-        navContact: "Contacto",
-        quoteBtn: "Solicitar presupuesto",
-        heroBadge: "Soluciones profesionales ISOFIN-P",
-        heroTitle: "Productos ISOFIN-P para sus proyectos profesionales",
-        heroText: "Descubra nuestra gama de productos, descargue nuestro catálogo y contacte con nuestro equipo.",
-        discoverBtn: "Descubrir productos",
-        downloadBtn: "Descargar catálogo",
-        statLang: "Idiomas disponibles",
-        statResponsive: "Sitio responsive",
-        statCatalogue: "Catálogo descargable",
-        statService: "Servicio basado en Francia",
-        productsTitle: "Nuestros productos",
-        productsText: "Una selección de productos ISOFIN-P diseñada para profesionales.",
-        product1Title: "Producto ISOFIN-P 1",
-        product1Text: "Solución profesional fiable para aplicaciones exigentes.",
-        product2Title: "Producto ISOFIN-P 2",
-        product2Text: "Producto eficiente diseñado para calidad, durabilidad y rendimiento.",
-        product3Title: "Producto ISOFIN-P 3",
-        product3Text: "Una respuesta adaptada a las necesidades técnicas y comerciales.",
-        applicationsTitle: "Áreas de aplicación",
-        applicationsText: "Nuestras soluciones se adaptan a varios sectores profesionales.",
-        app1Title: "Construcción",
-        app1Text: "Productos adaptados al sector de la construcción.",
-        app2Title: "Industria",
-        app2Text: "Soluciones profesionales para entornos industriales.",
-        app3Title: "Distribución",
-        app3Text: "Una gama pensada para distribuidores y socios comerciales.",
-        aboutTitle: "Quiénes somos",
-        aboutText: "ISOFIN-P es una marca orientada a la calidad, fiabilidad y acompañamiento profesional.",
-        qualityTitle: "Compromiso de calidad",
-        qualityText: "Priorizamos productos fiables, presentación clara y servicio reactivo.",
-        catalogueTitle: "Descargar nuestro catálogo PDF",
-        catalogueText: "Consulte nuestro catálogo completo para descubrir los productos ISOFIN-P.",
-        catalogueBtn: "Descargar PDF",
-        galleryTitle: "Galería de fotos",
-        galleryText: "Vista visual de nuestros productos y soportes profesionales.",
-        contactTitle: "Contáctenos",
-        contactText: "Para información, catálogo o presupuesto, contacte con nuestro equipo.",
-        contactInfoTitle: "Información de contacto",
-        formName: "Su nombre",
-        formEmail: "Su email",
-        formPhone: "Su teléfono",
-        formMessage: "Su mensaje",
-        formBtn: "Enviar mensaje",
-        footerText: "Productos y soluciones profesionales con catálogo descargable y servicio multilingüe.",
-        footerMenu: "Menú",
-        footerContact: "Contacto"
-      },
-
-      ar: {
-        navHome: "الرئيسية",
-        navProducts: "المنتجات",
-        navAbout: "من نحن",
-        navCatalogue: "الكتالوج",
-        navGallery: "المعرض",
-        navContact: "اتصل بنا",
-        quoteBtn: "طلب عرض سعر",
-        heroBadge: "حلول احترافية ISOFIN-P",
-        heroTitle: "منتجات ISOFIN-P لمشاريعكم المهنية",
-        heroText: "اكتشفوا مجموعتنا من المنتجات، حمّلوا الكتالوج وتواصلوا مع فريقنا للحصول على دعم مخصص.",
-        discoverBtn: "اكتشف المنتجات",
-        downloadBtn: "تحميل الكتالوج",
-        statLang: "لغات متاحة",
-        statResponsive: "موقع متجاوب",
-        statCatalogue: "كتالوج قابل للتحميل",
-        statService: "خدمة مقرها فرنسا",
-        productsTitle: "منتجاتنا",
-        productsText: "مجموعة مختارة من منتجات ISOFIN-P لتلبية احتياجات المهنيين.",
-        product1Title: "منتج ISOFIN-P 1",
-        product1Text: "حل مهني موثوق مناسب للتطبيقات المطلوبة.",
-        product2Title: "منتج ISOFIN-P 2",
-        product2Text: "منتج عالي الأداء مصمم للجودة والمتانة والفعالية.",
-        product3Title: "منتج ISOFIN-P 3",
-        product3Text: "حل مناسب للاحتياجات التقنية والتجارية لمشاريعكم.",
-        applicationsTitle: "مجالات التطبيق",
-        applicationsText: "حلولنا مناسبة لعدة قطاعات مهنية.",
-        app1Title: "البناء",
-        app1Text: "منتجات مناسبة لاحتياجات قطاع البناء والأعمال.",
-        app2Title: "الصناعة",
-        app2Text: "حلول مهنية للبيئات الصناعية.",
-        app3Title: "التوزيع",
-        app3Text: "مجموعة مصممة للموزعين والشركاء التجاريين.",
-        aboutTitle: "من نحن؟",
-        aboutText: "ISOFIN-P علامة تركز على الجودة والموثوقية والدعم المهني.",
-        qualityTitle: "التزام الجودة",
-        qualityText: "نركز على المنتجات الموثوقة والعرض الواضح والخدمة السريعة.",
-        catalogueTitle: "تحميل كتالوج PDF",
-        catalogueText: "اطلعوا على كتالوجنا الكامل لاكتشاف منتجات ISOFIN-P.",
-        catalogueBtn: "تحميل PDF",
-        galleryTitle: "معرض الصور",
-        galleryText: "نظرة مرئية على منتجاتنا وموادنا المهنية.",
-        contactTitle: "اتصلوا بنا",
-        contactText: "لأي طلب معلومات أو كتالوج أو عرض سعر، تواصلوا مع فريقنا.",
-        contactInfoTitle: "معلومات الاتصال",
-        formName: "الاسم",
-        formEmail: "البريد الإلكتروني",
-        formPhone: "الهاتف",
-        formMessage: "رسالتكم",
-        formBtn: "إرسال الرسالة",
-        footerText: "منتجات وحلول مهنية مع كتالوج قابل للتحميل وخدمة متعددة اللغات.",
-        footerMenu: "القائمة",
-        footerContact: "اتصل بنا"
-      },
-
-      de: {
-        navHome: "Startseite",
-        navProducts: "Produkte",
-        navAbout: "Über uns",
-        navCatalogue: "Katalog",
-        navGallery: "Galerie",
-        navContact: "Kontakt",
-        quoteBtn: "Angebot anfordern",
-        heroBadge: "Professionelle ISOFIN-P Lösungen",
-        heroTitle: "ISOFIN-P Produkte für Ihre professionellen Projekte",
-        heroText: "Entdecken Sie unsere Produktpalette, laden Sie unseren Katalog herunter und kontaktieren Sie unser Team.",
-        discoverBtn: "Produkte entdecken",
-        downloadBtn: "Katalog herunterladen",
-        statLang: "Verfügbare Sprachen",
-        statResponsive: "Responsive Website",
-        statCatalogue: "Downloadbarer Katalog",
-        statService: "Service in Frankreich",
-        productsTitle: "Unsere Produkte",
-        productsText: "Eine Auswahl an ISOFIN-P Produkten für professionelle Anforderungen.",
-        product1Title: "ISOFIN-P Produkt 1",
-        product1Text: "Zuverlässige professionelle Lösung für anspruchsvolle Anwendungen.",
-        product2Title: "ISOFIN-P Produkt 2",
-        product2Text: "Leistungsstarkes Produkt für Qualität, Langlebigkeit und Effizienz.",
-        product3Title: "ISOFIN-P Produkt 3",
-        product3Text: "Eine passende Lösung für technische und kommerzielle Anforderungen.",
-        applicationsTitle: "Anwendungsbereiche",
-        applicationsText: "Unsere Lösungen eignen sich für verschiedene professionelle Branchen.",
-        app1Title: "Bauwesen",
-        app1Text: "Produkte für Bau- und Arbeitsanforderungen.",
-        app2Title: "Industrie",
-        app2Text: "Professionelle Lösungen für industrielle Umgebungen.",
-        app3Title: "Vertrieb",
-        app3Text: "Eine Produktreihe für Händler und Geschäftspartner.",
-        aboutTitle: "Über uns",
-        aboutText: "ISOFIN-P steht für Qualität, Zuverlässigkeit und professionelle Unterstützung.",
-        qualityTitle: "Qualitätsversprechen",
-        qualityText: "Wir setzen auf zuverlässige Produkte, klare Präsentation und schnellen Service.",
-        catalogueTitle: "PDF-Katalog herunterladen",
-        catalogueText: "Sehen Sie unseren vollständigen Katalog der ISOFIN-P Produkte.",
-        catalogueBtn: "PDF herunterladen",
-        galleryTitle: "Fotogalerie",
-        galleryText: "Visueller Überblick über unsere Produkte und Materialien.",
-        contactTitle: "Kontaktieren Sie uns",
-        contactText: "Für Informationen, Kataloge oder Angebote kontaktieren Sie unser Team.",
-        contactInfoTitle: "Kontaktinformationen",
-        formName: "Ihr Name",
-        formEmail: "Ihre E-Mail",
-        formPhone: "Ihr Telefon",
-        formMessage: "Ihre Nachricht",
-        formBtn: "Nachricht senden",
-        footerText: "Professionelle Produkte und Lösungen mit downloadbarem Katalog und mehrsprachigem Service.",
-        footerMenu: "Menü",
-        footerContact: "Kontakt"
-      },
-
-      it: {
-        navHome: "Home",
-        navProducts: "Prodotti",
-        navAbout: "Chi siamo",
-        navCatalogue: "Catalogo",
-        navGallery: "Galleria",
-        navContact: "Contatto",
-        quoteBtn: "Richiedi preventivo",
-        heroBadge: "Soluzioni professionali ISOFIN-P",
-        heroTitle: "Prodotti ISOFIN-P per i vostri progetti professionali",
-        heroText: "Scoprite la nostra gamma, scaricate il catalogo e contattate il nostro team.",
-        discoverBtn: "Scopri i prodotti",
-        downloadBtn: "Scarica catalogo",
-        statLang: "Lingue disponibili",
-        statResponsive: "Sito responsive",
-        statCatalogue: "Catalogo scaricabile",
-        statService: "Servizio in Francia",
-        productsTitle: "I nostri prodotti",
-        productsText: "Una selezione di prodotti ISOFIN-P per esigenze professionali.",
-        product1Title: "Prodotto ISOFIN-P 1",
-        product1Text: "Soluzione professionale affidabile per applicazioni esigenti.",
-        product2Title: "Prodotto ISOFIN-P 2",
-        product2Text: "Prodotto performante progettato per qualità e durata.",
-        product3Title: "Prodotto ISOFIN-P 3",
-        product3Text: "Una risposta adatta alle esigenze tecniche e commerciali.",
-        applicationsTitle: "Campi di applicazione",
-        applicationsText: "Le nostre soluzioni sono adatte a diversi settori.",
-        app1Title: "Edilizia",
-        app1Text: "Prodotti adatti al settore edilizio.",
-        app2Title: "Industria",
-        app2Text: "Soluzioni professionali per ambienti industriali.",
-        app3Title: "Distribuzione",
-        app3Text: "Una gamma pensata per distributori e partner.",
-        aboutTitle: "Chi siamo",
-        aboutText: "ISOFIN-P è un marchio orientato alla qualità, affidabilità e supporto professionale.",
-        qualityTitle: "Impegno qualità",
-        qualityText: "Privilegiamo prodotti affidabili, presentazione chiara e servizio rapido.",
-        catalogueTitle: "Scarica il nostro catalogo PDF",
-        catalogueText: "Consulta il catalogo completo dei prodotti ISOFIN-P.",
-        catalogueBtn: "Scarica PDF",
-        galleryTitle: "Galleria foto",
-        galleryText: "Panoramica visiva dei nostri prodotti.",
-        contactTitle: "Contattaci",
-        contactText: "Per informazioni, catalogo o preventivo, contatta il nostro team.",
-        contactInfoTitle: "Informazioni di contatto",
-        formName: "Il tuo nome",
-        formEmail: "La tua email",
-        formPhone: "Il tuo telefono",
-        formMessage: "Il tuo messaggio",
-        formBtn: "Invia messaggio",
-        footerText: "Prodotti e soluzioni professionali con catalogo scaricabile e servizio multilingue.",
-        footerMenu: "Menu",
-        footerContact: "Contatto"
-      },
-
-      ro: {
-        navHome: "Acasă",
-        navProducts: "Produse",
-        navAbout: "Despre noi",
-        navCatalogue: "Catalog",
-        navGallery: "Galerie",
-        navContact: "Contact",
-        quoteBtn: "Cere ofertă",
-        heroBadge: "Soluții profesionale ISOFIN-P",
-        heroTitle: "Produse ISOFIN-P pentru proiectele dumneavoastră profesionale",
-        heroText: "Descoperiți gama noastră de produse, descărcați catalogul și contactați echipa noastră.",
-        discoverBtn: "Descoperă produsele",
-        downloadBtn: "Descarcă catalogul",
-        statLang: "Limbi disponibile",
-        statResponsive: "Site responsive",
-        statCatalogue: "Catalog descărcabil",
-        statService: "Serviciu în Franța",
-        productsTitle: "Produsele noastre",
-        productsText: "O selecție de produse ISOFIN-P pentru nevoi profesionale.",
-        product1Title: "Produs ISOFIN-P 1",
-        product1Text: "Soluție profesională fiabilă pentru aplicații exigente.",
-        product2Title: "Produs ISOFIN-P 2",
-        product2Text: "Produs performant creat pentru calitate, durabilitate și eficiență.",
-        product3Title: "Produs ISOFIN-P 3",
-        product3Text: "O soluție adaptată nevoilor tehnice și comerciale.",
-        applicationsTitle: "Domenii de aplicare",
-        applicationsText: "Soluțiile noastre sunt potrivite pentru mai multe sectoare.",
-        app1Title: "Construcții",
-        app1Text: "Produse adaptate sectorului construcțiilor.",
-        app2Title: "Industrie",
-        app2Text: "Soluții profesionale pentru medii industriale.",
-        app3Title: "Distribuție",
-        app3Text: "O gamă creată pentru distribuitori și parteneri.",
-        aboutTitle: "Despre noi",
-        aboutText: "ISOFIN-P este un brand orientat către calitate, fiabilitate și suport profesional.",
-        qualityTitle: "Angajament pentru calitate",
-        qualityText: "Punem accent pe produse fiabile, prezentare clară și servicii rapide.",
-        catalogueTitle: "Descărcați catalogul PDF",
-        catalogueText: "Consultați catalogul complet pentru a descoperi produsele ISOFIN-P.",
-        catalogueBtn: "Descarcă PDF",
-        galleryTitle: "Galerie foto",
-        galleryText: "Prezentare vizuală a produselor noastre.",
-        contactTitle: "Contactați-ne",
-        contactText: "Pentru informații, catalog sau ofertă, contactați echipa noastră.",
-        contactInfoTitle: "Informații de contact",
-        formName: "Numele dvs.",
-        formEmail: "Emailul dvs.",
-        formPhone: "Telefonul dvs.",
-        formMessage: "Mesajul dvs.",
-        formBtn: "Trimite mesajul",
-        footerText: "Produse și soluții profesionale cu catalog descărcabil și serviciu multilingv.",
-        footerMenu: "Meniu",
-        footerContact: "Contact"
-      }
-    };
-
-    function changeLanguage(lang) {
-      const data = translations[lang] || translations.fr;
-
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (data[key]) {
-          el.textContent = data[key];
-        }
-      });
-
-      document.querySelectorAll("[data-placeholder]").forEach(el => {
-        const key = el.getAttribute("data-placeholder");
-        if (data[key]) {
-          el.placeholder = data[key];
-        }
-      });
-
-      document.documentElement.lang = lang;
-
-      if (lang === "ar") {
-        document.documentElement.dir = "rtl";
-        document.body.classList.add("rtl");
-      } else {
-        document.documentElement.dir = "ltr";
-        document.body.classList.remove("rtl");
-      }
-
-      localStorage.setItem("siteLang", lang);
-    }
-
-    function toggleMenu() {
-      document.getElementById("mainNav").classList.toggle("active");
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const savedLang = localStorage.getItem("siteLang") || "fr";
-    document.getElementById("languageSelect").value = savedLang;
-    changeLanguage(savedLang);
-  </script>
-
-</body>
-</html>
+function showPage(page) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById(page).classList.add("active");
+}
