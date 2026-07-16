@@ -1989,5 +1989,50 @@
       }
     });
   </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const productImages = {
+    "ISOFIN-P SB": {
+      src: "assets/images/produits/isofinp-sb.jpg",
+      alt: "ISOFIN-P SB - Revêtement d’étanchéité minéral"
+    },
+    "ISOFIN-P JELBETON": {
+      src: "assets/images/produits/isofinp-jelbeton.jpg",
+      alt: "ISOFIN-P JELBETON - Béton gris autonivelant à base de ciment"
+    },
+    "ISOFIN-P M 35": {
+      src: "assets/images/produits/isofinp-m35.jpg",
+      alt: "ISOFIN-P M 35 - Super cristallisé pour isolation contre l’eau"
+    },
+    "ISOFIN-P SS SOIL HARDENER": {
+      src: "assets/images/produits/isofinp-ss-soil-hardener.jpg",
+      alt: "ISOFIN-P SS Soil Hardener - Durcisseur de sol"
+    }
+  };
+
+  const cards = document.querySelectorAll(".product-card, .produit-card, .product-item, article");
+
+  cards.forEach(card => {
+    const titleElement = card.querySelector("h2, h3, h4, .product-title, .produit-title");
+    if (!titleElement) return;
+
+    const title = titleElement.textContent.trim().toUpperCase();
+
+    Object.keys(productImages).forEach(productName => {
+      if (title.includes(productName.toUpperCase())) {
+        if (!card.querySelector("img.product-image")) {
+          const image = document.createElement("img");
+          image.src = productImages[productName].src;
+          image.alt = productImages[productName].alt;
+          image.className = "product-image";
+          image.loading = "lazy";
+
+          card.insertBefore(image, card.firstChild);
+        }
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
