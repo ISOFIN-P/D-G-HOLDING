@@ -1,217 +1,90 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISOFIN-P | Technologies d'Isolation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body { font-family: 'Inter', system_ui, sans-serif; }
-        .heading { font-family: 'Poppins', sans-serif; }
+        .blue-bg { background-color: #1e40af; }
+        .green-accent { color: #059669; }
+        .btn-green { background-color: #059669; color: white; }
         .section { display: none; }
-        .section.active { display: block; animation: fadeIn 0.4s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .section.active { display: block; }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="bg-gray-50 text-gray-900">
+
     <!-- HEADER -->
-    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
-        <div class="max-w-screen-xl mx-auto px-6 py-4 flex items-center justify-between">
+    <header class="blue-bg text-white sticky top-0 z-50">
+        <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <div class="w-11 h-11 bg-[#1e40af] rounded-2xl flex items-center justify-center">
-                    <span class="text-white font-bold text-2xl">IP</span>
+                <div class="w-10 h-10 bg-white rounded-2xl flex items-center justify-center">
+                    <span class="text-[#1e40af] font-bold text-2xl">IP</span>
                 </div>
-                <span class="font-bold text-3xl text-[#1e40af]">ISOFIN-P</span>
+                <span class="font-bold text-2xl">ISOFIN-P</span>
             </div>
-
-            <nav class="hidden md:flex gap-7 text-sm font-medium">
-                <a href="#" onclick="showSection('accueil')" class="nav-link" data-key="nav_home">Accueil</a>
-                <a href="#" onclick="showSection('produits')" class="nav-link" data-key="nav_products">Produits</a>
-                <a href="#" onclick="showSection('quisommesnous')" class="nav-link" data-key="nav_about">Qui sommes-nous</a>
-                <a href="#" onclick="showSection('conseils')" class="nav-link" data-key="nav_advice">Conseils</a>
-                <a href="#" onclick="showSection('galerie')" class="nav-link" data-key="nav_gallery">Galerie</a>
-                <a href="#" onclick="showSection('projets')" class="nav-link" data-key="nav_projects">Projets</a>
-                <a href="#" onclick="showSection('contact')" class="nav-link" data-key="nav_contact">Contact</a>
-                <a href="#" onclick="showSection('glossaire')" class="nav-link" data-key="nav_glossary">Glossaire</a>
+            <nav class="hidden md:flex gap-6 text-sm">
+                <a href="#" onclick="showSection('accueil')" class="hover:text-blue-200">Accueil</a>
+                <a href="#" onclick="showSection('produits')" class="hover:text-blue-200">Produits</a>
+                <a href="#" onclick="showSection('quisommesnous')" class="hover:text-blue-200">Qui sommes-nous</a>
+                <a href="#" onclick="showSection('conseils')" class="hover:text-blue-200">Conseils</a>
+                <a href="#" onclick="showSection('contact')" class="hover:text-blue-200">Contact</a>
             </nav>
-
-            <div class="flex items-center gap-3">
-                <select id="lang-select" onchange="changeLanguage(this.value)" class="bg-white dark:bg-gray-700 border px-4 py-2 text-sm rounded-2xl">
-                    <option value="fr">🇫🇷 Français</option>
-                    <option value="en">🇬🇧 English</option>
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="ar">🇸🇦 العربية</option>
-                    <option value="ro">🇷🇴 Română</option>
-                    <option value="it">🇮🇹 Italiano</option>
-                    <option value="de">🇩🇪 Deutsch</option>
-                    <option value="ru">🇷🇺 Русский</option>
-                </select>
-                <button onclick="toggleDarkMode()" class="p-2 rounded-2xl hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </div>
         </div>
     </header>
 
-    <!-- PAGE ACCUEIL (Bleu) -->
-    <section id="accueil" class="section active bg-[#1e40af] text-white">
-        <div class="max-w-screen-xl mx-auto px-6 pt-20 pb-24">
-            <div class="max-w-3xl">
-                <h1 id="home_title" class="text-6xl md:text-7xl font-bold heading tracking-tighter mb-6">ISOFIN-P<br>Technologies d’Isolation</h1>
-                <p id="home_subtitle" class="text-xl text-blue-100 mb-10 max-w-lg">Solutions innovantes d’isolation thermique, acoustique et ignifuge depuis 2004.</p>
-                <div class="flex flex-wrap gap-4">
-                    <button onclick="showSection('produits')" class="px-8 py-4 bg-white text-[#1e40af] font-semibold rounded-2xl hover:bg-blue-100 transition">Découvrir nos produits</button>
-                    <button onclick="showSection('contact')" class="px-8 py-4 border-2 border-white/70 hover:bg-white/10 rounded-2xl font-semibold transition">Nous contacter</button>
+    <!-- ACCUEIL -->
+    <section id="accueil" class="section active blue-bg text-white py-20">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <h1 class="text-6xl font-bold mb-6">ISOFIN-P</h1>
+            <p class="text-xl max-w-md mb-8">Technologies d’isolation innovantes</p>
+            <button onclick="showSection('contact')" class="btn-green px-8 py-4 rounded-2xl font-semibold">Nous contacter</button>
+        </div>
+    </section>
+
+    <!-- CONTACT (mis à jour) -->
+    <section id="contact" class="section max-w-screen-xl mx-auto px-6 py-16">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-4xl font-bold text-[#1e40af] mb-8 text-center">Contactez-nous</h2>
+            
+            <div class="bg-white p-8 rounded-3xl shadow mb-8">
+                <div class="space-y-4 text-lg">
+                    <p><i class="fas fa-envelope mr-3 text-[#059669]"></i> <strong>Email :</strong> contact@isofinp.com</p>
+                    <p><i class="fas fa-phone mr-3 text-[#059669]"></i> <strong>Tél :</strong> +33 6 51 81 82 29</p>
+                    <p><i class="fas fa-map-marker-alt mr-3 text-[#059669]"></i> <strong>Adresse :</strong><br>
+                    H&G HOLDING<br>
+                    1 rue de Stockholm<br>
+                    75008 Paris, France</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- AUTRES SECTIONS (structure identique) -->
-    <section id="produits" class="section max-w-screen-xl mx-auto px-6 py-16">
-        <h2 id="products_title" class="text-4xl font-bold heading mb-10 text-center text-[#1e40af]">Nos Produits</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="products-grid"></div>
-    </section>
-
-    <section id="quisommesnous" class="section max-w-screen-xl mx-auto px-6 py-16">
-        <div class="max-w-3xl mx-auto">
-            <h2 id="about_title" class="text-4xl font-bold heading mb-8 text-[#1e40af]">Qui sommes-nous</h2>
-            <div id="about_content" class="prose dark:prose-invert bg-white dark:bg-gray-800 p-8 rounded-3xl shadow"></div>
-        </div>
-    </section>
-
-    <section id="conseils" class="section max-w-screen-xl mx-auto px-6 py-16">
-        <h2 id="advice_title" class="text-4xl font-bold heading mb-10 text-center text-[#1e40af]">Conseils d’experts</h2>
-        <div class="grid md:grid-cols-3 gap-8" id="advice-content"></div>
-    </section>
-
-    <section id="galerie" class="section max-w-screen-xl mx-auto px-6 py-16">
-        <h2 id="gallery_title" class="text-4xl font-bold heading mb-10 text-center text-[#1e40af]">Galerie photos</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img src="https://picsum.photos/id/1018/600/400" class="rounded-3xl shadow" alt="">
-            <img src="https://picsum.photos/id/160/600/400" class="rounded-3xl shadow" alt="">
-            <img src="https://picsum.photos/id/201/600/400" class="rounded-3xl shadow" alt="">
-            <img src="https://picsum.photos/id/251/600/400" class="rounded-3xl shadow" alt="">
-        </div>
-    </section>
-
-    <section id="projets" class="section max-w-screen-xl mx-auto px-6 py-16">
-        <div class="max-w-2xl mx-auto">
-            <h2 id="projects_title" class="text-4xl font-bold heading mb-8 text-center text-[#1e40af]">Soumettez vos projets</h2>
-            <form class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow space-y-5">
-                <input type="text" class="w-full p-4 border rounded-2xl" placeholder="Nom du projet">
-                <textarea class="w-full p-4 border rounded-2xl h-32" placeholder="Description du projet"></textarea>
-                <button type="button" onclick="alert('Projet envoyé avec succès !')" class="w-full bg-[#059669] text-white py-4 rounded-2xl font-semibold">Envoyer</button>
+            <form class="bg-white p-8 rounded-3xl shadow space-y-5">
+                <input type="text" placeholder="Votre nom" class="w-full p-4 border rounded-2xl">
+                <input type="email" placeholder="Votre email" class="w-full p-4 border rounded-2xl">
+                <textarea placeholder="Votre message" class="w-full p-4 border rounded-2xl h-32"></textarea>
+                <button type="button" onclick="alert('Message envoyé avec succès !')" 
+                        class="w-full btn-green py-4 rounded-2xl font-semibold">Envoyer le message</button>
             </form>
         </div>
     </section>
 
-    <section id="contact" class="section max-w-screen-xl mx-auto px-6 py-16">
-        <div class="max-w-lg mx-auto">
-            <h2 id="contact_title" class="text-4xl font-bold heading mb-8 text-center text-[#1e40af]">Contactez-nous</h2>
-            <form class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow space-y-5">
-                <input type="text" class="w-full p-4 border rounded-2xl" placeholder="Votre nom">
-                <input type="email" class="w-full p-4 border rounded-2xl" placeholder="Votre email">
-                <textarea class="w-full p-4 border rounded-2xl h-32" placeholder="Votre message"></textarea>
-                <button type="button" onclick="alert('Message envoyé ! Merci.')" class="w-full bg-[#1e40af] text-white py-4 rounded-2xl font-semibold">Envoyer le message</button>
-            </form>
+    <!-- FOOTER (mis à jour) -->
+    <footer class="blue-bg text-white py-10 mt-12">
+        <div class="max-w-screen-xl mx-auto px-6 text-center text-sm">
+            <p class="font-semibold mb-2">ISOFIN-P Technologies d’Isolation</p>
+            <p class="mb-1">📍 H&G HOLDING – 1 rue de Stockholm, 75008 Paris</p>
+            <p>📧 contact@isofinp.com &nbsp;&nbsp;|&nbsp;&nbsp; 📞 +33 6 51 81 82 29</p>
+            <p class="mt-4 text-blue-200 text-xs">© ISOFIN-P – Tous droits réservés</p>
         </div>
-    </section>
-
-    <section id="glossaire" class="section max-w-screen-xl mx-auto px-6 py-16">
-        <h2 id="glossary_title" class="text-4xl font-bold heading mb-8 text-center text-[#1e40af]">Glossaire technique</h2>
-        <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-3xl shadow">
-            <input type="text" placeholder="Rechercher un terme..." class="w-full p-4 border rounded-2xl mb-6">
-            <table class="w-full text-sm">
-                <thead><tr class="text-left"><th class="p-3">Terme</th><th class="p-3">EN</th><th class="p-3">Définition</th></tr></thead>
-                <tbody><tr><td class="p-3">Conductivité thermique</td><td class="p-3">Thermal conductivity</td><td class="p-3">Capacité à conduire la chaleur</td></tr></tbody>
-            </table>
-        </div>
-    </section>
-
-    <footer class="bg-[#1e40af] text-white py-8 text-center text-sm mt-12">
-        © 2025 ISOFIN-P Technologies — Izmir, Turquie
     </footer>
 
     <script>
-        // Traductions complètes
-        const translations = {
-            fr: {
-                nav_home: "Accueil", nav_products: "Produits", nav_about: "Qui sommes-nous",
-                nav_advice: "Conseils", nav_gallery: "Galerie", nav_projects: "Projets",
-                nav_contact: "Contact", nav_glossary: "Glossaire",
-                home_title: "ISOFIN-P<br>Technologies d’Isolation",
-                home_subtitle: "Solutions innovantes d’isolation thermique, acoustique et ignifuge depuis 2004.",
-                products_title: "Nos Produits",
-                about_title: "Qui sommes-nous",
-                about_content: "ISOFIN-P Technologies de Peinture et d’Isolation est fondé à Izmir en 2004. Avec son installation de production moderne de 5000 m² et son équipe R&D, nous sommes le leader innovateur du secteur.",
-                advice_title: "Conseils d’experts",
-                gallery_title: "Galerie photos",
-                projects_title: "Soumettez vos projets",
-                contact_title: "Contactez-nous",
-                glossary_title: "Glossaire technique"
-            },
-            en: {
-                nav_home: "Home", nav_products: "Products", nav_about: "About Us",
-                nav_advice: "Advice", nav_gallery: "Gallery", nav_projects: "Projects",
-                nav_contact: "Contact", nav_glossary: "Glossary",
-                home_title: "ISOFIN-P<br>Insulation Technologies",
-                home_subtitle: "Innovative thermal, acoustic and fire insulation solutions since 2004.",
-                products_title: "Our Products",
-                about_title: "About Us",
-                about_content: "ISOFIN-P Paint and Insulation Technologies was founded in Izmir in 2004. With its modern 5000 m² production facility and R&D team, we are the innovative leader in the sector.",
-                advice_title: "Expert Advice",
-                gallery_title: "Photo Gallery",
-                projects_title: "Submit Your Projects",
-                contact_title: "Contact Us",
-                glossary_title: "Technical Glossary"
-            }
-            // Les autres langues (es, ar, ro, it, de, ru) sont disponibles dans la version complète sur demande
-        };
-
-        let currentLang = localStorage.getItem('lang') || 'fr';
-
-        function changeLanguage(lang) {
-            currentLang = lang;
-            localStorage.setItem('lang', lang);
-            applyTranslations();
-        }
-
-        function applyTranslations() {
-            const t = translations[currentLang] || translations.fr;
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.getAttribute('data-key');
-                if (t[key]) el.innerHTML = t[key];
-            });
-            
-            // Traduction des titres principaux
-            const ids = ['home_title', 'products_title', 'about_title', 'advice_title', 'gallery_title', 'projects_title', 'contact_title', 'glossary_title'];
-            ids.forEach(id => {
-                const el = document.getElementById(id);
-                if (el && t[id]) el.innerHTML = t[id];
-            });
-            
-            const about = document.getElementById('about_content');
-            if (about && t.about_content) about.innerHTML = t.about_content;
-        }
-
         function showSection(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-        }
-
-        function init() {
-            document.getElementById('lang-select').value = currentLang;
-            applyTranslations();
-            document.getElementById('accueil').classList.add('active');
-        }
-        window.onload = init;
     </script>
 </body>
 </html>
