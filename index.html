@@ -269,3 +269,234 @@ window.onload = () => {
 </script>
 </body>
 </html>
+// === SYSTÈME DE TRADUCTION MULTILINGUE ISOFIN-P (8 LANGUES) ===
+const translations = {
+  fr: {
+    nav_home: "Accueil", nav_products: "Produits", nav_about: "Qui sommes-nous",
+    nav_advice: "Conseils", nav_gallery: "Galerie", nav_projects: "Soumettez vos projets",
+    nav_contact: "Contact", nav_glossary: "Glossaire",
+    home_hero_title: "Solutions d’isolation innovantes pour l’avenir",
+    home_hero_subtitle: "ISOFIN-P – Technologies de Peinture et d’Isolation",
+    home_cta_products: "Découvrir nos produits", home_cta_contact: "Nous contacter",
+    products_title: "Nos Produits", products_filter_all: "Toutes catégories",
+    products_filter_thermal: "Isolation Thermique", products_filter_acoustic: "Isolation Acoustique",
+    products_filter_fire: "Protection Feu", products_filter_water: "Protection Eau",
+    products_modal_tech_sheet: "Fiche technique",
+    about_title: "Qui sommes-nous",
+    about_intro: "Nous avons formulé les lois de la physique avec la chimie. Nous avons développé d’excellents produits d’isolation. Nous l’avons appelé ISOFIN-P.",
+    about_history: "ISOFIN-P Technologies de Peinture et D'isolation est fondé à Izmir en 2004. Actuellement avec son installation de production fermée moderne de 5000 m2, et son équipe de R&D dont tout le monde est maître dans son domaine, prend le rôle de leader innovateur dans le secteur.",
+    advice_title: "Conseils techniques", advice_thermal: "Isolation thermique optimale",
+    advice_acoustic: "Solutions acoustiques performantes",
+    gallery_title: "Galerie photos",
+    projects_title: "Soumettez-nous vos projets", projects_form_name: "Votre nom",
+    projects_form_email: "Votre email", projects_form_message: "Décrivez votre projet",
+    projects_submit: "Envoyer le projet",
+    contact_title: "Contactez-nous",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "Glossaire technique", glossary_search: "Rechercher un terme..."
+  },
+
+  en: {
+    nav_home: "Home", nav_products: "Products", nav_about: "About Us",
+    nav_advice: "Advice", nav_gallery: "Gallery", nav_projects: "Submit your projects",
+    nav_contact: "Contact", nav_glossary: "Glossary",
+    home_hero_title: "Innovative Insulation Solutions for the Future",
+    home_hero_subtitle: "ISOFIN-P – Paint and Insulation Technologies",
+    home_cta_products: "Discover our products", home_cta_contact: "Contact us",
+    products_title: "Our Products", products_filter_all: "All categories",
+    products_filter_thermal: "Thermal Insulation", products_filter_acoustic: "Acoustic Insulation",
+    products_filter_fire: "Fire Protection", products_filter_water: "Water Protection",
+    products_modal_tech_sheet: "Technical Data Sheet",
+    about_title: "About Us",
+    about_intro: "We have formulated the laws of physics with chemistry. We have developed excellent insulation products. We called it ISOFIN-P.",
+    about_history: "ISOFIN-P Paint and Insulation Technologies was founded in Izmir in 2004. With its modern 5000 m² closed production facility and R&D team of experts, it plays the role of innovative leader in the sector.",
+    advice_title: "Technical Advice", advice_thermal: "Optimal thermal insulation",
+    advice_acoustic: "High-performance acoustic solutions",
+    gallery_title: "Photo Gallery",
+    projects_title: "Submit your projects", projects_form_name: "Your name",
+    projects_form_email: "Your email", projects_form_message: "Describe your project",
+    projects_submit: "Send project",
+    contact_title: "Contact us",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "Technical Glossary", glossary_search: "Search a term..."
+  },
+
+  es: {
+    nav_home: "Inicio", nav_products: "Productos", nav_about: "Quiénes somos",
+    nav_advice: "Consejos", nav_gallery: "Galería", nav_projects: "Envíe sus proyectos",
+    nav_contact: "Contacto", nav_glossary: "Glosario",
+    home_hero_title: "Soluciones innovadoras de aislamiento para el futuro",
+    home_hero_subtitle: "ISOFIN-P – Tecnologías de Pintura y Aislamiento",
+    home_cta_products: "Descubra nuestros productos", home_cta_contact: "Contáctenos",
+    products_title: "Nuestros Productos", products_filter_all: "Todas las categorías",
+    products_filter_thermal: "Aislamiento Térmico", products_filter_acoustic: "Aislamiento Acústico",
+    products_filter_fire: "Protección contra Incendios", products_filter_water: "Protección contra el Agua",
+    products_modal_tech_sheet: "Ficha técnica",
+    about_title: "Quiénes somos",
+    about_intro: "Hemos formulado las leyes de la física con la química. Hemos desarrollado excelentes productos de aislamiento. Lo llamamos ISOFIN-P.",
+    about_history: "ISOFIN-P Tecnologías de Pintura y Aislamiento fue fundada en Izmir en 2004. Con su moderna instalación de producción cerrada de 5000 m² y su equipo de I+D, desempeña el papel de líder innovador en el sector.",
+    advice_title: "Consejos técnicos", advice_thermal: "Aislamiento térmico óptimo",
+    advice_acoustic: "Soluciones acústicas de alto rendimiento",
+    gallery_title: "Galería de fotos",
+    projects_title: "Envíe sus proyectos", projects_form_name: "Su nombre",
+    projects_form_email: "Su correo electrónico", projects_form_message: "Describa su proyecto",
+    projects_submit: "Enviar proyecto",
+    contact_title: "Contáctenos",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "Glosario técnico", glossary_search: "Buscar un término..."
+  },
+
+  ar: {
+    nav_home: "الرئيسية", nav_products: "المنتجات", nav_about: "من نحن",
+    nav_advice: "نصائح", nav_gallery: "معرض الصور", nav_projects: "أرسل مشاريعك",
+    nav_contact: "اتصل بنا", nav_glossary: "المسرد التقني",
+    home_hero_title: "حلول عزل مبتكرة للمستقبل",
+    home_hero_subtitle: "ISOFIN-P – تقنيات الطلاء والعزل",
+    home_cta_products: "اكتشف منتجاتنا", home_cta_contact: "اتصل بنا",
+    products_title: "منتجاتنا", products_filter_all: "جميع الفئات",
+    products_filter_thermal: "عزل حراري", products_filter_acoustic: "عزل صوتي",
+    products_filter_fire: "الحماية من الحريق", products_filter_water: "الحماية من الماء",
+    products_modal_tech_sheet: "ورقة البيانات الفنية",
+    about_title: "من نحن",
+    about_intro: "لقد صغنا قوانين الفيزياء بالكيمياء. لقد طورنا منتجات عزل ممتازة. أطلقنا عليها اسم ISOFIN-P.",
+    about_history: "تأسست ISOFIN-P لتقنيات الطلاء والعزل في إزمير عام 2004. مع منشأة إنتاج حديثة مغلقة تبلغ مساحتها 5000 م² وفريق البحث والتطوير، تلعب دور الريادة المبتكرة في القطاع.",
+    advice_title: "نصائح فنية", advice_thermal: "عزل حراري مثالي",
+    advice_acoustic: "حلول صوتية عالية الأداء",
+    gallery_title: "معرض الصور",
+    projects_title: "أرسل مشاريعك", projects_form_name: "اسمك",
+    projects_form_email: "بريدك الإلكتروني", projects_form_message: "صف مشروعك",
+    projects_submit: "إرسال المشروع",
+    contact_title: "اتصل بنا",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "المسرد التقني", glossary_search: "ابحث عن مصطلح..."
+  },
+
+  ro: {
+    nav_home: "Acasă", nav_products: "Produse", nav_about: "Despre noi",
+    nav_advice: "Sfaturi", nav_gallery: "Galerie", nav_projects: "Trimiteți proiectele",
+    nav_contact: "Contact", nav_glossary: "Glosar",
+    home_hero_title: "Soluții inovatoare de izolare pentru viitor",
+    home_hero_subtitle: "ISOFIN-P – Tehnologii de Vopsea și Izolare",
+    home_cta_products: "Descoperiți produsele", home_cta_contact: "Contactați-ne",
+    products_title: "Produsele noastre", products_filter_all: "Toate categoriile",
+    products_filter_thermal: "Izolare Termică", products_filter_acoustic: "Izolare Acustică",
+    products_filter_fire: "Protecție la Foc", products_filter_water: "Protecție la Apă",
+    products_modal_tech_sheet: "Fișă tehnică",
+    about_title: "Despre noi",
+    about_intro: "Am formulat legile fizicii cu chimia. Am dezvoltat produse excelente de izolare. L-am numit ISOFIN-P.",
+    about_history: "ISOFIN-P Tehnologii de Vopsea și Izolare a fost fondată la Izmir în 2004. Cu instalația modernă de producție de 5000 m² și echipa de R&D, joacă rolul de lider inovator în sector.",
+    advice_title: "Sfaturi tehnice", advice_thermal: "Izolare termică optimă",
+    advice_acoustic: "Soluții acustice performante",
+    gallery_title: "Galerie foto",
+    projects_title: "Trimiteți proiectele", projects_form_name: "Numele dvs.",
+    projects_form_email: "Emailul dvs.", projects_form_message: "Descrieți proiectul",
+    projects_submit: "Trimiteți proiectul",
+    contact_title: "Contactați-ne",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "Glosar tehnic", glossary_search: "Căutați un termen..."
+  },
+
+  it: {
+    nav_home: "Home", nav_products: "Prodotti", nav_about: "Chi siamo",
+    nav_advice: "Consigli", nav_gallery: "Galleria", nav_projects: "Invia i tuoi progetti",
+    nav_contact: "Contatti", nav_glossary: "Glossario",
+    home_hero_title: "Soluzioni innovative di isolamento per il futuro",
+    home_hero_subtitle: "ISOFIN-P – Tecnologie di Vernice e Isolamento",
+    home_cta_products: "Scopri i nostri prodotti", home_cta_contact: "Contattaci",
+    products_title: "I nostri Prodotti", products_filter_all: "Tutte le categorie",
+    products_filter_thermal: "Isolamento Termico", products_filter_acoustic: "Isolamento Acustico",
+    products_filter_fire: "Protezione dal Fuoco", products_filter_water: "Protezione dall'Acqua",
+    products_modal_tech_sheet: "Scheda tecnica",
+    about_title: "Chi siamo",
+    about_intro: "Abbiamo formulato le leggi della fisica con la chimica. Abbiamo sviluppato eccellenti prodotti isolanti. Lo abbiamo chiamato ISOFIN-P.",
+    about_history: "ISOFIN-P Tecnologie di Vernice e Isolamento è stata fondata a Izmir nel 2004. Con il suo moderno stabilimento di produzione di 5000 m² e il team di R&S, svolge il ruolo di leader innovativo nel settore.",
+    advice_title: "Consigli tecnici", advice_thermal: "Isolamento termico ottimale",
+    advice_acoustic: "Soluzioni acustiche ad alte prestazioni",
+    gallery_title: "Galleria fotografica",
+    projects_title: "Invia i tuoi progetti", projects_form_name: "Il tuo nome",
+    projects_form_email: "La tua email", projects_form_message: "Descrivi il tuo progetto",
+    projects_submit: "Invia progetto",
+    contact_title: "Contattaci",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "Glossario tecnico", glossary_search: "Cerca un termine..."
+  },
+
+  de: {
+    nav_home: "Startseite", nav_products: "Produkte", nav_about: "Über uns",
+    nav_advice: "Tipps", nav_gallery: "Galerie", nav_projects: "Projekte einreichen",
+    nav_contact: "Kontakt", nav_glossary: "Glossar",
+    home_hero_title: "Innovative Dämmlösungen für die Zukunft",
+    home_hero_subtitle: "ISOFIN-P – Lack- und Dämmtechnologien",
+    home_cta_products: "Entdecken Sie unsere Produkte", home_cta_contact: "Kontaktieren Sie uns",
+    products_title: "Unsere Produkte", products_filter_all: "Alle Kategorien",
+    products_filter_thermal: "Wärmedämmung", products_filter_acoustic: "Schalldämmung",
+    products_filter_fire: "Brandschutz", products_filter_water: "Wasserschutz",
+    products_modal_tech_sheet: "Technisches Datenblatt",
+    about_title: "Über uns",
+    about_intro: "Wir haben die Gesetze der Physik mit Chemie formuliert. Wir haben hervorragende Dämmprodukte entwickelt. Wir nannten es ISOFIN-P.",
+    about_history: "ISOFIN-P Lack- und Dämmtechnologien wurde 2004 in Izmir gegründet. Mit seiner modernen 5000 m² Produktionsanlage und dem F&E-Team spielt es die Rolle des innovativen Marktführers.",
+    advice_title: "Technische Tipps", advice_thermal: "Optimale Wärmedämmung",
+    advice_acoustic: "Hochleistungsfähige Schalldämmung",
+    gallery_title: "Fotogalerie",
+    projects_title: "Projekte einreichen", projects_form_name: "Ihr Name",
+    projects_form_email: "Ihre E-Mail", projects_form_message: "Beschreiben Sie Ihr Projekt",
+    projects_submit: "Projekt senden",
+    contact_title: "Kontaktieren Sie uns",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "Technisches Glossar", glossary_search: "Begriff suchen..."
+  },
+
+  ru: {
+    nav_home: "Главная", nav_products: "Продукты", nav_about: "О нас",
+    nav_advice: "Советы", nav_gallery: "Галерея", nav_projects: "Отправьте проекты",
+    nav_contact: "Контакты", nav_glossary: "Глоссарий",
+    home_hero_title: "Инновационные решения изоляции для будущего",
+    home_hero_subtitle: "ISOFIN-P – Технологии краски и изоляции",
+    home_cta_products: "Откройте для себя наши продукты", home_cta_contact: "Свяжитесь с нами",
+    products_title: "Наши продукты", products_filter_all: "Все категории",
+    products_filter_thermal: "Теплоизоляция", products_filter_acoustic: "Звукоизоляция",
+    products_filter_fire: "Огнезащита", products_filter_water: "Защита от воды",
+    products_modal_tech_sheet: "Технический паспорт",
+    about_title: "О нас",
+    about_intro: "Мы сформулировали законы физики с помощью химии. Мы разработали отличные изоляционные продукты. Мы назвали его ISOFIN-P.",
+    about_history: "ISOFIN-P Технологии краски и изоляции была основана в Измире в 2004 году. С современным производственным комплексом 5000 м² и командой R&D она играет роль инновационного лидера.",
+    advice_title: "Технические советы", advice_thermal: "Оптимальная теплоизоляция",
+    advice_acoustic: "Высокопроизводительные звукоизоляционные решения",
+    gallery_title: "Фотогалерея",
+    projects_title: "Отправьте проекты", projects_form_name: "Ваше имя",
+    projects_form_email: "Ваш email", projects_form_message: "Опишите проект",
+    projects_submit: "Отправить проект",
+    contact_title: "Свяжитесь с нами",
+    contact_address: "H&G HOLDING – 1 rue de Stockholm, 75008 Paris",
+    contact_phone: "+33 6 51 81 82 29", contact_email: "contact@isofinp.com",
+    glossary_title: "Технический глоссарий", glossary_search: "Поиск термина..."
+  }
+};
+
+// Fonction de changement de langue + initialisation (identique à la version précédente)
+function changeLanguage(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  localStorage.setItem('isofin_lang', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const savedLang = localStorage.getItem('isofin_lang') || 'fr';
+  const select = document.getElementById('lang-select');
+  if (select) {
+    select.value = savedLang;
+    select.addEventListener('change', () => changeLanguage(select.value));
+  }
+  changeLanguage(savedLang);
+});
