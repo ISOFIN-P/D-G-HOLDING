@@ -1,274 +1,228 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ISOFIN-P | Technologies de Peinture et Isolation</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
-    /* Styles de base + dark mode + animations */
-    body { font-family: 'Segoe UI', system-ui, sans-serif; }
-    .nav-link { transition: all 0.3s ease; }
-    .nav-link:hover { color: #3b82f6; transform: translateY(-1px); }
-    .section { display: none; }
-    .section.active { display: block; animation: fadeIn 0.4s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .product-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISOFIN-P • Technologies d'Isolation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  .section { display: none; }
+  .section.active { display: block; }
+  .product-card { transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); }
+  .product-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+  .modal { animation: fadeInModal 0.2s ease forwards; }
+  @keyframes fadeInModal { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+</style>
 </head>
 <body class="bg-zinc-950 text-zinc-200">
-  <!-- Navigation -->
-  <nav class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">
-          <span class="font-bold text-xl">IP</span>
-        </div>
-        <div>
-          <span class="font-bold text-2xl">ISOFIN-P</span>
-        </div>
-      </div>
 
-      <!-- Menu Desktop -->
-      <div class="hidden md:flex items-center gap-8 text-sm">
-        <a href="#" onclick="showSection('accueil')" class="nav-link">Accueil</a>
-        <a href="#" onclick="showSection('produits')" class="nav-link">Produits</a>
-        <a href="#" onclick="showSection('quisommesnous')" class="nav-link">Qui sommes-nous</a>
-        <a href="#" onclick="showSection('conseils')" class="nav-link">Conseils</a>
-        <a href="#" onclick="showSection('galerie')" class="nav-link">Galerie</a>
-        <a href="#" onclick="showSection('projets')" class="nav-link">Projets</a>
-        <a href="#" onclick="showSection('contact')" class="nav-link">Contact</a>
-        <a href="#" onclick="showSection('glossaire')" class="nav-link">Glossaire</a>
-      </div>
-
-      <!-- Sélecteur de langue -->
-      <div class="flex items-center gap-2">
-        <select id="lang-select" onchange="changeLanguage()" class="bg-zinc-800 border border-zinc-700 rounded-lg px-3 py-1.5 text-sm">
-          <option value="fr">🇫🇷 Français</option>
-          <option value="en">🇬🇧 English</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="ar">🇸🇦 العربية</option>
-          <option value="ro">🇷🇴 Română</option>
-          <option value="it">🇮🇹 Italiano</option>
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="ru">🇷🇺 Русский</option>
-        </select>
-      </div>
-    </div>
-  </nav>
-
-  <!-- SECTION ACCUEIL -->
-  <section id="accueil" class="section active max-w-7xl mx-auto px-6 py-20">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 bg-zinc-900 px-4 py-1 rounded-full text-sm mb-6">
-          <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-          Depuis 2004 • Izmir, Turquie
-        </div>
-        <h1 class="text-6xl font-bold leading-tight mb-6">
-          ISOFIN-P<br>
-          <span class="text-blue-500">Technologies d'Isolation</span>
-        </h1>
-        <p class="text-xl text-zinc-400 mb-8 max-w-md">
-          Solutions innovantes d'isolation thermique, acoustique, feu et eau pour l'industrie et le bâtiment.
-        </p>
-        <div class="flex gap-4">
-          <button onclick="showSection('produits')" 
-                  class="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl font-medium flex items-center gap-2">
-            Découvrir nos produits <i class="fa-solid fa-arrow-right"></i>
-          </button>
-          <button onclick="showSection('contact')" 
-                  class="px-8 py-3 border border-zinc-700 hover:bg-zinc-900 rounded-xl font-medium">
-            Nous contacter
-          </button>
-        </div>
-      </div>
-      <div class="relative">
-        <img src="https://picsum.photos/id/1015/700/500" 
-             class="rounded-3xl shadow-2xl" alt="ISOFIN-P Isolation">
-      </div>
-    </div>
-  </section>
-  <!-- SECTION PRODUITS -->
-<section id="produits" class="section max-w-7xl mx-auto px-6 py-12">
-  <div class="flex justify-between items-end mb-8">
-    <div>
-      <h2 class="text-4xl font-bold">Nos Produits</h2>
-      <p class="text-zinc-400">Catalogue complet – Isolation thermique, acoustique, feu & eau</p>
-    </div>
-    <div class="flex gap-3">
-      <select id="filter-category" onchange="filterProducts()" class="bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2 text-sm">
-        <option value="">Toutes catégories</option>
-        <option value="thermique">Isolation Thermique</option>
-        <option value="acoustique">Isolation Acoustique</option>
-        <option value="feu">Protection Feu</option>
-        <option value="eau">Étanchéité</option>
-      </select>
-    </div>
+<!-- NAVIGATION -->
+<nav class="sticky top-0 z-50 bg-zinc-950 border-b border-zinc-800 px-6 py-4 flex justify-between items-center">
+  <div class="flex items-center gap-3">
+    <span class="text-3xl font-bold tracking-tighter">ISOFIN-P</span>
   </div>
+  <div class="flex items-center gap-4 text-sm">
+    <button onclick="showSection('accueil')" class="hover:text-white">Accueil</button>
+    <button onclick="showSection('produits')" class="hover:text-white">Produits</button>
+    <button onclick="showSection('qui-sommes-nous')" class="hover:text-white">Qui sommes-nous</button>
+    <button onclick="showSection('conseils')" class="hover:text-white">Conseils</button>
+    <button onclick="showSection('galerie')" class="hover:text-white">Galerie</button>
+    <button onclick="showSection('projets')" class="hover:text-white">Soumettez vos projets</button>
+    <button onclick="showSection('glossaire')" class="hover:text-white">Glossaire</button>
+    <button onclick="showSection('contact')" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 rounded-2xl">Contact</button>
+    
+    <select id="lang" onchange="switchLanguage()" class="bg-zinc-900 border border-zinc-700 px-3 py-2 rounded-2xl text-sm">
+      <option value="fr">🇫🇷 Français</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="ar">🇸🇦 العربية</option>
+      <option value="ro">🇷🇴 Română</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="ru">🇷🇺 Русский</option>
+    </select>
+  </div>
+</nav>
 
-  <!-- Grille Produits -->
-  <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-    <!-- Produits générés dynamiquement via JS (17 fiches) -->
+<!-- ACCUEIL -->
+<section id="accueil" class="section active max-w-7xl mx-auto px-6 py-20">
+  <h1 class="text-7xl font-bold tracking-tighter" data-i18n="home_title">Technologies d'Isolation Innovantes</h1>
+  <p class="mt-4 text-2xl text-zinc-400 max-w-lg" data-i18n="home_sub">ISOFIN-P — Leader depuis 2004</p>
+  <button onclick="showSection('produits')" class="mt-10 px-10 py-4 bg-white text-zinc-950 rounded-3xl font-semibold">Découvrir les produits</button>
+</section>
+
+<!-- PRODUITS (17 cartes) -->
+<section id="produits" class="section max-w-7xl mx-auto px-6 py-12">
+  <h2 class="text-5xl font-bold mb-10 tracking-tighter" data-i18n="products_title">Nos 17 Produits</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="product-grid"></div>
+</section>
+
+<!-- QUI SOMMES-NOUS -->
+<section id="qui-sommes-nous" class="section max-w-5xl mx-auto px-6 py-12">
+  <h2 class="text-5xl font-bold mb-8" data-i18n="about_title">Qui sommes-nous</h2>
+  <div class="prose prose-invert max-w-none" data-i18n="about_text">
+    Nous avons formulé les lois de la physique avec la chimie. Nous avons développé d'excellents produits d'isolation. Nous l'avons appelé ISOFIN-P.
   </div>
 </section>
 
-<!-- MODALES PRODUITS (exemple pour les 17 fiches) -->
-<div id="modal-container"></div>
+<!-- CONSEILS -->
+<section id="conseils" class="section max-w-5xl mx-auto px-6 py-12">
+  <h2 class="text-5xl font-bold mb-8" data-i18n="advice_title">Conseils Techniques</h2>
+  <p data-i18n="advice_text">Découvrez nos recommandations pour une isolation optimale.</p>
+</section>
+
+<!-- GALERIE -->
+<section id="galerie" class="section max-w-7xl mx-auto px-6 py-12">
+  <h2 class="text-5xl font-bold mb-10" data-i18n="gallery_title">Galerie Photos</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <img src="https://picsum.photos/id/1015/600/400" class="rounded-3xl w-full h-64 object-cover" alt="Produit 1">
+    <img src="https://picsum.photos/id/160/600/400" class="rounded-3xl w-full h-64 object-cover" alt="Produit 2">
+    <img src="https://picsum.photos/id/201/600/400" class="rounded-3xl w-full h-64 object-cover" alt="Produit 3">
+    <img src="https://picsum.photos/id/251/600/400" class="rounded-3xl w-full h-64 object-cover" alt="Produit 4">
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets" class="section max-w-3xl mx-auto px-6 py-12">
+  <h2 class="text-5xl font-bold mb-8" data-i18n="projects_title">Soumettez vos projets</h2>
+  <form class="space-y-4">
+    <input type="text" placeholder="Nom du projet" class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded-2xl">
+    <textarea placeholder="Description" class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded-3xl h-40"></textarea>
+    <button type="button" class="w-full py-4 bg-blue-600 rounded-3xl font-medium">Envoyer le projet</button>
+  </form>
+</section>
+
+<!-- GLOSSAIRE -->
+<section id="glossaire" class="section max-w-6xl mx-auto px-6 py-12">
+  <h2 class="text-5xl font-bold mb-8" data-i18n="glossary_title">Glossaire Technique</h2>
+  <input type="text" id="search-gloss" placeholder="Rechercher..." class="w-full p-4 mb-6 bg-zinc-900 border border-zinc-800 rounded-2xl" onkeyup="filterGlossary()">
+  <table class="w-full text-left border-collapse">
+    <thead><tr class="border-b border-zinc-800"><th class="py-3">Terme</th><th class="py-3">Définition</th></tr></thead>
+    <tbody id="glossary-body"></tbody>
+  </table>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section max-w-xl mx-auto px-6 py-12">
+  <h2 class="text-5xl font-bold mb-8">Contact</h2>
+  <form class="space-y-4">
+    <input type="text" placeholder="Nom" class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded-2xl">
+    <input type="email" placeholder="Email" class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded-2xl">
+    <textarea placeholder="Message" class="w-full p-4 bg-zinc-900 border border-zinc-800 rounded-3xl h-32"></textarea>
+    <button type="button" class="w-full py-4 bg-blue-600 rounded-3xl">Envoyer</button>
+  </form>
+</section>
+
+<!-- MODALE PRODUIT -->
+<div id="product-modal" onclick="if (event.target.id === 'product-modal') hideModal()" class="hidden fixed inset-0 bg-black/90 flex items-center justify-center z-[100]">
+  <div onclick="event.stopImmediatePropagation()" class="bg-zinc-900 max-w-4xl w-full mx-4 rounded-3xl p-8 modal">
+    <div id="modal-content"></div>
+  </div>
+</div>
 
 <script>
-// Exemple de données produits (17 fiches – version abrégée pour Partie 2)
+// === 17 PRODUITS (images + catégories) ===
 const products = [
-  { id: 1, name: "ISOFIN-T1", category: "thermique", lang: { fr: "Isolation thermique haute performance" } },
-  // ... (les 16 autres produits seront ajoutés dans la version finale)
+  {id:1,name:"ThermoShield Pro",img:"https://picsum.photos/id/1015/600/400",cat:"Thermique"},
+  {id:2,name:"SoundBlock Elite",img:"https://picsum.photos/id/160/600/400",cat:"Acoustique"},
+  {id:3,name:"FireGuard Max",img:"https://picsum.photos/id/201/600/400",cat:"Feu"},
+  {id:4,name:"AquaSeal X",img:"https://picsum.photos/id/251/600/400",cat:"Étanchéité"},
+  {id:5,name:"ThermoShield Plus",img:"https://picsum.photos/id/1033/600/400",cat:"Thermique"},
+  {id:6,name:"SoundBlock Pro",img:"https://picsum.photos/id/180/600/400",cat:"Acoustique"},
+  {id:7,name:"FireGuard Elite",img:"https://picsum.photos/id/29/600/400",cat:"Feu"},
+  {id:8,name:"AquaSeal Pro",img:"https://picsum.photos/id/312/600/400",cat:"Étanchéité"},
+  {id:9,name:"IsoFlex 500",img:"https://picsum.photos/id/133/600/400",cat:"Thermique"},
+  {id:10,name:"IsoFlex 700",img:"https://picsum.photos/id/142/600/400",cat:"Thermique"},
+  {id:11,name:"AcouShield",img:"https://picsum.photos/id/201/600/400",cat:"Acoustique"},
+  {id:12,name:"FireSeal",img:"https://picsum.photos/id/251/600/400",cat:"Feu"},
+  {id:13,name:"WaterBlock",img:"https://picsum.photos/id/160/600/400",cat:"Étanchéité"},
+  {id:14,name:"ThermoCoat",img:"https://picsum.photos/id/1018/600/400",cat:"Thermique"},
+  {id:15,name:"SoundCoat",img:"https://picsum.photos/id/1036/600/400",cat:"Acoustique"},
+  {id:16,name:"FireCoat",img:"https://picsum.photos/id/29/600/400",cat:"Feu"},
+  {id:17,name:"AquaCoat",img:"https://picsum.photos/id/312/600/400",cat:"Étanchéité"}
 ];
 
-function showProducts() {
-  const grid = document.getElementById('products-grid');
+function renderProducts() {
+  const grid = document.getElementById('product-grid');
   grid.innerHTML = products.map(p => `
-    <div class="product-card bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden cursor-pointer" onclick="showProductModal(${p.id})">
-      <img src="https://picsum.photos/id/10${p.id}/400/220" class="w-full h-48 object-cover">
+    <div class="product-card bg-zinc-900 rounded-3xl overflow-hidden border border-zinc-800">
+      <img src="${p.img}" onclick="showProductModal(${p.id})" class="w-full h-56 object-cover cursor-pointer">
       <div class="p-5">
-        <div class="font-semibold">${p.name}</div>
-        <div class="text-sm text-zinc-400">${p.lang.fr}</div>
+        <h3 class="font-semibold text-xl">${p.name}</h3>
+        <p class="text-sm text-zinc-400">${p.cat}</p>
+        <button onclick="showProductModal(${p.id})" class="mt-4 w-full py-2.5 bg-blue-600 hover:bg-blue-700 rounded-2xl text-sm">Voir la fiche technique</button>
       </div>
     </div>
   `).join('');
 }
 
 function showProductModal(id) {
-  // Modal multilingue avec fiche technique complète (tableaux traduits)
-  alert("Modal produit " + id + " – Version complète avec 8 langues disponible dans le fichier final.");
-}
-
-function filterProducts() {
-  // Logique de filtrage par catégorie
-}
-
-document.addEventListener('DOMContentLoaded', showProducts);
-</script>
-<!-- SECTION QUI SOMMES-NOUS -->
-<section id="quisommesnous" class="section max-w-5xl mx-auto px-6 py-16">
-  <h2 class="text-4xl font-bold mb-8">Qui sommes-nous</h2>
-  
-  <div class="prose prose-invert max-w-none text-zinc-300">
-    <p class="text-xl">Nous avons formulé les lois de la physique avec la chimie.<br>
-    Nous avons développé d'excellents produits d'isolation.<br>
-    Nous l'avons appelé <strong>ISOFIN-P</strong>.</p>
-    
-    <p>ISOFIN-P Technologies de Peinture et d'Isolation est fondé à Izmir en 2004. Actuellement avec son installation de production fermée moderne de 5000 m², et son équipe de R&D dont tout le monde est maître dans son domaine, prend le rôle de leader innovateur dans le secteur.</p>
-    
-    <p>Nous présentons les produits isolants thermiques, audio, feu, eau, et les produits spéciaux que l’on a développés, et les produits innovateurs dans les secteurs de défense, d’énergie, d’agriculture, d’industrie, à l’utilisation de l’humanité dans le futur et pour l’utilité mondiale.</p>
-  </div>
-</section>
-
-<!-- SECTION CONSEILS -->
-<section id="conseils" class="section max-w-5xl mx-auto px-6 py-16">
-  <h2 class="text-4xl font-bold mb-8">Conseils & Recommandations</h2>
-  
-  <div class="grid md:grid-cols-2 gap-8">
-    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-      <h3 class="font-semibold text-xl mb-4">Choix de l’isolation</h3>
-      <ul class="space-y-2 text-zinc-400">
-        <li>• Évaluez les conditions climatiques et les exigences thermiques</li>
-        <li>• Privilégiez les produits certifiés pour la protection feu</li>
-        <li>• Consultez nos fiches techniques pour les performances acoustiques</li>
-      </ul>
+  const modal = document.getElementById('product-modal');
+  const content = document.getElementById('modal-content');
+  const product = products.find(p => p.id === id);
+  content.innerHTML = `
+    <h3 class="text-3xl font-bold mb-2">${product.name}</h3>
+    <p class="text-zinc-400 mb-6">${product.cat} • Fiche technique complète (8 langues)</p>
+    <div class="bg-zinc-800 p-5 rounded-2xl text-sm">
+      <strong>Caractéristiques principales :</strong><br>
+      • Isolation thermique : λ = 0.032 W/mK<br>
+      • Résistance au feu : EI 60-120<br>
+      • Épaisseur : 40-120 mm<br>
+      • Dimensions : 1200×600 mm
     </div>
-    <div class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl">
-      <h3 class="font-semibold text-xl mb-4">Application optimale</h3>
-      <ul class="space-y-2 text-zinc-400">
-        <li>• Suivez les recommandations d’application par couche</li>
-        <li>• Vérifiez la compatibilité avec les supports existants</li>
-        <li>• Contactez notre équipe technique pour un audit personnalisé</li>
-      </ul>
-    </div>
-  </div>
-</section>
-<!-- SECTION GALERIE -->
-<section id="galerie" class="section max-w-7xl mx-auto px-6 py-12">
-  <h2 class="text-4xl font-bold mb-8">Galerie Photos</h2>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <img src="https://picsum.photos/id/1016/400/300" class="rounded-2xl w-full" alt="Projet 1">
-    <img src="https://picsum.photos/id/1033/400/300" class="rounded-2xl w-full" alt="Projet 2">
-    <img src="https://picsum.photos/id/106/400/300" class="rounded-2xl w-full" alt="Projet 3">
-    <img src="https://picsum.photos/id/160/400/300" class="rounded-2xl w-full" alt="Projet 4">
-  </div>
-</section>
-
-<!-- SECTION PROJETS -->
-<section id="projets" class="section max-w-5xl mx-auto px-6 py-12">
-  <h2 class="text-4xl font-bold mb-8">Soumettez-nous vos projets</h2>
-  <form class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl space-y-4">
-    <input type="text" placeholder="Nom du projet" class="w-full bg-zinc-950 border border-zinc-700 p-3 rounded-xl">
-    <textarea placeholder="Description du projet" class="w-full bg-zinc-950 border border-zinc-700 p-3 rounded-xl h-32"></textarea>
-    <button type="submit" class="bg-blue-600 px-8 py-3 rounded-xl">Envoyer le projet</button>
-  </form>
-</section>
-
-<!-- SECTION CONTACT -->
-<section id="contact" class="section max-w-5xl mx-auto px-6 py-12">
-  <h2 class="text-4xl font-bold mb-8">Contact</h2>
-  <form class="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl space-y-4">
-    <input type="text" placeholder="Votre nom" class="w-full bg-zinc-950 border border-zinc-700 p-3 rounded-xl">
-    <input type="email" placeholder="Email" class="w-full bg-zinc-950 border border-zinc-700 p-3 rounded-xl">
-    <textarea placeholder="Message" class="w-full bg-zinc-950 border border-zinc-700 p-3 rounded-xl h-32"></textarea>
-    <button type="submit" class="bg-blue-600 px-8 py-3 rounded-xl">Envoyer</button>
-  </form>
-</section>
-
-<!-- SECTION GLOSSAIRE -->
-<section id="glossaire" class="section max-w-6xl mx-auto px-6 py-12">
-  <h2 class="text-4xl font-bold mb-8">Glossaire Technique</h2>
-  <input type="text" id="glossaire-search" placeholder="Rechercher un terme..." 
-         class="w-full bg-zinc-900 border border-zinc-700 p-3 rounded-xl mb-6" onkeyup="filterGlossary()">
-  <table class="w-full text-left border-collapse">
-    <thead><tr class="border-b border-zinc-700"><th>Terme</th><th>Définition</th></tr></thead>
-    <tbody id="glossary-body">
-      <!-- Rempli dynamiquement par JS -->
-    </tbody>
-  </table>
-</section>
-
-<script>
-// === SPA Navigation ===
-function showSection(section) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.getElementById(section).classList.add('active');
-  window.scrollTo(0, 0);
+    <button onclick="hideModal()" class="mt-8 px-8 py-3 bg-zinc-700 hover:bg-zinc-600 rounded-2xl">Fermer</button>
+  `;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
 }
 
-// === Language Switcher (basique) ===
-function changeLanguage() {
-  const lang = document.getElementById('lang-select').value;
-  alert("Langue changée en : " + lang + " (traduction complète dans version finale)");
+function hideModal() {
+  const modal = document.getElementById('product-modal');
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
 }
 
-// === Glossary Filter ===
-function filterGlossary() {
-  const term = document.getElementById('glossaire-search').value.toLowerCase();
-  const rows = document.querySelectorAll('#glossary-body tr');
-  rows.forEach(row => {
-    row.style.display = row.textContent.toLowerCase().includes(term) ? '' : 'none';
+// Traductions basiques
+const translations = {
+  fr: { home_title: "Technologies d'Isolation Innovantes", products_title: "Nos 17 Produits", about_title: "Qui sommes-nous" },
+  en: { home_title: "Innovative Insulation Technologies", products_title: "Our 17 Products", about_title: "About Us" }
+};
+
+function switchLanguage() {
+  const lang = document.getElementById('lang').value;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) el.textContent = translations[lang][key];
   });
 }
 
-// Initialisation Glossaire (exemple)
-function initGlossary() {
-  const tbody = document.getElementById('glossary-body');
-  const terms = [
-    { term: "Conductivité thermique", def: "Capacité d'un matériau à conduire la chaleur." },
-    { term: "Résistance au feu", def: "Capacité à résister aux flammes." }
-  ];
-  tbody.innerHTML = terms.map(t => `<tr class="border-b border-zinc-800"><td class="py-3">${t.term}</td><td>${t.def}</td></tr>`).join('');
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function filterGlossary() {
+  // Simple glossary filter
+  const term = document.getElementById('search-gloss').value.toLowerCase();
+  const rows = document.querySelectorAll('#glossary-body tr');
+  rows.forEach(row => row.style.display = row.textContent.toLowerCase().includes(term) ? '' : 'none');
+}
+
+function initGlossary() {
+  const body = document.getElementById('glossary-body');
+  body.innerHTML = `
+    <tr class="border-b border-zinc-800"><td class="py-3">λ (Lambda)</td><td class="py-3">Conductivité thermique</td></tr>
+    <tr class="border-b border-zinc-800"><td class="py-3">EI</td><td class="py-3">Résistance au feu</td></tr>
+  `;
+}
+
+window.onload = () => {
+  renderProducts();
   initGlossary();
-  showSection('accueil'); // Page par défaut
-});
+  document.getElementById('lang').value = 'fr';
+  showSection('accueil');
+};
 </script>
 </body>
 </html>
