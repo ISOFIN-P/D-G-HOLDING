@@ -1,0 +1,235 @@
+/* ==============================
+   Fiches techniques produits
+================================= */
+
+.technical-sheets-section {
+  padding: 80px 0;
+  background: #f7f9fc;
+}
+
+.technical-sheets-section .section-header {
+  max-width: 850px;
+  margin: 0 auto 45px;
+  text-align: center;
+}
+
+.section-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #1d3b8b;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+.technical-sheets-section h2 {
+  color: #172554;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 15px;
+}
+
+.technical-sheets-section p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.technical-sheet-card {
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  padding: 32px;
+  margin-bottom: 45px;
+  border: 1px solid rgba(29, 59, 139, 0.08);
+}
+
+.technical-sheet-top {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 36px;
+  align-items: start;
+  margin-bottom: 35px;
+}
+
+.technical-sheet-image {
+  background: #f8fafc;
+  border-radius: 22px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+}
+
+.technical-sheet-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.technical-sheet-content h3 {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  color: #1d3b8b;
+  margin: 8px 0 18px;
+  font-weight: 900;
+}
+
+.product-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  background: rgba(29, 59, 139, 0.1);
+  color: #1d3b8b;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.technical-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.technical-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.detail-box {
+  background: #f8fafc;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+}
+
+.detail-box h4 {
+  color: #172554;
+  font-size: 1.18rem;
+  margin-bottom: 14px;
+  font-weight: 800;
+}
+
+.detail-box ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.detail-box li {
+  margin-bottom: 8px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.warning-box {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.warning-box h4 {
+  color: #c2410c;
+}
+
+.tech-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tech-table th,
+.tech-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+  text-align: left;
+}
+
+.tech-table th {
+  width: 42%;
+  color: #172554;
+  font-weight: 800;
+}
+
+.tech-table td {
+  color: #475569;
+}
+
+.icon-list {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.icon-list li {
+  position: relative;
+  padding-left: 28px;
+}
+
+.icon-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #16a34a;
+  font-weight: 900;
+}
+
+/* RTL Arabic compatibility */
+html[dir="rtl"] .tech-table th,
+html[dir="rtl"] .tech-table td {
+  text-align: right;
+}
+
+html[dir="rtl"] .detail-box ul {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+html[dir="rtl"] .icon-list li {
+  padding-left: 0;
+  padding-right: 28px;
+}
+
+html[dir="rtl"] .icon-list li::before {
+  left: auto;
+  right: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .technical-sheet-top {
+    grid-template-columns: 1fr;
+  }
+
+  .technical-sheet-image {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .technical-details-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .technical-sheets-section {
+    padding: 55px 0;
+  }
+
+  .technical-sheet-card {
+    padding: 20px;
+    border-radius: 22px;
+  }
+
+  .detail-box {
+    padding: 18px;
+  }
+
+  .technical-actions {
+    flex-direction: column;
+  }
+
+  .technical-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
