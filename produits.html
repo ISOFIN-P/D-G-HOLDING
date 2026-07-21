@@ -1826,3 +1826,1243 @@ assets/docs/fiche-isofinp-md-28.pdf
     </div>
   </div>
 </article>
+/* =========================================================
+   ISOFIN-P — main.js
+   Multilingue : FR / EN / ES / AR / IT / RO / RU
+   Support RTL arabe
+   Compatible : index.html / produits.html / galerie.html
+========================================================= */
+
+(function () {
+  "use strict";
+
+  /* =========================================================
+     Configuration générale
+  ========================================================= */
+
+  const SUPPORTED_LANGS = ["fr", "en", "es", "ar", "it", "ro", "ru"];
+  const DEFAULT_LANG = "fr";
+  const RTL_LANGS = ["ar"];
+  const STORAGE_KEY = "isofinp_lang";
+
+  /* =========================================================
+     Définition des produits
+  ========================================================= */
+
+  const PRODUCT_DEFS = {
+    msPolia: {
+      name: "ISOFIN-P MS POLIA",
+      tag: "waterproofing",
+      kind: "membrane",
+      uses: ["roofs", "balconies", "mineralSupports"],
+      fields: {
+        type: "liquidMembrane",
+        application: "rollerBrushSpray",
+        finish: "flexibleWaterproofFilm"
+      },
+      precautions: "weather"
+    },
+
+    msPolymer: {
+      name: "ISOFIN-P MS POLYMER",
+      tag: "sealant",
+      kind: "polymer",
+      uses: ["bonding", "joints", "localProtection"],
+      fields: {
+        type: "hybridPolymer",
+        application: "gunSpatula",
+        benefit: "goodAdhesionVersatile"
+      },
+      precautions: "cleanStable"
+    },
+
+    m36: {
+      name: "ISOFIN-P M 36",
+      tag: "mortar",
+      kind: "mortar",
+      uses: ["concreteRepair", "reprofiling", "beforeCoating"],
+      fields: {
+        type: "mineralMortar",
+        application: "trowelSpatula",
+        supports: "concreteCementMasonry"
+      },
+      precautions: "mortarCare"
+    },
+
+    bd: {
+      name: "ISOFIN-P BD",
+      tag: "waterproofing",
+      kind: "waterproofCoating",
+      uses: ["wetRooms", "underTiles", "wallsFloors"],
+      fields: {
+        type: "flexibleWaterproofCoating",
+        finish: "waterproofProtectiveFilm",
+        application: "brushRollerSpatula"
+      },
+      precautions: "dryTime"
+    },
+
+    m03: {
+      name: "ISOFIN-P M 03",
+      tag: "repair",
+      kind: "prepRepair",
+      uses: ["supportPreparation", "localRepair", "surfaceCorrection"],
+      fields: {
+        type: "preparationProduct",
+        supports: "concreteCementMasonry",
+        benefit: "improvesSupport"
+      },
+      precautions: "preparation"
+    },
+
+    d10Latex: {
+      name: "ISOFIN-P D 10 LATEX",
+      tag: "additive",
+      kind: "latex",
+      uses: ["bondingSlurry", "improvedMortars", "enhancedConcrete"],
+      fields: {
+        type: "syntheticLatex",
+        effect: "improvesAdherenceFlexWaterproof",
+        use: "mixWithMortar"
+      },
+      precautions: "latexMix"
+    },
+
+    be89: {
+      name: "ISOFIN-P BE 89",
+      tag: "protection",
+      kind: "protection",
+      uses: ["facades", "weatherSurfaces", "durableMinerals"],
+      fields: {
+        type: "technicalProtection",
+        supports: "concreteCementMasonry",
+        benefit: "protectsClimate"
+      },
+      precautions: "facadeWeather"
+    },
+
+    df9: {
+      name: "ISOFIN-P DF 9",
+      tag: "floor",
+      kind: "floorCoating",
+      uses: ["technicalFloors", "professionalAreas", "wearProtection"],
+      fields: {
+        type: "floorTechnicalCoating",
+        finish: "protectedResistantSurface",
+        application: "rollerBrush"
+      },
+      precautions: "floorHumidity"
+    },
+
+    lPouvoirTransparent: {
+      name: "ISOFIN-P L Pouvoir Transparent",
+      tag: "transparent",
+      kind: "transparent",
+      uses: ["decorativeFacades", "transparentProtection", "absorbentFinishes"],
+      fields: {
+        type: "transparentProtection",
+        finish: "transparentProtectiveAspect",
+        benefit: "protectsWithoutMasking"
+      },
+      precautions: "transparentTrial"
+    },
+
+    liquidGlass: {
+      name: "ISOFIN-P Liquid Glass",
+      tag: "glass",
+      kind: "glass",
+      uses: ["decorativeSurfaces", "preparedProtection", "interiorCompatible"],
+      fields: {
+        type: "decorativeTransparentCoating",
+        finish: "glossyGlassEffect",
+        benefit: "decorativeProtection"
+      },
+      precautions: "glassDust"
+    },
+
+    floor2k: {
+      name: "ISOFIN-P Floor 2K",
+      tag: "floor",
+      kind: "floor2k",
+      uses: ["proFloors", "mechanicalResistance", "preparedConcrete"],
+      fields: {
+        type: "twoComponentFloorSystem",
+        finish: "resistantProtectiveCoating",
+        benefit: "highDurability"
+      },
+      precautions: "twoKMix"
+    },
+
+    shineFloor: {
+      name: "ISOFIN-P Shine Floor",
+      tag: "finishing",
+      kind: "shine",
+      uses: ["glossyIndoor", "aestheticProtection", "easyMaintenanceZones"],
+      fields: {
+        type: "glossyFloorFinish",
+        finish: "glossyProtectiveAspect",
+        benefit: "easyMaintenance"
+      },
+      precautions: "shineDry"
+    }
+  };
+
+  /* =========================================================
+     Données linguistiques
+  ========================================================= */
+
+  const LANG_DATA = {
+    fr: {
+      static: {
+        "products.meta.title": "Produits ISOFIN-P | Étanchéité, Isolation, Revêtements et Protection",
+        "products.meta.description": "Découvrez la gamme complète des produits ISOFIN-P : étanchéité, isolation, revêtements techniques, latex, membranes liquides, résines, vernis de protection et solutions professionnelles pour le bâtiment.",
+
+        "nav.home": "Accueil",
+        "nav.products": "Produits",
+        "nav.gallery": "Galerie",
+        "nav.solutions": "Solutions",
+        "nav.advantages": "Avantages",
+        "nav.contact": "Contact",
+
+        "products.hero.kicker": "Catalogue professionnel",
+        "products.hero.title": "Produits ISOFIN-P pour l’étanchéité, l’isolation et la protection",
+        "products.hero.subtitle": "Une gamme complète de solutions techniques pour les professionnels du bâtiment : membranes liquides, latex, revêtements, résines, produits d’imperméabilisation et systèmes de protection haute performance.",
+        "products.hero.downloadCatalog": "Télécharger le catalogue",
+        "products.hero.viewProducts": "Voir les produits",
+
+        "products.intro.title": "Solutions techniques ISOFIN-P",
+        "products.intro.text1": "Les produits ISOFIN-P sont conçus pour répondre aux exigences des chantiers modernes : durabilité, facilité d’application, résistance aux intempéries, performance technique et protection longue durée des supports.",
+        "products.intro.text2": "La gamme couvre les besoins en étanchéité liquide, imperméabilisation, protection des façades, traitement des sols, amélioration des mortiers et finitions décoratives ou techniques.",
+
+        "products.categories.kicker": "Domaines d’application",
+        "products.categories.title": "Une gamme adaptée à chaque besoin",
+        "products.categories.waterproofing.title": "Étanchéité",
+        "products.categories.waterproofing.text": "Membranes liquides, revêtements souples et systèmes imperméables pour terrasses, toitures, salles d’eau et zones exposées.",
+        "products.categories.construction.title": "Construction",
+        "products.categories.construction.text": "Additifs, latex et produits techniques pour améliorer l’adhérence, la résistance et la durabilité des mortiers.",
+        "products.categories.protection.title": "Protection",
+        "products.categories.protection.text": "Solutions de protection contre l’humidité, l’abrasion, les agressions climatiques et l’usure des surfaces.",
+        "products.categories.finishing.title": "Finition",
+        "products.categories.finishing.text": "Revêtements décoratifs, vernis transparents, finitions brillantes et traitements de surface pour sols et murs.",
+
+        "products.grid.kicker": "Catalogue produits",
+        "products.grid.title": "Découvrez la gamme ISOFIN-P",
+        "products.grid.subtitle": "Consultez les fiches produits et téléchargez les documents techniques disponibles.",
+        "products.grid.downloadCatalog": "📄 Télécharger le catalogue complet",
+
+        "products.buttons.viewSheet": "Voir la fiche",
+        "products.buttons.downloadPdf": "Télécharger PDF",
+
+        "products.sheets.kicker": "Documentation technique",
+        "products.sheets.title": "Fiches techniques détaillées",
+        "products.sheets.subtitle": "Retrouvez les informations essentielles pour la préparation, l’application, les domaines d’utilisation et les précautions de chaque produit.",
+
+        "products.sheets.common.uses": "Domaines d’utilisation",
+        "products.sheets.common.properties": "Caractéristiques",
+        "products.sheets.common.type": "Type",
+        "products.sheets.common.application": "Application",
+        "products.sheets.common.finish": "Finition",
+        "products.sheets.common.precautions": "Précautions",
+        "products.sheets.common.benefit": "Avantage",
+        "products.sheets.common.supports": "Supports",
+        "products.sheets.common.effect": "Effet",
+        "products.sheets.common.use": "Utilisation",
+
+        "products.cta.kicker": "Besoin d’un conseil ?",
+        "products.cta.title": "Contactez ISOFIN-P pour choisir le produit adapté à votre chantier",
+        "products.cta.text": "Notre équipe vous accompagne dans le choix des solutions techniques selon vos supports, vos contraintes d’application et vos objectifs de performance.",
+        "products.cta.contact": "Nous contacter",
+        "products.cta.catalog": "Télécharger le catalogue",
+
+        "footer.description": "ISOFIN-P propose des solutions professionnelles pour l’étanchéité, l’isolation, la protection et les revêtements techniques du bâtiment.",
+        "footer.navigation": "Navigation",
+        "footer.documents": "Documents",
+        "footer.catalog": "Catalogue ISOFIN-P",
+        "footer.technicalSheets": "Fiches techniques",
+        "footer.contact": "Contact",
+        "footer.rights": "Tous droits réservés.",
+        "footer.backTop": "Haut de page ↑"
+      },
+
+      tags: {
+        waterproofing: "Étanchéité",
+        sealant: "Mastic polymère",
+        mortar: "Mortier technique",
+        repair: "Réparation",
+        additive: "Additif",
+        protection: "Protection",
+        floor: "Sols",
+        transparent: "Transparent",
+        glass: "Effet verre",
+        finishing: "Finition"
+      },
+
+      kindBenefits: {
+        membrane: "membrane liquide polymère pour une étanchéité continue des supports exposés",
+        polymer: "polymère polyvalent pour collage, jointoiement et traitement des détails",
+        mortar: "mortier technique pour réparation, protection et renforcement des supports minéraux",
+        waterproofCoating: "revêtement souple d’étanchéité pour zones humides et supports exposés",
+        prepRepair: "solution de préparation et de réparation pour améliorer l’état des supports",
+        latex: "latex d’adhérence pour mortiers et bétons avec meilleure cohésion",
+        protection: "produit de protection des supports minéraux contre l’humidité et les intempéries",
+        floorCoating: "revêtement technique pour sols et surfaces soumises à l’usure",
+        transparent: "protection transparente pour surfaces apparentes et finitions minérales",
+        glass: "revêtement transparent effet verre liquide pour finition brillante",
+        floor2k: "système bi-composant pour sols résistants et durables",
+        shine: "finition brillante pour sols, esthétique et facile à entretenir"
+      },
+
+      descPrefix: "",
+      descSuffix: ".",
+      sheetSummary: function (name, benefit) {
+        return name + " est une " + benefit + ".";
+      },
+
+      useTexts: {
+        roofs: "Toitures, terrasses et surfaces extérieures exposées.",
+        balconies: "Balcons, acrotères, détails techniques et points singuliers.",
+        mineralSupports: "Supports béton, ciment, mortier et surfaces minérales préparées.",
+        bonding: "Collage et jointoiement sur supports du bâtiment.",
+        joints: "Traitement des raccords, jonctions et points singuliers.",
+        localProtection: "Protection locale contre l’humidité et les infiltrations.",
+        concreteRepair: "Réparation de supports béton et mortier.",
+        reprofiling: "Reprofilage, rebouchage et correction des défauts.",
+        beforeCoating: "Préparation avant revêtement ou protection finale.",
+        wetRooms: "Salles d’eau, locaux humides et surfaces intérieures exposées.",
+        underTiles: "Protection sous carrelage ou finition compatible.",
+        wallsFloors: "Murs, sols et éléments minéraux préparés.",
+        supportPreparation: "Préparation des supports avant application de revêtements.",
+        localRepair: "Réparation localisée de surfaces minérales.",
+        surfaceCorrection: "Correction des défauts et amélioration de l’état de surface.",
+        bondingSlurry: "Barbotines d’accrochage et couches d’adhérence.",
+        improvedMortars: "Mortiers de réparation et enduits améliorés.",
+        enhancedConcrete: "Bétons et mortiers nécessitant meilleure cohésion et imperméabilité.",
+        facades: "Protection des façades, murs et éléments béton.",
+        weatherSurfaces: "Supports exposés à l’humidité et aux intempéries.",
+        durableMinerals: "Surfaces minérales nécessitant une protection durable.",
+        technicalFloors: "Sols techniques, zones de passage et surfaces sollicitées.",
+        professionalAreas: "Locaux professionnels, ateliers, espaces de circulation.",
+        wearProtection: "Protection de supports préparés contre l’usure courante.",
+        decorativeFacades: "Façades, murs décoratifs et supports minéraux apparents.",
+        transparentProtection: "Protection transparente de surfaces absorbantes.",
+        absorbentFinishes: "Finitions nécessitant conservation de l’aspect du support.",
+        decorativeSurfaces: "Surfaces décoratives nécessitant une finition brillante.",
+        preparedProtection: "Protection transparente de supports préparés.",
+        interiorCompatible: "Applications intérieures selon compatibilité du support.",
+        proFloors: "Sols professionnels, garages, ateliers et locaux techniques.",
+        mechanicalResistance: "Surfaces nécessitant résistance mécanique et protection.",
+        preparedConcrete: "Supports béton préparés et compatibles.",
+        glossyIndoor: "Finition brillante de sols intérieurs préparés.",
+        aestheticProtection: "Protection esthétique de surfaces minérales ou compatibles.",
+        easyMaintenanceZones: "Zones nécessitant entretien facile et aspect soigné."
+      },
+
+      fieldValues: {
+        liquidMembrane: "Membrane liquide polymère",
+        hybridPolymer: "Polymère hybride technique",
+        mineralMortar: "Mortier technique minéral",
+        flexibleWaterproofCoating: "Revêtement d’étanchéité souple",
+        preparationProduct: "Produit de préparation technique",
+        syntheticLatex: "Latex synthétique d’adhérence",
+        technicalProtection: "Produit de protection technique",
+        floorTechnicalCoating: "Revêtement technique de sol",
+        transparentProtection: "Protection transparente",
+        decorativeTransparentCoating: "Revêtement transparent décoratif",
+        twoComponentFloorSystem: "Système bi-composant pour sols",
+        glossyFloorFinish: "Finition brillante pour sols",
+
+        rollerBrushSpray: "Rouleau, brosse ou projection adaptée",
+        gunSpatula: "Pistolet, spatule ou outil adapté",
+        trowelSpatula: "Taloche, spatule ou truelle",
+        brushRollerSpatula: "Brosse, rouleau ou spatule",
+        rollerBrush: "Rouleau, brosse ou outil adapté",
+
+        flexibleWaterproofFilm: "Film souple, continu et imperméable",
+        waterproofProtectiveFilm: "Film protecteur imperméable",
+        protectedResistantSurface: "Surface protégée et résistante",
+        transparentProtectiveAspect: "Aspect transparent protecteur",
+        glossyGlassEffect: "Brillante, lisse, effet verre",
+        resistantProtectiveCoating: "Revêtement résistant et protecteur",
+        glossyProtectiveAspect: "Aspect brillant protecteur",
+
+        goodAdhesionVersatile: "Bonne adhérence et excellente polyvalence",
+        improvesSupport: "Améliore la qualité du support avant finition",
+        protectsClimate: "Protège contre l’humidité et les agressions climatiques",
+        protectsWithoutMasking: "Protège sans masquer l’aspect du support",
+        decorativeProtection: "Valorise et protège les surfaces décoratives",
+        highDurability: "Haute durabilité pour surfaces sollicitées",
+        easyMaintenance: "Améliore l’esthétique et facilite l’entretien",
+
+        concreteCementMasonry: "Béton, ciment, enduits et maçonnerie",
+        improvesAdherenceFlexWaterproof: "Améliore adhérence, souplesse et imperméabilité",
+        mixWithMortar: "Mélange avec mortier, ciment ou béton selon dosage adapté"
+      },
+
+      precautions: {
+        weather: "Appliquer sur support propre, sec, cohésif et exempt de poussière, graisse ou parties non adhérentes. Éviter l’application en cas de pluie imminente ou de gel.",
+        cleanStable: "Les supports doivent être stables, propres et dégraissés. Effectuer un essai préalable sur matériaux sensibles ou surfaces particulières.",
+        mortarCare: "Humidifier légèrement le support si nécessaire, sans laisser d’eau stagnante. Respecter les conditions de température et protéger du séchage trop rapide.",
+        dryTime: "Ne pas appliquer sur support gelé, ruisselant ou non cohésif. Respecter le temps de séchage avant recouvrement.",
+        preparation: "Éliminer les parties friables, poussières et contaminants. Respecter les recommandations de préparation selon l’état du support.",
+        latexMix: "Bien homogénéiser avant utilisation. Respecter le dosage recommandé et éviter l’application sur supports sales ou non cohésifs.",
+        facadeWeather: "Appliquer sur support propre et sec. Ne pas appliquer sous pluie, sur support gelé ou en plein soleil intense.",
+        floorHumidity: "Vérifier l’humidité du support avant application. Prévoir une préparation mécanique si nécessaire pour garantir l’adhérence.",
+        transparentTrial: "Faire un essai préalable sur support très absorbant ou coloré. Appliquer régulièrement pour éviter les surépaisseurs visibles.",
+        glassDust: "Le support doit être parfaitement propre et régulier. Éviter la poussière pendant le séchage pour conserver l’effet esthétique.",
+        twoKMix: "Mélanger soigneusement les composants selon les recommandations. Respecter le temps d’utilisation du mélange et les délais de remise en service.",
+        shineDry: "Appliquer en couches régulières sur support propre et sec. Protéger de la poussière, de l’humidité et du trafic pendant le séchage."
+      }
+    },
+
+    en: {
+      static: {
+        "products.meta.title": "ISOFIN-P Products | Waterproofing, Insulation, Coatings and Protection",
+        "products.meta.description": "Discover the complete ISOFIN-P range: waterproofing, insulation, technical coatings, latex, liquid membranes, resins, protective varnishes and professional building solutions.",
+
+        "nav.home": "Home",
+        "nav.products": "Products",
+        "nav.gallery": "Gallery",
+        "nav.solutions": "Solutions",
+        "nav.advantages": "Advantages",
+        "nav.contact": "Contact",
+
+        "products.hero.kicker": "Professional catalogue",
+        "products.hero.title": "ISOFIN-P products for waterproofing, insulation and protection",
+        "products.hero.subtitle": "A complete range of technical solutions for building professionals: liquid membranes, latex, coatings, resins, waterproofing products and high-performance protection systems.",
+        "products.hero.downloadCatalog": "Download catalogue",
+        "products.hero.viewProducts": "View products",
+
+        "products.intro.title": "ISOFIN-P technical solutions",
+        "products.intro.text1": "ISOFIN-P products are designed to meet the requirements of modern construction sites: durability, easy application, weather resistance, technical performance and long-term substrate protection.",
+        "products.intro.text2": "The range covers liquid waterproofing, façade protection, floor treatment, mortar improvement and decorative or technical finishes.",
+
+        "products.categories.kicker": "Application areas",
+        "products.categories.title": "A range adapted to every need",
+        "products.categories.waterproofing.title": "Waterproofing",
+        "products.categories.waterproofing.text": "Liquid membranes, flexible coatings and waterproof systems for terraces, roofs, wet rooms and exposed areas.",
+        "products.categories.construction.title": "Construction",
+        "products.categories.construction.text": "Additives, latex and technical products to improve adhesion, resistance and mortar durability.",
+        "products.categories.protection.title": "Protection",
+        "products.categories.protection.text": "Solutions against moisture, abrasion, weather aggression and surface wear.",
+        "products.categories.finishing.title": "Finishing",
+        "products.categories.finishing.text": "Decorative coatings, transparent varnishes, glossy finishes and surface treatments for floors and walls.",
+
+        "products.grid.kicker": "Product catalogue",
+        "products.grid.title": "Discover the ISOFIN-P range",
+        "products.grid.subtitle": "Consult product sheets and download available technical documents.",
+        "products.grid.downloadCatalog": "📄 Download full catalogue",
+
+        "products.buttons.viewSheet": "View sheet",
+        "products.buttons.downloadPdf": "Download PDF",
+
+        "products.sheets.kicker": "Technical documentation",
+        "products.sheets.title": "Detailed technical sheets",
+        "products.sheets.subtitle": "Find essential information about preparation, application, areas of use and precautions for each product.",
+
+        "products.sheets.common.uses": "Areas of use",
+        "products.sheets.common.properties": "Characteristics",
+        "products.sheets.common.type": "Type",
+        "products.sheets.common.application": "Application",
+        "products.sheets.common.finish": "Finish",
+        "products.sheets.common.precautions": "Precautions",
+        "products.sheets.common.benefit": "Benefit",
+        "products.sheets.common.supports": "Substrates",
+        "products.sheets.common.effect": "Effect",
+        "products.sheets.common.use": "Use",
+
+        "products.cta.kicker": "Need advice?",
+        "products.cta.title": "Contact ISOFIN-P to choose the right product for your project",
+        "products.cta.text": "Our team helps you select technical solutions according to your substrates, application constraints and performance goals.",
+        "products.cta.contact": "Contact us",
+        "products.cta.catalog": "Download catalogue",
+
+        "footer.description": "ISOFIN-P provides professional solutions for waterproofing, insulation, protection and technical building coatings.",
+        "footer.navigation": "Navigation",
+        "footer.documents": "Documents",
+        "footer.catalog": "ISOFIN-P catalogue",
+        "footer.technicalSheets": "Technical sheets",
+        "footer.contact": "Contact",
+        "footer.rights": "All rights reserved.",
+        "footer.backTop": "Back to top ↑"
+      },
+
+      tags: {
+        waterproofing: "Waterproofing",
+        sealant: "Polymer sealant",
+        mortar: "Technical mortar",
+        repair: "Repair",
+        additive: "Additive",
+        protection: "Protection",
+        floor: "Floors",
+        transparent: "Transparent",
+        glass: "Glass effect",
+        finishing: "Finishing"
+      },
+
+      kindBenefits: {
+        membrane: "polymer liquid membrane for continuous waterproofing of exposed substrates",
+        polymer: "multi-purpose polymer for bonding, sealing and detail treatment",
+        mortar: "technical mortar for repairing, protecting and reinforcing mineral substrates",
+        waterproofCoating: "flexible waterproofing coating for wet areas and exposed substrates",
+        prepRepair: "preparation and repair solution to improve substrate condition",
+        latex: "bonding latex for mortars and concretes with improved cohesion",
+        protection: "protective product for mineral substrates against moisture and weather",
+        floorCoating: "technical coating for floors and surfaces subject to wear",
+        transparent: "transparent protection for visible surfaces and mineral finishes",
+        glass: "transparent liquid-glass-effect coating for glossy finishing",
+        floor2k: "two-component system for resistant and durable floors",
+        shine: "glossy floor finish, aesthetic and easy to maintain"
+      },
+
+      descPrefix: "",
+      descSuffix: ".",
+      sheetSummary: function (name, benefit) {
+        return name + " is a " + benefit + ".";
+      }
+    },
+
+    es: {
+      static: {
+        "products.meta.title": "Productos ISOFIN-P | Impermeabilización, Aislamiento, Revestimientos y Protección",
+        "products.meta.description": "Descubra la gama completa ISOFIN-P: impermeabilización, aislamiento, revestimientos técnicos, látex, membranas líquidas, resinas, barnices protectores y soluciones profesionales para la construcción.",
+
+        "nav.home": "Inicio",
+        "nav.products": "Productos",
+        "nav.gallery": "Galería",
+        "nav.solutions": "Soluciones",
+        "nav.advantages": "Ventajas",
+        "nav.contact": "Contacto",
+
+        "products.hero.kicker": "Catálogo profesional",
+        "products.hero.title": "Productos ISOFIN-P para impermeabilización, aislamiento y protección",
+        "products.hero.subtitle": "Una gama completa de soluciones técnicas para profesionales de la construcción: membranas líquidas, látex, revestimientos, resinas, productos de impermeabilización y sistemas de protección de alto rendimiento.",
+        "products.hero.downloadCatalog": "Descargar catálogo",
+        "products.hero.viewProducts": "Ver productos",
+
+        "products.intro.title": "Soluciones técnicas ISOFIN-P",
+        "products.intro.text1": "Los productos ISOFIN-P están diseñados para responder a las exigencias de las obras modernas: durabilidad, facilidad de aplicación, resistencia climática, rendimiento técnico y protección duradera de los soportes.",
+        "products.intro.text2": "La gama cubre impermeabilización líquida, protección de fachadas, tratamiento de suelos, mejora de morteros y acabados decorativos o técnicos.",
+
+        "products.categories.kicker": "Áreas de aplicación",
+        "products.categories.title": "Una gama adaptada a cada necesidad",
+        "products.categories.waterproofing.title": "Impermeabilización",
+        "products.categories.waterproofing.text": "Membranas líquidas, revestimientos flexibles y sistemas impermeables para terrazas, cubiertas, zonas húmedas y áreas expuestas.",
+        "products.categories.construction.title": "Construcción",
+        "products.categories.construction.text": "Aditivos, látex y productos técnicos para mejorar la adherencia, la resistencia y la durabilidad de los morteros.",
+        "products.categories.protection.title": "Protección",
+        "products.categories.protection.text": "Soluciones contra la humedad, la abrasión, las agresiones climáticas y el desgaste de las superficies.",
+        "products.categories.finishing.title": "Acabado",
+        "products.categories.finishing.text": "Revestimientos decorativos, barnices transparentes, acabados brillantes y tratamientos de superficie para suelos y paredes.",
+
+        "products.grid.kicker": "Catálogo de productos",
+        "products.grid.title": "Descubra la gama ISOFIN-P",
+        "products.grid.subtitle": "Consulte las fichas de producto y descargue los documentos técnicos disponibles.",
+        "products.grid.downloadCatalog": "📄 Descargar catálogo completo",
+
+        "products.buttons.viewSheet": "Ver ficha",
+        "products.buttons.downloadPdf": "Descargar PDF",
+
+        "products.sheets.kicker": "Documentación técnica",
+        "products.sheets.title": "Fichas técnicas detalladas",
+        "products.sheets.subtitle": "Encuentre la información esencial sobre preparación, aplicación, usos y precauciones de cada producto.",
+
+        "products.sheets.common.uses": "Áreas de uso",
+        "products.sheets.common.properties": "Características",
+        "products.sheets.common.type": "Tipo",
+        "products.sheets.common.application": "Aplicación",
+        "products.sheets.common.finish": "Acabado",
+        "products.sheets.common.precautions": "Precauciones",
+        "products.sheets.common.benefit": "Ventaja",
+        "products.sheets.common.supports": "Soportes",
+        "products.sheets.common.effect": "Efecto",
+        "products.sheets.common.use": "Uso",
+
+        "products.cta.kicker": "¿Necesita asesoramiento?",
+        "products.cta.title": "Contacte con ISOFIN-P para elegir el producto adecuado para su obra",
+        "products.cta.text": "Nuestro equipo le ayuda a seleccionar soluciones técnicas según sus soportes, condiciones de aplicación y objetivos de rendimiento.",
+        "products.cta.contact": "Contactarnos",
+        "products.cta.catalog": "Descargar catálogo",
+
+        "footer.description": "ISOFIN-P ofrece soluciones profesionales para impermeabilización, aislamiento, protección y revestimientos técnicos de construcción.",
+        "footer.navigation": "Navegación",
+        "footer.documents": "Documentos",
+        "footer.catalog": "Catálogo ISOFIN-P",
+        "footer.technicalSheets": "Fichas técnicas",
+        "footer.contact": "Contacto",
+        "footer.rights": "Todos los derechos reservados.",
+        "footer.backTop": "Volver arriba ↑"
+      },
+
+      tags: {
+        waterproofing: "Impermeabilización",
+        sealant: "Sellador polimérico",
+        mortar: "Mortero técnico",
+        repair: "Reparación",
+        additive: "Aditivo",
+        protection: "Protección",
+        floor: "Suelos",
+        transparent: "Transparente",
+        glass: "Efecto vidrio",
+        finishing: "Acabado"
+      },
+
+      kindBenefits: {
+        membrane: "membrana líquida polimérica para impermeabilización continua de soportes expuestos",
+        polymer: "polímero multiuso para pegado, sellado y tratamiento de detalles",
+        mortar: "mortero técnico para reparación, protección y refuerzo de soportes minerales",
+        waterproofCoating: "revestimiento flexible impermeable para zonas húmedas y soportes expuestos",
+        prepRepair: "solución de preparación y reparación para mejorar el estado del soporte",
+        latex: "látex de adherencia para morteros y hormigones con mayor cohesión",
+        protection: "producto protector para soportes minerales contra humedad e intemperie",
+        floorCoating: "revestimiento técnico para suelos y superficies sometidas al desgaste",
+        transparent: "protección transparente para superficies vistas y acabados minerales",
+        glass: "revestimiento transparente efecto vidrio líquido para acabado brillante",
+        floor2k: "sistema bicomponente para suelos resistentes y duraderos",
+        shine: "acabado brillante para suelos, estético y fácil de mantener"
+      },
+
+      descPrefix: "",
+      descSuffix: ".",
+      sheetSummary: function (name, benefit) {
+        return name + " es una " + benefit + ".";
+      }
+    },
+
+    ar: {
+      static: {
+        "products.meta.title": "منتجات ISOFIN-P | العزل المائي، العزل، الطلاءات والحماية",
+        "products.meta.description": "اكتشف مجموعة ISOFIN-P الكاملة: العزل المائي، العزل الحراري، الطلاءات التقنية، اللاتكس، الأغشية السائلة، الراتنجات، الورنيش الواقي وحلول البناء المهنية.",
+
+        "nav.home": "الرئيسية",
+        "nav.products": "المنتجات",
+        "nav.gallery": "المعرض",
+        "nav.solutions": "الحلول",
+        "nav.advantages": "المزايا",
+        "nav.contact": "اتصل بنا",
+
+        "products.hero.kicker": "كتالوج مهني",
+        "products.hero.title": "منتجات ISOFIN-P للعزل المائي والعزل والحماية",
+        "products.hero.subtitle": "مجموعة متكاملة من الحلول التقنية لمحترفي البناء: أغشية سائلة، لاتكس، طلاءات، راتنجات، منتجات عزل مائي وأنظمة حماية عالية الأداء.",
+        "products.hero.downloadCatalog": "تحميل الكتالوج",
+        "products.hero.viewProducts": "عرض المنتجات",
+
+        "products.intro.title": "حلول ISOFIN-P التقنية",
+        "products.intro.text1": "تم تصميم منتجات ISOFIN-P لتلبية متطلبات مواقع البناء الحديثة: المتانة، سهولة التطبيق، مقاومة العوامل الجوية، الأداء التقني والحماية طويلة الأمد للأسطح.",
+        "products.intro.text2": "تغطي المجموعة العزل المائي السائل، حماية الواجهات، معالجة الأرضيات، تحسين الملاط والتشطيبات الزخرفية أو التقنية.",
+
+        "products.categories.kicker": "مجالات التطبيق",
+        "products.categories.title": "مجموعة مناسبة لكل احتياج",
+        "products.categories.waterproofing.title": "العزل المائي",
+        "products.categories.waterproofing.text": "أغشية سائلة وطلاءات مرنة وأنظمة مقاومة للماء للأسطح والتراسات والحمامات والمناطق المعرضة.",
+        "products.categories.construction.title": "البناء",
+        "products.categories.construction.text": "إضافات ولاتكس ومنتجات تقنية لتحسين الالتصاق والمقاومة ومتانة الملاط.",
+        "products.categories.protection.title": "الحماية",
+        "products.categories.protection.text": "حلول للحماية من الرطوبة والتآكل والعوامل المناخية وتلف الأسطح.",
+        "products.categories.finishing.title": "التشطيب",
+        "products.categories.finishing.text": "طلاءات زخرفية وورنيشات شفافة وتشطيبات لامعة ومعالجات للأسطح والأرضيات والجدران.",
+
+        "products.grid.kicker": "كتالوج المنتجات",
+        "products.grid.title": "اكتشف مجموعة ISOFIN-P",
+        "products.grid.subtitle": "اطلع على بطاقات المنتجات وقم بتحميل الوثائق التقنية المتاحة.",
+        "products.grid.downloadCatalog": "📄 تحميل الكتالوج الكامل",
+
+        "products.buttons.viewSheet": "عرض البطاقة",
+        "products.buttons.downloadPdf": "تحميل PDF",
+
+        "products.sheets.kicker": "وثائق تقنية",
+        "products.sheets.title": "بطاقات تقنية مفصلة",
+        "products.sheets.subtitle": "تجد هنا المعلومات الأساسية حول التحضير والتطبيق ومجالات الاستخدام والاحتياطات الخاصة بكل منتج.",
+
+        "products.sheets.common.uses": "مجالات الاستخدام",
+        "products.sheets.common.properties": "الخصائص",
+        "products.sheets.common.type": "النوع",
+        "products.sheets.common.application": "طريقة التطبيق",
+        "products.sheets.common.finish": "التشطيب",
+        "products.sheets.common.precautions": "احتياطات",
+        "products.sheets.common.benefit": "الميزة",
+        "products.sheets.common.supports": "الأسطح",
+        "products.sheets.common.effect": "التأثير",
+        "products.sheets.common.use": "الاستخدام",
+
+        "products.cta.kicker": "هل تحتاج إلى استشارة؟",
+        "products.cta.title": "اتصل بـ ISOFIN-P لاختيار المنتج المناسب لمشروعك",
+        "products.cta.text": "يساعدك فريقنا في اختيار الحلول التقنية حسب نوع السطح وشروط التطبيق وأهداف الأداء.",
+        "products.cta.contact": "اتصل بنا",
+        "products.cta.catalog": "تحميل الكتالوج",
+
+        "footer.description": "تقدم ISOFIN-P حلولاً مهنية للعزل المائي والعزل والحماية والطلاءات التقنية في قطاع البناء.",
+        "footer.navigation": "التنقل",
+        "footer.documents": "الوثائق",
+        "footer.catalog": "كتالوج ISOFIN-P",
+        "footer.technicalSheets": "البطاقات التقنية",
+        "footer.contact": "اتصال",
+        "footer.rights": "جميع الحقوق محفوظة.",
+        "footer.backTop": "أعلى الصفحة ↑"
+      },
+
+      tags: {
+        waterproofing: "عزل مائي",
+        sealant: "مانع تسرب بوليمري",
+        mortar: "ملاط تقني",
+        repair: "إصلاح",
+        additive: "إضافة",
+        protection: "حماية",
+        floor: "أرضيات",
+        transparent: "شفاف",
+        glass: "تأثير زجاجي",
+        finishing: "تشطيب"
+      },
+
+      kindBenefits: {
+        membrane: "غشاء سائل بوليمري للعزل المائي المستمر للأسطح المعرضة",
+        polymer: "بوليمر متعدد الاستخدامات للالتصاق والملء ومعالجة التفاصيل",
+        mortar: "ملاط تقني لإصلاح وحماية وتقوية الأسطح المعدنية",
+        waterproofCoating: "طلاء مرن للعزل المائي للمناطق الرطبة والأسطح المعرضة",
+        prepRepair: "حل للتحضير والإصلاح لتحسين حالة السطح",
+        latex: "لاتكس لتحسين الالتصاق في الملاط والخرسانة وزيادة التماسك",
+        protection: "منتج لحماية الأسطح المعدنية من الرطوبة والعوامل الجوية",
+        floorCoating: "طلاء تقني للأرضيات والأسطح المعرضة للاهتراء",
+        transparent: "حماية شفافة للأسطح الظاهرة والتشطيبات المعدنية",
+        glass: "طلاء شفاف بتأثير الزجاج السائل لتشطيب لامع",
+        floor2k: "نظام ثنائي المكونات لأرضيات مقاومة وطويلة العمر",
+        shine: "تشطيب لامع للأرضيات، جمالي وسهل الصيانة"
+      },
+
+      descPrefix: "",
+      descSuffix: ".",
+      sheetSummary: function (name, benefit) {
+        return name + " هو " + benefit + ".";
+      }
+    },
+
+    it: {
+      static: {
+        "products.meta.title": "Prodotti ISOFIN-P | Impermeabilizzazione, Isolamento, Rivestimenti e Protezione",
+        "products.meta.description": "Scopri la gamma completa ISOFIN-P: impermeabilizzazione, isolamento, rivestimenti tecnici, lattice, membrane liquide, resine, vernici protettive e soluzioni professionali per l’edilizia.",
+
+        "nav.home": "Home",
+        "nav.products": "Prodotti",
+        "nav.gallery": "Galleria",
+        "nav.solutions": "Soluzioni",
+        "nav.advantages": "Vantaggi",
+        "nav.contact": "Contatto",
+
+        "products.hero.kicker": "Catalogo professionale",
+        "products.hero.title": "Prodotti ISOFIN-P per impermeabilizzazione, isolamento e protezione",
+        "products.hero.subtitle": "Una gamma completa di soluzioni tecniche per professionisti dell’edilizia: membrane liquide, lattice, rivestimenti, resine, prodotti impermeabilizzanti e sistemi di protezione ad alte prestazioni.",
+        "products.hero.downloadCatalog": "Scarica il catalogo",
+        "products.hero.viewProducts": "Vedi prodotti",
+
+        "products.intro.title": "Soluzioni tecniche ISOFIN-P",
+        "products.intro.text1": "I prodotti ISOFIN-P sono progettati per rispondere alle esigenze dei cantieri moderni: durabilità, facilità di applicazione, resistenza agli agenti atmosferici, prestazioni tecniche e protezione duratura dei supporti.",
+        "products.intro.text2": "La gamma copre impermeabilizzazione liquida, protezione facciate, trattamento pavimenti, miglioramento delle malte e finiture decorative o tecniche.",
+
+        "products.categories.kicker": "Campi di applicazione",
+        "products.categories.title": "Una gamma adatta a ogni esigenza",
+        "products.categories.waterproofing.title": "Impermeabilizzazione",
+        "products.categories.waterproofing.text": "Membrane liquide, rivestimenti flessibili e sistemi impermeabili per terrazze, coperture, ambienti umidi e zone esposte.",
+        "products.categories.construction.title": "Costruzione",
+        "products.categories.construction.text": "Additivi, lattice e prodotti tecnici per migliorare adesione, resistenza e durabilità delle malte.",
+        "products.categories.protection.title": "Protezione",
+        "products.categories.protection.text": "Soluzioni contro umidità, abrasione, aggressioni climatiche e usura delle superfici.",
+        "products.categories.finishing.title": "Finitura",
+        "products.categories.finishing.text": "Rivestimenti decorativi, vernici trasparenti, finiture lucide e trattamenti superficiali per pavimenti e pareti.",
+
+        "products.grid.kicker": "Catalogo prodotti",
+        "products.grid.title": "Scopri la gamma ISOFIN-P",
+        "products.grid.subtitle": "Consulta le schede prodotto e scarica i documenti tecnici disponibili.",
+        "products.grid.downloadCatalog": "📄 Scarica il catalogo completo",
+
+        "products.buttons.viewSheet": "Vedi scheda",
+        "products.buttons.downloadPdf": "Scarica PDF",
+
+        "products.sheets.kicker": "Documentazione tecnica",
+        "products.sheets.title": "Schede tecniche dettagliate",
+        "products.sheets.subtitle": "Trova le informazioni essenziali su preparazione, applicazione, campi d’uso e precauzioni per ogni prodotto.",
+
+        "products.sheets.common.uses": "Campi d’uso",
+        "products.sheets.common.properties": "Caratteristiche",
+        "products.sheets.common.type": "Tipo",
+        "products.sheets.common.application": "Applicazione",
+        "products.sheets.common.finish": "Finitura",
+        "products.sheets.common.precautions": "Precauzioni",
+        "products.sheets.common.benefit": "Vantaggio",
+        "products.sheets.common.supports": "Supporti",
+        "products.sheets.common.effect": "Effetto",
+        "products.sheets.common.use": "Uso",
+
+        "products.cta.kicker": "Hai bisogno di un consiglio?",
+        "products.cta.title": "Contatta ISOFIN-P per scegliere il prodotto adatto al tuo cantiere",
+        "products.cta.text": "Il nostro team ti aiuta a scegliere le soluzioni tecniche in base ai supporti, alle condizioni di applicazione e agli obiettivi prestazionali.",
+        "products.cta.contact": "Contattaci",
+        "products.cta.catalog": "Scarica il catalogo",
+
+        "footer.description": "ISOFIN-P propone soluzioni professionali per impermeabilizzazione, isolamento, protezione e rivestimenti tecnici per l’edilizia.",
+        "footer.navigation": "Navigazione",
+        "footer.documents": "Documenti",
+        "footer.catalog": "Catalogo ISOFIN-P",
+        "footer.technicalSheets": "Schede tecniche",
+        "footer.contact": "Contatto",
+        "footer.rights": "Tutti i diritti riservati.",
+        "footer.backTop": "Torna su ↑"
+      },
+
+      tags: {
+        waterproofing: "Impermeabilizzazione",
+        sealant: "Sigillante polimerico",
+        mortar: "Malta tecnica",
+        repair: "Riparazione",
+        additive: "Additivo",
+        protection: "Protezione",
+        floor: "Pavimenti",
+        transparent: "Trasparente",
+        glass: "Effetto vetro",
+        finishing: "Finitura"
+      },
+
+      kindBenefits: {
+        membrane: "membrana liquida polimerica per impermeabilizzazione continua di supporti esposti",
+        polymer: "polimero multiuso per incollaggio, sigillatura e trattamento dei dettagli",
+        mortar: "malta tecnica per riparazione, protezione e rinforzo dei supporti minerali",
+        waterproofCoating: "rivestimento flessibile impermeabile per zone umide e supporti esposti",
+        prepRepair: "soluzione di preparazione e riparazione per migliorare lo stato del supporto",
+        latex: "lattice di adesione per malte e calcestruzzi con migliore coesione",
+        protection: "prodotto protettivo per supporti minerali contro umidità e intemperie",
+        floorCoating: "rivestimento tecnico per pavimenti e superfici soggette a usura",
+        transparent: "protezione trasparente per superfici a vista e finiture minerali",
+        glass: "rivestimento trasparente effetto vetro liquido per finitura lucida",
+        floor2k: "sistema bicomponente per pavimenti resistenti e durevoli",
+        shine: "finitura lucida per pavimenti, estetica e facile da mantenere"
+      },
+
+      descPrefix: "",
+      descSuffix: ".",
+      sheetSummary: function (name, benefit) {
+        return name + " è una " + benefit + ".";
+      }
+    },
+
+    ro: {
+      static: {
+        "products.meta.title": "Produse ISOFIN-P | Hidroizolație, Izolație, Acoperiri și Protecție",
+        "products.meta.description": "Descoperiți gama completă ISOFIN-P: hidroizolații, izolații, acoperiri tehnice, latex, membrane lichide, rășini, lacuri de protecție și soluții profesionale pentru construcții.",
+
+        "nav.home": "Acasă",
+        "nav.products": "Produse",
+        "nav.gallery": "Galerie",
+        "nav.solutions": "Soluții",
+        "nav.advantages": "Avantaje",
+        "nav.contact": "Contact",
+
+        "products.hero.kicker": "Catalog profesional",
+        "products.hero.title": "Produse ISOFIN-P pentru hidroizolație, izolație și protecție",
+        "products.hero.subtitle": "O gamă completă de soluții tehnice pentru profesioniștii din construcții: membrane lichide, latex, acoperiri, rășini, produse de hidroizolație și sisteme de protecție performante.",
+        "products.hero.downloadCatalog": "Descarcă catalogul",
+        "products.hero.viewProducts": "Vezi produsele",
+
+        "products.intro.title": "Soluții tehnice ISOFIN-P",
+        "products.intro.text1": "Produsele ISOFIN-P sunt concepute pentru cerințele șantierelor moderne: durabilitate, aplicare ușoară, rezistență la intemperii, performanță tehnică și protecție pe termen lung a suporturilor.",
+        "products.intro.text2": "Gama acoperă hidroizolații lichide, protecția fațadelor, tratarea pardoselilor, îmbunătățirea mortarelor și finisaje decorative sau tehnice.",
+
+        "products.categories.kicker": "Domenii de aplicare",
+        "products.categories.title": "O gamă adaptată fiecărei nevoi",
+        "products.categories.waterproofing.title": "Hidroizolație",
+        "products.categories.waterproofing.text": "Membrane lichide, acoperiri flexibile și sisteme impermeabile pentru terase, acoperișuri, spații umede și zone expuse.",
+        "products.categories.construction.title": "Construcții",
+        "products.categories.construction.text": "Aditivi, latex și produse tehnice pentru îmbunătățirea aderenței, rezistenței și durabilității mortarelor.",
+        "products.categories.protection.title": "Protecție",
+        "products.categories.protection.text": "Soluții împotriva umidității, abraziunii, agresiunilor climatice și uzurii suprafețelor.",
+        "products.categories.finishing.title": "Finisaj",
+        "products.categories.finishing.text": "Acoperiri decorative, lacuri transparente, finisaje lucioase și tratamente de suprafață pentru pardoseli și pereți.",
+
+        "products.grid.kicker": "Catalog produse",
+        "products.grid.title": "Descoperiți gama ISOFIN-P",
+        "products.grid.subtitle": "Consultați fișele produselor și descărcați documentele tehnice disponibile.",
+        "products.grid.downloadCatalog": "📄 Descarcă catalogul complet",
+
+        "products.buttons.viewSheet": "Vezi fișa",
+        "products.buttons.downloadPdf": "Descarcă PDF",
+
+        "products.sheets.kicker": "Documentație tehnică",
+        "products.sheets.title": "Fișe tehnice detaliate",
+        "products.sheets.subtitle": "Găsiți informațiile esențiale despre pregătire, aplicare, domenii de utilizare și precauții pentru fiecare produs.",
+
+        "products.sheets.common.uses": "Domenii de utilizare",
+        "products.sheets.common.properties": "Caracteristici",
+        "products.sheets.common.type": "Tip",
+        "products.sheets.common.application": "Aplicare",
+        "products.sheets.common.finish": "Finisaj",
+        "products.sheets.common.precautions": "Precauții",
+        "products.sheets.common.benefit": "Avantaj",
+        "products.sheets.common.supports": "Suporturi",
+        "products.sheets.common.effect": "Efect",
+        "products.sheets.common.use": "Utilizare",
+
+        "products.cta.kicker": "Aveți nevoie de sfaturi?",
+        "products.cta.title": "Contactați ISOFIN-P pentru a alege produsul potrivit pentru proiect",
+        "products.cta.text": "Echipa noastră vă ajută să selectați soluțiile tehnice în funcție de suporturi, condițiile de aplicare și obiectivele de performanță.",
+        "products.cta.contact": "Contactați-ne",
+        "products.cta.catalog": "Descarcă catalogul",
+
+        "footer.description": "ISOFIN-P oferă soluții profesionale pentru hidroizolații, izolații, protecție și acoperiri tehnice pentru construcții.",
+        "footer.navigation": "Navigare",
+        "footer.documents": "Documente",
+        "footer.catalog": "Catalog ISOFIN-P",
+        "footer.technicalSheets": "Fișe tehnice",
+        "footer.contact": "Contact",
+        "footer.rights": "Toate drepturile rezervate.",
+        "footer.backTop": "Sus ↑"
+      },
+
+      tags: {
+        waterproofing: "Hidroizolație",
+        sealant: "Etanșant polimeric",
+        mortar: "Mortar tehnic",
+        repair: "Reparație",
+        additive: "Aditiv",
+        protection: "Protecție",
+        floor: "Pardoseli",
+        transparent: "Transparent",
+        glass: "Efect sticlă",
+        finishing: "Finisaj"
+      },
+
+      kindBenefits: {
+        membrane: "membrană lichidă polimerică pentru hidroizolație continuă a suporturilor expuse",
+        polymer: "polimer multifuncțional pentru lipire, etanșare și tratarea detaliilor",
+        mortar: "mortar tehnic pentru repararea, protejarea și consolidarea suporturilor minerale",
+        waterproofCoating: "acoperire flexibilă hidroizolantă pentru zone umede și suporturi expuse",
+        prepRepair: "soluție de pregătire și reparație pentru îmbunătățirea suportului",
+        latex: "latex de aderență pentru mortare și betoane cu coeziune îmbunătățită",
+        protection: "produs de protecție pentru suporturi minerale împotriva umidității și intemperiilor",
+        floorCoating: "acoperire tehnică pentru pardoseli și suprafețe supuse uzurii",
+        transparent: "protecție transparentă pentru suprafețe vizibile și finisaje minerale",
+        glass: "acoperire transparentă cu efect de sticlă lichidă pentru finisaj lucios",
+        floor2k: "sistem bicomponent pentru pardoseli rezistente și durabile",
+        shine: "finisaj lucios pentru pardoseli, estetic și ușor de întreținut"
+      },
+
+      descPrefix: "",
+      descSuffix: ".",
+      sheetSummary: function (name, benefit) {
+        return name + " este o " + benefit + ".";
+      }
+    },
+
+    ru: {
+      static: {
+        "products.meta.title": "Продукты ISOFIN-P | Гидроизоляция, изоляция, покрытия и защита",
+        "products.meta.description": "Откройте полную линейку ISOFIN-P: гидроизоляция, изоляция, технические покрытия, латекс, жидкие мембраны, смолы, защитные лаки и профессиональные строительные решения.",
+
+        "nav.home": "Главная",
+        "nav.products": "Продукты",
+        "nav.gallery": "Галерея",
+        "nav.solutions": "Решения",
+        "nav.advantages": "Преимущества",
+        "nav.contact": "Контакты",
+
+        "products.hero.kicker": "Профессиональный каталог",
+        "products.hero.title": "Продукты ISOFIN-P для гидроизоляции, изоляции и защиты",
+        "products.hero.subtitle": "Полная линейка технических решений для строительных профессионалов: жидкие мембраны, латекс, покрытия, смолы, гидроизоляционные материалы и высокоэффективные защитные системы.",
+        "products.hero.downloadCatalog": "Скачать каталог",
+        "products.hero.viewProducts": "Смотреть продукты",
+
+        "products.intro.title": "Технические решения ISOFIN-P",
+        "products.intro.text1": "Продукты ISOFIN-P разработаны для современных строительных объектов: долговечность, простое нанесение, устойчивость к погодным условиям, техническая эффективность и долгосрочная защита оснований.",
+        "products.intro.text2": "Линейка охватывает жидкую гидроизоляцию, защиту фасадов, обработку полов, улучшение растворов и декоративные или технические финишные покрытия.",
+
+        "products.categories.kicker": "Области применения",
+        "products.categories.title": "Линейка для каждой задачи",
+        "products.categories.waterproofing.title": "Гидроизоляция",
+        "products.categories.waterproofing.text": "Жидкие мембраны, эластичные покрытия и водонепроницаемые системы для террас, крыш, влажных помещений и открытых зон.",
+        "products.categories.construction.title": "Строительство",
+        "products.categories.construction.text": "Добавки, латекс и технические продукты для улучшения адгезии, прочности и долговечности растворов.",
+        "products.categories.protection.title": "Защита",
+        "products.categories.protection.text": "Решения против влаги, истирания, климатических воздействий и износа поверхностей.",
+        "products.categories.finishing.title": "Отделка",
+        "products.categories.finishing.text": "Декоративные покрытия, прозрачные лаки, глянцевые финиши и обработки для полов и стен.",
+
+        "products.grid.kicker": "Каталог продуктов",
+        "products.grid.title": "Откройте линейку ISOFIN-P",
+        "products.grid.subtitle": "Просмотрите карточки продуктов и скачайте доступную техническую документацию.",
+        "products.grid.downloadCatalog": "📄 Скачать полный каталог",
+
+        "products.buttons.viewSheet": "Открыть карточку",
+        "products.buttons.downloadPdf": "Скачать PDF",
+
+        "products.sheets.kicker": "Техническая документация",
+        "products.sheets.title": "Подробные технические листы",
+        "products.sheets.subtitle": "Основная информация о подготовке, нанесении, областях применения и мерах предосторожности для каждого продукта.",
+
+        "products.sheets.common.uses": "Области применения",
+        "products.sheets.common.properties": "Характеристики",
+        "products.sheets.common.type": "Тип",
+        "products.sheets.common.application": "Нанесение",
+        "products.sheets.common.finish": "Финиш",
+        "products.sheets.common.precautions": "Меры предосторожности",
+        "products.sheets.common.benefit": "Преимущество",
+        "products.sheets.common.supports": "Основания",
+        "products.sheets.common.effect": "Эффект",
+        "products.sheets.common.use": "Использование",
+
+        "products.cta.kicker": "Нужна консультация?",
+        "products.cta.title": "Свяжитесь с ISOFIN-P, чтобы выбрать подходящий продукт для вашего объекта",
+        "products.cta.text": "Наша команда поможет подобрать технические решения с учетом оснований, условий нанесения и целей по эффективности.",
+        "products.cta.contact": "Связаться",
+        "products.cta.catalog": "Скачать каталог",
+
+        "footer.description": "ISOFIN-P предлагает профессиональные решения для гидроизоляции, изоляции, защиты и технических строительных покрытий.",
+        "footer.navigation": "Навигация",
+        "footer.documents": "Документы",
+        "footer.catalog": "Каталог ISOFIN-P",
+        "footer.technicalSheets": "Технические листы",
+        "footer.contact": "Контакты",
+        "footer.rights": "Все права защищены.",
+        "footer.backTop": "Наверх ↑"
+      },
+
+      tags: {
+        waterproofing: "Гидроизоляция",
+        sealant: "Полимерный герметик",
+        mortar: "Технический раствор",
+        repair: "Ремонт",
+        additive: "Добавка",
+        protection: "Защита",
+        floor: "Полы",
+        transparent: "Прозрачный",
+        glass: "Эффект стекла",
+        finishing: "Отделка"
+      },
+
+      kindBenefits: {
+        membrane: "полимерная жидкая мембрана для непрерывной гидроизоляции открытых оснований",
+        polymer: "универсальный полимер для склеивания, герметизации и обработки деталей",
+        mortar: "технический раствор для ремонта, защиты и усиления минеральных оснований",
+        waterproofCoating: "эластичное гидроизоляционное покрытие для влажных зон и открытых оснований",
+        prepRepair: "решение для подготовки и ремонта, улучшающее состояние основания",
+        latex: "адгезионный латекс для растворов и бетонов с улучшенной когезией",
+        protection: "защитный продукт для минеральных оснований от влаги и погодных воздействий",
+        floorCoating: "техническое покрытие для полов и поверхностей, подверженных износу",
+        transparent: "прозрачная защита для видимых поверхностей и минеральных финишей",
+        glass: "прозрачное покрытие с эффектом жидкого стекла для глянцевой отделки",
+        floor2k: "двухкомпонентная система для прочных и долговечных полов",
+        shine: "глянцевый финиш для полов, эстетичный и простой в уходе"
+      },
+
+      descPrefix: "",
+      descSuffix: ".",
+      sheetSummary: function (name, benefit) {
+        return name + " — это " + benefit + ".";
+      }
+    }
+  };
+
+  /* =========================================================
+     Héritage des textes techniques FR pour les langues non FR
+     + remplacement des éléments essentiels traduits
+  ========================================================= */
+
+  function inheritTechnicalData(lang) {
+    if (lang === "fr") return LANG_DATA.fr;
+
+    const base = LANG_DATA.fr;
+    const current = LANG_DATA[lang];
+
+    return {
+      static: current.static,
+      tags: current.tags,
+      kindBenefits: current.kindBenefits,
+      descPrefix: current.descPrefix,
+      descSuffix: current.descSuffix,
+      sheetSummary: current.sheetSummary,
+
+      // Les textes ci-dessous restent cohérents si non redéfinis.
+      // Pour aller plus loin, ils peuvent être traduits manuellement langue par langue.
+      useTexts: translateUseTexts(lang, base.useTexts),
+      fieldValues: translateFieldValues(lang, base.fieldValues),
+      precautions: translatePrecautions(lang, base.precautions)
+    };
+  }
+
+  /* =========================================================
+     Traductions techniques automatiques par langue
+     Objectif : garder un fichier complet et fonctionnel
+  ========================================================= */
+
+  function translateUseTexts(lang, fr) {
+    const sets = {
+      en: {
+        roofs: "Roofs, terraces and exposed exterior surfaces.",
+        balconies: "Balconies, parapets, technical details and singular points.",
+        mineralSupports: "Prepared concrete, cement, mortar and mineral substrates.",
+        bonding: "Bonding and sealing on building substrates.",
+        joints: "Treatment of connections, junctions and singular points.",
+        localProtection: "Local protection against moisture and infiltrations.",
+        concreteRepair: "Repair of concrete and mortar substrates.",
+        reprofiling: "Reprofiling, filling and correction of defects.",
+        beforeCoating: "Preparation before coating or final protection.",
+        wetRooms: "Wet rooms, humid areas and exposed interior surfaces.",
+        underTiles: "Protection under tiles or compatible finish.",
+        wallsFloors: "Prepared walls, floors and mineral elements.",
+        supportPreparation: "Substrate preparation before coating application.",
+        localRepair: "Local repair of mineral surfaces.",
+        surfaceCorrection: "Defect correction and surface condition improvement.",
+        bondingSlurry: "Bonding slurries and adhesion layers.",
+        improvedMortars: "Repair mortars and improved renders.",
+        enhancedConcrete: "Concrete and mortars requiring improved cohesion and waterproofing.",
+        facades: "Protection of façades, walls and concrete elements.",
+        weatherSurfaces: "Substrates exposed to moisture and weather.",
+        durableMinerals: "Mineral surfaces requiring durable protection.",
+        technicalFloors: "Technical floors, traffic areas and stressed surfaces.",
+        professionalAreas: "Professional premises, workshops and circulation areas.",
+        wearProtection: "Protection of prepared substrates against common wear.",
+        decorativeFacades: "Façades, decorative walls and visible mineral substrates.",
+        transparentProtection: "Transparent protection of absorbent surfaces.",
+        absorbentFinishes: "Finishes requiring preservation of the substrate appearance.",
+        decorativeSurfaces: "Decorative surfaces requiring a glossy finish.",
+        preparedProtection: "Transparent protection of prepared substrates.",
+        interiorCompatible: "Interior applications according to substrate compatibility.",
+        proFloors: "Professional floors, garages, workshops and technical premises.",
+        mechanicalResistance: "Surfaces requiring mechanical resistance and protection.",
+        preparedConcrete: "Prepared and compatible concrete substrates.",
+        glossyIndoor: "Glossy finish for prepared interior floors.",
+        aestheticProtection: "Aesthetic protection of mineral or compatible surfaces.",
+        easyMaintenanceZones: "Areas requiring easy maintenance and a neat appearance."
+      },
+
+      es: {
+        roofs: "Cubiertas, terrazas y superficies exteriores expuestas.",
+        balconies: "Balcones, petos, detalles técnicos y puntos singulares.",
+        mineralSupports: "Soportes preparados de hormigón, cemento, mortero y superficies minerales.",
+        bonding: "Pegado y sellado sobre soportes de construcción.",
+        joints: "Tratamiento de uniones, juntas y puntos singulares.",
+        localProtection: "Protección local contra humedad e infiltraciones.",
+        concreteRepair: "Reparación de soportes de hormigón y mortero.",
+        reprofiling: "Reperfilado, relleno y corrección de defectos.",
+        beforeCoating: "Preparación antes del revestimiento o protección final.",
+        wetRooms: "Baños, locales húmedos y superficies interiores expuestas.",
+        underTiles: "Protección bajo baldosas o acabado compatible.",
+        wallsFloors: "Muros, suelos y elementos minerales preparados.",
+        supportPreparation: "Preparación de soportes antes de aplicar revestimientos.",
+        localRepair: "Reparación localizada de superficies minerales.",
+        surfaceCorrection: "Corrección de defectos y mejora del estado superficial.",
+        bondingSlurry: "Lechadas de adherencia y capas de unión.",
+        improvedMortars: "Morteros de reparación y enlucidos mejorados.",
+        enhancedConcrete: "Hormigones y morteros que requieren mayor cohesión e impermeabilidad.",
+        facades: "Protección de fachadas, muros y elementos de hormigón.",
+        weatherSurfaces: "Soportes expuestos a humedad e intemperie.",
+        durableMinerals: "Superficies minerales que requieren protección duradera.",
+        technicalFloors: "Suelos técnicos, zonas de paso y superficies solicitadas.",
+        professionalAreas: "Locales profesionales, talleres y zonas de circulación.",
+        wearProtection: "Protección de soportes preparados contra el desgaste habitual.",
+        decorativeFacades: "Fachadas, muros decorativos y soportes minerales vistos.",
+        transparentProtection: "Protección transparente de superficies absorbentes.",
+        absorbentFinishes: "Acabados que requieren conservar el aspecto del soporte.",
+        decorativeSurfaces: "Superficies decorativas que requieren acabado brillante.",
+        preparedProtection: "Protección transparente de soportes preparados.",
+        interiorCompatible: "Aplicaciones interiores según compatibilidad del soporte.",
+        proFloors: "Suelos profesionales, garajes, talleres y locales técnicos.",
+        mechanicalResistance: "Superficies que requieren resistencia mecánica y protección.",
+        preparedConcrete: "Soportes de hormigón preparados y compatibles.",
+        glossyIndoor: "Acabado brillante de suelos interiores preparados.",
+        aestheticProtection: "Protección estética de superficies minerales o compatibles.",
+        easyMaintenanceZones: "Zonas que requieren fácil mantenimiento y aspecto cuidado."
+      },
+
+      ar: {
+        roofs: "الأسطح والتراسات والأسطح الخارجية المعرضة.",
+        balconies: "الشرفات والحواجز والتفاصيل التقنية والنقاط الخاصة.",
+        mineralSupports: "أسطح خرسانية وإسمنتية وملاطية ومعدنية محضرة.",
+        bonding: "الالتصاق والملء على أسطح البناء.",
+        joints: "معالجة الوصلات والالتقاءات والنقاط الخاصة.",
+        localProtection: "حماية موضعية ضد الرطوبة والتسربات.",
+        concreteRepair: "إصلاح الأسطح الخرسانية والملاطية.",
+        reprofiling: "إعادة التشكيل والملء وتصحيح العيوب.",
+        beforeCoating: "التحضير قبل الطلاء أو الحماية النهائية.",
+        wetRooms: "الحمامات والمناطق الرطبة والأسطح الداخلية المعرضة.",
+        underTiles: "حماية تحت البلاط أو تشطيب متوافق.",
+        wallsFloors: "الجدران والأرضيات والعناصر المعدنية المحضرة.",
+        supportPreparation: "تحضير الأسطح قبل تطبيق الطلاءات.",
+        localRepair: "إصلاح موضعي للأسطح المعدنية.",
+        surfaceCorrection: "تصحيح العيوب وتحسين حالة السطح.",
+        bondingSlurry: "طبقات الالتصاق وملاطات الربط.",
+        improvedMortars: "ملاطات الإصلاح واللياسات المحسنة.",
+        enhancedConcrete: "خرسانة وملاطات تتطلب تماسكاً وعزلاً مائياً أفضل.",
+        facades: "حماية الواجهات والجدران والعناصر الخرسانية.",
+        weatherSurfaces: "أسطح معرضة للرطوبة والعوامل الجوية.",
+        durableMinerals: "أسطح معدنية تحتاج إلى حماية دائمة.",
+        technicalFloors: "أرضيات تقنية ومناطق مرور وأسطح معرضة للإجهاد.",
+        professionalAreas: "أماكن مهنية وورش ومناطق حركة.",
+        wearProtection: "حماية الأسطح المحضرة من الاهتراء العادي.",
+        decorativeFacades: "واجهات وجدران زخرفية وأسطح معدنية ظاهرة.",
+        transparentProtection: "حماية شفافة للأسطح الماصة.",
+        absorbentFinishes: "تشطيبات تتطلب الحفاظ على مظهر السطح.",
+        decorativeSurfaces: "أسطح زخرفية تحتاج إلى تشطيب لامع.",
+        preparedProtection: "حماية شفافة للأسطح المحضرة.",
+        interiorCompatible: "تطبيقات داخلية حسب توافق السطح.",
+        proFloors: "أرضيات مهنية ومرائب وورش وأماكن تقنية.",
+        mechanicalResistance: "أسطح تحتاج إلى مقاومة ميكانيكية وحماية.",
+        preparedConcrete: "أسطح خرسانية محضرة ومتوافقة.",
+        glossyIndoor: "تشطيب لامع لأرضيات داخلية محضرة.",
+        aestheticProtection: "حماية جمالية للأسطح المعدنية أو المتوافقة.",
+        easyMaintenanceZones: "مناطق تحتاج إلى صيانة سهلة ومظهر منظم."
+      },
+
+      it: {
+        roofs: "Coperture, terrazze e superfici esterne esposte.",
+        balconies: "Balconi, parapetti, dettagli tecnici e punti singolari.",
+        mineralSupports: "Supporti preparati in calcestruzzo, cemento, malta e superfici minerali.",
+        bonding: "Incollaggio e sigillatura su supporti edilizi.",
+        joints: "Trattamento di raccordi, giunzioni e punti singolari.",
+        localProtection: "Protezione locale contro umidità e infiltrazioni.",
+        concreteRepair: "Riparazione di supporti in calcestruzzo e malta.",
+        reprofiling: "Riprofilatura, riempimento e correzione dei difetti.",
+        beforeCoating: "Preparazione prima del rivestimento o della protezione finale.",
+        wetRooms: "Bagni, ambienti umidi e superfici interne esposte.",
+        underTiles: "Protezione sotto piastrelle o finitura compatibile.",
+        wallsFloors: "Pareti, pavimenti ed elementi minerali preparati.",
+        supportPreparation: "Preparazione dei supporti prima dell’applicazione dei rivestimenti.",
+        localRepair: "Riparazione localizzata di superfici minerali.",
+        surfaceCorrection: "Correzione dei difetti e miglioramento dello stato superficiale.",
+        bondingSlurry: "Boiacche di adesione e strati di aggrappo.",
+        improvedMortars: "Malte da riparazione e intonaci migliorati.",
+        enhancedConcrete: "Calcestruzzi e malte che richiedono migliore coesione e impermeabilità.",
+        facades: "Protezione di facciate, pareti ed elementi in calcestruzzo.",
+        weatherSurfaces: "Supporti esposti a umidità e intemperie.",
+        durableMinerals: "Superfici minerali che richiedono protezione duratura.",
+        technicalFloors: "Pavimenti tecnici, zone di passaggio e superfici sollecitate.",
+        professionalAreas: "Locali professionali, officine e aree di circolazione.",
+        wearProtection: "Protezione di supporti preparati contro l’usura ordinaria.",
+        decorativeFacades: "Facciate, pareti decorative e supporti minerali a vista.",
+        transparentProtection: "Protezione trasparente di superfici assorbenti.",
+        absorbentFinishes: "Finiture che richiedono la conservazione dell’aspetto del supporto.",
+        decorativeSurfaces: "Superfici decorative che richiedono una finitura lucida.",
+        preparedProtection: "Protezione trasparente di supporti preparati.",
+        interiorCompatible: "Applicazioni interne secondo compatibilità del supporto.",
+        proFloors: "Pavimenti professionali, garage, officine e locali tecnici.",
+        mechanicalResistance: "Superfici che richiedono resistenza meccanica e protezione.",
+        preparedConcrete: "Supporti in calcestruzzo preparati e compatibili.",
+        glossyIndoor: "Finitura lucida di pavimenti interni preparati.",
+        aestheticProtection: "Protezione estetica di superfici minerali o compatibili.",
+        easyMaintenanceZones: "Zone che richiedono facile manutenzione e aspetto curato."
+      },
+
+      ro: {
+        roofs: "Acoperișuri, terase și suprafețe exterioare expuse.",
+        balconies: "Balcoane, atice, detalii tehnice și puncte singulare.",
+        mineralSupports: "Suporturi pregătite din beton, ciment, mortar și suprafețe minerale.",
+        bonding: "Lipire și etanșare pe suporturi de construcții.",
+        joints: "Tratamentul racordurilor, îmbinărilor și punctelor singulare.",
+        localProtection: "Protecție locală împotriva umidității și infiltrațiilor.",
+        concreteRepair: "Repararea suporturilor din beton și mortar.",
+        reprofiling: "Reprofilare, umplere și corectarea defectelor.",
+        beforeCoating: "Pregătire înainte de acoperire sau protecție finală.",
+        wetRooms: "Băi, spații umede și suprafețe interioare expuse.",
+        underTiles: "Protecție sub placări ceramice sau finisaj compatibil.",
+        wallsFloors: "Pereți, pardoseli și elemente minerale pregătite.",
+        supportPreparation: "Pregătirea suporturilor înainte de aplicarea acoperirilor.",
+        localRepair: "Reparație localizată a suprafețelor minerale.",
+        surfaceCorrection: "Corectarea defectelor și îmbunătățirea stării suprafeței.",
+        bondingSlurry: "Șlamuri de aderență și straturi de legătură.",
+        improvedMortars: "Mortare de reparație și tencuieli îmbunătățite.",
+        enhancedConcrete: "Betoane și mortare care necesită coeziune și impermeabilitate mai bună.",
