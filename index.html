@@ -830,26 +830,29 @@
           <div><h4 data-i18n="ct_web">Site web</h4><p><a href="https://www.isofinp.com">www.isofinp.com</a></p></div>
         </div>
       </div>
-      <form onsubmit="return false">
+      <form action="https://formsubmit.co/contact@isofinp.com" method="POST">
+        <input type="hidden" name="_subject" value="Nouveau message depuis www.isofinp.com">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
         <div class="row">
           <div>
             <label for="nom" data-i18n="f_nom">Nom complet</label>
-            <input type="text" id="nom" data-i18n-ph="f_nom_ph" placeholder="Votre nom" required>
+            <input type="text" id="nom" name="nom" data-i18n-ph="f_nom_ph" placeholder="Votre nom" required>
           </div>
           <div>
             <label for="email" data-i18n="f_email">Email</label>
-            <input type="email" id="email" data-i18n-ph="f_email_ph" placeholder="vous@email.com" required>
+            <input type="email" id="email" name="email" data-i18n-ph="f_email_ph" placeholder="vous@email.com" required>
           </div>
         </div>
         <label for="sujet" data-i18n="f_sujet">Sujet</label>
-        <select id="sujet">
+        <select id="sujet" name="sujet">
           <option data-i18n="f_opt1">Information produit</option>
           <option data-i18n="f_opt2">Demande de devis</option>
           <option data-i18n="f_opt3">Devenir distributeur</option>
           <option data-i18n="f_opt4">Autre</option>
         </select>
         <label for="message" data-i18n="f_msg">Message</label>
-        <textarea id="message" data-i18n-ph="f_msg_ph" placeholder="Décrivez votre besoin..."></textarea>
+        <textarea id="message" name="message" data-i18n-ph="f_msg_ph" placeholder="Décrivez votre besoin..." required></textarea>
         <button type="submit" data-i18n="f_btn">Envoyer le message</button>
       </form>
     </div>
