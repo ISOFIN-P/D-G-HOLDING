@@ -221,6 +221,19 @@
   .apropos-visuel .small{position:relative;z-index:2;margin-top:14px;font-size:16px;opacity:.9;letter-spacing:2px}
   .btn-video-ap{position:relative;z-index:2;margin-top:20px;background:var(--sable);color:var(--bleu-marine);border:none;padding:12px 26px;border-radius:30px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .2s,box-shadow .2s;font-family:inherit}
   .btn-video-ap:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.3)}
+  .histoire-section{padding:80px 0;background:linear-gradient(135deg,var(--bleu-marine),#0a1622);color:#fff}
+  .histoire-section .titre-section h2{color:#fff}
+  .histoire-section .titre-section p{color:rgba(255,255,255,.8)}
+  .histoire-section .petit{color:var(--sable)}
+  .histoire-timeline{max-width:900px;margin:0 auto;position:relative;padding-left:40px}
+  .histoire-timeline::before{content:"";position:absolute;left:15px;top:0;bottom:0;width:3px;background:linear-gradient(var(--bleu-cyan),var(--sable));border-radius:2px}
+  .histoire-item{position:relative;margin-bottom:40px;padding-left:30px}
+  .histoire-item:last-child{margin-bottom:0}
+  .histoire-annee{position:absolute;left:-40px;top:0;width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--bleu-cyan),var(--bleu-marine));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;box-shadow:0 4px 16px rgba(0,159,227,.4);z-index:2}
+  .histoire-contenu{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:14px;padding:24px 28px;margin-left:50px}
+  .histoire-contenu h3{color:#fff;font-size:19px;margin-bottom:10px;font-weight:700}
+  .histoire-contenu p{color:rgba(255,255,255,.8);font-size:15px;line-height:1.6}
+  @media(max-width:700px){.histoire-timeline{padding-left:20px}.histoire-annee{width:56px;height:56px;font-size:13px;left:-30px}.histoire-contenu{margin-left:40px;padding:18px}}
   .lien-video-ap{position:relative;z-index:2;display:inline-block;margin-top:12px;color:rgba(255,255,255,.85);font-size:13px;font-weight:600;text-decoration:underline;transition:color .2s}
   .lien-video-ap:hover{color:#fff}
   .video-lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:2000;align-items:center;justify-content:center}
@@ -496,6 +509,48 @@
         <div class="video-lightbox-contenu" onclick="event.stopPropagation()">
           <span class="video-lightbox-fermer" onclick="this.closest('.video-lightbox').classList.remove('ouvert');this.closest('.video-lightbox').querySelector('iframe').remove()">✕</span>
           <iframe src="https://www.youtube.com/embed/hyOHk2ixe2Q?autoplay=1" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTRE HISTOIRE ============ -->
+<section id="histoire" class="histoire-section">
+  <div class="container">
+    <div class="titre-section">
+      <div class="petit" data-i18n="hist_petit">Notre histoire</div>
+      <h2 data-i18n="hist_titre">Un parcours bâti sur l'expérience</h2>
+      <p style="margin-top:14px;font-size:20px;color:var(--sable);font-weight:700" data-i18n="hist_fondateur">Ali Djerbi — Fondateur d'ISOFIN-P</p>
+      <p data-i18n="hist_desc">ISOFIN-P s'appuie sur plus de 20 ans d'expérience dans la construction et l'innovation technique au service du bâtiment.</p>
+    </div>
+    <div class="histoire-timeline">
+      <div class="histoire-item">
+        <div class="histoire-annee">2003</div>
+        <div class="histoire-contenu">
+          <h3 data-i18n="hist1_t">COFFOR S.A — Genève</h3>
+          <p data-i18n="hist1_d">Direction Moyen-Orient du groupe COFFOR S.A (Genève), spécialiste du coffrage structurel permanent pour murs en béton armé. Déploiement de la technologie COFFOR dans la région MENA.</p>
+        </div>
+      </div>
+      <div class="histoire-item">
+        <div class="histoire-annee">2008</div>
+        <div class="histoire-contenu">
+          <h3 data-i18n="hist2_t">Transition</h3>
+          <p data-i18n="hist2_d">Fin du mandat chez COFFOR S.A. Capitalisation de l'expérience terrain en construction, ingénierie et développement international.</p>
+        </div>
+      </div>
+      <div class="histoire-item">
+        <div class="histoire-annee">2015</div>
+        <div class="histoire-contenu">
+          <h3 data-i18n="hist3_t">Création d'ISOFIN-P</h3>
+          <p data-i18n="hist3_d">Fondation d'ISOFIN-P INDUSTRY & TECHNOLOGY, dédiée à l'étanchéité, l'isolation et la protection du bâtiment. Une vision née de l'expérience du terrain.</p>
+        </div>
+      </div>
+      <div class="histoire-item">
+        <div class="histoire-annee">2026</div>
+        <div class="histoire-contenu">
+          <h3 data-i18n="hist4_t">Aujourd'hui</h3>
+          <p data-i18n="hist4_d">D&G HOLDING — 1 rue de Stockholm, 75008 Paris. Une gamme complète de produits certifiés CE, distribués en Europe, Afrique et Moyen-Orient.</p>
         </div>
       </div>
     </div>
@@ -945,7 +1000,7 @@ const T = {
     ap_p1:"ISOFIN-P a été fondée avec une ambition claire : apporter au secteur du bâtiment des solutions d'étanchéité et d'isolation à la pointe de la recherche. Notre équipe R&D, spécialiste dans chaque domaine, conçoit des produits innovants pour la défense, l'énergie, l'agriculture et l'industrie.",
     ap_p2:"Nous présentons au monde entier des produits innovants : isolation thermique, phonique, incendie, étanchéité à l'eau et produits chimiques spéciaux, fruit d'une expertise formulée au service de l'homme et du bâtiment durable.",
     st1:"Année de création",st2:"Équipe spécialisée",st3:"Forme juridique",
-    ap_visuel:"ISOFIN-P · LA COULEUR DE L'ISOLATION",ap_video_btn:"▶ Voir la vidéo",ap_video_lien:"▶ Regarder sur YouTube",
+    ap_visuel:"ISOFIN-P · LA COULEUR DE L'ISOLATION",ap_video_btn:"▶ Voir la vidéo",ap_video_lien:"▶ Regarder sur YouTube",hist_petit:"Notre histoire",hist_titre:"Un parcours bâti sur l'expérience",hist_fondateur:"Ali Djerbi — Fondateur d'ISOFIN-P",hist_desc:"ISOFIN-P s'appuie sur plus de 20 ans d'expérience dans la construction et l'innovation technique au service du bâtiment.",hist1_t:"COFFOR S.A — Genève",hist1_d:"Direction Moyen-Orient du groupe COFFOR S.A (Genève), spécialiste du coffrage structurel permanent pour murs en béton armé. Déploiement de la technologie COFFOR dans la région MENA.",hist2_t:"Transition",hist2_d:"Fin du mandat chez COFFOR S.A. Capitalisation de l'expérience terrain en construction, ingénierie et développement international.",hist3_t:"Création d'ISOFIN-P",hist3_d:"Fondation d'ISOFIN-P INDUSTRY & TECHNOLOGY, dédiée à l'étanchéité, l'isolation et la protection du bâtiment. Une vision née de l'expérience du terrain.",hist4_t:"Aujourd'hui",hist4_d:"D&G HOLDING — 1 rue de Stockholm, 75008 Paris. Une gamme complète de produits certifiés CE, distribués en Europe, Afrique et Moyen-Orient.",
     val_petit:"Pourquoi ISOFIN-P",val_titre:"Une marque de confiance",val_desc:"Trois engagements qui guident chacune de nos formulations et chacune de nos relations distributeurs.",
     v1_t:"Marque fiable et innovante",v1_d:"Des produits testés, certifiés et issus d'une R&D permanente pour répondre aux défis techniques du bâtiment.",
     v2_t:"Qualité de produit innovante",v2_d:"Une formulation au service de la durabilité, de l'adhérence et de la résistance aux intempéries et au temps.",
@@ -988,7 +1043,7 @@ const T = {
     ap_p1:"ISOFIN-P was founded with a clear ambition: to bring the building sector waterproofing and insulation solutions at the cutting edge of research. Our R&D team, specialists in every field, designs innovative products for defense, energy, agriculture and industry.",
     ap_p2:"We present to the world innovative products: thermal, acoustic and fire insulation, waterproofing and special chemicals, the result of formulated expertise serving people and sustainable buildings.",
     st1:"Year founded",st2:"Specialized team",st3:"Legal form",
-    ap_visuel:"ISOFIN-P · THE COLOR OF INSULATION",ap_video_btn:"▶ Watch video",ap_video_lien:"▶ Watch on YouTube",
+    ap_visuel:"ISOFIN-P · THE COLOR OF INSULATION",ap_video_btn:"▶ Watch video",ap_video_lien:"▶ Watch on YouTube",hist_petit:"Our story",hist_titre:"A journey built on experience",hist_fondateur:"Ali Djerbi — Founder of ISOFIN-P",hist_desc:"ISOFIN-P draws on over 20 years of experience in construction and technical innovation for the building sector.",hist1_t:"COFFOR S.A — Geneva",hist1_d:"Middle East Director of the COFFOR S.A group (Geneva), specialist in permanent structural formwork for reinforced concrete walls. Deployment of COFFOR technology in the MENA region.",hist2_t:"Transition",hist2_d:"End of mandate at COFFOR S.A. Capitalizing on field experience in construction, engineering and international development.",hist3_t:"Creation of ISOFIN-P",hist3_d:"Foundation of ISOFIN-P INDUSTRY & TECHNOLOGY, dedicated to waterproofing, insulation and building protection. A vision born from field experience.",hist4_t:"Today",hist4_d:"D&G HOLDING — 1 rue de Stockholm, 75008 Paris. A complete range of CE-certified products, distributed in Europe, Africa and the Middle East.",
     val_petit:"Why ISOFIN-P",val_titre:"A trusted brand",val_desc:"Three commitments that guide each of our formulations and each of our distributor relationships.",
     v1_t:"Reliable and innovative brand",v1_d:"Tested, certified products from continuous R&D to meet the technical challenges of construction.",
     v2_t:"Innovative product quality",v2_d:"A formulation serving durability, adhesion and resistance to weather and time.",
@@ -1031,7 +1086,7 @@ const T = {
     ap_p1:"ISOFIN-P se fundó con una ambición clara: aportar al sector de la construcción soluciones de impermeabilización y aislamiento a la vanguardia de la investigación. Nuestro equipo de I+D, especialista en cada área, diseña productos innovadores para la defensa, la energía, la agricultura y la industria.",
     ap_p2:"Presentamos al mundo productos innovadores: aislamiento térmico, acústico, contra incendios, impermeabilización y productos químicos especiales, fruto de una experiencia formulada al servicio de las personas y la construcción sostenible.",
     st1:"Año de creación",st2:"Equipo especializado",st3:"Forma jurídica",
-    ap_visuel:"ISOFIN-P · EL COLOR DEL AISLAMIENTO",ap_video_btn:"▶ Ver vídeo",ap_video_lien:"▶ Ver en YouTube",
+    ap_visuel:"ISOFIN-P · EL COLOR DEL AISLAMIENTO",ap_video_btn:"▶ Ver vídeo",ap_video_lien:"▶ Ver en YouTube",hist_petit:"Nuestra historia",hist_titre:"Un recorrido construido sobre la experiencia",hist_fondateur:"Ali Djerbi — Fundador de ISOFIN-P",hist_desc:"ISOFIN-P se basa en más de 20 años de experiencia en construcción e innovación técnica al servicio del sector edificador.",hist1_t:"COFFOR S.A — Ginebra",hist1_d:"Dirección de Oriente Medio del grupo COFFOR S.A (Ginebra), especialista en encofrado estructural permanente para muros de hormigón armado. Despliegue de la tecnología COFFOR en la región MENA.",hist2_t:"Transición",hist2_d:"Fin del mandato en COFFOR S.A. Capitalización de la experiencia sobre el terreno en construcción, ingeniería y desarrollo internacional.",hist3_t:"Creación de ISOFIN-P",hist3_d:"Fundación de ISOFIN-P INDUSTRY & TECHNOLOGY, dedicada a la impermeabilización, el aislamiento y la protección de edificios. Una visión nacida de la experiencia sobre el terreno.",hist4_t:"Hoy",hist4_d:"D&G HOLDING — 1 rue de Stockholm, 75008 París. Una gama completa de productos certificados CE, distribuidos en Europa, África y Oriente Medio.",
     val_petit:"Por qué ISOFIN-P",val_titre:"Una marca de confianza",val_desc:"Tres compromisos que guían cada una de nuestras formulaciones y cada una de nuestras relaciones con distribuidores.",
     v1_t:"Marca fiable e innovadora",v1_d:"Productos probados, certificados y procedentes de una I+D permanente para responder a los retos técnicos de la construcción.",
     v2_t:"Calidad de producto innovadora",v2_d:"Una formulación al servicio de la durabilidad, la adherencia y la resistencia a las intemperies y al tiempo.",
@@ -1074,7 +1129,7 @@ const T = {
     ap_p1:"تأسست ISOFIN-P بطموح واضح: تقديم حلول العزل المائي والعزل الحراري لقطاع البناء في طليعة البحث. فريق البحث والتطوير لدينا، المتخصص في كل مجال، يصمم منتجات مبتكرة للدفاع والطاقة والزراعة والصناعة.",
     ap_p2:"نقدم للعالم منتجات مبتكرة: عزل حراري وصوتي ومقاوم للحريق وعزل مائي ومواد كيميائية خاصة، نتاج خبرة مصاغة في خدمة الإنسان والمباني المستدامة.",
     st1:"سنة التأسيس",st2:"فريق متخصص",st3:"الشكل القانوني",
-    ap_visuel:"ISOFIN-P · لون العزل",ap_video_btn:"▶ شاهد الفيديو",ap_video_lien:"▶ شاهد على يوتيوب",
+    ap_visuel:"ISOFIN-P · لون العزل",ap_video_btn:"▶ شاهد الفيديو",ap_video_lien:"▶ شاهد على يوتيوب",hist_petit:"قصتنا",hist_titre:"مسيرة مبنية على الخبرة",hist_fondateur:"علي الجربي — مؤسس ISOFIN-P",hist_desc:"تعتمد ISOFIN-P على أكثر من 20 عامًا من الخبرة في البناء والابتكار التقني لخدمة قطاع المباني.",hist1_t:"COFFOR S.A — جنيف",hist1_d:"إدارة الشرق الأوسط لمجموعة COFFOR S.A (جنيف)، المتخصصة في القوالب الهيكلية الدائمة لجدران الخرسانة المسلحة. نشر تقنية COFFOR في منطقة الشرق الأوسط وشمال أفريقيا.",hist2_t:"انتقال",hist2_d:"نهاية المهمة في COFFOR S.A. استثمار الخبرة الميدانية في البناء والهندسة والتطوير الدولي.",hist3_t:"تأسيس ISOFIN-P",hist3_d:"تأسيس ISOFIN-P INDUSTRY & TECHNOLOGY، المكرسة للعزل المائي والعزل وحماية المباني. رؤية وُلدت من الخبرة الميدانية.",hist4_t:"اليوم",hist4_d:"D&G HOLDING — 1 rue de Stockholm، 75008 باريس. مجموعة كاملة من المنتجات المعتمدة CE، موزعة في أوروبا وأفريقيا والشرق الأوسط.",
     val_petit:"لماذا ISOFIN-P",val_titre:"علامة موثوقة",val_desc:"ثلاثة التزامات توجه كل تركيبة من تركيباتنا وكل علاقة مع موزعينا.",
     v1_t:"علامة موثوقة ومبتكرة",v1_d:"منتجات مختبرة ومعتمدة من بحث وتطوير مستمر لمواجهة التحديات التقنية للبنناء.",
     v2_t:"جودة منتج مبتكرة",v2_d:"تركيبة في خدمة المتانة والالتصاق والمقاومة للعوامل الجوية والزمن.",
@@ -1117,7 +1172,7 @@ const T = {
     ap_p1:"ISOFIN-P è stata fondata con un'ambizione chiara: portare nel settore edilizio soluzioni di impermeabilizzazione e isolamento all'avanguardia della ricerca. Il nostro team R&S, specialista in ogni settore, progetta prodotti innovativi per la difesa, l'energia, l'agricoltura e l'industria.",
     ap_p2:"Presentiamo al mondo prodotti innovativi: isolamento termico, acustico, antincendio, impermeabilizzazione e prodotti chimici speciali, frutto di un'expertise formulata al servizio dell'uomo e dell'edilizia sostenibile.",
     st1:"Anno di fondazione",st2:"Team specializzato",st3:"Forma giuridica",
-    ap_visuel:"ISOFIN-P · IL COLORE DELL'ISOLAMENTO",ap_video_btn:"▶ Guarda video",ap_video_lien:"▶ Guarda su YouTube",
+    ap_visuel:"ISOFIN-P · IL COLORE DELL'ISOLAMENTO",ap_video_btn:"▶ Guarda video",ap_video_lien:"▶ Guarda su YouTube",hist_petit:"La nostra storia",hist_titre:"Un percorso costruito sull'esperienza",hist_fondateur:"Ali Djerbi — Fondatore di ISOFIN-P",hist_desc:"ISOFIN-P si basa su oltre 20 anni di esperienza in edilizia e innovazione tecnica al servizio del settore delle costruzioni.",hist1_t:"COFFOR S.A — Ginevra",hist1_d:"Direzione Medio Oriente del gruppo COFFOR S.A (Ginevra), specialista in cassero strutturale permanente per muri in calcestruzzo armato. Dispiegamento della tecnologia COFFOR nella regione MENA.",hist2_t:"Transizione",hist2_d:"Fine del mandato in COFFOR S.A. Capitalizzazione dell'esperienza sul campo in costruzione, ingegneria e sviluppo internazionale.",hist3_t:"Creazione di ISOFIN-P",hist3_d:"Fondazione di ISOFIN-P INDUSTRY & TECHNOLOGY, dedicata all'impermeabilizzazione, all'isolamento e alla protezione degli edifici. Una visione nata dall'esperienza sul campo.",hist4_t:"Oggi",hist4_d:"D&G HOLDING — 1 rue de Stockholm, 75008 Parigi. Una gamma completa di prodotti certificati CE, distribuiti in Europa, Africa e Medio Oriente.",
     val_petit:"Perché ISOFIN-P",val_titre:"Un marchio di fiducia",val_desc:"Tre impegni che guidano ciascuna delle nostre formulazioni e ciascuna delle nostre relazioni con i distributori.",
     v1_t:"Marchio affidabile e innovativo",v1_d:"Prodotti testati, certificati e frutto di R&S continua per rispondere alle sfide tecniche dell'edilizia.",
     v2_t:"Qualità di prodotto innovativa",v2_d:"Una formulazione al servizio della durabilità, dell'adesione e della resistenza alle intemperie e al tempo.",
@@ -1160,7 +1215,7 @@ const T = {
     ap_p1:"ISOFIN-P a fost fondată cu o ambiție clară: să aducă sectorului construcțiilor soluții de impermeabilizare și izolare în avangarda cercetării. Echipa noastră de R&D, specializată în fiecare domeniu, proiectează produse inovatoare pentru apărare, energie, agricultură și industrie.",
     ap_p2:"Prezentăm lumii produse inovatoare: izolare termică, fonică, la incendiu, impermeabilizare și produse chimice speciale, rodul unei expertize formulate în slujba omului și a clădirilor durabile.",
     st1:"Anul înființării",st2:"Echipă specializată",st3:"Formă juridică",
-    ap_visuel:"ISOFIN-P · CULOAREA IZOLAȚIEI",ap_video_btn:"▶ Vezi video",ap_video_lien:"▶ Vezi pe YouTube",
+    ap_visuel:"ISOFIN-P · CULOAREA IZOLAȚIEI",ap_video_btn:"▶ Vezi video",ap_video_lien:"▶ Vezi pe YouTube",hist_petit:"Povestea noastră",hist_titre:"O călătorie construită pe experiență",hist_fondateur:"Ali Djerbi — Fondatorul ISOFIN-P",hist_desc:"ISOFIN-P se bazează pe peste 20 de ani de experiență în construcții și inovație tehnică în slujba sectorului construcțiilor.",hist1_t:"COFFOR S.A — Geneva",hist1_d:"Direcția Orientul Mijlociu a grupului COFFOR S.A (Geneva), specialist în cofraje structurale permanente pentru pereți din beton armat. Implementarea tehnologiei COFFOR în regiunea MENA.",hist2_t:"Tranziție",hist2_d:"Sfârșitul mandatului la COFFOR S.A. Capitalizarea experienței din teren în construcții, inginerie și dezvoltare internațională.",hist3_t:"Crearea ISOFIN-P",hist3_d:"Fondarea ISOFIN-P INDUSTRY & TECHNOLOGY, dedicată impermeabilizării, izolării și protecției clădirilor. O viziune născută din experiența din teren.",hist4_t:"Astăzi",hist4_d:"D&G HOLDING — 1 rue de Stockholm, 75008 Paris. O gamă completă de produse certificate CE, distribuite în Europa, Africa și Orientul Mijlociu.",
     val_petit:"De ce ISOFIN-P",val_titre:"Un brand de încredere",val_desc:"Trei angajamente care ghidează fiecare formulare și fiecare relație cu distribuitorii noștri.",
     v1_t:"Brand fiabil și inovator",v1_d:"Produse testate, certificate și din R&D continuu pentru a răspunde provocărilor tehnice ale construcțiilor.",
     v2_t:"Calitate inovatoare a produsului",v2_d:"O formulare în slujba durabilității, aderenței și rezistenței la intemperii și timp.",
@@ -1203,7 +1258,7 @@ const T = {
     ap_p1:"ISOFIN-P создан с чёткой целью: принести в строительную отрасль решения по гидроизоляции и изоляции на переднем крае исследований. Наша команда НИОКР, специалисты в каждой области, разрабатывает инновационные продукты для обороны, энергетики, сельского хозяйства и промышленности.",
     ap_p2:"Мы представляем миру инновационные продукты: тепло-, звуко- и огнеизоляцию, гидроизоляцию и специальные химические составы — результат экспертизы на службе человека и устойчивого строительства.",
     st1:"Год основания",st2:"Специализированная команда",st3:"Правовая форма",
-    ap_visuel:"ISOFIN-P · ЦВЕТ ИЗОЛЯЦИИ",ap_video_btn:"▶ Смотреть видео",ap_video_lien:"▶ Смотреть на YouTube",
+    ap_visuel:"ISOFIN-P · ЦВЕТ ИЗОЛЯЦИИ",ap_video_btn:"▶ Смотреть видео",ap_video_lien:"▶ Смотреть на YouTube",hist_petit:"Наша история",hist_titre:"Путь, построенный на опыте",hist_fondateur:"Али Джерби — Основатель ISOFIN-P",hist_desc:"ISOFIN-P опирается на более чем 20-летний опыт в строительстве и технических инновациях на службе строительного сектора.",hist1_t:"COFFOR S.A — Женева",hist1_d:"Дирекция Ближнего Востока группы COFFOR S.A (Женева), специалист по постоянной несъёмной опалубке для железобетонных стен. Развёртывание технологии COFFOR в регионе MENA.",hist2_t:"Переход",hist2_d:"Окончание мандата в COFFOR S.A. Капитализация полевого опыта в строительстве, инженерии и международном развитии.",hist3_t:"Создание ISOFIN-P",hist3_d:"Основание ISOFIN-P INDUSTRY & TECHNOLOGY, посвящённой гидроизоляции, изоляции и защите зданий. Видение, рождённое полевым опытом.",hist4_t:"Сегодня",hist4_d:"D&G HOLDING — 1 rue de Stockholm, 75008 Париж. Полный ассортимент сертифицированной CE продукции, распространяемой в Европе, Африке и на Ближнем Востоке.",
     val_petit:"Почему ISOFIN-P",val_titre:"Бренд, которому доверяют",val_desc:"Три обязательства, направляющие каждую нашу формулу и каждое отношение с дистрибьюторами.",
     v1_t:"Надёжный и инновационный бренд",v1_d:"Протестированные, сертифицированные продукты из постоянных НИОКР для решения технических задач строительства.",
     v2_t:"Инновационное качество продукта",v2_d:"Формула на службе долговечности, адгезии и стойкости к атмосферным воздействиям и времени.",
